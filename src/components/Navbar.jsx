@@ -7,12 +7,11 @@ import { Link } from 'react-router-dom'
  */
 export default function Navbar() {
     return (
-        <div className="nav-menu">
+        <div className="nav-menu container d-flex">
             <div>
                 <img src="" alt="" className="brand-logo" />
             </div>
-            <div>
-                <nav className="nav-list">
+            <div className="nav-list">
                     <Link to="/" className="nav-item">Home</Link>
                     <Link to="/" className="nav-item">Battle</Link>
                     <Link to="/" className="nav-item">Land</Link>
@@ -21,7 +20,6 @@ export default function Navbar() {
                     <Link to="/" className="nav-item">Marketplace</Link>
                     {/* //TODO: The below might need to be turned into a drop down menu.*/}
                     <Link to="/" className="nav-item">More</Link>
-                </nav>
             </div>
         </div>
     )
