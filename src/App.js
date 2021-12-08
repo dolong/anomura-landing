@@ -1,10 +1,18 @@
-
+import { Navbar } from "./components/ComponentIndex";
+import { CrabAnat, Footer, NFT, ShopZone, TreasureChest, WhenIsItOut } from "./containers/ContainerIndex";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Project Init State</h1>
+      <Navbar></Navbar>
+      <ShopZone></ShopZone>
+      <NFT></NFT>
+      <CrabAnat></CrabAnat>
+      <WhenIsItOut></WhenIsItOut>
+      <TreasureChest></TreasureChest>
+      <Footer></Footer>
+
     </div>
   );
 }
