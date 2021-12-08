@@ -1,0 +1,18 @@
+@import "sass/_colors.scss";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  color: $primary-font-color;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: $primary-font-color;
+}
