@@ -1,5 +1,5 @@
-import { Shop, ShopText } from "./../components/shopzone/ShopIndex"
-
+import ShopText from "components/ShopText"
+import ShopImg from "img/shop.gif";
 
 /**
  * The main area of the landing page with the shop gif.
@@ -8,9 +8,12 @@ import { Shop, ShopText } from "./../components/shopzone/ShopIndex"
 
 export default function ShopZone() {
     return (
-        <main>
+        <div className="container shop-zone">
             <ShopText></ShopText>
-            <Shop></Shop>
-        </main>
+            <div>
+                <img className="shop-img" src={ ShopImg } alt="" />
+            </div>
+            
+        </div>
     )
 }

@@ -1,5 +1,5 @@
 import { Navbar } from "./components/ComponentIndex";
-import { CrabAnat, Footer, NFT, ShopZone, TreasureChest, WhenIsItOut } from "./containers/ContainerIndex";
+import { Subscribe, CrabAnat, Footer, NFT, ShopZone, TreasureChest, WhenIsItOut } from "./containers/ContainerIndex";
 import './App.css';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <ShopZone></ShopZone>
+      <Subscribe></Subscribe>
       <NFT></NFT>
       <CrabAnat></CrabAnat>
       <WhenIsItOut></WhenIsItOut>
