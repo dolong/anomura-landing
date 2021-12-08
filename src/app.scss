@@ -16,3 +16,9 @@ a {
   text-decoration: none;
   color: $primary-font-color;
 }
+
+.nav {
+  &-menu {
+    background: url("./img/menu.png") no-repeat;
+  }
+}

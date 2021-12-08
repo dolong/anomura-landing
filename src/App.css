@@ -1,1 +1,27 @@
-@import "./styles/site.css";
+/*Main Site colors*/
+/*Font colors*/
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu {
+  /*background: url("./img/menu.png") no-repeat;*/
+}
+/*# sourceMappingURL=app.css.map */
