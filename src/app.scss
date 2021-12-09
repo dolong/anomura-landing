@@ -1,19 +1,27 @@
-@import "sass/_colors.scss";
+@use "sass/colors" as c;
 
-$container-width: 70vw;
+$container-width: 80vw;
+
+@font-face {
+  src: url("fonts/AtlantisInternational.ttf");
+  font-family: Atlantis;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
-  line-height: 2;
-  font-size: 18px;
+}
+body {
+  line-height: 1.8;
+  font-size: 28px;
+  font-family: Atlantis;
 }
 .app {
   width: 100%;
 }
 body {
-  color: $primary-font-color;
+  color: c.$primary-color;
   width: 100%;
 }
 ul {
@@ -21,11 +29,11 @@ ul {
 }
 a {
   text-decoration: none;
-  color: $primary-font-color;
+  color: c.$primary-font-color;
 }
 
 .App {
-  background: top / cover no-repeat url("img/backgrounds/Layer1.png");
+  background: top / cover no-repeat url("img/backgrounds/SandLayer.png");
 }
 
 .container {
@@ -51,23 +59,28 @@ a {
 .shop {
   &-zone {
     margin-top: 4vh;
+    padding-left: 3vw;
+    /*  This allows float css properties to take up physical 
+        space and be treated like it is a normal div.
+    */
+    display: flow-root;
   }
 
   &-text {
-    width: 40%;
+    flex-grow: 2;
   }
   &-img {
-    max-width: 80vw;
-    position: relative;
-    top: -40vh;
-    z-index: 15;
+    max-width: $container-width;
+    /*The below two lines makes text wrap around an image reading
+    / the images alpha layer
+    */
+    float: right;
+    shape-outside: url("img/shop.gif");
   }
 }
 
 .sub {
   &-scroll {
-    background: top / cover no-repeat url("img/backgrounds/Layer2.png");
-    z-index: 2;
     top: 90vh;
     justify-content: center;
   }
@@ -83,14 +96,15 @@ a {
   &-scroll {
     background: top / cover no-repeat url("img/backgrounds/Layer3.png");
     z-index: 3;
-    top: 95vh;
+    min-height: 100vh;
+    // top: 95vh;
   }
 }
 
 .scroll {
-  position: absolute;
-  width: 100%;
-  height: 150vh;
+  // position: absolute;
+  // width: 100%;
+  // height: 150vh;
 }
 
 .mt {
@@ -111,5 +125,10 @@ a {
 
 .pos {
   &-relative {
+    position: relative;
   }
+}
+
+.bold {
+  font-weight: bold;
 }
