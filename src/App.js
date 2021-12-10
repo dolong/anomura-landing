@@ -6,7 +6,6 @@ import { ScrollValue } from 'Atom/Atoms'
 import './App.css';
 function App() {
 
-
   const setOffsetY = useSetRecoilState(ScrollValue);
 
   const handleScroll = () => {
