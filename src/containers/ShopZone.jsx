@@ -35,7 +35,7 @@ export default function ShopZone() {
             </div> 
         </div>
         <div className="d-flex f-justify-center">
-                <img className="sub-image" src={SubscribeImg} alt="" />
+                <img className="sub-img" src={SubscribeImg} alt="" />
         </div>
     </div>
     )

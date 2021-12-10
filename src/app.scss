@@ -67,22 +67,21 @@ a {
 
 .shop {
   &-zone {
-    margin-left: 10%;
-    display: flex;
+    margin-left: 8rem;
   }
   &-img {
     max-width: 1000px;
     position: absolute;
-    left: 25%;
+    left: 30%;
     top: calc(#{$top-offset} - 350px * -1);
   }
 }
 
 .sub {
-  &-image {
+  &-img {
     min-width: 400px;
     width: max(500px, 25vw);
-    height: 25vh;
+    margin-top: 4rem;
   }
 }
 
@@ -161,53 +160,56 @@ a {
   transition: 2s;
 }
 
-@media only screen and (max-width: 1400px) {
-  body {
-    background-position: 0 -100px;
-  }
-
+@media only screen and (max-width: 1450px) {
   .shop {
-    &-img {
-      top: 350px;
-      left: 25%;
+    &-zone {
+      margin-left: 5rem;
     }
-  }
-  .sub {
-    &-image {
-      margin-top: 27vh;
+    &-img {
+      max-width: 850px;
+      top: calc(#{$top-offset} - 425px * -1);
+      left: 28%;
     }
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  body {
-    background-position: 0 0;
-  }
   .shop {
     &-img {
-      position: static;
+      top: calc(#{$top-offset} - 450px * -1);
       max-width: 800px;
     }
     &-zone {
-      margin-left: 15%;
-    }
-  }
-
-  .sub {
-    &-image {
-      margin-top: 0vh;
+      margin-left: 3rem;
     }
   }
 }
+
+@media only screen and (max-width: 1100px) {
+  body {
+    background-position: 0 calc(#{$top-offset} + 140px);
+  }
+  .shop {
+    &-img {
+      top: calc(#{$top-offset} + 700px);
+      left: 32%;
+      max-width: 600px;
+    }
+    &-zone {
+      margin-left: 3rem;
+    }
+  }
+  .sub {
+    &-img {
+      margin-top: 12rem;
+    }
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .shop {
     &-img {
       display: none;
-    }
-  }
-  .sub {
-    &-image {
-      margin-top: 30vh;
     }
   }
 }
