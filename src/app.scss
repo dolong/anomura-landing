@@ -85,13 +85,12 @@ a {
 }
 
 .nft {
-  margin-top: 80vh;
-  &.scroll {
-    background: top / cover no-repeat url("img/backgrounds/Layer3.png");
-    z-index: 3;
-    min-height: 100vh;
-    // top: 95vh;
-  }
+  width: 100%;
+  position: absolute;
+  top: 500px;
+  background: top / cover no-repeat url("img/backgrounds/Layer3.png");
+  z-index: 3;
+  min-height: 100vh;
 }
 
 .crab-anat {
@@ -151,6 +150,17 @@ a {
     justify-content: center;
   }
 }
+
+.animTransparent {
+  opacity: 0;
+  transition: 2s;
+}
+
+.animOpaque {
+  opacity: 1;
+  transition: 2s;
+}
+
 @media only screen and (max-width: 1400px) {
   body {
     background-position: 0 -100px;
@@ -199,5 +209,25 @@ a {
     &-image {
       margin-top: 30vh;
     }
+  }
+}
+
+@keyframes GoTransparent {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes GoOpaque {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

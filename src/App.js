@@ -11,9 +11,11 @@ import './App.css';
 function App() {
 
   const setOffsetY = useSetRecoilState(ScrollValue);
+  
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset);
+    console.log(window.pageYOffset);
   }
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -35,10 +37,10 @@ function App() {
         <img className="sub-image" src={SubscribeImg} alt="" />
       </div>
       <NFT></NFT>
-      <CrabAnat></CrabAnat>
+      {/* <CrabAnat></CrabAnat>
       <WhenIsItOut></WhenIsItOut>
       <TreasureChest></TreasureChest>
-      <Footer></Footer>
+      <Footer></Footer> */}
     </div>
   );
 }
