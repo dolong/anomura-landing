@@ -59,17 +59,13 @@ a {
 
 .shop-zone {
   margin-left: 10%;
+  display: flex;
 }
 .shop-img {
   max-width: 1000px;
-  position: absolute;
-  top: 175px;
-  left: 30%;
-  z-index: -1;
 }
 
 .sub-image {
-  margin-top: 10vh;
   min-width: 400px;
   width: max(500px, 25vw);
   height: 25vh;
@@ -77,11 +73,9 @@ a {
 
 .nft {
   width: 100%;
-  position: absolute;
-  top: 500px;
   background: top/cover no-repeat url("img/backgrounds/Layer3.png");
   z-index: 3;
-  min-height: 100vh;
+  min-height: 75rem;
 }
 
 .crab-anat.scroll {
