@@ -2,6 +2,8 @@
 
 $container-width: clamp(60vw, 80vw, 95vw);
 $font-size: clamp(16px, 26px, 34px);
+
+$top-offset: -200px;
 @font-face {
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
@@ -18,8 +20,8 @@ body {
   font-family: Atlantis;
 
   background-image: url("img/backgrounds/SandLayer.png");
-  background-position: 0 -200px;
-  background-size: cover;
+  background-position: 0 $top-offset;
+  background-size: auto;
   background-repeat: no-repeat;
 
   color: c.$primary-font-color;
@@ -70,6 +72,9 @@ a {
   }
   &-img {
     max-width: 1000px;
+    position: absolute;
+    left: 25%;
+    top: calc(#{$top-offset} - 350px * -1);
   }
 }
 

@@ -16,7 +16,7 @@ body {
   font-family: Atlantis;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position: 0 -200px;
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   color: #fff;
   overflow-x: hidden;
@@ -63,6 +63,9 @@ a {
 }
 .shop-img {
   max-width: 1000px;
+  position: absolute;
+  left: 25%;
+  top: calc(-200px - 350px * -1);
 }
 
 .sub-image {

@@ -1,4 +1,4 @@
-import ShopImg from "img/shop.gif";
+
 import SubscribeImg from "img/subscribe.png";
 /**
  * The main area of the landing page with the shop gif.
@@ -33,9 +33,6 @@ export default function ShopZone() {
                     </a>
                 </div>    
             </div> 
-            <div>
-                <img className="shop-img" src={ShopImg} alt="" />
-            </div>
         </div>
         <div className="d-flex f-justify-center">
                 <img className="sub-image" src={SubscribeImg} alt="" />

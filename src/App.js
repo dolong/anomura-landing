@@ -5,7 +5,7 @@ import { useSetRecoilState } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
 
 
-
+import ShopImg from "img/shop.gif";
 
 import './App.css';
 function App() {
@@ -27,9 +27,10 @@ function App() {
 
   return (
     <div className="App">
+      <img className="shop-img" src={ShopImg} alt="" />
       <Navbar></Navbar>
       <ShopZone></ShopZone>
-   
+      
       <NFT></NFT>
       <CrabAnat></CrabAnat>
       <WhenIsItOut></WhenIsItOut>
