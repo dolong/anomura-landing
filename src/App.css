@@ -12,13 +12,14 @@
 
 body {
   line-height: 1.8;
-  font-size: clamp(16px, 28px, 34px);
+  font-size: clamp(16px, 26px, 34px);
   font-family: Atlantis;
-}
-
-body {
-  color: #191226;
-  width: 100%;
+  background-image: url("img/backgrounds/SandLayer.png");
+  background-position: 0 -200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  overflow-x: hidden;
 }
 
 ul {
@@ -30,19 +31,18 @@ a {
   color: #fff;
 }
 
-.App {
-  background: top/cover no-repeat url("img/backgrounds/SandLayer.png");
-}
-
 .container {
-  width: clamp(60vw, 80vw, 85vw);
+  width: clamp(60vw, 80vw, 95vw);
   margin: auto;
 }
 
 .nav-menu {
-  background: top/contain no-repeat url("img/menu.png");
-  min-height: 120px;
-  padding: 1vh 4vw;
+  background-image: url("img/menu.png");
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  max-width: clamp(60vw, 80vw, 90vw);
+  min-height: 140px;
+  padding: 0 4vw;
 }
 .nav-list {
   display: flex;
@@ -51,33 +51,27 @@ a {
   width: 100%;
 }
 
-.shop-zone {
-  margin-top: 4vh;
-  padding-left: 3vw;
-  /*  This allows float css properties to take up physical 
-      space and be treated like it is a normal div.
-  */
-  display: flow-root;
-}
-.shop-text {
-  flex-grow: 2;
-}
-.shop-img {
-  max-width: 80vw;
-  /*The below two lines makes text wrap around an image reading
-  / the images alpha layer
-  */
-  float: right;
-  shape-outside: url("img/shop.gif");
+.scroll-wrapper {
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
 }
 
-.sub-scroll {
-  top: 90vh;
-  justify-content: center;
+.shop-zone {
+  margin-left: 10%;
 }
+.shop-img {
+  max-width: 1000px;
+  position: absolute;
+  top: 175px;
+  left: 30%;
+  z-index: -1;
+}
+
 .sub-image {
-  margin-top: 8vh;
-  width: 25vw;
+  margin-top: 10vh;
+  min-width: 400px;
+  width: max(500px, 25vw);
   height: 25vh;
 }
 
@@ -108,20 +102,16 @@ a {
   min-height: 100vh;
 }
 
+.social-shop {
+  gap: 0 5vw;
+}
+
 .mt-2 {
   margin-top: 3vh;
 }
 
-.mb-2 {
-  margin-bottom: 3vh;
-}
-
 .d-flex {
   display: flex;
-}
-
-.pos-relative {
-  position: relative;
 }
 
 .bold {
@@ -132,4 +122,49 @@ a {
 .text-center > h2,
 .text-center > h3 {
   text-align: center;
+}
+
+.f-justify-center {
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1400px) {
+  body {
+    background-position: 0 -100px;
+  }
+
+  .shop-img {
+    top: 350px;
+    left: 25%;
+  }
+
+  .sub-image {
+    margin-top: 27vh;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  body {
+    background-position: 0 0;
+  }
+
+  .shop-img {
+    position: static;
+    max-width: 800px;
+  }
+  .shop-zone {
+    margin-left: 15%;
+  }
+
+  .sub-image {
+    margin-top: 0vh;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .shop-img {
+    display: none;
+  }
+
+  .sub-image {
+    margin-top: 30vh;
+  }
 }/*# sourceMappingURL=app.css.map */

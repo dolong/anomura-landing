@@ -1,7 +1,7 @@
 @use "sass/colors" as c;
 
-$container-width: clamp(60vw, 80vw, 85vw);
-$font-size: clamp(16px, 28px, 34px);
+$container-width: clamp(60vw, 80vw, 95vw);
+$font-size: clamp(16px, 26px, 34px);
 @font-face {
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
@@ -16,11 +16,14 @@ body {
   line-height: 1.8;
   font-size: $font-size;
   font-family: Atlantis;
-}
 
-body {
-  color: c.$primary-color;
-  width: 100%;
+  background-image: url("img/backgrounds/SandLayer.png");
+  background-position: 0 -200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  color: c.$primary-font-color;
+  overflow-x: hidden;
 }
 ul {
   list-style: none;
@@ -30,10 +33,6 @@ a {
   color: c.$primary-font-color;
 }
 
-.App {
-  background: top / cover no-repeat url("img/backgrounds/SandLayer.png");
-}
-
 .container {
   width: $container-width;
   margin: auto;
@@ -41,9 +40,12 @@ a {
 
 .nav {
   &-menu {
-    background: top / contain no-repeat url("img/menu.png");
-    min-height: 120px;
-    padding: 1vh 4vw;
+    background-image: url("img/menu.png");
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    max-width: clamp(60vw, 80vw, 90vw);
+    min-height: 140px;
+    padding: 0 4vw;
   }
 
   &-list {
@@ -54,37 +56,30 @@ a {
   }
 }
 
+.scroll-wrapper {
+  position: absolute;
+  top: 0;
+  min-height: 100vh;
+}
+
 .shop {
   &-zone {
-    margin-top: 4vh;
-    padding-left: 3vw;
-    /*  This allows float css properties to take up physical 
-        space and be treated like it is a normal div.
-    */
-    display: flow-root;
-  }
-
-  &-text {
-    flex-grow: 2;
+    margin-left: 10%;
   }
   &-img {
-    max-width: 80vw;
-    /*The below two lines makes text wrap around an image reading
-    / the images alpha layer
-    */
-    float: right;
-    shape-outside: url("img/shop.gif");
+    max-width: 1000px;
+    position: absolute;
+    top: 175px;
+    left: 30%;
+    z-index: -1;
   }
 }
 
 .sub {
-  &-scroll {
-    top: 90vh;
-    justify-content: center;
-  }
   &-image {
-    margin-top: 8vh;
-    width: 25vw;
+    margin-top: 10vh;
+    min-width: 400px;
+    width: max(500px, 25vw);
     height: 25vh;
   }
 }
@@ -121,26 +116,20 @@ a {
     min-height: 100vh;
   }
 }
+
+.social {
+  &-shop {
+    gap: 0 5vw;
+  }
+}
 .mt {
   &-2 {
     margin-top: 3vh;
   }
 }
 
-.mb {
-  &-2 {
-    margin-bottom: 3vh;
-  }
-}
-
 .d-flex {
   display: flex;
-}
-
-.pos {
-  &-relative {
-    position: relative;
-  }
 }
 
 .bold {
@@ -157,5 +146,58 @@ a {
   }
 }
 
-@media only screen and (max-width: 600px) {
+.f {
+  &-justify-center {
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  body {
+    background-position: 0 -100px;
+  }
+
+  .shop {
+    &-img {
+      top: 350px;
+      left: 25%;
+    }
+  }
+  .sub {
+    &-image {
+      margin-top: 27vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    background-position: 0 0;
+  }
+  .shop {
+    &-img {
+      position: static;
+      max-width: 800px;
+    }
+    &-zone {
+      margin-left: 15%;
+    }
+  }
+
+  .sub {
+    &-image {
+      margin-top: 0vh;
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .shop {
+    &-img {
+      display: none;
+    }
+  }
+  .sub {
+    &-image {
+      margin-top: 30vh;
+    }
+  }
 }
