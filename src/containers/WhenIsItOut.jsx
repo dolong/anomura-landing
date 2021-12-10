@@ -1,6 +1,6 @@
 export default function WhenIsItOut() {
     return (
-        <div>
+        <div className="text-center">
             <h3>WHEN IS IT OUT?</h3>
             <p>
                 Anomura will be targeted to be released by the end of 2021, <br />

@@ -12,12 +12,8 @@
 
 body {
   line-height: 1.8;
-  font-size: 28px;
+  font-size: clamp(16px, 28px, 34px);
   font-family: Atlantis;
-}
-
-.app {
-  width: 100%;
 }
 
 body {
@@ -39,7 +35,7 @@ a {
 }
 
 .container {
-  width: 80vw;
+  width: clamp(60vw, 80vw, 85vw);
   margin: auto;
 }
 
@@ -88,9 +84,27 @@ a {
 .nft {
   margin-top: 80vh;
 }
-.nft-scroll {
+.nft.scroll {
   background: top/cover no-repeat url("img/backgrounds/Layer3.png");
   z-index: 3;
+  min-height: 100vh;
+}
+
+.crab-anat.scroll {
+  background: no-repeat url("img/backgrounds/Layer4.png");
+  z-index: 4;
+  min-height: 100vh;
+}
+
+.treasure.scroll {
+  background: no-repeat url("img/backgrounds/Layer5.png");
+  z-index: 5;
+  min-height: 100vh;
+}
+
+.footer.scroll {
+  background: no-repeat url("img/backgrounds/Layer6.png");
+  z-index: 6;
   min-height: 100vh;
 }
 
@@ -112,4 +126,10 @@ a {
 
 .bold {
   font-weight: bold;
+}
+
+.text-center > p,
+.text-center > h2,
+.text-center > h3 {
+  text-align: center;
 }/*# sourceMappingURL=app.css.map */

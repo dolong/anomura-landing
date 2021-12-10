@@ -1,7 +1,7 @@
 @use "sass/colors" as c;
 
-$container-width: 80vw;
-
+$container-width: clamp(60vw, 80vw, 85vw);
+$font-size: clamp(16px, 28px, 34px);
 @font-face {
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
@@ -14,12 +14,10 @@ $container-width: 80vw;
 }
 body {
   line-height: 1.8;
-  font-size: 28px;
+  font-size: $font-size;
   font-family: Atlantis;
 }
-.app {
-  width: 100%;
-}
+
 body {
   color: c.$primary-color;
   width: 100%;
@@ -70,7 +68,7 @@ a {
     flex-grow: 2;
   }
   &-img {
-    max-width: $container-width;
+    max-width: 80vw;
     /*The below two lines makes text wrap around an image reading
     / the images alpha layer
     */
@@ -93,7 +91,7 @@ a {
 
 .nft {
   margin-top: 80vh;
-  &-scroll {
+  &.scroll {
     background: top / cover no-repeat url("img/backgrounds/Layer3.png");
     z-index: 3;
     min-height: 100vh;
@@ -101,12 +99,28 @@ a {
   }
 }
 
-.scroll {
-  // position: absolute;
-  // width: 100%;
-  // height: 150vh;
+.crab-anat {
+  &.scroll {
+    background: no-repeat url("img/backgrounds/Layer4.png");
+    z-index: 4;
+    min-height: 100vh;
+  }
+}
+.treasure {
+  &.scroll {
+    background: no-repeat url("img/backgrounds/Layer5.png");
+    z-index: 5;
+    min-height: 100vh;
+  }
 }
 
+.footer {
+  &.scroll {
+    background: no-repeat url("img/backgrounds/Layer6.png");
+    z-index: 6;
+    min-height: 100vh;
+  }
+}
 .mt {
   &-2 {
     margin-top: 3vh;
@@ -131,4 +145,17 @@ a {
 
 .bold {
   font-weight: bold;
+}
+
+.text {
+  &-center > {
+    p,
+    h2,
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
 }

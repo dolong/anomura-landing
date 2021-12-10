@@ -1,6 +1,8 @@
+
+
 export default function TreasureChest() {
     return (
-        <div>
+        <div className="treasure scroll">
             TreasureChest
         </div>
     )

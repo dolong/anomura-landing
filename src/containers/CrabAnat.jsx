@@ -1,6 +1,6 @@
 export default function CrabAnat() {
     return (
-        <div>
+        <div className="text-center crab-anat scroll">
             <h3>CRAB ANATOMY?</h3>
             <p>
                 Each body part has a chance of being normal to legendary rarity.<br/>

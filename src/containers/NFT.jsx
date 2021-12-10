@@ -1,7 +1,11 @@
 export default function NFT() {
+
+   
+
+
     return (
-        <div className="nft-scroll scroll">
-            <div className="nft container ">
+        <div className="nft scroll ">
+            <div className=" container text-center">
                 <p>NFT VIDEOGAME?</p>
                 <p>
                     8,000 unique and collectable anomura ranging from sentient robots to immportal oosmic beings.... <br />
