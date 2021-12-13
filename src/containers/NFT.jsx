@@ -1,22 +1,24 @@
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
-import { useEffect, useState } from "react";
 export default function NFT() {
 
     const scrollValue = useRecoilValue(ScrollValue);
-     
-    const [showView, setShowView] = useState("animTransparent");
+    const scrollSpeed = -4.5;
+    const scrollIndex = 1;
+    let calculatedOffsetY = 0;
+    let calculatedScrollValue = 0;
+    const scrollOffset = 60;
+    function calculateScrollValues() {
+        calculatedOffsetY = scrollIndex * scrollOffset;
+        calculatedScrollValue = scrollValue * scrollSpeed;
+        console.log("Calculated offset is " + calculatedOffsetY + " and calculated scroll value is " + calculatedScrollValue);
+    }
 
-    useEffect(() => {
-        if (scrollValue > 100)
-            setShowView("animOpaque");
-        else 
-            setShowView("animTransparent");
-            
-      },[scrollValue]);
+    calculateScrollValues();
 
+    const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
     return (
-        <div className={"nft " + showView} style={{ transform: 'translate(0,-10vh)'}} >
+        <div className="nft" style={{ top: style }} >
             <div className="d-flex col f-justify-c pl-auto">
                 <p>NFT VIDEOGAME?</p>
                 <p>
@@ -25,6 +27,6 @@ export default function NFT() {
                     Join our incredible Discord & Tiwtter community for live updates.
                 </p>
             </div>
-        </div>
+        </div >
     )
 }

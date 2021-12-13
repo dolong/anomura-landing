@@ -1,22 +1,25 @@
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
-import { useEffect, useState } from "react";
-import { TreasureChest  } from "containers/ContainerIndex";
+import { TreasureChest } from "containers/ContainerIndex";
 export default function WhenIsItOut() {
 
     const scrollValue = useRecoilValue(ScrollValue);
-     
-    const [showView, setShowView] = useState("animTransparent");
+    const scrollSpeed = -13.5;
+    const scrollIndex = 8;
+    let calculatedOffsetY = 0;
+    let calculatedScrollValue = 0;
+    const scrollOffset = 60;
+    function calculateScrollValues() {
+        calculatedOffsetY = scrollIndex * scrollOffset;
+        calculatedScrollValue = scrollValue * scrollSpeed;
+        console.log("Calculated offset is " + calculatedOffsetY + " and calculated scroll value is " + calculatedScrollValue);
+    }
 
-    useEffect(() => {
-        if (scrollValue > 550)
-            setShowView("animOpaque");
-        else 
-            setShowView("animTransparent");
-            
-    }, [scrollValue]);
+    calculateScrollValues();
+
+    const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
     return (
-        <div className={"when-zone " + showView} style={{ transform: 'translate(0,50vh)'}}>
+        <div className="when-zone " style={{ top: style }}>
             <div className="pl-auto">
                 <h3>WHEN IS IT OUT?</h3>
                 <p>
@@ -26,7 +29,7 @@ export default function WhenIsItOut() {
                 </p>
                 <TreasureChest></TreasureChest>
             </div>
-         
+
         </div>
     )
 }

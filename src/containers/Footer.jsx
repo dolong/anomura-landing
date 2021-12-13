@@ -1,24 +1,26 @@
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
-import { useEffect, useState } from "react";
 
 export default function Footer() {
 
     const scrollValue = useRecoilValue(ScrollValue);
-     
-    const [showView, setShowView] = useState("animTransparent");
+    const scrollSpeed = -16.5;
+    const scrollIndex = 12;
+    let calculatedOffsetY = 0;
+    let calculatedScrollValue = 0;
+    const scrollOffset = 60;
+    function calculateScrollValues() {
+        calculatedOffsetY = scrollIndex * scrollOffset;
+        calculatedScrollValue = scrollValue * scrollSpeed;
+        console.log("Calculated offset is " + calculatedOffsetY + " and calculated scroll value is " + calculatedScrollValue);
+    }
 
-    useEffect(() => {
-        if (scrollValue > 1200)
-            setShowView("animOpaque");
-        else 
-            setShowView("animTransparent");
-            
-      },[scrollValue]);
+    calculateScrollValues();
 
-    
+    const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
+
     return (
-        <div className={"footer " + showView} style={{ transform: 'translate(0,120vh)'}}>
+        <div className="footer" style={{ top: style }}>
             <div>
                 Footer
             </div>

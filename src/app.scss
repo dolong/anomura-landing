@@ -10,13 +10,12 @@ $top-offset: -250px;
 }
 
 @mixin z-layers {
-  min-height: 2000px;
+  min-height: 1400px;
   width: 100%;
   background-size: auto;
   background-repeat: repeat-x;
-  position: absolute;
-  top: 0;
   justify-content: center;
+  position: absolute;
 }
 
 * {
@@ -24,16 +23,15 @@ $top-offset: -250px;
   padding: 0;
   margin: 0;
 }
+
 body {
+  min-height: 2000px;
   line-height: 1.5;
   font-size: $font-size;
   font-family: Atlantis;
-
   background-image: url("img/backgrounds/SandLayer.png");
   background-position: 0 $top-offset;
   background-size: auto;
-  background-repeat: no-repeat;
-  min-height: 1500px;
   color: c.$primary-font-color;
   overflow-x: hidden;
 }
@@ -93,7 +91,7 @@ a {
   @include z-layers();
   background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
-  padding: 80vh 0 10% 0;
+  padding: 40% 0 10% 0;
 }
 
 .crab {
@@ -101,7 +99,7 @@ a {
     @include z-layers();
     background-image: url("img/backgrounds/Layer4.png");
     z-index: 4;
-    padding: 70vh 0 10% 0;
+    padding:30% 0 10% 0;
   }
 }
 .when {
@@ -170,23 +168,7 @@ a {
   }
 }
 
-.animTransparent {
-  opacity: 0;
-  transform: translate(0, 0) !important;
-  transition: 2s;
 
-  &.footer {
-    transform: translate(0, 200vh) !important;
-  }
-  &.when-zone {
-    transform: translate(0, 200vh) !important;
-  }
-}
-
-.animOpaque {
-  opacity: 1;
-  transition: 2s;
-}
 
 @media only screen and (max-width: 1450px) {
   .shop {

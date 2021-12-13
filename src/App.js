@@ -11,19 +11,18 @@ import './App.css';
 function App() {
 
   const setOffsetY = useSetRecoilState(ScrollValue);
-  
+
 
   const handleScroll = () => {
     setOffsetY(window.pageYOffset);
-    console.log(window.pageYOffset);
   }
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-   
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
-  },);
+  });
 
   return (
     <div className="App">

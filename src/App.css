@@ -11,14 +11,13 @@
 }
 
 body {
+  min-height: 2000px;
   line-height: 1.5;
   font-size: clamp(16px, 26px, 34px);
   font-family: Atlantis;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position: 0 -250px;
   background-size: auto;
-  background-repeat: no-repeat;
-  min-height: 1500px;
   color: #fff;
   overflow-x: hidden;
 }
@@ -69,39 +68,36 @@ a {
 }
 
 .nft {
-  min-height: 2000px;
+  min-height: 1400px;
   width: 100%;
   background-size: auto;
   background-repeat: repeat-x;
-  position: absolute;
-  top: 0;
   justify-content: center;
+  position: absolute;
   background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
-  padding: 80vh 0 10% 0;
+  padding: 40% 0 10% 0;
 }
 
 .crab-anat {
-  min-height: 2000px;
+  min-height: 1400px;
   width: 100%;
   background-size: auto;
   background-repeat: repeat-x;
-  position: absolute;
-  top: 0;
   justify-content: center;
+  position: absolute;
   background-image: url("img/backgrounds/Layer4.png");
   z-index: 4;
-  padding: 70vh 0 10% 0;
+  padding: 30% 0 10% 0;
 }
 
 .when-zone {
-  min-height: 2000px;
+  min-height: 1400px;
   width: 100%;
   background-size: auto;
   background-repeat: repeat-x;
-  position: absolute;
-  top: 0;
   justify-content: center;
+  position: absolute;
   background-image: url("img/backgrounds/Layer5Eyes.png");
   z-index: 5;
   flex-direction: column;
@@ -112,13 +108,12 @@ a {
 }
 
 .footer {
-  min-height: 2000px;
+  min-height: 1400px;
   width: 100%;
   background-size: auto;
   background-repeat: repeat-x;
-  position: absolute;
-  top: 0;
   justify-content: center;
+  position: absolute;
   background-image: url("img/backgrounds/Layer6.png");
   z-index: 6;
 }
@@ -158,23 +153,6 @@ a {
 .text-center > h2,
 .text-center > h3 {
   text-align: center;
-}
-
-.animTransparent {
-  opacity: 0;
-  transform: translate(0, 0) !important;
-  transition: 2s;
-}
-.animTransparent.footer {
-  transform: translate(0, 200vh) !important;
-}
-.animTransparent.when-zone {
-  transform: translate(0, 200vh) !important;
-}
-
-.animOpaque {
-  opacity: 1;
-  transition: 2s;
 }
 
 @media only screen and (max-width: 1450px) {
