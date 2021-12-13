@@ -7,7 +7,7 @@ export default function TreasureChest() {
     const [chestState, setChestState] =  useState("idle");
 
     return (
-        <div className="treasure scroll">
+        <div className="treasure-zone">
             {
                 chestState === "idle" &&
                 <img src={ChestIdleImg} alt="" />

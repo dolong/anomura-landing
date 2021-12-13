@@ -1,5 +1,5 @@
 import { Navbar } from "./components/ComponentIndex";
-import { CrabAnat, Footer, NFT, ShopZone, TreasureChest, WhenIsItOut } from "./containers/ContainerIndex";
+import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "./containers/ContainerIndex";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
@@ -30,11 +30,9 @@ function App() {
       <img className="shop-img" src={ShopImg} alt="" />
       <Navbar></Navbar>
       <ShopZone></ShopZone>
-      
       <NFT></NFT>
       <CrabAnat></CrabAnat>
       <WhenIsItOut></WhenIsItOut>
-      <TreasureChest></TreasureChest>
       <Footer></Footer>
     </div>
   );

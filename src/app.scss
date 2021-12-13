@@ -3,10 +3,20 @@
 $container-width: clamp(60vw, 80vw, 95vw);
 $font-size: clamp(16px, 26px, 34px);
 
-$top-offset: -200px;
+$top-offset: -250px;
 @font-face {
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
+}
+
+@mixin z-layers {
+  min-height: 2000px;
+  width: 100%;
+  background-size: auto;
+  background-repeat: repeat-x;
+  position: absolute;
+  top: 0;
+  justify-content: center;
 }
 
 * {
@@ -15,7 +25,7 @@ $top-offset: -200px;
   margin: 0;
 }
 body {
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: $font-size;
   font-family: Atlantis;
 
@@ -23,7 +33,7 @@ body {
   background-position: 0 $top-offset;
   background-size: auto;
   background-repeat: no-repeat;
-
+  min-height: 1500px;
   color: c.$primary-font-color;
   overflow-x: hidden;
 }
@@ -45,9 +55,9 @@ a {
   &-menu {
     background-image: url("img/menu.png");
     background-repeat: no-repeat;
-    background-size: 100% 50%;
+    background-size: 100%;
     max-width: clamp(60vw, 80vw, 90vw);
-    min-height: 140px;
+    min-height: 100px;
     padding: 0 4vw;
   }
 
@@ -59,20 +69,14 @@ a {
   }
 }
 
-.scroll-wrapper {
-  position: absolute;
-  top: 0;
-  min-height: 100vh;
-}
-
 .shop {
   &-zone {
-    margin-left: 8rem;
+    margin-left: 10vw;
   }
   &-img {
     max-width: 1000px;
     position: absolute;
-    left: 30%;
+    left: 40%;
     top: calc(#{$top-offset} - 350px * -1);
   }
 }
@@ -81,38 +85,42 @@ a {
   &-img {
     min-width: 400px;
     width: max(500px, 25vw);
-    margin-top: 4rem;
+    margin-top: 16vh;
   }
 }
 
 .nft {
-  width: 100%;
-  background: top / cover no-repeat url("img/backgrounds/Layer3.png");
+  @include z-layers();
+  background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
-  min-height: 75rem;
+  padding: 80vh 0 10% 0;
 }
 
-.crab-anat {
-  &.scroll {
-    background: no-repeat url("img/backgrounds/Layer4.png");
+.crab {
+  &-anat {
+    @include z-layers();
+    background-image: url("img/backgrounds/Layer4.png");
     z-index: 4;
-    min-height: 100vh;
+    padding: 70vh 0 10% 0;
   }
 }
-.treasure {
-  &.scroll {
-    background: no-repeat url("img/backgrounds/Layer5.png");
+.when {
+  &-zone {
+    @include z-layers();
+    background-image: url("img/backgrounds/Layer5Eyes.png");
     z-index: 5;
-    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 2000px;
+    padding-top: 55vh;
   }
 }
 
 .footer {
-  &.scroll {
-    background: no-repeat url("img/backgrounds/Layer6.png");
-    z-index: 6;
-    min-height: 100vh;
-  }
+  @include z-layers();
+  background-image: url("img/backgrounds/Layer6.png");
+  z-index: 6;
 }
 
 .social {
@@ -120,16 +128,34 @@ a {
     gap: 0 5vw;
   }
 }
-.mt {
-  &-2 {
-    margin-top: 3vh;
+.m {
+  &t {
+    &-2 {
+      margin-top: 3vh;
+    }
+  }
+  &-auto {
+    margin: auto;
   }
 }
 
+.p {
+  &l-auto {
+    padding-left: 25vw;
+  }
+}
 .d-flex {
   display: flex;
 }
 
+.col {
+  flex-direction: column;
+}
+.f {
+  &-justify-c {
+    justify-content: center;
+  }
+}
 .bold {
   font-weight: bold;
 }
@@ -144,15 +170,17 @@ a {
   }
 }
 
-.f {
-  &-justify-center {
-    justify-content: center;
-  }
-}
-
 .animTransparent {
   opacity: 0;
+  transform: translate(0, 0) !important;
   transition: 2s;
+
+  &.footer {
+    transform: translate(0, 200vh) !important;
+  }
+  &.when-zone {
+    transform: translate(0, 200vh) !important;
+  }
 }
 
 .animOpaque {

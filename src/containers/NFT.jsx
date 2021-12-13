@@ -8,16 +8,16 @@ export default function NFT() {
     const [showView, setShowView] = useState("animTransparent");
 
     useEffect(() => {
-        if (scrollValue > 400)
+        if (scrollValue > 100)
             setShowView("animOpaque");
-        else
+        else 
             setShowView("animTransparent");
             
       },[scrollValue]);
 
     return (
-        <div className={ showView + " nft"} >
-            <div className="container text-center" >
+        <div className={"nft " + showView} style={{ transform: 'translate(0,-10vh)'}} >
+            <div className="d-flex col f-justify-c pl-auto">
                 <p>NFT VIDEOGAME?</p>
                 <p>
                     8,000 unique and collectable anomura ranging from sentient robots to immportal oosmic beings.... <br />
