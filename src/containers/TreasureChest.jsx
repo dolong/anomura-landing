@@ -13,7 +13,7 @@ export default function TreasureChest() {
             setChestState("opening");
             setTimeout(() => {
                 setChestState("opened");
-            }, 160);
+            }, 1200);
         }
     };
 
