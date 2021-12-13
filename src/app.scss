@@ -7,9 +7,6 @@ $font-size: clamp(16px, 26px, 34px);
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
 }
-
-
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -141,7 +138,16 @@ a {
   @include z-layers();
   background-image: url("img/backgrounds/Layer6.png");
   z-index: 6;
-  bottom: 0
+  bottom: 0;
+  padding-top: 70vh;
+  &-info{
+    text-align: center;
+  }
+}
+
+.logo-container{
+  display: flex;
+
 }
 
 .social {

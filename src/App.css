@@ -151,6 +151,14 @@ a {
   background-image: url("img/backgrounds/Layer6.png");
   z-index: 6;
   bottom: 0;
+  padding-top: 70vh;
+}
+.footer-info {
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
 }
 
 .social-shop {
