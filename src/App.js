@@ -1,11 +1,11 @@
-import { Navbar } from "./components/ComponentIndex";
+import { Navbar } from "components/ComponentIndex";
 import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "./containers/ContainerIndex";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
 import SubscribeImg from "img/subscribe.png";
-
 import ShopImg from "img/shop.gif";
+import SunLight from "img/sunlight.png";
 import './App.css';
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <img className="sunlight" src={SunLight} alt="" />
       <img className="shop-img" src={ShopImg} alt="" />
       <Navbar></Navbar>
       <ShopZone></ShopZone>

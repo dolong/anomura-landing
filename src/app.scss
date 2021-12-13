@@ -26,14 +26,6 @@ body{
   color: c.$primary-font-color;
   line-height: 1.5;
 }
-.App{
-  min-height: 145vh;
-  overflow: hidden;
-  background-image: url("img/backgrounds/SandLayer.png");
-  background-position: 0 -25vh;
-  background-size: auto;
-}
-
 
 ul {
   list-style: none;
@@ -42,10 +34,20 @@ a {
   text-decoration: none;
   color: c.$primary-font-color;
 }
+.App{
+  min-height: 145vh;
+  overflow: hidden;
+  background-image: url("img/backgrounds/SandLayer.png");
+  background-position: 0 -25vh;
+  background-size: auto;
+}
 
 .container {
   width: $container-width;
   margin: auto;
+}
+.sunlight{
+  position: absolute;
 }
 
 .nav {
@@ -84,7 +86,7 @@ a {
 .sub {
   &-img {
     position: absolute;
-    top: 75vh;
+    top: 20vh;
     min-width: 400px;
     width: max(500px, 25vw);
   }
@@ -104,7 +106,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 1400px;
+  min-height: 1500px;
 }
 
 .nft {
