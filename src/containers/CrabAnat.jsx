@@ -4,21 +4,20 @@ export default function CrabAnat() {
 
     const scrollValue = useRecoilValue(ScrollValue);
     const scrollSpeed = -8.5;
-    const scrollIndex = 4;
+    const scrollIndex = 3;
     let calculatedOffsetY = 0;
     let calculatedScrollValue = 0;
     const scrollOffset = 60;
     function calculateScrollValues() {
         calculatedOffsetY = scrollIndex * scrollOffset;
         calculatedScrollValue = scrollValue * scrollSpeed;
-        console.log("Calculated offset is " + calculatedOffsetY + " and calculated scroll value is " + calculatedScrollValue);
     }
 
     calculateScrollValues();
 
     const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
     return (
-        <div className="crab-anat" style={{ top: style }} >
+        <div className="crab-anat" style={{ transform: `translateY(${style})` }} >
             <div className="pl-auto">
                 <h3>CRAB ANATOMY?</h3>
                 <p>

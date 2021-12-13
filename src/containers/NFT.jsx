@@ -11,14 +11,13 @@ export default function NFT() {
     function calculateScrollValues() {
         calculatedOffsetY = scrollIndex * scrollOffset;
         calculatedScrollValue = scrollValue * scrollSpeed;
-        console.log("Calculated offset is " + calculatedOffsetY + " and calculated scroll value is " + calculatedScrollValue);
     }
 
     calculateScrollValues();
 
-    const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
+    const style = `calc(${calculatedOffsetY}px + ${calculatedScrollValue}px)`;
     return (
-        <div className="nft" style={{ top: style }} >
+        <div className="nft" style={{ transform: `translateY(${style})` }}>
             <div className="d-flex col f-justify-c pl-auto">
                 <p>NFT VIDEOGAME?</p>
                 <p>

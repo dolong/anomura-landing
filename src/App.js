@@ -3,19 +3,20 @@ import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "./containers/Conta
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
-
+import SubscribeImg from "img/subscribe.png";
 
 import ShopImg from "img/shop.gif";
-
 import './App.css';
+
 function App() {
 
   const setOffsetY = useSetRecoilState(ScrollValue);
 
-
   const handleScroll = () => {
     setOffsetY(window.pageYOffset);
+    console.log(window.pageYOffset);
   }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -29,10 +30,17 @@ function App() {
       <img className="shop-img" src={ShopImg} alt="" />
       <Navbar></Navbar>
       <ShopZone></ShopZone>
-      <NFT></NFT>
-      <CrabAnat></CrabAnat>
-      <WhenIsItOut></WhenIsItOut>
-      <Footer></Footer>
+
+      <div className="parallax-group">
+        <div className="d-flex f-justify-c">
+          <img className="sub-img" src={SubscribeImg} alt="" />
+        </div>
+        <NFT></NFT>
+        <CrabAnat></CrabAnat>
+        <WhenIsItOut></WhenIsItOut>
+        <Footer></Footer>
+      </div>
+
     </div>
   );
 }

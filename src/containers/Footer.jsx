@@ -12,7 +12,6 @@ export default function Footer() {
     function calculateScrollValues() {
         calculatedOffsetY = scrollIndex * scrollOffset;
         calculatedScrollValue = scrollValue * scrollSpeed;
-        console.log("Calculated offset is " + calculatedOffsetY + " and calculated scroll value is " + calculatedScrollValue);
     }
 
     calculateScrollValues();
@@ -20,7 +19,7 @@ export default function Footer() {
     const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
 
     return (
-        <div className="footer" style={{ top: style }}>
+        <div className="footer" style={{ transform: `translateY(${style})` }}>
             <div>
                 Footer
             </div>
