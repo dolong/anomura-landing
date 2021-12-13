@@ -98,7 +98,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 1500px;
+  min-height: 2000px;
   background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
   padding: 40% 0 10% 0;
@@ -113,7 +113,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 1500px;
+  min-height: 2000px;
   background-image: url("img/backgrounds/Layer4.png");
   z-index: 4;
   padding: 30% 0 10% 0;
@@ -128,7 +128,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 1500px;
+  min-height: 2000px;
   background-image: url("img/backgrounds/Layer5Eyes.png");
   z-index: 5;
   flex-direction: column;
@@ -147,7 +147,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  min-height: 1500px;
+  min-height: 2000px;
   background-image: url("img/backgrounds/Layer6.png");
   z-index: 6;
   bottom: 0;
