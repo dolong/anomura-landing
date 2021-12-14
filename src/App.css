@@ -50,35 +50,12 @@ a {
   }
 }
 
-.container {
-  width: clamp(60vw, 80vw, 95vw);
-  margin: auto;
-}
-
 .sunlight {
+  display: none;
   position: fixed;
   top: 0;
   left: 15%;
   max-width: 60%;
-}
-
-.nav-menu {
-  background: url("img/menu.png") no-repeat;
-  background-size: contain;
-  max-width: 80vw;
-  min-height: 150px;
-  max-height: 200px;
-  padding: 0 4vw;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
-.nav-list {
-  display: flex;
-  justify-content: space-between;
-  justify-self: right;
-  width: 100%;
 }
 
 .sub-img {
@@ -90,79 +67,6 @@ a {
 
 .parallax-group {
   position: relative;
-  display: flow-root;
-}
-
-.nft {
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  min-height: 2000px;
-  background-image: url("img/backgrounds/Layer3.png");
-  z-index: 3;
-  padding: 40% 0 10% 0;
-}
-@media only screen and (max-width: 800px) {
-  .nft {
-    min-height: unset;
-  }
-}
-
-.crab-anat {
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  min-height: 2000px;
-  background-image: url("img/backgrounds/Layer4.png");
-  z-index: 4;
-  padding-top: 30%;
-}
-@media only screen and (max-width: 800px) {
-  .crab-anat {
-    min-height: unset;
-  }
-}
-
-.when-zone {
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  min-height: 2000px;
-  background-image: url("img/backgrounds/Layer5Eyes.png");
-  z-index: 5;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  min-height: 2000px;
-  padding-top: 55vh;
-}
-@media only screen and (max-width: 800px) {
-  .when-zone {
-    min-height: unset;
-  }
-}
-
-.footer {
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  min-height: 2000px;
-  background-image: url("img/backgrounds/Layer6.png");
-  z-index: 6;
-  padding-top: 70vh;
-}
-@media only screen and (max-width: 800px) {
-  .footer {
-    min-height: unset;
-  }
-}
-
-.logo-container {
-  display: flex;
-}
-
-.social-shop {
-  gap: 0 5vw;
 }
 
 .mt-2 {
