@@ -1,13 +1,13 @@
 .shop {
-&-zone {
-    margin-left: 10vw;
-}
-&-img {
-    max-width: 1000px;
-    position: absolute;
-    top: 10vh;
-    left: 40%;
-}
+    &-zone {
+        margin-left: 10vw;
+    }
+    &-img {
+        max-width: 1000px;
+        position: absolute;
+        top: 10vh;
+        left: 40%;
+    }
 }
 
 @media only screen and (max-width: 1450px) {

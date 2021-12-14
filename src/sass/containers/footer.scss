@@ -1,0 +1,24 @@
+@mixin z-layers {
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    min-height: 2000px;
+    @media only screen and (max-width: 800px) {
+    min-height: unset;
+    }
+}
+.footer {
+    @include z-layers();
+    background-image: url("img/backgrounds/Layer6.png");
+    z-index: 6;
+    padding-top: 70vh;
+}
+.logo-container{
+    display: flex;
+
+}
+.social {
+    &-shop {
+    gap: 0 5vw;
+    }
+}

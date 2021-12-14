@@ -1,0 +1,22 @@
+.footer {
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  min-height: 2000px;
+  background-image: url("img/backgrounds/Layer6.png");
+  z-index: 6;
+  padding-top: 70vh;
+}
+@media only screen and (max-width: 800px) {
+  .footer {
+    min-height: unset;
+  }
+}
+
+.logo-container {
+  display: flex;
+}
+
+.social-shop {
+  gap: 0 5vw;
+}/*# sourceMappingURL=footer.css.map */

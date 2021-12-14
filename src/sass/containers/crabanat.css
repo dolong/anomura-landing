@@ -1,0 +1,14 @@
+.crab-anat {
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  min-height: 2000px;
+  background-image: url("img/backgrounds/Layer4.png");
+  z-index: 4;
+  padding-top: 30%;
+}
+@media only screen and (max-width: 800px) {
+  .crab-anat {
+    min-height: unset;
+  }
+}/*# sourceMappingURL=crabanat.css.map */
