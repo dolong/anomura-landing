@@ -1,23 +1,11 @@
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
+import { useScrollValue } from "lib/useScroll";
 export default function NFT() {
 
-    const scrollValue = useRecoilValue(ScrollValue);
-    const scrollSpeed = -4.5;
-    const scrollIndex = 1;
-    let calculatedOffsetY = 0;
-    let calculatedScrollValue = 0;
-    const scrollOffset = 60;
-    function calculateScrollValues() {
-        calculatedOffsetY = scrollIndex * scrollOffset;
-        calculatedScrollValue = scrollValue * scrollSpeed;
-    }
-
-    calculateScrollValues();
-
-    const style = `calc(${calculatedOffsetY}px + ${calculatedScrollValue}px)`;
+    const calculatedOffsetY = useScrollValue(-4.5, 60);
     return (
-        <div className="nft" style={{ transform: `translateY(${style})` }}>
+        <div className="nft" style={{ transform: `translateY(${calculatedOffsetY}px)` }}>
             <div className="d-flex col f-justify-c pl-auto">
                 <p>NFT VIDEOGAME?</p>
                 <p>

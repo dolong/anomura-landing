@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
 
-export function useScroll() {
+export function useScrollEvent() {
 
     const setOffsetY = useSetRecoilState(ScrollValue);
     const handleScroll = () => {
@@ -15,7 +15,22 @@ export function useScroll() {
             window.removeEventListener("scroll", handleScroll);
         }
     });
-
-
     return setOffsetY;
+}
+
+
+export function useScrollValue(ScrollSpeed, ScrollOffSet) {
+    const scrollValue = useRecoilValue(ScrollValue);
+    const scrollSpeed = ScrollSpeed;
+    let calculatedOffsetY = 0;
+    const scrollOffset = ScrollOffSet;
+
+
+    function calculateScrollValues() {
+        calculatedOffsetY = scrollOffset + (scrollValue * scrollSpeed);
+    }
+
+    calculateScrollValues();
+
+    return calculatedOffsetY;
 }
