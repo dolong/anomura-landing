@@ -29,6 +29,7 @@
   }
 
   &-img{
+    width: clamp(10vw,800px,50%);
     margin-top: 10%;
   }
 }

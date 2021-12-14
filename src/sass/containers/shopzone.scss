@@ -5,9 +5,18 @@
     &-img {
         width: clamp(50%,80vw,1000px);
         position: absolute;
-        top: clamp(5vw,10vh,12vh);
-        left: 40%;
+        bottom: 25%;
+        left: 35%;
     }
+}
+
+.sub {
+  &-img {
+    position: absolute;
+    bottom:0 ;
+    width: clamp(400px, 25vw ,50%);
+
+  }
 }
 
 @media only screen and (max-width: 1450px) {
@@ -18,21 +27,4 @@
     }
 }
 
-@media only screen and (max-width: 1200px) {
-}
 
-@media only screen and (max-width: 1100px) {
-    .shop {
-      &-img {
-        left: 32%;
-      }
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .shop{
-      &-img{
-        display: none;
-      }
-    }
-}

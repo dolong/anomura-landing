@@ -16,7 +16,8 @@ html, body {
 
 body {
   scroll-behavior: smooth;
-  font-size: clamp(16px,2vw,26px);
+  overflow-x: hidden;
+  font-size: clamp(20px,2vw,26px);
   font-family: Atlantis;
   color: #fff;
   line-height: 1.5;
@@ -37,11 +38,11 @@ a {
   overflow: hidden;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position-y: -200px;
-  background-size: cover;
+  background-size: auto;
 }
 @media only screen and (max-width: 800px) {
   .App {
-    background-position: 0 -500px;
+    background-position: 0 0px;
   }
 }
 
@@ -51,13 +52,6 @@ a {
   top: 0;
   left: 15%;
   max-width: 60%;
-}
-
-.sub-img {
-  position: absolute;
-  top: 20vh;
-  min-width: 400px;
-  width: max(500px, 25vw);
 }
 
 .parallax-group {
@@ -97,11 +91,6 @@ a {
   text-align: center;
 }
 
-@media only screen and (max-width: 1100px) {
-  .sub-img {
-    margin-top: 12rem;
-  }
-}
 @media only screen and (max-width: 800px) {
   .nav-menu {
     display: none;

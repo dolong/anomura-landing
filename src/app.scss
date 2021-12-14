@@ -4,18 +4,9 @@
   font-family: Atlantis;
 }
 @mixin font-size {
-  font-size: clamp(16px,2vw,26px);
+  font-size: clamp(20px,2vw,26px);
 }
 
-@mixin z-layers {
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  min-height: 2000px;
-  @media only screen and (max-width: 800px) {
-  min-height: unset;
-  }
-}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -26,6 +17,7 @@ html,body {
 }
 body{
   scroll-behavior: smooth;
+  overflow-x:hidden;
   @include font-size();
   font-family: Atlantis;
   color: c.$primary-font-color;
@@ -45,10 +37,10 @@ a {
   overflow: hidden;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position-y: -200px;
-  background-size: cover;
+  background-size: auto;
 
   @media only screen and (max-width: 800px) {
-    background-position: 0 -500px;
+    background-position: 0 0px;
   }
 }
 .sunlight{
@@ -59,14 +51,7 @@ a {
   max-width: 60%;
 }
 
-.sub {
-  &-img {
-    position: absolute;
-    top: 20vh;
-    min-width: 400px;
-    width: max(500px, 25vw);
-  }
-}
+
 
 .parallax-group{
   position: relative;
@@ -111,14 +96,6 @@ a {
   }
 }
 
-@media only screen and (max-width: 1100px) {
-
-  .sub {
-    &-img {
-      margin-top: 12rem;
-    }
-  }
-}
 @media only screen and (max-width: 800px) {
 
   .nav-menu{

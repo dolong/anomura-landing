@@ -1,3 +1,5 @@
+import ShopImg from "img/shop.gif";
+import SubscribeImg from "img/subscribe.png";
 import "sass/containers/shopzone.css"
 /**
  * The main area of the landing page with the shop gif.
@@ -32,6 +34,10 @@ export default function ShopZone() {
                         </a>
                     </div>
                 </div>
+            </div>
+            <img className="shop-img" src={ShopImg} alt="" />
+            <div className="d-flex f-justify-c">
+                <img className="sub-img" src={SubscribeImg} alt="" />
             </div>
         </div>
     )
