@@ -16,15 +16,10 @@ html, body {
 
 body {
   scroll-behavior: smooth;
-  font-size: 26px;
+  font-size: clamp(16px,2vw,26px);
   font-family: Atlantis;
   color: #fff;
   line-height: 1.5;
-}
-@media only screen and (max-width: 800px) {
-  body {
-    font-size: 16px;
-  }
 }
 
 ul {

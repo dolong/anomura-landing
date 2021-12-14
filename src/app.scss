@@ -4,10 +4,7 @@
   font-family: Atlantis;
 }
 @mixin font-size {
-  font-size: 26px;
-  @media only screen and (max-width: 800px) {
-    font-size: 16px;
-  }
+  font-size: clamp(16px,2vw,26px);
 }
 
 @mixin z-layers {
