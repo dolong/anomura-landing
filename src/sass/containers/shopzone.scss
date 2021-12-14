@@ -1,0 +1,56 @@
+.shop {
+&-zone {
+    margin-left: 10vw;
+}
+&-img {
+    max-width: 1000px;
+    position: absolute;
+    top: 10vh;
+    left: 40%;
+}
+}
+
+@media only screen and (max-width: 1450px) {
+    .shop {
+        &-zone {
+            margin-left: 5rem;
+        }
+        &-img {
+            max-width: 800px;
+            top: 25vh;
+            left: 28%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .shop {
+        &-img {
+            top: 30vh;
+            max-width: 800px;
+        }
+        &-zone {
+            margin-left: 3rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .shop {
+      &-img {
+        top: 40vh;
+        left: 32%;
+      }
+      &-zone {
+        margin-left: 3rem;
+      }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .shop{
+      &-img{
+        display: none;
+      }
+    }
+}

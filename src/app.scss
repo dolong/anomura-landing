@@ -1,11 +1,24 @@
 @use "sass/colors" as c;
-
-$container-width: clamp(60vw, 80vw, 95vw);
-$font-size: clamp(16px, 26px, 34px);
-
 @font-face {
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
+}
+$container-width: clamp(60vw, 80vw, 95vw);
+@mixin font-size {
+  font-size: 26px;
+  @media only screen and (max-width: 800px) {
+    font-size: 16px;
+  }
+}
+
+@mixin z-layers {
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  min-height: 2000px;
+  @media only screen and (max-width: 800px) {
+  min-height: unset;
+  }
 }
 * {
   box-sizing: border-box;
@@ -15,10 +28,9 @@ $font-size: clamp(16px, 26px, 34px);
 html,body {
   width: 100%;
 }
-
 body{
   scroll-behavior: smooth;
-  font-size: $font-size;
+  @include font-size();
   font-family: Atlantis;
   color: c.$primary-font-color;
   line-height: 1.5;
@@ -32,11 +44,16 @@ a {
   color: c.$primary-font-color;
 }
 .App{
-  min-height: 145vh;
+  width: 100%;
+  min-height: 1500px;
   overflow: hidden;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position: 0 -25vh;
-  background-size: auto;
+  background-size: cover;
+
+  @media only screen and (max-width: 800px) {
+    background-position: 0 0;
+  }
 }
 
 .container {
@@ -44,16 +61,19 @@ a {
   margin: auto;
 }
 .sunlight{
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 15%;
+  max-width: 60%;
 }
 
 .nav {
   &-menu {
-    background-image: url("img/menu.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    max-width: clamp(60vw, 80vw, 90vw);
-    min-height: 100px;
+    background: url("img/menu.png") no-repeat;
+    background-size: contain;
+    max-width: 80vw;
+    min-height: 150px;
+    max-height: 200px;
     padding: 0 4vw;
     position: sticky;
     top: 0;
@@ -68,17 +88,7 @@ a {
   }
 }
 
-.shop {
-  &-zone {
-    margin-left: 10vw;
-  }
-  &-img {
-    max-width: 1000px;
-    position: absolute;
-    top: 10vh;
-    left: 40%;
-  }
-}
+
 
 .sub {
   &-img {
@@ -91,20 +101,10 @@ a {
 
 .parallax-group{
   position: relative;
-  width: 100vw;
+  display: flow-root;
 }
 
-@mixin z-layers {
-  background-size: auto;
-  background-repeat: repeat-x;
-  justify-content: center;
-  position: absolute;
-  top:0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  min-height: 2000px;
-}
+
 
 .nft {
   @include z-layers();
@@ -118,7 +118,7 @@ a {
     @include z-layers();
     background-image: url("img/backgrounds/Layer4.png");
     z-index: 4;
-    padding:30% 0 10% 0;
+    padding-top:30%;
   }
 }
 .when {
@@ -138,11 +138,7 @@ a {
   @include z-layers();
   background-image: url("img/backgrounds/Layer6.png");
   z-index: 6;
-  bottom: 0;
   padding-top: 70vh;
-  &-info{
-    text-align: center;
-  }
 }
 
 .logo-container{
@@ -199,45 +195,7 @@ a {
 
 
 
-@media only screen and (max-width: 1450px) {
-  .shop {
-    &-zone {
-      margin-left: 5rem;
-    }
-    &-img {
-      max-width: 850px;
-      top: 25vh;
-      left: 28%;
-    }
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .shop {
-    &-img {
-      top: 30vh;
-      max-width: 800px;
-    }
-    &-zone {
-      margin-left: 3rem;
-    }
-  }
-}
-
 @media only screen and (max-width: 1100px) {
-  body {
-    background-position: 0 20vh;
-  }
-  .shop {
-    &-img {
-      top: 40vh;
-      left: 32%;
-      max-width: 600px;
-    }
-    &-zone {
-      margin-left: 3rem;
-    }
-  }
   .sub {
     &-img {
       margin-top: 12rem;
@@ -246,29 +204,9 @@ a {
 }
 
 @media only screen and (max-width: 800px) {
-  .shop {
-    &-img {
-      display: none;
-    }
+
+  .nav-menu{
+    display: none;
   }
 }
 
-@keyframes GoTransparent {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes GoOpaque {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}

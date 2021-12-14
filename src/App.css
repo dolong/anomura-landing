@@ -16,10 +16,15 @@ html, body {
 
 body {
   scroll-behavior: smooth;
-  font-size: clamp(16px, 26px, 34px);
+  font-size: 26px;
   font-family: Atlantis;
   color: #fff;
   line-height: 1.5;
+}
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 16px;
+  }
 }
 
 ul {
@@ -32,11 +37,17 @@ a {
 }
 
 .App {
-  min-height: 145vh;
+  width: 100%;
+  min-height: 1500px;
   overflow: hidden;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position: 0 -25vh;
-  background-size: auto;
+  background-size: cover;
+}
+@media only screen and (max-width: 800px) {
+  .App {
+    background-position: 0 0;
+  }
 }
 
 .container {
@@ -45,15 +56,18 @@ a {
 }
 
 .sunlight {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 15%;
+  max-width: 60%;
 }
 
 .nav-menu {
-  background-image: url("img/menu.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  max-width: clamp(60vw, 80vw, 90vw);
-  min-height: 100px;
+  background: url("img/menu.png") no-repeat;
+  background-size: contain;
+  max-width: 80vw;
+  min-height: 150px;
+  max-height: 200px;
   padding: 0 4vw;
   position: -webkit-sticky;
   position: sticky;
@@ -67,16 +81,6 @@ a {
   width: 100%;
 }
 
-.shop-zone {
-  margin-left: 10vw;
-}
-.shop-img {
-  max-width: 1000px;
-  position: absolute;
-  top: 10vh;
-  left: 40%;
-}
-
 .sub-img {
   position: absolute;
   top: 20vh;
@@ -86,48 +90,43 @@ a {
 
 .parallax-group {
   position: relative;
-  width: 100vw;
+  display: flow-root;
 }
 
 .nft {
-  background-size: auto;
-  background-repeat: repeat-x;
-  justify-content: center;
+  width: 100%;
+  background-size: cover;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   min-height: 2000px;
   background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
   padding: 40% 0 10% 0;
 }
+@media only screen and (max-width: 800px) {
+  .nft {
+    min-height: unset;
+  }
+}
 
 .crab-anat {
-  background-size: auto;
-  background-repeat: repeat-x;
-  justify-content: center;
+  width: 100%;
+  background-size: cover;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   min-height: 2000px;
   background-image: url("img/backgrounds/Layer4.png");
   z-index: 4;
-  padding: 30% 0 10% 0;
+  padding-top: 30%;
+}
+@media only screen and (max-width: 800px) {
+  .crab-anat {
+    min-height: unset;
+  }
 }
 
 .when-zone {
-  background-size: auto;
-  background-repeat: repeat-x;
-  justify-content: center;
+  width: 100%;
+  background-size: cover;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   min-height: 2000px;
   background-image: url("img/backgrounds/Layer5Eyes.png");
   z-index: 5;
@@ -137,24 +136,25 @@ a {
   min-height: 2000px;
   padding-top: 55vh;
 }
+@media only screen and (max-width: 800px) {
+  .when-zone {
+    min-height: unset;
+  }
+}
 
 .footer {
-  background-size: auto;
-  background-repeat: repeat-x;
-  justify-content: center;
+  width: 100%;
+  background-size: cover;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   min-height: 2000px;
   background-image: url("img/backgrounds/Layer6.png");
   z-index: 6;
-  bottom: 0;
   padding-top: 70vh;
 }
-.footer-info {
-  text-align: center;
+@media only screen and (max-width: 800px) {
+  .footer {
+    min-height: unset;
+  }
 }
 
 .logo-container {
@@ -198,77 +198,13 @@ a {
   text-align: center;
 }
 
-@media only screen and (max-width: 1450px) {
-  .shop-zone {
-    margin-left: 5rem;
-  }
-  .shop-img {
-    max-width: 850px;
-    top: 25vh;
-    left: 28%;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .shop-img {
-    top: 30vh;
-    max-width: 800px;
-  }
-  .shop-zone {
-    margin-left: 3rem;
-  }
-}
 @media only screen and (max-width: 1100px) {
-  body {
-    background-position: 0 20vh;
-  }
-
-  .shop-img {
-    top: 40vh;
-    left: 32%;
-    max-width: 600px;
-  }
-  .shop-zone {
-    margin-left: 3rem;
-  }
-
   .sub-img {
     margin-top: 12rem;
   }
 }
 @media only screen and (max-width: 800px) {
-  .shop-img {
+  .nav-menu {
     display: none;
-  }
-}
-@-webkit-keyframes GoTransparent {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes GoTransparent {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes GoOpaque {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes GoOpaque {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }/*# sourceMappingURL=app.css.map */
