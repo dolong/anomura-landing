@@ -40,11 +40,6 @@ a {
   background-position-y: -200px;
   background-size: auto;
 }
-@media only screen and (max-width: 800px) {
-  .App {
-    background-position: 0 0px;
-  }
-}
 
 .sunlight {
   display: none;
