@@ -2,7 +2,7 @@ import { useScrollValue } from "lib/useScroll";
 import "sass/containers/nft.css";
 export default function NFT() {
 
-    const calculatedOffsetY = useScrollValue(-6.5, 30);
+    const calculatedOffsetY = useScrollValue(-6.5, 20);
     return (
         <div className="nft" style={{ transform: `translateY(${calculatedOffsetY}vh)` }}>
             <div className="d-flex col f-justify-c pl-auto">

@@ -1,10 +1,11 @@
 import { useScrollValue } from "lib/useScroll";
+import "sass/containers/footer.css"
 export default function Footer() {
 
-    const calculatedOffsetY = useScrollValue(-8.5, 4000);
+    const calculatedOffsetY = useScrollValue(-17.5, 700);
 
     return (
-        <div className="footer" style={{ transform: `translateY(${calculatedOffsetY}px)` }}>
+        <div className="footer" style={{ transform: `translateY(${calculatedOffsetY}vh)` }}>
             <div className="logo-containter">
             </div>
             <div className="footer-info pl-auto">

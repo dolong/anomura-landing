@@ -4,7 +4,7 @@ import "sass/containers/when.css"
 export default function WhenIsItOut() {
 
 
-    const calculatedOffsetY = useScrollValue(-11.5, 410);
+    const calculatedOffsetY = useScrollValue(-11.5, 320);
 
     return (
         <div className="when-zone " style={{ transform: `translateY(${calculatedOffsetY}vh)` }}>

@@ -33,7 +33,7 @@ a {
 
 .App {
   width: 100%;
-  min-height: 1500px;
+  min-height: 1400px;
   overflow: hidden;
   background-image: url("img/backgrounds/SandLayer.png");
   background-position-y: -200px;
