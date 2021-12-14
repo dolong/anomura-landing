@@ -1,8 +1,5 @@
 import { Navbar } from "components/ComponentIndex";
 import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "./containers/ContainerIndex";
-import { useEffect } from "react";
-import { useSetRecoilState } from "recoil";
-import { ScrollValue } from 'Atom/Atoms';
 import { useScrollEvent } from "lib/useScroll";
 import SubscribeImg from "img/subscribe.png";
 import ShopImg from "img/shop.gif";

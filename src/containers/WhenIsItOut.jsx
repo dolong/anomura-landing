@@ -1,5 +1,6 @@
 import { useScrollValue } from "lib/useScroll";
 import { TreasureChest } from "containers/ContainerIndex";
+import "sass/containers/when.css"
 export default function WhenIsItOut() {
 
 

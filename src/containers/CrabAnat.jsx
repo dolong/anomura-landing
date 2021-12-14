@@ -1,4 +1,5 @@
 import { useScrollValue } from "lib/useScroll";
+import "sass/containers/crabanat.css"
 export default function CrabAnat() {
 
 

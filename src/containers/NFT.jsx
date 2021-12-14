@@ -1,4 +1,5 @@
 import { useScrollValue } from "lib/useScroll";
+import "sass/containers/nft.css";
 export default function NFT() {
 
     const calculatedOffsetY = useScrollValue(-4.5, 60);
