@@ -21,15 +21,15 @@ export default function TreasureChest() {
         <div onClick={OpenChest} className="treasure-zone">
             {
                 chestState === "opening" &&
-                <img src={ChestOpeningImg} alt="" />
+                <img className="treasure-img" src={ChestOpeningImg} alt="" />
             }
             {
                 chestState === "opened" &&
-                <img src={ChestOpenedImg} alt="" />
+                <img className="treasure-img" src={ChestOpenedImg} alt="" />
             }
             {
                 chestState === "idle" &&
-                <img src={ChestIdleImg} alt="" />
+                <img className="treasure-img" src={ChestIdleImg} alt="" />
             }
         </div>
     )

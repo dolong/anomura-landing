@@ -2,28 +2,19 @@
   margin-left: clamp(8%,8%,12%);
 }
 .shop-img {
-  max-width: 1000px;
+  width: clamp(50%,80vw,1000px);
   position: absolute;
-  top: 10vh;
+  top: clamp(5vw,10vh,12vh);
   left: 40%;
 }
 
 @media only screen and (max-width: 1450px) {
   .shop-img {
-    max-width: 800px;
-    top: 25vh;
     left: 28%;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .shop-img {
-    top: 30vh;
-    max-width: 800px;
   }
 }
 @media only screen and (max-width: 1100px) {
   .shop-img {
-    top: 40vh;
     left: 32%;
   }
 }

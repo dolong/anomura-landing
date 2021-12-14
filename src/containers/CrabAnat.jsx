@@ -3,10 +3,10 @@ import "sass/containers/crabanat.css"
 export default function CrabAnat() {
 
 
-    const calculatedOffsetY = useScrollValue(-8.5, 2000);
+    const calculatedOffsetY = useScrollValue(-8.5, 210);
 
     return (
-        <div className="crab-anat" style={{ transform: `translateY(${calculatedOffsetY}px)` }} >
+        <div className="crab-anat" style={{ transform: `translateY(${calculatedOffsetY}vh)` }} >
             <div className="pl-auto">
                 <h3>CRAB ANATOMY?</h3>
                 <p>

@@ -4,20 +4,27 @@
     position: absolute;
     min-height: 2000px;
     @media only screen and (max-width: 800px) {
-    min-height: unset;
+      min-height: 600px;
     }
 }
 
 .when {
-    &-zone {
-      @include z-layers();
-      background-image: url("img/backgrounds/Layer5Eyes.png");
-      z-index: 5;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      min-height: 2000px;
-      padding-top: 55vh;
-    }
+  &-zone {
+    @include z-layers();
+    background-image: url("img/backgrounds/Layer5Eyes.png");
+    z-index: 5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 55vh;
   }
+}
+
+.treasure{
+  &-img{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
   

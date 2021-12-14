@@ -36,12 +36,12 @@ a {
   min-height: 1500px;
   overflow: hidden;
   background-image: url("img/backgrounds/SandLayer.png");
-  background-position: 0 -25vh;
+  background-position-y: -200px;
   background-size: cover;
 }
 @media only screen and (max-width: 800px) {
   .App {
-    background-position: 0 0;
+    background-position: 0 -500px;
   }
 }
 

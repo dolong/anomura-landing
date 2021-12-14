@@ -4,10 +4,10 @@ import "sass/containers/when.css"
 export default function WhenIsItOut() {
 
 
-    const calculatedOffsetY = useScrollValue(-11.5, 4000);
+    const calculatedOffsetY = useScrollValue(-11.5, 410);
 
     return (
-        <div className="when-zone " style={{ transform: `translateY(${calculatedOffsetY}px)` }}>
+        <div className="when-zone " style={{ transform: `translateY(${calculatedOffsetY}vh)` }}>
             <div className="pl-auto">
                 <h3>WHEN IS IT OUT?</h3>
                 <p>
@@ -15,9 +15,8 @@ export default function WhenIsItOut() {
                     with many alpha and beta releases. <br />
                     A detailed roadmap will be available shortly!
                 </p>
-                <TreasureChest></TreasureChest>
             </div>
-
+            <TreasureChest></TreasureChest>
         </div>
     )
 }

@@ -6,7 +6,8 @@ export function useScrollEvent() {
 
     const setOffsetY = useSetRecoilState(ScrollValue);
     const handleScroll = () => {
-        setOffsetY(window.pageYOffset);
+        console.log(window.innerWidth / window.innerHeight);
+        setOffsetY(window.scrollY);
     }
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -24,10 +25,10 @@ export function useScrollValue(ScrollSpeed, ScrollOffSet) {
     const scrollSpeed = ScrollSpeed;
     let calculatedOffsetY = 0;
     const scrollOffset = ScrollOffSet;
-
+    let scrollMultiplier = 10;
 
     function calculateScrollValues() {
-        calculatedOffsetY = scrollOffset + (scrollValue * scrollSpeed);
+        calculatedOffsetY = scrollOffset + (scrollValue * scrollSpeed / scrollMultiplier);
     }
 
     calculateScrollValues();
