@@ -1,28 +1,13 @@
-import { useRecoilValue } from "recoil";
-import { ScrollValue } from 'Atom/Atoms';
-
+import { useScrollValue } from "lib/useScroll";
 export default function Footer() {
 
-    const scrollValue = useRecoilValue(ScrollValue);
-    const scrollSpeed = -16.5;
-    const scrollIndex = 12;
-    let calculatedOffsetY = 0;
-    let calculatedScrollValue = 0;
-    const scrollOffset = 60;
-    function calculateScrollValues() {
-        calculatedOffsetY = scrollIndex * scrollOffset;
-        calculatedScrollValue = scrollValue * scrollSpeed;
-    }
-
-    calculateScrollValues();
-
-    const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
+    const calculatedOffsetY = useScrollValue(-8.5, 4000);
 
     return (
-        <div className="footer" style={{ transform: `translateY(${style})` }}>
+        <div className="footer" style={{ transform: `translateY(${calculatedOffsetY}px)` }}>
             <div className="logo-containter">
             </div>
-            <div className="footer-info">
+            <div className="footer-info pl-auto">
                 <div className="footer-social">
 
                 </div>
@@ -35,6 +20,6 @@ export default function Footer() {
                 </div>
             </div>
 
-        </div>
+        </ div>
     )
 }

@@ -1,3 +1,4 @@
+import "sass/containers/shopzone.css"
 /**
  * The main area of the landing page with the shop gif.
  * 

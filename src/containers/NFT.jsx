@@ -1,5 +1,3 @@
-import { useRecoilValue } from "recoil";
-import { ScrollValue } from 'Atom/Atoms';
 import { useScrollValue } from "lib/useScroll";
 export default function NFT() {
 

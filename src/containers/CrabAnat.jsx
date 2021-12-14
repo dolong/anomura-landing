@@ -1,23 +1,11 @@
-import { useRecoilValue } from "recoil";
-import { ScrollValue } from 'Atom/Atoms';
+import { useScrollValue } from "lib/useScroll";
 export default function CrabAnat() {
 
-    const scrollValue = useRecoilValue(ScrollValue);
-    const scrollSpeed = -8.5;
-    const scrollIndex = 3;
-    let calculatedOffsetY = 0;
-    let calculatedScrollValue = 0;
-    const scrollOffset = 60;
-    function calculateScrollValues() {
-        calculatedOffsetY = scrollIndex * scrollOffset;
-        calculatedScrollValue = scrollValue * scrollSpeed;
-    }
 
-    calculateScrollValues();
+    const calculatedOffsetY = useScrollValue(-8.5, 2000);
 
-    const style = `calc(${calculatedOffsetY}vh + ${calculatedScrollValue}px)`;
     return (
-        <div className="crab-anat" style={{ transform: `translateY(${style})` }} >
+        <div className="crab-anat" style={{ transform: `translateY(${calculatedOffsetY}px)` }} >
             <div className="pl-auto">
                 <h3>CRAB ANATOMY?</h3>
                 <p>
