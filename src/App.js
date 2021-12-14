@@ -3,6 +3,7 @@ import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "./containers/Conta
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { ScrollValue } from 'Atom/Atoms';
+import { useScroll } from "lib/useScroll";
 import SubscribeImg from "img/subscribe.png";
 import ShopImg from "img/shop.gif";
 import SunLight from "img/sunlight.png";
@@ -10,20 +11,7 @@ import './App.css';
 
 function App() {
 
-  const setOffsetY = useSetRecoilState(ScrollValue);
-
-  const handleScroll = () => {
-    setOffsetY(window.pageYOffset);
-    console.log(window.pageYOffset);
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  });
+  const setOffsetY = useScroll();
 
   return (
     <div className="App">
