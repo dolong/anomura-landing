@@ -18,12 +18,17 @@ function App() {
       <ShopZone></ShopZone>
 
       <div className="parallax-group">
-
         <NFT></NFT>
+      </div>
+      <div className="parallax-group">
         <CrabAnat></CrabAnat>
+      </div>
+      <div className="parallax-group">
         <WhenIsItOut></WhenIsItOut>
+      </div><div className="parallax-group">
         <Footer></Footer>
       </div>
+
 
     </div>
   );

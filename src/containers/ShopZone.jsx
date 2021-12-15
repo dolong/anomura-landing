@@ -9,7 +9,7 @@ export default function ShopZone() {
     return (
         <div>
             <div className="shop-zone">
-                <div >
+                <div className="shop-left">
                     <h2 className="bold" >COMING SOON!</h2>
                     <p>
                         True Pixel Indie RPG briliant gameplay
@@ -34,11 +34,14 @@ export default function ShopZone() {
                         </a>
                     </div>
                 </div>
+
             </div>
-            <img className="shop-img" src={ShopImg} alt="" />
-            <div className="d-flex f-justify-c">
+            <div className="sand-zone">
+                <img className="shop-img" src={ShopImg} alt="" />
                 <img className="sub-img" src={SubscribeImg} alt="" />
             </div>
+
+
         </div>
     )
 }

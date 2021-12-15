@@ -1,4 +1,6 @@
 import { useScrollValue } from "lib/useScroll";
+import VHSImg from "img/logos/vhs.png";
+import ZedImg from "img/logos/zed.png";
 import "sass/containers/footer.css"
 export default function Footer() {
 

@@ -7,7 +7,7 @@ import "sass/components/navbar.css"
  */
 export default function Navbar() {
     return (
-        <div className="nav-menu container d-flex">
+        <div className="nav-menu container ">
             <div>
                 <img src="" alt="" className="brand-logo" />
             </div>

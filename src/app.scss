@@ -35,9 +35,9 @@ a {
   width: 100%;
   min-height: 1400px;
   overflow: hidden;
-  background-image: url("img/backgrounds/SandLayer.png");
+  background-image: url("img/backgrounds/Layer1.png");
   background-position-y: -200px;
-  background-size: auto;
+  background-size: cover;
 }
 .sunlight{
   display: none;
@@ -89,13 +89,6 @@ a {
     h3 {
       text-align: center;
     }
-  }
-}
-
-@media only screen and (max-width: 800px) {
-
-  .nav-menu{
-    display: none;
   }
 }
 
