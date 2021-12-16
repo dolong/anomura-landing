@@ -4,9 +4,11 @@ import { ScrollValue } from 'Atom/Atoms';
 
 export function useScrollEvent() {
 
-    const setOffsetY = useSetRecoilState(ScrollValue);
+    const setScrollPerecent = useSetRecoilState(ScrollValue);
     const handleScroll = () => {
-        setOffsetY(window.scrollY);
+        // gets percentage scrolled (ie: 80 or NaN if tracklength == 0);
+        var pctScrolled = Math.floor(window.scrollY / document.body.clientHeight * 100)
+        setScrollPerecent(pctScrolled);
     }
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -15,19 +17,17 @@ export function useScrollEvent() {
             window.removeEventListener("scroll", handleScroll);
         }
     });
-    return setOffsetY;
+    return setScrollPerecent;
 }
 
 export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset) {
-    const scrollValue = useRecoilValue(ScrollValue);
-    let scrollPercent = GetScrollPercent();
+    const scrollPercent = useRecoilValue(ScrollValue);
 
     const scrollSpeed = ScrollSpeed;
     const scrollOffset = ScrollOffSet;
     const smallScreenOffset = SmallScreenOffset;
     let calculatedOffsetY = 0;
     let scrollMultiplier = 2;
-
 
     if (window.innerWidth < 800) {
         scrollMultiplier = 4;
@@ -46,9 +46,4 @@ export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset) {
     // console.log("inner height is: " + window.outerHeight + " scroll y is: " + window.scrollY + " Calculated size: " + (window.outerHeight + window.scrollY));
 
     return calculatedOffsetY;
-}
-
-function GetScrollPercent() {
-    var pctScrolled = Math.floor(window.scrollY / document.body.clientHeight * 100) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
-    return pctScrolled;
 }
