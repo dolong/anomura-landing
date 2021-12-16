@@ -1,11 +1,8 @@
 @use "sass/mixins" as m;
 
 .footer {
-    @include m.z-layers(6,"img/backgrounds/Layer6.png");
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 40vh;
+    @include m.z-layers(6,"img/backgrounds/Layer6.png",45%);
+    @include m.flex-master(column,flex-end,initial);
 }
 .logo-container{
     display: flex;

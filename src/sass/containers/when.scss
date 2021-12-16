@@ -2,11 +2,10 @@
 
 .when {
   &-zone {
-    @include m.z-layers(5,"img/backgrounds/Layer5Eyes.png");
+    @include m.z-layers(5,"img/backgrounds/Layer5Eyes.png",80%);
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding-bottom: 85vh;
   }
   &-margin{
     margin-top: 30%;

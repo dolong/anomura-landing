@@ -1,7 +1,15 @@
-@mixin z-layers($z-index, $background-image) {
+@mixin z-layers($z-index, $background-image, $pb) {
     width: 100%;
     background-image: url($background-image);
     background-size: cover;
     position: absolute; 
     z-index: $z-index;
+    padding-bottom: $pb;
+}
+
+@mixin flex-master($direction,$justtify-content,$align-items){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justtify-content;
+    align-items: $align-items;
 }
