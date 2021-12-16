@@ -22,6 +22,10 @@ body{
   font-family: Atlantis;
   color: c.$primary-font-color;
   line-height: 1.5;
+
+  @media only screen and (max-width: 1200px) {
+    line-height: 1.2;
+  }
 }
 
 ul {
@@ -33,11 +37,10 @@ a {
 }
 .App{
   width: 100%;
-  min-height: 1400px;
-  overflow: hidden;
-  background-image: url("img/backgrounds/Layer1.png");
-  background-position-y: -200px;
-  background-size: cover;
+  background-image: url("img/backgrounds/SandLayer.png");
+  background-size: auto;
+  background-position: 0 -355px;
+  padding-bottom: 40%;
 }
 .sunlight{
   display: none;
@@ -46,12 +49,11 @@ a {
   left: 15%;
   max-width: 60%;
 }
-
-
-
 .parallax-group{
   position: relative;
 }
+
+
 
 .m {
   &t {

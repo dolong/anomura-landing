@@ -2,13 +2,10 @@
   width: 100%;
   background-size: cover;
   position: absolute;
-  min-height: 2000px;
   background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
-  padding: 40% 0 10% 0;
+  padding-bottom: 60%;
 }
-@media only screen and (max-width: 800px) {
-  .nft {
-    min-height: 600px;
-  }
+.nft-margin {
+  margin-top: 40%;
 }/*# sourceMappingURL=nft.css.map */

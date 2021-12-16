@@ -3,7 +3,7 @@
   background: url("img/menu.png") no-repeat;
   background-size: contain;
   width: max(750px, 85%);
-  height: max(70px, 5vw);
+  height: max(90px, 5vw);
   padding: 0 4vw;
   margin: auto;
   z-index: 2;

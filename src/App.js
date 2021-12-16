@@ -15,21 +15,13 @@ function App() {
     <div className="App">
       <img className="sunlight" src={SunLight} alt="" />
       <Navbar></Navbar>
-      <ShopZone></ShopZone>
-
       <div className="parallax-group">
+        <ShopZone></ShopZone>
         <NFT></NFT>
-      </div>
-      <div className="parallax-group">
         <CrabAnat></CrabAnat>
-      </div>
-      <div className="parallax-group">
         <WhenIsItOut></WhenIsItOut>
-      </div><div className="parallax-group">
         <Footer></Footer>
       </div>
-
-
     </div>
   );
 }

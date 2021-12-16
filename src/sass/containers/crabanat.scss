@@ -1,18 +1,13 @@
-@mixin z-layers {
-        width: 100%;
-        background-size: cover;
-        position: absolute;
-        min-height: 2000px;
-        @media only screen and (max-width: 800px) {
-            min-height: 600px;
-        }
-    }
-
 .crab {
     &-anat {
-    @include z-layers();
+        width: 100%;
+        background-size: cover;
+        position: absolute;   
     background-image: url("img/backgrounds/Layer4.png");
     z-index: 4;
-    padding-top:30%;
+    padding-bottom:60%;
+    }
+    &-margin{
+        margin-top: 30%;
     }
 }

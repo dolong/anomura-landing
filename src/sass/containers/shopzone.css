@@ -1,42 +1,37 @@
 .shop-zone {
   margin-left: 8%;
-  min-height: 500px;
+  display: flex;
+}
+.shop-text {
+  flex-basis: 35%;
 }
 .shop-img {
-  width: 850px;
-  max-width: calc(75vh + 10vw);
-  position: relative;
-  top: calc(-43vh - 35px);
-  left: calc(15vw + 50px);
+  width: min(50vw, 850px, 100vw);
 }
 
 .sub-img {
-  position: relative;
-  top: calc(-45vh);
-  right: 0;
   width: 400px;
 }
 
 .sand-zone {
-  background-image: url("img/backgrounds/Layer2.png");
-  background-size: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1200px) {
   .shop-img {
-    display: none;
+    width: 700px;
   }
 }
 @media only screen and (max-width: 800px) {
   .shop-img {
-    display: none;
+    width: 300px;
   }
-
-  .sub-img {
+}
+@media only screen and (max-width: 600px) {
+  .shop-img {
     display: none;
   }
 }/*# sourceMappingURL=shopzone.css.map */

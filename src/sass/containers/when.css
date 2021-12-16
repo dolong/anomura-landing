@@ -2,18 +2,15 @@
   width: 100%;
   background-size: cover;
   position: absolute;
-  min-height: 2000px;
   background-image: url("img/backgrounds/Layer5Eyes.png");
   z-index: 5;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding-top: 55vh;
+  padding-bottom: 85vh;
 }
-@media only screen and (max-width: 800px) {
-  .when-zone {
-    min-height: 600px;
-  }
+.when-margin {
+  margin-top: 30%;
 }
 
 .treasure-zone {
