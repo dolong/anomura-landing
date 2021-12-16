@@ -2,10 +2,10 @@ import { useScrollValue } from "lib/useScroll";
 import "sass/containers/nft.css";
 export default function NFT() {
 
-    const calculatedOffsetY = useScrollValue(-6.5, 20);
+    const calculatedOffsetY = useScrollValue(-6.5, 550, 0);
     return (
-        <div className="nft" style={{ transform: `translateY(${calculatedOffsetY}vh)` }}>
-            <div className="d-flex col f-justify-c pl-auto">
+        <div className="nft" style={{ top: `calc(${calculatedOffsetY}px)` }}>
+            <div className="d-flex col f-justify-c pl-auto nft-margin">
                 <p>NFT VIDEOGAME?</p>
                 <p>
                     8,000 unique and collectable anomura ranging from sentient robots to immportal oosmic beings.... <br />

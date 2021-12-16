@@ -9,15 +9,17 @@ export default function ShopZone() {
     return (
         <div>
             <div className="shop-zone">
-                <div className="shop-left">
-                    <h2 className="bold" >COMING SOON!</h2>
+                <div className="shop-text">
+                    <div>
+                        <h2 className="bold" >COMING SOON!</h2>
+                        <p>
+                            True Pixel Indie RPG briliant gameplay
+                            <br /> inspired by Loop Hero, Diablo, Ragnarok Online
+                        </p>
+                    </div>
                     <p>
-                        True Pixel Indie RPG briliant gameplay
-                        <br /> inspired by Loop Hero, Diablo, Ragnarok Online -
-                        <br />
-                        <span className="bold">Anomura</span> will be a unique game with gameplay
-                        <br /> that is both familiar and intriguing!
-                    </p>
+                        <br /> <span className="bold">Anomura</span> will be a unique game with gameplay
+                        <br /> that is both familiar and intriguing!</p>
                     <p className="mt-2">
                         Welcome to <span className="bold">the future of Indie games</span>
                         <br /> brought to you by <span className="bold">VHS Labs</span>, founder of <span className="bold">Zed.Run</span>
@@ -34,14 +36,11 @@ export default function ShopZone() {
                         </a>
                     </div>
                 </div>
-
+                <img className="shop-img" src={ShopImg} alt="" />
             </div>
             <div className="sand-zone">
-                <img className="shop-img" src={ShopImg} alt="" />
                 <img className="sub-img" src={SubscribeImg} alt="" />
             </div>
-
-
         </div>
     )
 }

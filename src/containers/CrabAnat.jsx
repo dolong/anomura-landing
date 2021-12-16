@@ -3,11 +3,11 @@ import "sass/containers/crabanat.css"
 export default function CrabAnat() {
 
 
-    const calculatedOffsetY = useScrollValue(-8.5, 150);
+    const calculatedOffsetY = useScrollValue(-20, 1550, -200);
 
     return (
-        <div className="crab-anat" style={{ transform: `translateY(${calculatedOffsetY}vh)` }} >
-            <div className="pl-auto">
+        <div className="crab-anat" style={{ top: `calc(${calculatedOffsetY}px)` }} >
+            <div className="pl-auto crab-margin">
                 <h3>CRAB ANATOMY?</h3>
                 <p>
                     Each body part has a chance of being normal to legendary rarity.<br />

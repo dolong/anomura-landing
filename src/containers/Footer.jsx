@@ -4,15 +4,16 @@ import ZedImg from "img/logos/zed.png";
 import "sass/containers/footer.css"
 export default function Footer() {
 
-    const calculatedOffsetY = useScrollValue(-17.5, 700);
+    const calculatedOffsetY = useScrollValue(-40, 4800, -900);
 
     return (
-        <div className="footer" style={{ transform: `translateY(${calculatedOffsetY}vh)` }}>
-            <div className="logo-containter">
+        <div className="footer" style={{ top: `calc(${calculatedOffsetY}px)` }}>
+            <div className="logo-container">
+                <img src={VHSImg} alt="" />
+                <img src={ZedImg} alt="" />
             </div>
             <div className="footer-info pl-auto">
                 <div className="footer-social">
-
                 </div>
                 <div>
                     <p>
@@ -23,6 +24,6 @@ export default function Footer() {
                 </div>
             </div>
 
-        </ div>
+        </ div >
     )
 }
