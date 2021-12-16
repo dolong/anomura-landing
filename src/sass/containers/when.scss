@@ -1,14 +1,8 @@
-@mixin z-layers {
-    width: 100%;
-    background-size: cover;
-    position: absolute; 
-}
+@use "sass/mixins" as m;
 
 .when {
   &-zone {
-    @include z-layers();
-    background-image: url("img/backgrounds/Layer5Eyes.png");
-    z-index: 5;
+    @include m.z-layers(5,"img/backgrounds/Layer5Eyes.png");
     flex-direction: column;
     align-items: center;
     justify-content: space-around;

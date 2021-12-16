@@ -7,14 +7,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: 25vh;
   padding-bottom: 40vh;
 }
 
 .logo-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 15%;
+  margin-top: 35%;
 }
 .logo-container > img {
   width: min(400px, 20%);

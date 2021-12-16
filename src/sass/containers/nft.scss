@@ -1,9 +1,7 @@
+@use "sass/mixins" as m;
+
 .nft {
-  width: 100%;
-  background-size: cover;
-  position: absolute;
-  background-image: url("img/backgrounds/Layer3.png");
-  z-index: 3;
+  @include m.z-layers(3,"img/backgrounds/Layer3.png");
   padding-bottom:60%;
   &-margin{
     margin-top: 40%;

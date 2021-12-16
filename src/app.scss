@@ -3,9 +3,6 @@
   src: url("fonts/AtlantisInternational.ttf");
   font-family: Atlantis;
 }
-@mixin font-size {
-  font-size: clamp(20px,2vw,26px);
-}
 
 * {
   box-sizing: border-box;
@@ -18,7 +15,7 @@ html,body {
 body{
   scroll-behavior: smooth;
   overflow-x:hidden;
-  @include font-size();
+  font-size: clamp(20px,2vw,26px);
   font-family: Atlantis;
   color: c.$primary-font-color;
   line-height: 1.5;
