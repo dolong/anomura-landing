@@ -1,6 +1,7 @@
+@use "../mixins" as m;
 .nav {
     &-menu {
-        display: flex;
+    display: flex;
     background: url("img/menu.png") no-repeat;
     background-size:contain;
     width: max(750px,85%);
@@ -11,22 +12,20 @@
     }
     &-list {
         height: clamp(30px,50%,80%);
-        display: flex;
-        justify-content: space-between;
-        justify-self: right;
-        align-items: center;
         width: 100%;
-        }
+        @include m.flex-master(null,space-between,center);
+    }
     
 }
 
 @media only screen and (max-width: 800px) {
     .nav {
         &-menu {
-        background-size:100% 50%;
-        width: 100%;
-        height: unset;
-        padding: 0 4vw;
+        //The below is for when someone clicks a button to shwo you navmenu.
+        // background-size:100% 50%;
+        // width: 100%;
+        // height: unset;
+        // padding: 0 4vw;
         display: none;
         }
         &-list {

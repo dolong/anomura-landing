@@ -13,9 +13,7 @@
 .treasure{
   &-zone{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    @include m.flex-master(null,center,flex-end);
   }
 
   &-img{
