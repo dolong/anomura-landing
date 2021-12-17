@@ -6,7 +6,6 @@ export function useScrollEvent() {
 
     const setScrollPerecent = useSetRecoilState(ScrollValue);
     const handleScroll = () => {
-        // Gets percentage scrolled in vh values ;
         var pctScrolled = Math.floor(window.scrollY / document.body.clientHeight * 100)
         setScrollPerecent(pctScrolled);
     };
@@ -45,9 +44,5 @@ export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset) {
     }
 
     calculatedOffsetY = Math.floor(ScrollOffSet + (scrollPercent * ScrollSpeed / scrollMultiplier));
-
-    // console.log(calculatedOffsetY + " calculated offset");
-    // console.log("inner height is: " + window.outerHeight + " scroll y is: " + window.scrollY + " Calculated size: " + (window.outerHeight + window.scrollY));
-
     return calculatedOffsetY;
 }
