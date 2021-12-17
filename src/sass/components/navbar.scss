@@ -18,7 +18,10 @@
         width: 100%;
         @include m.flex-master(null,space-between,center);
     }
-    
+    &-logo{
+        width: 80%;
+        margin-top: 2vh;
+    }
 }
 
 @media only screen and (max-width: 800px) {

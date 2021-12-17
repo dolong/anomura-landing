@@ -16,6 +16,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.nav-logo {
+  width: 80%;
+  margin-top: 2vh;
+}
 
 @media only screen and (max-width: 800px) {
   .nav-menu {
