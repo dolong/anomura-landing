@@ -1,13 +1,13 @@
+@use "../mixins" as m;
+
+
 .crab {
-    &-anat {
-        width: 100%;
-        background-size: cover;
-        position: absolute;   
-    background-image: url("img/backgrounds/Layer4.png");
-    z-index: 4;
-    padding-bottom:60%;
+    &-anat { 
+        @include m.z-layers(4,"img/backgrounds/Layer4.png",60%);
+        @include m.flex-master(null,center,null);
     }
-    &-margin{
+    &-text{
+        @include m.flex-master(column,null,center);
         margin-top: 30%;
     }
 }

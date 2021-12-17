@@ -1,11 +1,16 @@
 .crab-anat {
   width: 100%;
+  background-image: url("img/backgrounds/Layer4.png");
   background-size: cover;
   position: absolute;
-  background-image: url("img/backgrounds/Layer4.png");
   z-index: 4;
   padding-bottom: 60%;
+  display: flex;
+  justify-content: center;
 }
-.crab-margin {
+.crab-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 30%;
 }/*# sourceMappingURL=crabanat.css.map */

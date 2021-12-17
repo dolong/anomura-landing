@@ -6,7 +6,7 @@
   flex-basis: 35%;
 }
 .shop-img {
-  width: min(50vw, 850px, 100vw);
+  width: min(50vw, 850px);
 }
 
 .sub-img {
@@ -16,8 +16,8 @@
 .sand-zone {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: start;
 }
 
 @media only screen and (max-width: 1200px) {

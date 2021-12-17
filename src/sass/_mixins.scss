@@ -7,9 +7,11 @@
     padding-bottom: $pb;
 }
 
-@mixin flex-master($direction,$justtify-content: normal,$align-items: normal){
+@mixin flex-master($direction: row,$justify-content: normal,$align-items: normal){
     display: flex;
     flex-direction: $direction;
-    justify-content: $justtify-content;
+    justify-content: $justify-content;
     align-items: $align-items;
 }
+
+$primary-color: #191226;

@@ -1,8 +1,10 @@
-@use "sass/mixins" as m;
+@use "../mixins" as m;
 
 .nft {
   @include m.z-layers(3,"img/backgrounds/Layer3.png",60%);
-  &-margin{
+  @include m.flex-master(null,center,null);
+  &-text{
+    @include m.flex-master(column,null,center);
     margin-top: 40%;
   }
 

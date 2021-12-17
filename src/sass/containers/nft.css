@@ -1,11 +1,16 @@
 .nft {
   width: 100%;
+  background-image: url("img/backgrounds/Layer3.png");
   background-size: cover;
   position: absolute;
-  background-image: url("img/backgrounds/Layer3.png");
   z-index: 3;
   padding-bottom: 60%;
+  display: flex;
+  justify-content: center;
 }
-.nft-margin {
+.nft-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 40%;
 }/*# sourceMappingURL=nft.css.map */

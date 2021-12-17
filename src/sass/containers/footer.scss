@@ -1,12 +1,12 @@
-@use "sass/mixins" as m;
+@use "../mixins" as m;
 
 .footer {
     @include m.z-layers(6,"img/backgrounds/Layer6.png",45%);
-    @include m.flex-master(column,flex-end,initial);
+    @include m.flex-master(column,null,center);
+    
 }
 .logo-container{
-    display: flex;
-    justify-content: space-around;
+    @include m.flex-master(row,center,null);
     margin-top: 35%;
     &>img{
         width: min(400px,20%);

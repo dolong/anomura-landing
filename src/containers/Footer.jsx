@@ -12,7 +12,7 @@ export default function Footer() {
                 <img src={VHSImg} alt="" />
                 <img src={ZedImg} alt="" />
             </div>
-            <div className="footer-info pl-auto">
+            <div className="footer-info ">
                 <div className="footer-social">
                 </div>
                 <div>

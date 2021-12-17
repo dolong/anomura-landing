@@ -8,7 +8,7 @@ export default function WhenIsItOut() {
 
     return (
         <div className="when-zone " style={{ top: `calc(${calculatedOffsetY}px)` }}>
-            <div className="pl-auto when-margin">
+            <div className="when-text">
                 <h3>WHEN IS IT OUT?</h3>
                 <p>
                     Anomura will be targeted to be released by the end of 2021, <br />
