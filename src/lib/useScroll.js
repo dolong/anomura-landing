@@ -6,10 +6,10 @@ export function useScrollEvent() {
 
     const setScrollPerecent = useSetRecoilState(ScrollValue);
     const handleScroll = () => {
-        // gets percentage scrolled (ie: 80 or NaN if tracklength == 0);
+        // Gets percentage scrolled in vh values ;
         var pctScrolled = Math.floor(window.scrollY / document.body.clientHeight * 100)
         setScrollPerecent(pctScrolled);
-    }
+    };
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 

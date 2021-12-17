@@ -1,4 +1,4 @@
-@mixin z-layers($z-index, $background-image, $pb) {
+@mixin z-layers($z-index, $background-image, $pb: 40%) {
     width: 100%;
     background-image: url($background-image);
     background-size: cover;
@@ -7,7 +7,7 @@
     padding-bottom: $pb;
 }
 
-@mixin flex-master($direction,$justtify-content,$align-items){
+@mixin flex-master($direction,$justtify-content: normal,$align-items: normal){
     display: flex;
     flex-direction: $direction;
     justify-content: $justtify-content;
