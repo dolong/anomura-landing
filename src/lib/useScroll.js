@@ -32,13 +32,13 @@ export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset) {
     //Four seems to be the magic number for not stretching the scroll bar
     let scrollMultiplier = 4;
 
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < 900) {
         scrollMultiplier = 4;
         calculatedOffsetY = Math.floor(ScrollOffSet + SmallScreenOffset + (scrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
     else if (window.innerWidth < 1200) {
-        scrollMultiplier = 7;
+        scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(ScrollOffSet + SmallScreenOffset + (scrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
