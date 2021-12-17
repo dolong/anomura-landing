@@ -5,9 +5,10 @@
     background: url("img/menu.png") no-repeat;
     background-size:contain;
     width: max(750px,85%);
-    height: max(90px, 5vw);
+    height: max(110px, 5vw);
     padding: 0 4vw;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 2;
     //Had to make this a relative because static doesn't work with z-index. 
     //This needs to be z index 2 so the ray of light comes behhind the nav menu.
@@ -24,19 +25,21 @@
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .nav {
+        &-list{
+            align-items: start;
+        }
+    }
+}
 @media only screen and (max-width: 800px) {
     .nav {
         &-menu {
-        //The below is for when someone clicks a button to shwo you navmenu.
-        // background-size:100% 50%;
-        // width: 100%;
-        // height: unset;
-        // padding: 0 4vw;
-        display: none;
+            padding: 0 4vw;
+
         }
-        &-list {
-            flex-direction: column;
+        &-list{
+            align-items: start;
         }
-        
     }
 }

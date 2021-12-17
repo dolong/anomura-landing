@@ -15,6 +15,7 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 35%;
+  margin-bottom: 5%;
 }
 .logo-container > img {
   width: min(400px, 20%);

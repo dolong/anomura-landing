@@ -3,9 +3,10 @@
   background: url("img/menu.png") no-repeat;
   background-size: contain;
   width: max(750px, 85%);
-  height: max(90px, 5vw);
+  height: max(110px, 5vw);
   padding: 0 4vw;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 2;
   position: relative;
 }
@@ -21,11 +22,16 @@
   margin-top: 2vh;
 }
 
+@media only screen and (max-width: 1200px) {
+  .nav-list {
+    align-items: start;
+  }
+}
 @media only screen and (max-width: 800px) {
   .nav-menu {
-    display: none;
+    padding: 0 4vw;
   }
   .nav-list {
-    flex-direction: column;
+    align-items: start;
   }
 }/*# sourceMappingURL=navbar.css.map */

@@ -3,13 +3,13 @@
 .footer {
     @include m.z-layers(6,"img/backgrounds/Layer6.png",45%);
     @include m.flex-master(column,null,center);
-    
+
 }
 .logo-container{
     @include m.flex-master(row,center,null);
     margin-top: 35%;
+    margin-bottom: 5%;
     &>img{
         width: min(400px,20%);
-        
     }
 }
