@@ -9,6 +9,9 @@
     padding: 0 4vw;
     margin: auto;
     z-index: 2;
+    //Had to make this a relative because static doesn't work with z-index. 
+    //This needs to be z index 2 so the ray of light comes behhind the nav menu.
+    position: relative;
     }
     &-list {
         height: clamp(30px,50%,80%);

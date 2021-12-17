@@ -46,8 +46,7 @@ a {
 }
 
 .sunlight {
-  z-index: 1;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 15%;
   max-width: 60%;
