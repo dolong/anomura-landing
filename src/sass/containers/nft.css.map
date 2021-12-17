@@ -1,1 +1,1 @@
-{"version":3,"sources":["nft.scss","../_mixins.scss"],"names":[],"mappings":"AAEA;ECGI,WAAA;EACA,mDAAA;EACA,sBAAA;EACA,kBAAA;EACA,UDNkB;ECOlB,mBDPiD;ECcjD,aAAA;EAEA,uBDf0B;AAK9B;AAJE;ECYE,aAAA;EACA,sBDZuB;ECcvB,mBDdmC;EACnC,eAAA;AAQJ","file":"nft.css"}
+{"version":3,"sources":["nft.scss","../_mixins.scss"],"names":[],"mappings":"AAEA;ECMI,WAAA;EACA,mDAAA;EACA,sBAAA;EACA,kBAAA;EACA,UDTkB;ECUlB,mBDViD;ECiBjD,aAAA;EAEA,uBDlB0B;AAK9B;AAJE;ECeE,aAAA;EACA,sBDfuB;ECiBvB,mBDjBmC;EACnC,eAAA;AAQJ","file":"nft.css"}
