@@ -1,4 +1,5 @@
 @use "../mixins" as m;
+
 .shop {
     &-zone {
         margin-left: 8%;
@@ -14,6 +15,14 @@
 .sub {
   &-img {
     width: 400px;
+  }
+  &-input{
+    background: url("img/subscribe_box.png") no-repeat ;
+    background-size: 100%;
+    min-height: 100px;
+    min-width: 25%;
+    padding: 0 0 0 5%;
+    border: none;
   }
 }
 .sand{
@@ -43,16 +52,23 @@
 
   @media only screen and (max-width: 800px) {
     .shop{
+      &-zone{
+        flex-direction: column;
+        justify-content: center;
+      }
       &-img{
        display: none;
     }
     &-text{
-      flex-basis: 100%;
+      margin-top: 10%;
+      flex-basis: unset;
+      align-items: center;
     }
   }
   .sub {
     &-img {
-      margin-top: 20%;
+      //When we get a mobile navbar image we will ahve to play with this setting
+      margin-top: 18vh;
     }
   }
 }

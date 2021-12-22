@@ -15,7 +15,6 @@ html, body {
 }
 
 body {
-  scroll-behavior: smooth;
   overflow-x: hidden;
   font-size: clamp(20px,2vw,26px);
   font-family: Atlantis;
@@ -26,6 +25,10 @@ body {
   body {
     line-height: 1.2;
   }
+}
+
+input[type=text]:focus {
+  outline: none;
 }
 
 ul {

@@ -1,8 +1,9 @@
 @use "../mixins" as m;
 
 .nft {
-  @include m.z-layers(3,"img/backgrounds/Layer3.png",60%);
+  @include m.z-layers(3,"img/backgrounds/Layer3.png",65%);
   @include m.flex-master(null,center,null);
+  shape-outside: url("img/backgrounds/Layer3.png");
   &-text{
     @include m.flex-master(column,null,center);
     margin-top: 40%;

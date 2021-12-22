@@ -12,6 +12,14 @@
 .sub-img {
   width: 400px;
 }
+.sub-input {
+  background: url("img/subscribe_box.png") no-repeat;
+  background-size: 100%;
+  min-height: 100px;
+  min-width: 25%;
+  padding: 0 0 0 5%;
+  border: none;
+}
 
 .sand-zone {
   display: flex;
@@ -36,14 +44,20 @@
   }
 }
 @media only screen and (max-width: 800px) {
+  .shop-zone {
+    flex-direction: column;
+    justify-content: center;
+  }
   .shop-img {
     display: none;
   }
   .shop-text {
-    flex-basis: 100%;
+    margin-top: 10%;
+    flex-basis: unset;
+    align-items: center;
   }
 
   .sub-img {
-    margin-top: 20%;
+    margin-top: 18vh;
   }
 }/*# sourceMappingURL=shopzone.css.map */

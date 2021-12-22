@@ -4,9 +4,10 @@
   background-size: cover;
   position: absolute;
   z-index: 3;
-  padding-bottom: 60%;
+  padding-bottom: 65%;
   display: flex;
   justify-content: center;
+  shape-outside: url("img/backgrounds/Layer3.png");
 }
 .nft-text {
   display: flex;

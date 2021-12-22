@@ -29,9 +29,9 @@
 }
 @media only screen and (max-width: 800px) {
   .nav-menu {
-    padding: 0 4vw;
+    display: none;
   }
   .nav-list {
-    align-items: start;
+    display: none;
   }
 }/*# sourceMappingURL=navbar.css.map */
