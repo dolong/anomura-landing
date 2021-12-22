@@ -4,7 +4,7 @@ import ZedImg from "img/logos/zed.png";
 import "sass/containers/footer.css"
 export default function Footer() {
 
-    const calculatedOffsetY = useScrollValue(-55, 4800, -1200);
+    const calculatedOffsetY = useScrollValue(-55, 4400, -1100);
 
     return (
         <div className="footer" style={{ top: `calc(${calculatedOffsetY}px)` }}>
