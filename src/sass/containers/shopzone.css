@@ -80,8 +80,9 @@
   }
   .sub-input {
     background-size: cover;
-    min-height: 100px;
-    width: 95vw;
+    min-height: 65px;
+    width: min(65vw, 300px);
     font-size: 0.8rem;
+    padding-bottom: 3%;
   }
 }/*# sourceMappingURL=shopzone.css.map */
