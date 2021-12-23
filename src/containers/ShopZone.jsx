@@ -22,7 +22,7 @@ export default function ShopZone() {
                     <div>
                         <h2 className="bold" >COMING SOON!</h2>
                         <p>
-                            True Pixel Indie RPG briliant gameplay
+                            True Pixel Indie RPG brilliant gameplay
                             <br /> inspired by Loop Hero, Diablo, Ragnarok Online
                         </p>
                         <p>

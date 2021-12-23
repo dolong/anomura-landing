@@ -47,6 +47,11 @@ a {
   background-position: 0 -355px;
   padding-bottom: 40%;
 }
+@media only screen and (max-width: 1200px) {
+  .App {
+    background-position: 0 -555px;
+  }
+}
 
 .sunlight {
   position: absolute;
