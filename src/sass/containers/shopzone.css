@@ -17,7 +17,8 @@
   min-height: 95px;
   background: url("img/subscribe_box.png") no-repeat;
   background-size: cover;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
+  color: white;
   margin-left: 5%;
   padding: 0 0 0 5%;
   border: none;
