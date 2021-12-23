@@ -3,7 +3,7 @@ import "sass/containers/crabanat.css"
 export default function CrabAnat() {
 
 
-    const calculatedOffsetY = useScrollValue(-25, 1550, -200);
+    const calculatedOffsetY = useScrollValue(-25, 1600, -200);
 
     return (
         <div className="crab-anat" style={{ top: `calc(${calculatedOffsetY}px)` }} >

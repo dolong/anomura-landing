@@ -17,10 +17,10 @@
     width: 400px;
   }
   &-input{
-    width: 45vw;
+    width: 800px;
     min-height: 95px;
     background: url("img/subscribe_box.png") no-repeat ;
-    background-size: cover;
+    background-size: 100%;
     font-size: 1.45rem;
     color: white;
     margin-left: 5%;
@@ -38,6 +38,10 @@
 @media only screen and (max-width: 1200px) {
     .shop-img{
       width: max(65vw,600px);
+    }
+
+    .sub-input{
+      width: 600px;
     }
   }
 
@@ -75,10 +79,9 @@
       margin-top: 3vh;
     }
     &-input{
-      background-size: cover;
-      min-height: 100px;
-      width: 85vw;
+      width: 400px;
       font-size: 1.1rem;
+      padding-bottom: 10%;
     }
   }
 }
