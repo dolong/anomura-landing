@@ -4,7 +4,7 @@ import "sass/containers/when.css"
 export default function WhenIsItOut() {
 
 
-    const calculatedOffsetY = useScrollValue(-55, 3020, -500);
+    const calculatedOffsetY = useScrollValue(-55, 3020, -500, 100);
 
     return (
         <div className="when-zone " style={{ top: `calc(${calculatedOffsetY}px)` }}>
