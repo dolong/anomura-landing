@@ -25,7 +25,7 @@ export function useScrollEvent() {
  * @param {This is additionally added if the screen is for tablets or smaller devices.} SmallScreenOffset 
  * @returns 
  */
-export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset) {
+export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset, MicroScreenOffset = 0) {
     const scrollPercent = useRecoilValue(ScrollValue);
 
     let calculatedOffsetY = 0;
@@ -34,7 +34,7 @@ export function useScrollValue(ScrollSpeed, ScrollOffSet, SmallScreenOffset) {
 
     if (window.innerWidth < 600) {
         scrollMultiplier = 2;
-        calculatedOffsetY = Math.floor(ScrollOffSet + SmallScreenOffset + (scrollPercent * ScrollSpeed / scrollMultiplier));
+        calculatedOffsetY = Math.floor(ScrollOffSet + SmallScreenOffset + MicroScreenOffset + (scrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
     else if (window.innerWidth < 900) {
