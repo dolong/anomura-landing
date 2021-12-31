@@ -1,5 +1,4 @@
 import ShopImg from "img/shop.gif";
-import SubscribeImg from "img/subscribe.png";
 import { useState } from "react";
 import "sass/containers/shopzone.css"
 /**
@@ -34,7 +33,6 @@ export default function ShopZone() {
                             <br /> brought to you by <span className="bold">VHS Labs</span>, founder of <span className="bold">Zed.Run</span>
                         </p>
                     </div>
-
                     <h2 className="bold mt-2" >
                         Follow us on:
                     </h2>
@@ -50,7 +48,7 @@ export default function ShopZone() {
                 <img className="shop-img" src={ShopImg} alt="" />
             </div>
             <div className="sand-zone">
-                <img className="sub-img" src={SubscribeImg} alt="" />
+                <div className="sub-img" />
                 <form action="">
                     <input className="sub-input" type="text" value={email} onChange={handleChange} placeholder="Subscribe with your email here." />
                 </form>

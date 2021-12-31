@@ -11,10 +11,17 @@
 
 .sub-img {
   width: 400px;
+  height: 100px;
+  background: url("img/subscribe.png") no-repeat;
+  background-size: 100%;
+}
+.sub-img:hover {
+  background: url("img/subscribe-hover.png") no-repeat;
+  background-size: 100%;
 }
 .sub-input {
-  width: 800px;
-  min-height: 95px;
+  width: 415px;
+  min-height: 35px;
   background: url("img/subscribe_box.png") no-repeat;
   background-size: 100%;
   font-size: 1.45rem;
@@ -23,6 +30,9 @@
   padding: 0 0 0 5%;
   border: none;
   background-color: rgba(0, 0, 0, 0);
+}
+.sub-input:hover {
+  border: black solid 1px;
 }
 
 .sand-zone {
