@@ -11,18 +11,31 @@
     margin-right: auto;
     z-index: 2;
     //Had to make this a relative because static doesn't work with z-index. 
-    //This needs to be z index 2 so the ray of light comes behhind the nav menu.
+    //This needs to be z index 2 so the ray of light comes behind the nav menu.
     position: relative;
     }
     &-list {
-        height: clamp(30px,50%,80%);
+        margin-left: 4rem;
+        height: 65%;
         width: 100%;
         @include m.flex-master(null,space-between,center);
+    }
+    &-item{
+        font-size: 2rem;
     }
     &-logo{
         width: 80%;
         margin-top: 2vh;
     }
+    &-icons{
+        display: flex;
+        gap: 3rem;
+        
+    }
+}
+
+.nes-icon{
+    width:40px;
 }
 
 @media only screen and (max-width: 1200px) {

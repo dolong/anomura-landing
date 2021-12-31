@@ -11,15 +11,27 @@
   position: relative;
 }
 .nav-list {
-  height: clamp(30px,50%,80%);
+  margin-left: 4rem;
+  height: 65%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.nav-item {
+  font-size: 2rem;
+}
 .nav-logo {
   width: 80%;
   margin-top: 2vh;
+}
+.nav-icons {
+  display: flex;
+  gap: 3rem;
+}
+
+.nes-icon {
+  width: 40px;
 }
 
 @media only screen and (max-width: 1200px) {
