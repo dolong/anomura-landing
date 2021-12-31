@@ -1,6 +1,8 @@
 import { useScrollValue } from "lib/useScroll";
 import VHSImg from "img/logos/vhs.png";
 import ZedImg from "img/logos/zed.png";
+import TwitterImg from "img/logos/twitter.png";
+import LinkedinImg from "img/logos/linkedin.png";
 import "sass/containers/footer.css"
 export default function Footer() {
 
@@ -14,9 +16,11 @@ export default function Footer() {
             </div>
             <div className="footer-info ">
                 <div className="footer-social">
+                    <img src={TwitterImg} alt="Twitter" />
+                    <img src={LinkedinImg} alt="Twitter" />
                 </div>
                 <div>
-                    <p>
+                    <p className="footer-text">
                         Virtually Human is an NFT project studio exploring the boundaries of<br />
                         entertainment. We experiment with emerging technologies in gaming,art <br />
                         sports and digital collectables.

@@ -3,7 +3,13 @@
 .footer {
     @include m.z-layers(6,"img/backgrounds/Layer6.png",45%);
     @include m.flex-master(column,null,center);
-
+    &-social{
+        display: flex;
+        justify-content: center;
+    }
+    &-text{
+        text-align: center;
+    }
 }
 .logo-container{
     @include m.flex-master(row,center,null);
