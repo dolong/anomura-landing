@@ -13,7 +13,7 @@ export default function WhenIsItOut() {
                 <p>
                     Anomura will be targeted to be released by the end of 2021, <br />
                     with many alpha and beta releases. <br />
-                    A detailed roadmap will be available shortly!
+                    A detailed road map will be available shortly!
                 </p>
             </div>
             <TreasureChest></TreasureChest>
