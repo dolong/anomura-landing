@@ -6,7 +6,7 @@
     background-size:contain;
     width: max(750px,85%);
     height: max(110px, 5vw);
-    padding: 0 4vw;
+    padding: 0 2vw 0 4vw;
     margin-left: auto;
     margin-right: auto;
     z-index: 2;
@@ -29,7 +29,7 @@
     }
     &-icons{
         display: flex;
-        gap: 3rem;
+        gap: .5rem;
         
     }
 }
@@ -48,18 +48,11 @@
 @media only screen and (max-width: 800px) {
     .nav {
         &-menu {
-            //Until we get an image for mobile navigation just hiding the navbar
             display: none;
-            // padding: 0 4vw;
-            // width:100%;
-            // height: 15vh;
+
         }
         &-list{
-            //Until we get an image for mobile navigation just hiding the navbar
             display: none;
-            // width:100%;
-            // height: 15vh;
-            // @include m.flex-master(column,center,center); 
         }
     }
 }
