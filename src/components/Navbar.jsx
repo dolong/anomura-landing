@@ -16,9 +16,9 @@ export default function Navbar() {
                 <Link to="/" className="nav-item">Home</Link>
             </div>
             <div className="nav-icons">
-                <i class="nes-icon instagram is-large"></i>
-                <i class="nes-icon linkedin is-large"></i>
-                <i class="nes-icon medium is-large"></i>
+                <i className="nes-icon instagram is-large"></i>
+                <i className="nes-icon linkedin is-large"></i>
+                <i className="nes-icon medium is-large"></i>
             </div>
         </div>
     )
