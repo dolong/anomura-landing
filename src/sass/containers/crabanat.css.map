@@ -1,1 +1,1 @@
-{"version":3,"sources":["crabanat.scss","../_mixins.scss"],"names":[],"mappings":"AAII;ECIA,WAAA;EACA,mDAAA;EACA,sBAAA;EACA,kBAAA;EACA,UDPwB;ECQxB,mBDRuD;ECevD,aAAA;EAEA,uBDhBgC;AAGpC;AADI;ECYA,aAAA;EACA,sBDZ2B;ECc3B,mBDduC;EACnC,eAAA;AAKR","file":"crabanat.css"}
+{"version":3,"sources":["crabanat.scss","../_mixins.scss"],"names":[],"mappings":"AAII;ECIA,WAAA;EACA,mDAAA;EACA,sBAAA;EACA,kBAAA;EACA,UDPwB;ECQxB,mBDRuD;ECevD,aAAA;EAEA,uBDhBgC;AAGpC;AADI;ECYA,aAAA;EACA,sBDZ2B;ECc3B,mBDduC;EACnC,eAAA;AAKR;;AADA;EACI;IACE,qBAAA;EAIJ;AACF","file":"crabanat.css"}

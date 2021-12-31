@@ -26,4 +26,10 @@
 }
 .logo-container > img {
   width: min(400px, 20%);
+}
+
+@media only screen and (max-width: 700px) {
+  .footer-text {
+    margin: 40% 10% 0 10%;
+  }
 }/*# sourceMappingURL=footer.css.map */

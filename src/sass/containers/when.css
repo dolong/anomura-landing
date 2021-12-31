@@ -22,4 +22,10 @@
 .treasure-img {
   width: clamp(10vw,800px,50%);
   margin-top: 10%;
+}
+
+@media only screen and (max-width: 700px) {
+  .when-text {
+    margin: 40% 10% 0 10%;
+  }
 }/*# sourceMappingURL=when.css.map */
