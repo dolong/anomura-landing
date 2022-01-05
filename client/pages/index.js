@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic'
-
-import { Navbar } from "/components/home/componentIndex";
+import { Navbar } from "/components/home/ComponentIndex";
 import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "/containers/home/ContainerIndex";
 
 import { useScrollEvent } from "/lib/useScroll";
