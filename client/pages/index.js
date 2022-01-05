@@ -35,6 +35,9 @@ export default function Home() {
       </div>
       {/* End Of Parallax Zone */}
 
+      {/* Css modules can;t have a none pure style in 
+       /  it like body so making a JSS style here 
+       /  and applying it globally */}
       <style jsx global>{`
         body {
           overflow-x:hidden;
