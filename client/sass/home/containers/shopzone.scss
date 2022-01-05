@@ -1,0 +1,114 @@
+@use "../mixins" as m;
+
+.shop {
+    &-zone {
+        margin-left: 8%;
+        display: flex;
+    }
+    &-text{
+        flex-basis: 35%;
+    }
+    &-img {
+        width: min(60vw,850px);
+    }
+}
+.sub {
+  &_img {
+    width: 400px;
+    height: 100px;
+    background: url("img/subscribe.png") no-repeat;
+    background-size: 100%;
+    &:hover{
+      background: url("img/subscribe-hover.png") no-repeat ;
+      background-size: 100%;
+    }
+  }
+  &_input{
+    width: 415px;
+    min-height: 35px;
+    background: url("img/subscribe_box.png") no-repeat ;
+    background-size: 100%;
+    font-size: 1.45rem;
+    color: white;
+    margin-left: 5%;
+    padding: 0 0 0 5%;
+    border: none;
+    background-color: rgba(0,0,0,0);
+
+    &:hover{
+      border: black solid 1px;
+    }
+  }
+}
+.sand{
+    &-zone{
+      @include m.flex-master(column,flex-start,center);   
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .shop-img{
+      width: max(65vw,600px);
+    }
+
+    .sub-input{
+      width: 600px;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    .shop-img{
+      width: max(62vw,600px);
+    }
+  }
+
+
+  @media only screen and (max-width: 850px) {
+    .shop-img{
+      width: min(55vh,600px);
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .shop{
+      &-zone{
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+      }
+      &-img{
+        width: 95vw;
+        margin-top: min(30vw,145px);
+      }
+    &-text{
+      display: none;
+    }
+  }
+  .sub {
+    &-img {
+      //When we get a mobile navbar image we will have to play with this setting
+      margin-top: 3vh;
+    }
+    &-input{
+      width: 400px;
+      font-size: 1.1rem;
+      padding-bottom: 10%;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .sub{
+    &-img{
+      width: 75vw;
+      
+    }
+    &-input{
+      background-size: cover;
+      min-height: 65px;
+      width: min(65vw, 300px);
+      font-size: .8rem;
+      padding-bottom: 3%;
+    }
+  }  
+}

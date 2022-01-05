@@ -1,0 +1,275 @@
+.App {
+  width: 100%;
+  background-image: url("/img/home/backgrounds/SandLayer.png");
+  background-size: auto;
+  background-position: 0 -355px;
+  padding-bottom: 40%;
+}
+@media only screen and (max-width: 1200px) {
+  .App {
+    background-position: 0 -555px;
+    line-height: 1.2;
+  }
+}
+
+.sunlight {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  max-width: 60%;
+}
+
+.parallax_group {
+  position: relative;
+}
+
+/*   Nav Bar Area*/
+.nav_menu {
+  display: flex;
+  background: url("/img/home/menu.png") no-repeat;
+  background-size: contain;
+  width: max(750px, 85%);
+  height: max(110px, 5vw);
+  padding: 0 2vw 0 4vw;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  position: relative;
+}
+.nav_list {
+  margin-left: 4rem;
+  height: 65%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_item {
+  font-size: 2rem;
+}
+.nav_logo {
+  width: 80%;
+  margin-top: 2vh;
+}
+.nav_icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.shop_zone {
+  margin-left: 8%;
+  display: flex;
+}
+.shop_text {
+  flex-basis: 35%;
+}
+.shop_img {
+  width: min(60vw, 850px);
+}
+
+.sub_img {
+  width: 400px;
+  height: 100px;
+  background: url("/img/home/subscribe.png") no-repeat;
+  background-size: 100%;
+}
+.sub_img:hover {
+  background: url("/img/home/subscribe-hover.png") no-repeat;
+  background-size: 100%;
+}
+.sub_input {
+  width: 415px;
+  min-height: 35px;
+  background: url("/img/home/subscribe_box.png") no-repeat;
+  background-size: 100%;
+  font-size: 1.45rem;
+  color: white;
+  margin-left: 5%;
+  padding: 0 0 0 5%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.sub_input:hover {
+  border: black solid 1px;
+}
+
+.sand_zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nft {
+  width: 100%;
+  background-image: url("/img/home/backgrounds/Layer3.png");
+  background-size: cover;
+  position: absolute;
+  z-index: 3;
+  padding-bottom: 65%;
+  display: flex;
+  justify-content: center;
+  shape-outside: url("/img/home/backgrounds/Layer3.png");
+}
+.nft_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35%;
+}
+
+.crab_anat {
+  width: 100%;
+  background-image: url("/img/home/backgrounds/Layer4.png");
+  background-size: cover;
+  position: absolute;
+  z-index: 4;
+  padding-bottom: 60%;
+  display: flex;
+  justify-content: center;
+}
+.crab_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30%;
+}
+
+.when_zone {
+  width: 100%;
+  background-image: url("/img/home/backgrounds/Layer5Eyes.png");
+  background-size: cover;
+  position: absolute;
+  z-index: 5;
+  padding-bottom: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.when_text {
+  margin-top: 30%;
+}
+
+.treasure_zone {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.treasure_img {
+  width: clamp(10vw,800px,50%);
+  margin-top: 10%;
+}
+
+.footer {
+  width: 100%;
+  background-image: url("/img/home/backgrounds/Layer6.png");
+  background-size: cover;
+  position: absolute;
+  z-index: 6;
+  padding-bottom: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer_social {
+  display: flex;
+  justify-content: center;
+}
+.footer_text {
+  text-align: center;
+}
+
+.logo_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 35%;
+  margin-bottom: 5%;
+}
+.logo_container > img {
+  width: min(400px, 20%);
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav_list {
+    align-items: start;
+  }
+
+  .shop_img {
+    width: max(65vw, 600px);
+  }
+
+  .sub_input {
+    width: 600px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .shop_img {
+    width: max(62vw, 600px);
+  }
+}
+@media only screen and (max-width: 850px) {
+  .shop_img {
+    width: min(55vh, 600px);
+  }
+}
+@media only screen and (max-width: 800px) {
+  .nav_menu {
+    display: none;
+  }
+  .nav_list {
+    display: none;
+  }
+
+  .shop_zone {
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0;
+  }
+  .shop_img {
+    width: 95vw;
+    margin-top: min(30vw, 145px);
+  }
+  .shop_text {
+    display: none;
+  }
+
+  .sub_img {
+    margin-top: 3vh;
+  }
+  .sub-input {
+    width: 400px;
+    font-size: 1.1rem;
+    padding-bottom: 10%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .nft_text {
+    margin: 40% 10% 0 10%;
+  }
+
+  .crab_text {
+    margin: 40% 10% 0 10%;
+  }
+
+  .when_text {
+    margin: 40% 10% 0 10%;
+  }
+
+  .footer_text {
+    margin: 40% 10% 0 10%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .sub_img {
+    width: 75vw;
+  }
+  .sub_input {
+    background-size: cover;
+    min-height: 65px;
+    width: min(65vw, 300px);
+    font-size: 0.8rem;
+    padding-bottom: 3%;
+  }
+}/*# sourceMappingURL=home.module.css.map */

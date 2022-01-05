@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    src: url("/fonts/AtlantisInternational.ttf");
+    font-family: Atlantis;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html,body {
+    width: 100%;
+}
+
+
+input[type=text]:focus{
+      outline: none;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.card{
+    border-radius: 0.8rem;
+    box-shadow: 0 16px 38px -12px rgba(225, 225, 225, .56), 0 4px 25px 0px rgba(225, 225, 225, .12), 0 8px 10px -5px rgba(225, 225, 225, .2);
+}

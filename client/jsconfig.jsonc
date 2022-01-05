@@ -1,0 +1,12 @@
+{
+    /*
+        If using Next.js switch src with a . in the include and compiler options.
+        This is becuase react folder structure doesn't use src like normal react compiling.
+    */
+    "compilerOptions": {
+        "baseUrl": "./"
+    },
+    "include": [
+        "./"
+    ]
+}
