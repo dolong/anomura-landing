@@ -12,7 +12,10 @@ export default function Home() {
   return (
     <div className={s.App}>
       <Head>
-        <title>Create Next App</title>
+        <title>Anomura Landing</title>
+        <meta name="description" content="Anomura the next NFT game to take the world by storm." />
+        <meta name="author" content="Jonathan Westfall" />
+        <meta name="keywords" content="Anomura, NFT, Game" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
