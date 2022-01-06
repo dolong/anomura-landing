@@ -3,8 +3,6 @@
  * @returns 
  */
 export default function Navbar({ s }) {
-
-    console.log(s);
     return (
         <div className={s.nav_menu}>
             <div>
