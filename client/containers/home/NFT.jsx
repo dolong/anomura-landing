@@ -1,15 +1,9 @@
+import { useEffect } from "react";
 import { useScrollValue } from "/lib/useScroll";
-export default function NFT({ s }) {
 
-    let calculatedOffsetY = 700;
-    /* Next js reads typeof window !== 'undefined' 
-    /  as run this code only on the client side. 
-    /  We do this because window doesn't exist 
-    /  on server side so it would crash if we don't do this. 
-    */
-    if (typeof window !== 'undefined') {
-        calculatedOffsetY = useScrollValue(-6.5, 700, -75, -105);
-    }
+export default function NFT({ s, ScrollPercent }) {
+
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -6.5, 700, -75, -105);
 
     return (
         <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }}>

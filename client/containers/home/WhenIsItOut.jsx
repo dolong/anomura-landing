@@ -1,16 +1,9 @@
 import { useScrollValue } from "/lib/useScroll";
 import { TreasureChest } from "/containers/home/ContainerIndex";
-export default function WhenIsItOut({ s }) {
 
-    let calculatedOffsetY = 3020;
-    /* Next js reads typeof window !== 'undefined' 
-    /  as run this code only on the client side. 
-    /  We do this because window doesn't exist 
-    /  on server side so it would crash if we don't do this. 
-    */
-    if (typeof window !== 'undefined') {
-        calculatedOffsetY = useScrollValue(-55, 3020, -500, 50);
-    }
+export default function WhenIsItOut({ s, ScrollPercent }) {
+
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3020, -500, 50);
 
     return (
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>

@@ -1,14 +1,36 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
 import { Navbar } from "/components/home/ComponentIndex";
-import { CrabAnat, Footer, NFT, ShopZone, WhenIsItOut } from "/containers/home/ContainerIndex";
+import { ShopZone } from "/containers/home/ContainerIndex";
 
-import { useScrollEvent } from "/lib/useScroll";
+import { useScrollEvent } from "/hooks/useScrollEvent";
 import s from "/sass/home/home.module.css";
+import { useRecoilValue } from "recoil";
+import { ScrollValue } from '/atoms/Atoms';
 
+
+const { NFT, CrabAnat, WhenIsItOut, Footer }
+  = {
+  NFT: dynamic(() =>
+    import("/containers/home/ContainerIndex").then(module => module.NFT), { ssr: false }
+  ),
+  CrabAnat: dynamic(() =>
+    import("/containers/home/ContainerIndex").then(module => module.CrabAnat), { ssr: false }
+  ),
+  WhenIsItOut: dynamic(() =>
+    import("/containers/home/ContainerIndex").then(module => module.WhenIsItOut), { ssr: false }
+  ),
+  Footer: dynamic(() =>
+    import("/containers/home/ContainerIndex").then(module => module.Footer), { ssr: false }
+  )
+}
 
 export default function Home() {
 
   const setOffsetY = useScrollEvent();
+  const scrollPercent = useRecoilValue(ScrollValue);
+
   return (
     <div className={s.App}>
       <Head>
@@ -28,10 +50,10 @@ export default function Home() {
       {/* Parallax Zone */}
       <div className={s.parallax_group}>
         <ShopZone s={s}></ShopZone>
-        <NFT s={s}></NFT>
-        <CrabAnat s={s}></CrabAnat>
-        <WhenIsItOut s={s}></WhenIsItOut>
-        <Footer s={s}></Footer>
+        <NFT s={s} ScrollPercent={scrollPercent}></NFT>
+        <CrabAnat s={s} ScrollPercent={scrollPercent}></CrabAnat>
+        <WhenIsItOut s={s} ScrollPercent={scrollPercent}></WhenIsItOut>
+        <Footer s={s} ScrollPercent={scrollPercent}></Footer>
       </div>
       {/* End Of Parallax Zone */}
 
