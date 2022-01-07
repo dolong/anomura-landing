@@ -46,7 +46,7 @@ export default function ShopZone({ s }) {
             <div className={s.sand_zone}>
                 <div className={s.sub_img} />
                 <form action="">
-                    <input className={s.sub_input}
+                    <input className={`${s.sub_input} placeholder:text-white placeholder:opacity-80`}
                         type="text" value={email} onChange={handleChange}
                         placeholder="Subscribe with your email here." />
                 </form>
