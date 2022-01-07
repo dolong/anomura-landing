@@ -2,7 +2,6 @@ import { useScrollValue } from "/lib/useScroll";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 
 export default function WhenIsItOut({ s, ScrollPercent }) {
-
     let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3020, -500, 50);
 
     return (
@@ -11,11 +10,11 @@ export default function WhenIsItOut({ s, ScrollPercent }) {
                 <h3>WHEN IS IT OUT?</h3>
                 <p>
                     Anomura will be targeted to be released by the end of 2021, <br />
-                    with many alpha and beta releases. <br />
-                    A detailed road map will be available shortly!
+                    with many alpha and beta releases. <br />A detailed road map will be available
+                    shortly!
                 </p>
             </div>
             <TreasureChest></TreasureChest>
         </div>
-    )
+    );
 }

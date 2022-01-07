@@ -1,7 +1,6 @@
 import { useScrollValue } from "/lib/useScroll";
 
 export default function Footer({ s, ScrollPercent }) {
-
     let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 4400, -1100, -100);
 
     return (
@@ -17,15 +16,15 @@ export default function Footer({ s, ScrollPercent }) {
                 </div>
                 <div>
                     <p className={s.footer_text}>
-                        Virtually Human is an NFT project studio exploring the boundaries of<br />
+                        Virtually Human is an NFT project studio exploring the boundaries of
+                        <br />
                         entertainment. We experiment with emerging technologies in gaming,art <br />
                         sports and digital collectables.
                     </p>
                 </div>
             </div>
-
-        </ div >
-    )
+        </div>
+    );
 }
 
 export async function getStaticProps() {
@@ -35,5 +34,5 @@ export async function getStaticProps() {
         props: {
             posts,
         },
-    }
+    };
 }

@@ -1,25 +1,48 @@
 import { useScrollValue } from "/lib/useScroll";
 export default function CrabAnat({ s, ScrollPercent }) {
-
     let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1600, -200, -200);
 
     return (
-        <div className={s.crab_anat} style={{ top: `calc(${calculatedOffsetY}px)` }} >
+        <div className={s.crab_anat} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.crab_text}>
-                <p>CRAB ANATOMY?</p>
-                <p>
-                    Each body part has a chance of being normal to legendary rarity.<br />
-                    Magical Item<br />
-                    11% - Magical Prefix<br />
-                    11% - Magical Suffix<br />
-                    22% chance of a magic item<br />
-                    Rare Item<br />
-                    11% - Magical Prefix and 11% - Magical Suffix<br />
-                    Legendary Item<br />
-                    2% - Legendary Item Prefix
-                </p>
+                <div>
+                    <span className={s.crab_normal}>CRAB ANATOMY!</span>
+                    <div className={s.crab_inline}>
+                        Each body part has a chance of being normal to legendary rarity.
+                    </div>
+                </div>
+
+                <div className={s.crab_rarityContainer}>
+                    <div className={s.crab_rarityBlock}>
+                        <div>
+                            <span className={s.crab_magical}>Magical Item</span>
+                        </div>
+
+                        <div className={s.crab_inline}>
+                            11% - 1 Magical Prefix
+                            <br />
+                            11% - 1 Magical Suffix
+                            <br />
+                            ~22% chance of a magic item
+                        </div>
+                    </div>
+                    <div className={s.crab_rarityBlock}>
+                        <div>
+                            <span className={s.crab_rare}>Rare Item</span>
+                        </div>
+                        <div className={s.crab_inline}>
+                            11% - Magical Prefix <br />
+                            11% - Magical Suffix
+                        </div>
+                    </div>
+                    <div className={s.crab_rarityBlock}>
+                        <div>
+                            <span className={s.crab_legend}>Legendary Item</span>
+                        </div>
+                        <div className={s.crab_inline}>~2% - Legendary Item Prefix</div>
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    );
 }
-

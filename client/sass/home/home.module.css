@@ -1,3 +1,6 @@
+/*Main Site colors*/
+/*Font colors*/
+/*Span bg colors */
 .App {
   width: 100%;
   background-image: url("/img/home/backgrounds/SandLayer.png");
@@ -132,10 +135,41 @@
   justify-content: center;
 }
 .crab_text {
+  width: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 30%;
+  margin-top: 25%;
+  font-weight: 600;
+}
+.crab_rarityContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+.crab_rarityBlock {
+  display: flex;
+  flex-direction: column;
+}
+.crab_inline {
+  padding-left: 3px;
+}
+.crab_normal, .crab_magical, .crab_rare, .crab_legend {
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+}
+.crab_normal {
+  background-color: #4cdebc;
+  color: #191226;
+}
+.crab_magical {
+  background-color: #5afef9;
+}
+.crab_rare {
+  background-color: #805bfe;
+}
+.crab_legend {
+  background-color: #93fe5a;
 }
 
 .when_zone {
@@ -217,6 +251,14 @@
   .sub_input {
     width: 600px;
   }
+
+  .nft_text {
+    margin-top: 45%;
+  }
+
+  .crab_text {
+    width: 80%;
+  }
 }
 @media only screen and (max-width: 900px) {
   .nav_list {
@@ -228,6 +270,10 @@
 
   .shop_img {
     width: max(62vw, 600px);
+  }
+
+  .crab_text {
+    width: 100%;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -263,6 +309,27 @@
     width: 350px;
     font-size: 1.1rem;
     padding-bottom: 10%;
+  }
+
+  .crab_text {
+    margin-top: 35%;
+  }
+  .crab_rarityContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+  }
+  .crab_rarityBlock {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .crab_rarityBlock div:nth-child(2) {
+    text-align: right;
+  }
+  .crab_normal, .crab_magical, .crab_rare, .crab_legend {
+    padding: 3px 3px 3px 3px;
   }
 }
 @media only screen and (max-width: 700px) {
