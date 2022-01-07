@@ -32,7 +32,7 @@ $mobile-margin: 40% 10% 0 10%;
 		background: url("/img/home/menu.png") no-repeat;
 		background-size: contain;
 		width: max(750px, 85%);
-		height: max(110px, 5vw);
+		height: max(110px, 4vw);
 		padding: 0 2vw 0 4vw;
 		margin-left: auto;
 		margin-right: auto;
@@ -48,7 +48,8 @@ $mobile-margin: 40% 10% 0 10%;
 		@include m.flex-master(null, space-between, center);
 	}
 	&_item {
-		font-size: 2rem;
+		font-size: 3rem;
+		margin-bottom: 1%;
 	}
 	&_logo {
 		width: 80%;
@@ -167,11 +168,24 @@ $mobile-margin: 40% 10% 0 10%;
 		width: min(400px, 20%);
 	}
 }
+@media only screen and (max-width: 1400px) {
+	.nav {
+		&_list {
+			height: 55%;
+		}
+		&_item {
+			font-size: 2.5rem;
+		}
+	}
+}
 
 @media only screen and (max-width: 1200px) {
 	.nav {
 		&_list {
 			align-items: start;
+		}
+		&_item {
+			font-size: 2rem;
 		}
 	}
 	.shop_img {
@@ -183,6 +197,15 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 }
 @media only screen and (max-width: 900px) {
+	.nav {
+		&_list {
+			height: 55%;
+		}
+		&_item {
+			font-size: 1.5rem;
+		}
+	}
+
 	.shop_img {
 		width: max(62vw, 600px);
 	}
