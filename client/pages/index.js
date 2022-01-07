@@ -41,6 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      
 
       {/* Top Nav Zone */}
       <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
@@ -57,13 +58,13 @@ export default function Home() {
       </div>
       {/* End Of Parallax Zone */}
 
-      {/* Css modules can;t have a none pure style in 
+      {/* Css modules cant have a none pure style in 
        /  it like body so making a JSS style here 
        /  and applying it globally */}
       <style jsx global>{`
         body {
           overflow-x:hidden;
-          font-size: clamp(18px,2vw,22px);
+          font-size: clamp(18px,2vw,28px);
           font-family: Atlantis;
           color: #fff;
           line-height: 1.5;
