@@ -53,7 +53,9 @@
 }
 .nav_icons {
   display: flex;
-  gap: 0.5rem;
+  align-items: start;
+  gap: 35px;
+  margin: 0.5vw 1vw 0 0;
 }
 
 .shop_zone {
@@ -157,7 +159,7 @@
   align-items: flex-end;
 }
 .treasure_img {
-  width: clamp(10vw,800px,50%);
+  width: clamp(10vw, 800px, 50%);
   margin-top: 10%;
 }
 
