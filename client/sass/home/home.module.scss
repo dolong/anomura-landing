@@ -57,7 +57,7 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	&_icons {
 		display: flex;
-		align-items: start;
+		align-items: flex-start;
 		gap: 35px;
 		margin: 0.5vw 1vw 0 0;
 	}
@@ -78,7 +78,7 @@ $mobile-margin: 40% 10% 0 10%;
 .sub {
 	&_img {
 		width: 400px;
-		height: 100px;
+		height: 75px;
 		background: url("/img/home/subscribe.png") no-repeat;
 		background-size: 100%;
 		&:hover {
