@@ -232,7 +232,7 @@ $mobile-margin: 40% 10% 0 10%;
 		}
 		&_img {
 			width: 95vw;
-			margin-top: min(30vw, 145px);
+			margin-top: min(20vw, 50px);
 		}
 		&_text {
 			display: none;
@@ -251,6 +251,11 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 }
 @media only screen and (max-width: 700px) {
+	.shop {
+		&_img {
+			margin-top: max(3vw, 100px);
+		}
+	}
 	.nft_text {
 		margin: $mobile-margin;
 	}
@@ -265,13 +270,18 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 }
 @media only screen and (max-width: 400px) {
+	.shop {
+		&_img {
+			margin-top: max(3vw, 120px);
+		}
+	}
 	.sub {
 		&_img {
 			width: 75vw;
 		}
 		&_input {
 			background-size: cover;
-			min-height: 65px;
+			min-height: 45px;
 			width: min(65vw, 300px);
 			font-size: 0.8rem;
 			padding-bottom: 3%;
