@@ -12,8 +12,8 @@ export default function Footer({ s, ScrollPercent }) {
             </div>
             <div className={s.footer_info}>
                 <div className={s.footer_social}>
-                    <img src="/img/home/logos/twitter.png" alt="Twitter" />
                     <img src="/img/home/logos/linkedin.png" alt="Linkedin" />
+                    <img src="/img/home/logos/twitter.png" alt="Twitter" />
                 </div>
                 <div>
                     <p className={s.footer_text}>
