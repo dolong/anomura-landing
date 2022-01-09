@@ -7,7 +7,7 @@ $mobile-margin: 40% 10% 0 10%;
 	background-image: url("/img/home/backgrounds/SandLayer.png");
 	background-size: auto;
 	background-position: 0 -355px;
-	padding-bottom: 40%;
+	padding-bottom: 60%;
 
 	@media only screen and (max-width: 1200px) {
 		background-position: 0 -555px;
@@ -118,49 +118,50 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 }
 .crab {
-	&_anat { 
-    @include m.z-layers(4,"/img/home/backgrounds/Layer4.png",60%);
-    @include m.flex-master(null,center,null);
-}
-&_text{
-    width: 80%;
-    @include m.flex-master(column,null,null);
-    margin-top: 25%;
-    font-weight: 600;
-}
-&_rarityContainer{
-    @include m.flex-master(row,space-between,null);
-    margin-top: 5%;
-}
+	&_anat {
+		@include m.z-layers(4, "/img/home/backgrounds/Layer4.png", 60%);
+		@include m.flex-master(null, center, null);
+	}
+	&_text {
+		width: 80%;
+		@include m.flex-master(column, null, null);
+		margin-top: 25%;
+		font-weight: 600;
+	}
+	&_rarityContainer {
+		@include m.flex-master(row, space-between, null);
+		margin-top: 5%;
+	}
 
-&_rarityBlock{
-  @include m.flex-master(column,null,null);
-}
+	&_rarityBlock {
+		@include m.flex-master(column, null, null);
+	}
 
-&_inline{
-  padding-left: 3px;  
-  
-}
-&_normal, &_magical, &_rare, &_legend {
-  // padding: 3px 10px;  
-  padding: 3px 10px 3px 10px;  
-  min-width: 130px;
-  
-}
-&_normal {
-  background-color: c.$normal-color;
-  color: c.$primary-color;
-}
+	&_inline {
+		padding-left: 3px;
+	}
+	&_normal,
+	&_magical,
+	&_rare,
+	&_legend {
+		// padding: 3px 10px;
+		padding: 3px 10px 3px 10px;
+		min-width: 130px;
+	}
+	&_normal {
+		background-color: c.$normal-color;
+		color: c.$primary-color;
+	}
 
-&_magical {
-  background-color: c.$magic-color;
-}
-&_rare {
-  background-color: c.$rare-color;
-}
-&_legend {
-  background-color: c.$legend-color;
-}
+	&_magical {
+		background-color: c.$magic-color;
+	}
+	&_rare {
+		background-color: c.$rare-color;
+	}
+	&_legend {
+		background-color: c.$legend-color;
+	}
 }
 .when {
 	&_zone {
@@ -185,7 +186,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .footer {
-	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 45%);
+	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 10%);
 	@include m.flex-master(column, null, center);
 	&_social {
 		display: flex;
@@ -231,18 +232,17 @@ $mobile-margin: 40% 10% 0 10%;
 		width: 600px;
 	}
 
-  .nft {
-    &_text{
-      margin-top: 45%;
-    }
-  }
+	.nft {
+		&_text {
+			margin-top: 45%;
+		}
+	}
 
-  .crab {
-    &_text {
-      width:80%;
-    }
-  }
-
+	.crab {
+		&_text {
+			width: 80%;
+		}
+	}
 }
 @media only screen and (max-width: 900px) {
 	.nav {
@@ -258,11 +258,11 @@ $mobile-margin: 40% 10% 0 10%;
 		width: max(62vw, 600px);
 	}
 
-  .crab {
-    &_text {
-      width:100%;
-    }
-  }
+	.crab {
+		&_text {
+			width: 100%;
+		}
+	}
 }
 @media only screen and (max-width: 850px) {
 	.shop_img {
@@ -303,29 +303,28 @@ $mobile-margin: 40% 10% 0 10%;
 			padding-bottom: 10%;
 		}
 	}
-  .crab {
-    &_text {
-      margin-top: 35%;
-    }
-    &_rarityContainer {
-      @include m.flex-master(column,null,null);
-      margin-top: 2%;
-    }
-    &_rarityBlock {
-      margin-top: 3%;
-      @include m.flex-master(row,space-between,null);
-      div:nth-child(2){
-        text-align: right;
-      }
-    }
-    &_normal, &_magical, &_rare, &_legend {
-
-      padding: 3px 3px 3px 3px;  
-
-      
-    }
-  }
-  
+	.crab {
+		&_text {
+			margin-top: 35%;
+		}
+		&_rarityContainer {
+			@include m.flex-master(column, null, null);
+			margin-top: 2%;
+		}
+		&_rarityBlock {
+			margin-top: 3%;
+			@include m.flex-master(row, space-between, null);
+			div:nth-child(2) {
+				text-align: right;
+			}
+		}
+		&_normal,
+		&_magical,
+		&_rare,
+		&_legend {
+			padding: 3px 3px 3px 3px;
+		}
+	}
 }
 @media only screen and (max-width: 700px) {
 	.shop {

@@ -6,7 +6,7 @@
   background-image: url("/img/home/backgrounds/SandLayer.png");
   background-size: auto;
   background-position: 0 -355px;
-  padding-bottom: 40%;
+  padding-bottom: 60%;
 }
 @media only screen and (max-width: 1200px) {
   .App {
@@ -204,7 +204,7 @@
   background-size: cover;
   position: absolute;
   z-index: 6;
-  padding-bottom: 45%;
+  padding-bottom: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
