@@ -16,7 +16,7 @@ export default function WhenIsItOut({ s, ScrollPercent }) {
                     shortly!
                 </p>
             </div>
-            <TreasureChest></TreasureChest>
+            <TreasureChest s={s} />
         </div>
     );
 }

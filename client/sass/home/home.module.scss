@@ -99,24 +99,47 @@ $mobile-margin: 40% 10% 0 10%;
 			background: url("/img/home/subscribe-hover.png") no-repeat;
 			background-size: 100%;
 		}
+
+		// put z-index here so that it can be clicked when the bottom layer covers
+		z-index:6;
+		position: relative;
+	}
+
+	&_container{
+		@include m.flex-master(row, flex-start, center);
 	}
 	&_input {
-		width: 400px;
+		
+		width: 350px;
 		min-height: 35px;
 		background: url("/img/home/subscribe_box.png") no-repeat;
 		background-size: 100%;
 		font-size: 1.45rem;
 		color: c.$primary-font-color;
-
+		
 		padding: 0 0 0 3%;
 		background-color: rgba(0, 0, 0, 0);
-		background: transparent solid 1px;
-		outline:c.$primary-font-color solid  1px;
-     	outline-offset: -1px;
+		border: transparent solid 1px;
+
 		&:hover {
-			outline: transparent solid  1px;
+			
 			border: black solid 1px;
 		}
+		&:focus {
+			
+			 border: black solid 1px;
+		}
+		
+		// put z-index here so that it can be clicked when the bottom layer covers
+		z-index:6;
+		position: relative;
+	}
+	&_arrow{
+		width: 47px;
+		min-height: 35px;
+		background: url("/img/home/arrow.png") no-repeat;
+		background-size: 100%;
+		margin-left: 3px;
 	}
 }
 .sand {
@@ -188,12 +211,16 @@ $mobile-margin: 40% 10% 0 10%;
 	&_highlight {
 		@include highlightText(c.$normal-color, c.$primary-color)
 	}
+
 }
 
 .treasure {
+	
 	&_zone {
 		width: 100%;
 		@include m.flex-master(null, center, flex-end);
+		z-index:9;
+		position: relative;
 	}
 
 	&_img {
@@ -324,8 +351,9 @@ $mobile-margin: 40% 10% 0 10%;
 			margin-top: 3vh;
 		}
 		&_input {
-			font-size: 1.1rem;
-			padding-bottom: 7%;
+			font-size: 1.3rem;
+			padding-top: 2%;
+			padding-bottom: 2%;
 		}
 	}
   .crab {

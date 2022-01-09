@@ -2,7 +2,7 @@ import { useScrollValue } from "/lib/useScroll";
 
 export default function Footer({ s, ScrollPercent }) {
     //let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 4400, -1000, -100);
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -57, 4350, -1000, -175);
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -56, 4550, -1000, -175);
     return (
         <div className={s.footer} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.logo_container}>

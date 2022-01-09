@@ -2,7 +2,7 @@ import { useScrollValue } from "/lib/useScroll";
 
 export default function NFT({ s, ScrollPercent }) {
     //let calculatedOffsetY = useScrollValue(ScrollPercent, -6.5, 700, -75, -105);
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -7.5, 670, -30, -40);
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -7.5, 650, -30, -40);
 
     return (
         <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }}>
