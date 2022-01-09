@@ -6,12 +6,17 @@
   background-image: url("/img/home/backgrounds/SandLayer.png");
   background-size: auto;
   background-position: 0 -355px;
-  padding-bottom: 40%;
+  padding-bottom: 50%;
 }
 @media only screen and (max-width: 1200px) {
   .App {
     background-position: 0 -555px;
     line-height: 1.2;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .App {
+    padding-bottom: 85%;
   }
 }
 
@@ -84,18 +89,20 @@
   background-size: 100%;
 }
 .sub_input {
-  width: 415px;
+  width: 400px;
   min-height: 35px;
   background: url("/img/home/subscribe_box.png") no-repeat;
   background-size: 100%;
   font-size: 1.45rem;
-  color: white;
-  margin-left: 5%;
-  padding: 0 0 0 5%;
-  border: none;
+  color: #fff;
+  padding: 0 0 0 3%;
   background-color: rgba(0, 0, 0, 0);
+  background: transparent solid 1px;
+  outline: #fff solid 1px;
+  outline-offset: -1px;
 }
 .sub_input:hover {
+  outline: transparent solid 1px;
   border: black solid 1px;
 }
 
@@ -121,7 +128,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 35%;
+  margin-top: 36%;
+}
+.nft_highlight {
+  background-color: #4cdebc;
+  color: #191226;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
 }
 
 .crab_anat {
@@ -139,13 +153,12 @@
   display: flex;
   flex-direction: column;
   margin-top: 25%;
-  font-weight: 600;
 }
 .crab_rarityContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 .crab_rarityBlock {
   display: flex;
@@ -154,22 +167,33 @@
 .crab_inline {
   padding-left: 3px;
 }
-.crab_normal, .crab_magical, .crab_rare, .crab_legend {
-  padding: 3px 10px 3px 10px;
-  min-width: 130px;
-}
 .crab_normal {
   background-color: #4cdebc;
   color: #191226;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
 }
 .crab_magical {
   background-color: #5afef9;
+  color: #fff;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
 }
 .crab_rare {
   background-color: #805bfe;
+  color: #fff;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
 }
 .crab_legend {
   background-color: #93fe5a;
+  color: #fff;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
 }
 
 .when_zone {
@@ -185,6 +209,13 @@
 }
 .when_text {
   margin-top: 30%;
+}
+.when_highlight {
+  background-color: #4cdebc;
+  color: #191226;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
 }
 
 .treasure_zone {
@@ -235,6 +266,11 @@
   .nav_item {
     font-size: 2.5rem;
   }
+
+  .crab_text {
+    margin-top: 30%;
+    font-weight: 600;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .nav_list {
@@ -248,16 +284,16 @@
     width: max(65vw, 600px);
   }
 
-  .sub_input {
-    width: 600px;
-  }
-
   .nft_text {
     margin-top: 45%;
   }
 
   .crab_text {
+    margin-top: 30%;
     width: 80%;
+  }
+  .crab_rarityContainer {
+    margin-top: 4%;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -273,7 +309,7 @@
   }
 
   .crab_text {
-    width: 100%;
+    width: 80%;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -306,13 +342,12 @@
     margin-top: 3vh;
   }
   .sub_input {
-    width: 350px;
     font-size: 1.1rem;
-    padding-bottom: 10%;
+    padding-bottom: 7%;
   }
 
   .crab_text {
-    margin-top: 35%;
+    margin-top: 27%;
   }
   .crab_rarityContainer {
     display: flex;
@@ -337,14 +372,23 @@
     margin-top: max(3vw, 100px);
   }
 
+  .nft {
+    padding-bottom: 100%;
+  }
   .nft_text {
     margin: 40% 10% 0 10%;
   }
 
+  .crab_anat {
+    padding-bottom: 100%;
+  }
   .crab_text {
     margin: 40% 10% 0 10%;
   }
 
+  .when {
+    padding-bottom: 95%;
+  }
   .when_text {
     margin: 40% 10% 0 10%;
   }

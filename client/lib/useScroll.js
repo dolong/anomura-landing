@@ -14,7 +14,7 @@ export function useScrollValue(ScrollPercent, ScrollSpeed, ScrollOffSet, SmallSc
 
 
     if (window.innerWidth < 600) {
-        scrollMultiplier = 2;
+        scrollMultiplier = 3; // originally 2
         calculatedOffsetY = Math.floor(ScrollOffSet + SmallScreenOffset + MicroScreenOffset + (scrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
