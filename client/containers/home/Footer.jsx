@@ -1,7 +1,7 @@
 import { useScrollValue } from "/lib/useScroll";
 
 export default function Footer({ s, ScrollPercent }) {
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 4400, -1100, -100);
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 5450, -950, -600,-750,-1050);
 
     return (
         <div className={s.footer} style={{ top: `calc(${calculatedOffsetY}px)` }}>

@@ -2,7 +2,7 @@ import { useScrollValue } from "/lib/useScroll";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 
 export default function WhenIsItOut({ s, ScrollPercent }) {
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3020, -500, 50);
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3020, -500, -150,-100,-170);
 
     return (
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>
@@ -14,7 +14,7 @@ export default function WhenIsItOut({ s, ScrollPercent }) {
                     shortly!
                 </p>
             </div>
-            <TreasureChest></TreasureChest>
+            <TreasureChest s={s}></TreasureChest>
         </div>
     );
 }

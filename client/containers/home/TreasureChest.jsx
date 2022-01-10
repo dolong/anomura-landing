@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 import { ChestState } from "/atoms/Atoms";
-export default function TreasureChest() {
+export default function TreasureChest({s}) {
 
     const [chestState, setChestState] = useRecoilState(ChestState);
 
@@ -15,7 +15,7 @@ export default function TreasureChest() {
     };
 
     return (
-        <div onClick={OpenChest} className="treasure-zone">
+        <div className={s.treasure_zone}>
             {
                 chestState === "opening" &&
                 <>
@@ -35,7 +35,7 @@ export default function TreasureChest() {
                 chestState === "idle" &&
                 <>
                     <img className="treasure-img invisible" src="/img/home/cards/Card.gif" alt="" />
-                    <img className="treasure-img" src="/img/home/chest_idle.gif" alt="" />
+                    <img onClick={OpenChest} className="treasure-img" src="/img/home/chest_idle.gif" alt="" />
                 </>
             }
         </div>
