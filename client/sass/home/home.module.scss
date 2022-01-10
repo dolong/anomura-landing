@@ -165,7 +165,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 .when {
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 80%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 40%);
 		@include m.flex-master(column, null, center);
 	}
 	&_text {
@@ -186,7 +186,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .footer {
-	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 10%);
+	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 5%);
 	@include m.flex-master(column, null, center);
 	&_social {
 		display: flex;
