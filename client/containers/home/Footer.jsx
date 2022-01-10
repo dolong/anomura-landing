@@ -18,7 +18,8 @@ export default function Footer({ s, ScrollPercent }) {
                     <p className={s.footer_text}>
                         Virtually Human is an NFT project studio exploring the boundaries of
                         <br />
-                        entertainment. We experiment with emerging technologies in gaming,art <br />
+                        entertainment. We experiment with emerging technologies in gaming, art
+                        <br />
                         sports and digital collectables.
                     </p>
                 </div>

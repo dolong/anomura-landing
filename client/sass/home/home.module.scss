@@ -1,5 +1,14 @@
 @use "../mixins" as m;
 @use "../colors" as c;
+
+@mixin highlightText($bgColor, $fontColor: c.$primary-font-color) {
+	background-color: $bgColor;
+	color: $fontColor;
+	padding: 3px 10px 3px 10px;
+	min-width: 130px;
+	font-weight: 600;
+}
+
 $mobile-margin: 40% 10% 0 10%;
 
 .App {
@@ -12,6 +21,10 @@ $mobile-margin: 40% 10% 0 10%;
 	@media only screen and (max-width: 1200px) {
 		background-position: 0 -555px;
 		line-height: 1.2;
+	}
+
+	@media only screen and (max-width: 600px) {
+		padding-bottom: 85%;
 	}
 }
 .sunlight {
@@ -85,22 +98,44 @@ $mobile-margin: 40% 10% 0 10%;
 			background: url("/img/home/subscribe-hover.png") no-repeat;
 			background-size: 100%;
 		}
+
+		// put z-index here so that it can be clicked when the bottom layer covers
+		z-index: 6;
+		position: relative;
+	}
+
+	&_container {
+		@include m.flex-master(row, flex-start, center);
 	}
 	&_input {
-		width: 415px;
+		width: 350px;
 		min-height: 35px;
 		background: url("/img/home/subscribe_box.png") no-repeat;
 		background-size: 100%;
 		font-size: 1.45rem;
-		color: white;
-		margin-left: 5%;
-		padding: 0 0 0 5%;
-		border: none;
+		color: c.$primary-font-color;
+
+		padding: 0 0 0 3%;
 		background-color: rgba(0, 0, 0, 0);
+		border: transparent solid 1px;
 
 		&:hover {
 			border: black solid 1px;
 		}
+		&:focus {
+			border: black solid 1px;
+		}
+
+		// put z-index here so that it can be clicked when the bottom layer covers
+		z-index: 6;
+		position: relative;
+	}
+	&_arrow {
+		width: 47px;
+		min-height: 35px;
+		background: url("/img/home/arrow.png") no-repeat;
+		background-size: 100%;
+		margin-left: 3px;
 	}
 }
 .sand {
@@ -108,30 +143,34 @@ $mobile-margin: 40% 10% 0 10%;
 		@include m.flex-master(column, flex-start, center);
 	}
 }
+
 .nft {
 	@include m.z-layers(3, "/img/home/backgrounds/Layer3.png", 65%);
 	@include m.flex-master(null, center, null);
 	shape-outside: url("/img/home/backgrounds/Layer3.png");
+
 	&_text {
 		@include m.flex-master(column, null, center);
-		margin-top: 35%;
+		margin-top: 36%;
+	}
+
+	&_highlight {
+		@include highlightText(c.$normal-color, c.$primary-color);
 	}
 }
 .crab {
 	&_anat {
 		@include m.z-layers(4, "/img/home/backgrounds/Layer4.png", 60%);
 		@include m.flex-master(null, center, null);
-		padding-top: 5%;
 	}
 	&_text {
 		width: 80%;
 		@include m.flex-master(column, null, null);
 		margin-top: 25%;
-		font-weight: 600;
 	}
 	&_rarityContainer {
 		@include m.flex-master(row, space-between, null);
-		margin-top: 5%;
+		margin-top: 3%;
 	}
 
 	&_rarityBlock {
@@ -141,27 +180,18 @@ $mobile-margin: 40% 10% 0 10%;
 	&_inline {
 		padding-left: 3px;
 	}
-	&_normal,
-	&_magical,
-	&_rare,
-	&_legend {
-		// padding: 3px 10px;
-		padding: 3px 10px 3px 10px;
-		min-width: 130px;
-	}
-	&_normal {
-		background-color: c.$normal-color;
-		color: c.$primary-color;
-	}
 
+	&_normal {
+		@include highlightText(c.$normal-color, c.$primary-color);
+	}
 	&_magical {
-		background-color: c.$magic-color;
+		@include highlightText(c.$magic-color, c.$primary-font-color);
 	}
 	&_rare {
-		background-color: c.$rare-color;
+		@include highlightText(c.$rare-color, c.$primary-font-color);
 	}
 	&_legend {
-		background-color: c.$legend-color;
+		@include highlightText(c.$legend-color, c.$primary-font-color);
 	}
 }
 .when {
@@ -172,6 +202,9 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	&_text {
 		margin-top: 30%;
+	}
+	&_highlight {
+		@include highlightText(c.$normal-color, c.$primary-color);
 	}
 }
 .treasure {
@@ -213,6 +246,13 @@ $mobile-margin: 40% 10% 0 10%;
 			font-size: 2.5rem;
 		}
 	}
+
+	.crab {
+		&_text {
+			margin-top: 30%;
+			font-weight: 600;
+		}
+	}
 }
 
 @media only screen and (max-width: 1200px) {
@@ -228,13 +268,20 @@ $mobile-margin: 40% 10% 0 10%;
 		width: max(65vw, 600px);
 	}
 
-	.sub_input {
-		width: 600px;
-	}
-
 	.nft {
 		&_text {
 			margin-top: 45%;
+		}
+	}
+
+	.crab {
+		&_text {
+			margin-top: 30%;
+			width: 80%;
+		}
+
+		&_rarityContainer {
+			margin-top: 4%;
 		}
 	}
 
@@ -260,7 +307,7 @@ $mobile-margin: 40% 10% 0 10%;
 
 	.crab {
 		&_text {
-			width: 100%;
+			width: 80%;
 		}
 	}
 }
@@ -297,9 +344,9 @@ $mobile-margin: 40% 10% 0 10%;
 			margin-top: 3vh;
 		}
 		&_input {
-			width: 350px;
-			font-size: 1.1rem;
-			padding-bottom: 10%;
+			font-size: 1.3rem;
+			padding-top: 2%;
+			padding-bottom: 2%;
 		}
 	}
 	.crab {
@@ -334,17 +381,30 @@ $mobile-margin: 40% 10% 0 10%;
 			margin-top: max(3vw, 100px);
 		}
 	}
-	.nft_text {
-		margin: $mobile-margin;
+	.nft {
+		padding-bottom: 100%;
+		&_text {
+			margin: $mobile-margin;
+		}
 	}
-	.crab_text {
-		margin: $mobile-margin;
+	.crab {
+		&_anat {
+			padding-bottom: 100%;
+		}
+		&_text {
+			margin: $mobile-margin;
+		}
 	}
-	.when_text {
-		margin: $mobile-margin;
+	.when {
+		padding-bottom: 95%;
+		&_text {
+			margin: $mobile-margin;
+		}
 	}
-	.footer_text {
-		margin: $mobile-margin;
+	.footer {
+		&_text {
+			margin: $mobile-margin;
+		}
 	}
 }
 @media only screen and (max-width: 400px) {

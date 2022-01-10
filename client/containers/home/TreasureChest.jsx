@@ -4,7 +4,6 @@ export default function TreasureChest({s}) {
 
     const [chestState, setChestState] = useRecoilState(ChestState);
 
-
     function OpenChest() {
         if (chestState === "idle") {
             setChestState("opening");
@@ -12,7 +11,7 @@ export default function TreasureChest({s}) {
                 setChestState("opened");
             }, 1200);
         }
-    };
+    }
 
     return (
         <div className={s.treasure_zone}>
@@ -39,6 +38,5 @@ export default function TreasureChest({s}) {
                 </>
             }
         </div>
-    )
+    );
 }
-
