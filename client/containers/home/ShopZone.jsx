@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { useRef } from "react/cjs/react.development";
+import React, { useState } from "react";
 /**
  * The main area of the landing page with the shop gif.
  *
  */
 export default function ShopZone({ s }) {
     const [email, setEmail] = useState("");
-    const inputRef = useRef();
+    const inputRef = React.createRef();
 
     function handleChange(event) {
         setEmail(event.target.value);
