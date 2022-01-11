@@ -1,7 +1,9 @@
-import { useScrollValue } from "/lib/useScroll";
+import { useScrollValue } from "/lib/useScrollValue";
 import { TreasureChest } from "/containers/home/ContainerIndex";
+import s from "/sass/home/home.module.css";
 
-export default function WhenIsItOut({ s, ScrollPercent }) {
+export default function WhenIsItOut({ ScrollPercent }) {
+    
     let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3020, -500, -150,-100,-170);
 
     return (

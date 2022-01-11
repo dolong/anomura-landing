@@ -1,5 +1,8 @@
-import { useScrollValue } from "/lib/useScroll";
-export default function CrabAnat({ s, ScrollPercent }) {
+import { useScrollValue } from "/lib/useScrollValue";
+import s from "/sass/home/home.module.css";
+
+export default function CrabAnat({ ScrollPercent }) {
+
     let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1600, -200, -200,-100,-200);
 
     return (

@@ -1,18 +1,21 @@
-import { useRecoilState } from "recoil";
-import { ChestState } from "/atoms/Atoms";
-export default function TreasureChest({s}) {
+import { useState } from "react";
+import s from "/sass/home/home.module.css";
 
-    const [chestState, setChestState] = useRecoilState(ChestState);
+export default function TreasureChest() {
 
+    const [chestState, setChestState] = useState("idle");
+    
     function OpenChest() {
         if (chestState === "idle") {
             setChestState("opening");
             setTimeout(() => {
                 setChestState("opened");
-            }, 1200);
+            }, 400);
         }
     }
 
+
+    
     return (
         <div className={s.treasure_zone}>
             {

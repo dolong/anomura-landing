@@ -1,6 +1,6 @@
-import { useScrollValue } from "/lib/useScroll";
-
-export default function Footer({ s, ScrollPercent }) {
+import { useScrollValue } from "/lib/useScrollValue";
+import s from "/sass/home/home.module.css";
+export default function Footer({ ScrollPercent }) {
     let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 5450, -950, -600,-750,-1050);
 
     return (

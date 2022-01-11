@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import s from "/sass/home/home.module.css";
 /**
  * The main area of the landing page with the shop gif.
  *
  */
-export default function ShopZone({ s }) {
+export default function ShopZone() {
     const [email, setEmail] = useState("");
     const inputRef = React.createRef();
 
