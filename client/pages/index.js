@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-
 import { Navbar } from "/components/home/ComponentIndex";
 import { ShopZone } from "/containers/home/ContainerIndex";
-
 import { useScrollEvent } from "/hooks/useScrollEvent";
 import s from "/sass/home/home.module.css";
 import { useRecoilValue } from "recoil";
@@ -30,7 +28,8 @@ export default function Home() {
 
   const setOffsetY = useScrollEvent();
   const scrollPercent = useRecoilValue(ScrollValue);
-
+  
+  
   return (
     <div className={s.App}>
       <Head>
@@ -41,20 +40,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
+      {/*
+          <audio id="BackgroundAudio" loop controls muted autoPlay>
+        <source src="/audio/UnderwaterLoop.wav" type="audio/x-wav"/>
+      </audio>
+      */}
 
       {/* Top Nav Zone */}
       <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
-      <Navbar s={s} ></Navbar>
+      <Navbar  ></Navbar>
       {/* End Of Top Nav Zone */}
 
       {/* Parallax Zone */}
       <div className={s.parallax_group}>
-        <ShopZone s={s}></ShopZone>
-        <NFT s={s} ScrollPercent={scrollPercent}></NFT>
-        <CrabAnat s={s} ScrollPercent={scrollPercent}></CrabAnat>
-        <WhenIsItOut s={s} ScrollPercent={scrollPercent}></WhenIsItOut>
-        <Footer s={s} ScrollPercent={scrollPercent}></Footer>
+        <ShopZone  ></ShopZone>
+        <NFT ScrollPercent={scrollPercent}></NFT>
+        <CrabAnat  ScrollPercent={scrollPercent}></CrabAnat>
+        <WhenIsItOut  ScrollPercent={scrollPercent}></WhenIsItOut>
+        <Footer ScrollPercent={scrollPercent}></Footer>
       </div>
       {/* End Of Parallax Zone */}
 
