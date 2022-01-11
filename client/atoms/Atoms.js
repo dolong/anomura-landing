@@ -6,7 +6,3 @@ export const ScrollValue = atom({
 });
 
 
-export const ChestState = atom({
-  key: 'chestState', // unique ID (with respect to other atoms/selectors)
-  default: "idle", // default value (aka initial value)
-});
