@@ -9,38 +9,37 @@
  * @returns {Returns a number that is adding to the top css value of a transform} 
  */
 export function useScrollValue(ScrollPercent, ScrollSpeed, InitialOffset,TwelveHundredOffSet = 0, OneThousandOffSet = 0,EightHundredOffSet = -100,SixHundredOffSet=0,FourHundredOffSet = -120) {
-    const scrollPercent = ScrollPercent;
     let calculatedOffsetY = 0;
     //Four seems to be the magic number for not stretching the scroll bar
     let scrollMultiplier = 4;
 
     if (window.innerWidth <= 400) {
         scrollMultiplier = 2;
-        calculatedOffsetY = Math.floor(InitialOffset + FourHundredOffSet + (scrollPercent * ScrollSpeed / scrollMultiplier));
+        calculatedOffsetY = Math.floor(InitialOffset + FourHundredOffSet + (ScrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
     else if (window.innerWidth <= 600) {
         scrollMultiplier = 2;
-        calculatedOffsetY = Math.floor(InitialOffset + SixHundredOffSet + (scrollPercent * ScrollSpeed / scrollMultiplier));
+        calculatedOffsetY = Math.floor(InitialOffset + SixHundredOffSet + (ScrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
     else if (window.innerWidth <= 800) {
         scrollMultiplier = 3;
-        calculatedOffsetY = Math.floor(InitialOffset + EightHundredOffSet + (scrollPercent * ScrollSpeed / scrollMultiplier));
+        calculatedOffsetY = Math.floor(InitialOffset + EightHundredOffSet + (ScrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
     else if (window.innerWidth <= 1000) {
         scrollMultiplier = 3;
-        calculatedOffsetY = Math.floor(InitialOffset +  OneThousandOffSet + (scrollPercent * ScrollSpeed / scrollMultiplier));
+        calculatedOffsetY = Math.floor(InitialOffset +  OneThousandOffSet + (ScrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
     else if (window.innerWidth <= 1200) {
         scrollMultiplier = 5;
-        calculatedOffsetY = Math.floor(InitialOffset + TwelveHundredOffSet + (scrollPercent * ScrollSpeed / scrollMultiplier));
+        calculatedOffsetY = Math.floor(InitialOffset + TwelveHundredOffSet + (ScrollPercent * ScrollSpeed / scrollMultiplier));
         return calculatedOffsetY;
     }
 
-    calculatedOffsetY = Math.floor(InitialOffset + (scrollPercent * ScrollSpeed / scrollMultiplier));
+    calculatedOffsetY = Math.floor(InitialOffset + (ScrollPercent * ScrollSpeed / scrollMultiplier));
     return calculatedOffsetY;
 }
 
