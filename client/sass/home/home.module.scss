@@ -66,7 +66,7 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	&_logo {
 		width: 80%;
-		margin-top: 2vh;
+		margin-top: calc(50% - 55px + (90% / 1669) * 55);
 	}
 	&_icons {
 		display: flex;
@@ -178,7 +178,7 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 
 	&_inline {
-		padding-left: 3px;
+		padding-left: 10px;
 	}
 
 	&_normal {
@@ -423,6 +423,15 @@ $mobile-margin: 40% 10% 0 10%;
 			width: min(65vw, 300px);
 			font-size: 0.8rem;
 			padding-bottom: 3%;
+		}
+	}
+	.crab {
+		&_text {
+			font-size:0.9rem;
+		}
+		&_rarityContainer {
+			font-size:0.8rem;
+			font-weight:500;
 		}
 	}
 }
