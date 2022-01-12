@@ -1,3 +1,12 @@
+# Table of Contents
+
+-[Description](#description)
+-[Tools Used](#tools-used)
+-[Next JS Framework](#next-js-framework)
+-[Tailwind](#tailwind)
+-[Css Modules](#css-modules)
+-[How to use](#how-to-use)
+
 # Description
 
 This is the repo for the coming soon page of project Anomura.
@@ -18,7 +27,7 @@ For styling we have CSS modules and a global CSS file.
 
 [`Tailwind`](https://tailwindcss.com/)
 
-## CSS Modules
+## Css Modules
 
 [`CSS Modules Github`](https://github.com/css-modules/css-modules)
 
