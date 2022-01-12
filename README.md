@@ -1,11 +1,11 @@
 # Table of Contents
 
--[Description](#description)
--[Tools Used](#tools-used)
--[Next JS Framework](#next-js-framework)
--[Tailwind](#tailwind)
--[Css Modules](#css-modules)
--[How to use](#how-to-use)
+- [Description](#description)
+- [Tools Used](#tools-used)
+- [Next JS Framework](#next-js-framework)
+- [Tailwind](#tailwind)
+- [Css Modules](#css-modules)
+- [How to use](#how-to-use)
 
 # Description
 
