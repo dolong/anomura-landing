@@ -20,7 +20,7 @@ For styling we have CSS modules and a global CSS file.
 
 ## CSS Modules
 
-[`CSS Modules Github`](https://tailwindcss.com/)
+[`CSS Modules Github`](https://github.com/css-modules/css-modules)
 
 [`CSS Modules With Next JS`](https://nextjs.org/docs/basic-features/built-in-css-support)
 
