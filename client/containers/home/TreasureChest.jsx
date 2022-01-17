@@ -4,7 +4,8 @@ import s from "/sass/home/home.module.css";
 export default function TreasureChest() {
 
     const [chestState, setChestState] = useState("idle");
-    
+
+
     function OpenChest() {
         if (chestState === "idle") {
             setChestState("opening");
@@ -14,8 +15,6 @@ export default function TreasureChest() {
         }
     }
 
-
-    
     return (
         <div className={s.treasure_zone}>
             {
@@ -27,13 +26,13 @@ export default function TreasureChest() {
             }
             {
                 chestState === "opened" &&
-                    <>
-                        <img className="treasure-img" src="/img/home/cards/Card.gif" alt="" />
-                        <img className="treasure-img" src="/img/home/chest_openedidle.gif" alt="" />
-                    </>
+                <>
+                    <img className="treasure-img" src="/img/home/cards/Card.gif" alt="" />
+                    <img className="treasure-img" src="/img/home/chest_openedidle.gif" alt="" />
+                </>
             }
             {
-                
+
                 chestState === "idle" &&
                 <>
                     <img className="treasure-img invisible" src="/img/home/cards/Card.gif" alt="" />

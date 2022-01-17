@@ -10,6 +10,7 @@ export default function NFT({ ScrollPercent }) {
                 <div>
                     <span className={s.nft_highlight}>NFT VIDEOGAME?</span>
                 </div>
+
                 <p>
                     8,000 unique and collectable anomura ranging from sentient robots to immortal
                     cosmic beings.... <br />

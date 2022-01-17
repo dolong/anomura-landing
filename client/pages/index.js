@@ -28,8 +28,8 @@ export default function Home() {
 
   const setOffsetY = useScrollEvent();
   const scrollPercent = useRecoilValue(ScrollValue);
-  
-  
+
+
   return (
     <div className={s.App}>
       <Head>
@@ -46,6 +46,8 @@ export default function Home() {
       </audio>
       */}
 
+
+
       {/* Top Nav Zone */}
       <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
       <Navbar  ></Navbar>
@@ -55,8 +57,8 @@ export default function Home() {
       <div className={s.parallax_group}>
         <ShopZone  ></ShopZone>
         <NFT ScrollPercent={scrollPercent}></NFT>
-        <CrabAnat  ScrollPercent={scrollPercent}></CrabAnat>
-        <WhenIsItOut  ScrollPercent={scrollPercent}></WhenIsItOut>
+        <CrabAnat ScrollPercent={scrollPercent}></CrabAnat>
+        <WhenIsItOut ScrollPercent={scrollPercent}></WhenIsItOut>
         <Footer ScrollPercent={scrollPercent}></Footer>
       </div>
       {/* End Of Parallax Zone */}
