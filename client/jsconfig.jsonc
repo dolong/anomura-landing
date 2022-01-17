@@ -4,9 +4,9 @@
         This is becuase react folder structure doesn't use src like normal react compiling.
     */
     "compilerOptions": {
-        "baseUrl": "./"
+        "baseUrl": "./*"
     },
     "include": [
-        "./"
+        "./*"
     ]
 }
