@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import { Navbar } from "components/home/Navbar";
 export default function Anomura() {
     return (
         <div>
@@ -11,14 +12,13 @@ export default function Anomura() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/* Navbar */}
-
+            <Navbar></Navbar>
             {/* Main Header */}
 
 
             {/* SubSection 1  */}
 
-            {/* Gameplay Area */}
+            {/* Game play Area */}
 
             {/* NFt Preview */}
 

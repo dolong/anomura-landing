@@ -24,6 +24,7 @@ const { NFT, CrabAnat, WhenIsItOut, Footer }
   )
 }
 
+
 export default function Home() {
 
   const setOffsetY = useScrollEvent();
