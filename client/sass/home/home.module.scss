@@ -99,8 +99,7 @@ $mobile-margin: 40% 10% 0 10%;
 			background-size: 100%;
 		}
 
-		// put z-index here so that it can be clicked when the bottom layer covers
-		z-index: 6;
+		z-index: 4;
 		position: relative;
 	}
 
@@ -126,8 +125,7 @@ $mobile-margin: 40% 10% 0 10%;
 			border: black solid 1px;
 		}
 
-		// put z-index here so that it can be clicked when the bottom layer covers
-		z-index: 6;
+		z-index: 4;
 		position: relative;
 	}
 	&_arrow {
@@ -136,6 +134,9 @@ $mobile-margin: 40% 10% 0 10%;
 		background: url("/img/home/arrow.png") no-repeat;
 		background-size: 100%;
 		margin-left: 3px;
+
+		z-index: 4;
+		position: relative;
 	}
 }
 .sand {
@@ -196,12 +197,12 @@ $mobile-margin: 40% 10% 0 10%;
 }
 .when {
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 75%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 70%);
 		@include m.flex-master(column, null, center);
-		padding-top: 10%;
+		padding-top: 5%;
 	}
 	&_text {
-		margin-top: 30%;
+		margin-top: 25%;
 	}
 	&_highlight {
 		@include highlightText(c.$normal-color, c.$primary-color);
@@ -211,15 +212,26 @@ $mobile-margin: 40% 10% 0 10%;
 	&_zone {
 		width: 100%;
 		@include m.flex-master(column, center, center);
+		margin-top: 3%;
+
 	}
 
-	&_img {
-		width: clamp(10vw, 800px, 50%);
+	&_chestContainer {
+		@include m.flex-master(column, null, center);
+	}
+
+	&_card {
+		margin-left: calc(15%);
+		width: clamp(15vw, 20%, 30%);
+	}
+	
+	&_chest {
+		width: clamp(45vw, 50%, 100%);
 	}
 }
 
 .footer {
-	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 5%);
+	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 12%);
 	@include m.flex-master(column, null, center);
 	&_social {
 		display: flex;
@@ -228,10 +240,11 @@ $mobile-margin: 40% 10% 0 10%;
 	&_text {
 		text-align: center;
 	}
+
 }
 .logo_container {
 	@include m.flex-master(row, center, null);
-	margin-top: 35%;
+	margin-top: 38.5%;
 	margin-bottom: 5%;
 	& > img {
 		width: min(400px, 20%);
@@ -364,12 +377,6 @@ $mobile-margin: 40% 10% 0 10%;
 				text-align: right;
 			}
 		}
-		&_normal,
-		&_magical,
-		&_rare,
-		&_legend {
-			padding: 3px 3px 3px 3px;
-		}
 	}
 	.footer {
 		padding-bottom: 35%;
@@ -385,6 +392,7 @@ $mobile-margin: 40% 10% 0 10%;
 		padding-bottom: 100%;
 		&_text {
 			margin: $mobile-margin;
+			padding-top: 10%;
 		}
 	}
 	.crab {
@@ -392,6 +400,7 @@ $mobile-margin: 40% 10% 0 10%;
 			padding-bottom: 100%;
 		}
 		&_text {
+			font-weight: 500;
 			margin: $mobile-margin;
 		}
 	}
@@ -401,6 +410,12 @@ $mobile-margin: 40% 10% 0 10%;
 			margin: $mobile-margin;
 		}
 	}
+	.treasure {
+		&_chestContainer {
+			margin-top:10%;
+		}	
+	}
+	
 	.footer {
 		&_text {
 			margin: $mobile-margin;
@@ -427,11 +442,8 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	.crab {
 		&_text {
-			font-size:0.9rem;
-		}
-		&_rarityContainer {
 			font-size:0.8rem;
-			font-weight:500;
 		}
+		
 	}
 }
