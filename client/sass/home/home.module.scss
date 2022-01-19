@@ -167,7 +167,7 @@ $mobile-margin: 40% 10% 0 10%;
 	&_text {
 		width: 80%;
 		@include m.flex-master(column, null, null);
-		margin-top: 25%;
+		margin-top: 30%;
 	}
 	&_rarityContainer {
 		@include m.flex-master(row, space-between, null);
@@ -231,6 +231,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .footer {
+	pointer-events:none;
 	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 12%);
 	@include m.flex-master(column, null, center);
 	&_social {

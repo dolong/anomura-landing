@@ -13,7 +13,7 @@ export default function WhenIsItOut({ ScrollPercent }) {
                     <span className={s.when_highlight}>WHEN IS IT OUT?</span>
                 </div>
                 <p>
-                    Anomura will be targeted to be released by the end of 2021, <br />
+                    Anomura is targeted to be released by the end of 2021, <br />
                     with many alpha and beta releases. <br />A detailed road map will be available
                     shortly!
                 </p>

@@ -11,7 +11,7 @@ export default function CrabAnat({ ScrollPercent }) {
                 <div>
                     <span className={s.crab_normal}>CRAB ANATOMY!</span>
                     <div className={s.crab_inline}>
-                        Each body part has a chance of being normal to legendary rarity.
+                        Each body part has a chance of being normal to legendary in rarity.
                     </div>
                 </div>
 
