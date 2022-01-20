@@ -4,7 +4,7 @@ import s from "/sass/home/home.module.css";
 
 export default function WhenIsItOut({ ScrollPercent }) {
     //let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3050, -500, -150, -100, -170);
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3400, -500, -150, -100, 5, 15);
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3400, -500, -150, -100, 5, 55);
 
     return (
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>

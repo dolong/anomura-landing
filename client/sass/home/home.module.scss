@@ -226,13 +226,13 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	
 	&_chest {
-		width: clamp(45vw, 50%, 100%);
+		width: clamp(60vw, 50%, 100%);
 	}
 }
 
 .footer {
 	pointer-events:none;
-	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 12%);
+	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 13%);
 	@include m.flex-master(column, null, center);
 	&_social {
 		display: flex;
