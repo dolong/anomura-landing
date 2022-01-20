@@ -47,11 +47,7 @@ export default function Home() {
       */}
 
 
-
-      {/* Top Nav Zone */}
       <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
-      <Navbar  ></Navbar>
-      {/* End Of Top Nav Zone */}
 
       {/* Parallax Zone */}
       <div className={s.parallax_group}>
@@ -66,7 +62,7 @@ export default function Home() {
       {/* Css modules cant have a none pure style in 
        /  it like body so making a JSS style here 
        /  and applying it globally */}
-      <style jsx global>{`
+      <style >{`
         body {
           overflow-x:hidden;
           font-size: clamp(18px,2vw,28px);

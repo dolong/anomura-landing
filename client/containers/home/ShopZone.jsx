@@ -15,7 +15,7 @@ export default function ShopZone() {
 
     return (
         <div>
-            <div className={s.shop_zone}>
+            <div className={`${s.shop_zone} pt-[5%]`}>
                 <div className={s.shop_text}>
                     <div>
                         <h2 className="font-bold">COMING SOON!</h2>
