@@ -83,7 +83,7 @@
   height: 75px;
   background: url("/img/home/subscribe.png") no-repeat;
   background-size: 100%;
-  z-index: 6;
+  z-index: 4;
   position: relative;
 }
 .sub_img:hover {
@@ -106,7 +106,7 @@
   padding: 0 0 0 3%;
   background-color: rgba(0, 0, 0, 0);
   border: transparent solid 1px;
-  z-index: 6;
+  z-index: 4;
   position: relative;
 }
 .sub_input:hover {
@@ -121,6 +121,8 @@
   background: url("/img/home/arrow.png") no-repeat;
   background-size: 100%;
   margin-left: 3px;
+  z-index: 4;
+  position: relative;
 }
 
 .sand_zone {
@@ -169,7 +171,7 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  margin-top: 25%;
+  margin-top: 30%;
 }
 .crab_rarityContainer {
   display: flex;
@@ -219,14 +221,16 @@
   background-size: cover;
   position: absolute;
   z-index: 5;
-  padding-bottom: 75%;
+  padding-bottom: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10%;
 }
 .when_text {
   margin-top: 30%;
+}
+.when_paragraph {
+  padding: 3px 5px 3px 10px;
 }
 .when_highlight {
   background-color: #4cdebc;
@@ -243,17 +247,29 @@
   justify-content: center;
   align-items: center;
 }
-.treasure_img {
-  width: clamp(10vw, 800px, 50%);
+.treasure_chestContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+}
+.treasure_card {
+  margin-left: calc(14%);
+  /* for reading card text properly */
+  width: clamp(15vw, 40%, 260px);
+}
+.treasure_chest {
+  width: clamp(50vw, 75%, 100%);
 }
 
 .footer {
+  pointer-events: none;
   width: 100%;
   background-image: url("/img/home/backgrounds/Layer6.png");
   background-size: cover;
   position: absolute;
   z-index: 6;
-  padding-bottom: 5%;
+  padding-bottom: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -264,13 +280,14 @@
 }
 .footer_text {
   text-align: center;
+  margin-top: 2%;
 }
 
 .logo_container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 35%;
+  margin-top: 38.5%;
   margin-bottom: 5%;
 }
 .logo_container > img {
@@ -385,9 +402,6 @@
   .crab_rarityBlock div:nth-child(2) {
     text-align: right;
   }
-  .crab_normal, .crab_magical, .crab_rare, .crab_legend {
-    padding: 3px 3px 3px 3px;
-  }
 
   .footer {
     padding-bottom: 35%;
@@ -403,20 +417,27 @@
   }
   .nft_text {
     margin: 40% 10% 0 10%;
+    padding-top: 10%;
   }
 
   .crab_anat {
     padding-bottom: 100%;
   }
   .crab_text {
+    font-weight: 500;
     margin: 40% 10% 0 10%;
   }
 
   .when {
-    padding-bottom: 95%;
+    padding-bottom: 100%;
   }
   .when_text {
     margin: 40% 10% 0 10%;
+  }
+
+  .treasure_chestContainer {
+    margin-top: 10%;
+    margin-bottom: 75%;
   }
 
   .footer_text {
@@ -440,10 +461,6 @@
   }
 
   .crab_text {
-    font-size: 0.9rem;
-  }
-  .crab_rarityContainer {
     font-size: 0.8rem;
-    font-weight: 500;
   }
 }/*# sourceMappingURL=home.module.css.map */
