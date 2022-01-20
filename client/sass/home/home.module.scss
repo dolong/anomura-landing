@@ -197,7 +197,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 .when {
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 70%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 100%);
 		@include m.flex-master(column, null, center);
 		padding-top: 5%;
 	}
