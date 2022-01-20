@@ -197,12 +197,14 @@ $mobile-margin: 40% 10% 0 10%;
 }
 .when {
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 100%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 65%);
 		@include m.flex-master(column, null, center);
-		padding-top: 5%;
 	}
 	&_text {
-		margin-top: 25%;
+		margin-top: 30%;
+	}
+	&_paragraph {
+		padding: 3px 5px 3px 10px;
 	}
 	&_highlight {
 		@include highlightText(c.$normal-color, c.$primary-color);
@@ -212,27 +214,29 @@ $mobile-margin: 40% 10% 0 10%;
 	&_zone {
 		width: 100%;
 		@include m.flex-master(column, center, center);
-		margin-top: 3%;
-
 	}
 
 	&_chestContainer {
 		@include m.flex-master(column, null, center);
+		margin-top:3%;
 	}
 
 	&_card {
-		margin-left: calc(15%);
-		width: clamp(15vw, 20%, 30%);
+		margin-left: calc(14%);
+
+		/* for reading card text properly */
+		width: clamp(15vw, 40%, 260px);
 	}
 	
 	&_chest {
-		width: clamp(60vw, 50%, 100%);
+		width: clamp(50vw, 75%, 100%);
 	}
+
 }
 
 .footer {
 	pointer-events:none;
-	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 13%);
+	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 25%);
 	@include m.flex-master(column, null, center);
 	&_social {
 		display: flex;
@@ -240,6 +244,7 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	&_text {
 		text-align: center;
+		margin-top: 2%;
 	}
 
 }
@@ -406,7 +411,7 @@ $mobile-margin: 40% 10% 0 10%;
 		}
 	}
 	.when {
-		padding-bottom: 95%;
+		padding-bottom: 100%;
 		&_text {
 			margin: $mobile-margin;
 		}
@@ -414,6 +419,7 @@ $mobile-margin: 40% 10% 0 10%;
 	.treasure {
 		&_chestContainer {
 			margin-top:10%;
+			margin-bottom:75%;
 		}	
 	}
 	

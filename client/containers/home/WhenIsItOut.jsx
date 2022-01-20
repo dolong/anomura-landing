@@ -3,7 +3,6 @@ import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
 export default function WhenIsItOut({ ScrollPercent }) {
-    //let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3050, -500, -150, -100, -170);
     let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3400, -500, -150, -100, 5, 55);
 
     return (
@@ -12,7 +11,7 @@ export default function WhenIsItOut({ ScrollPercent }) {
                 <div>
                     <span className={s.when_highlight}>WHEN IS IT OUT?</span>
                 </div>
-                <p>
+                <p className={s.when_paragraph}>
                     Anomura is targeted to be released by the end of 2021, <br />
                     with many alpha and beta releases. <br />A detailed road map will be available
                     shortly!

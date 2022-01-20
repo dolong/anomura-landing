@@ -221,14 +221,16 @@
   background-size: cover;
   position: absolute;
   z-index: 5;
-  padding-bottom: 100%;
+  padding-bottom: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5%;
 }
 .when_text {
-  margin-top: 25%;
+  margin-top: 30%;
+}
+.when_paragraph {
+  padding: 3px 5px 3px 10px;
 }
 .when_highlight {
   background-color: #4cdebc;
@@ -244,19 +246,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
 }
 .treasure_chestContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3%;
 }
 .treasure_card {
-  margin-left: calc(15%);
-  width: clamp(15vw, 20%, 30%);
+  margin-left: calc(14%);
+  /* for reading card text properly */
+  width: clamp(15vw, 40%, 260px);
 }
 .treasure_chest {
-  width: clamp(60vw, 50%, 100%);
+  width: clamp(50vw, 75%, 100%);
 }
 
 .footer {
@@ -266,7 +269,7 @@
   background-size: cover;
   position: absolute;
   z-index: 6;
-  padding-bottom: 13%;
+  padding-bottom: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -277,6 +280,7 @@
 }
 .footer_text {
   text-align: center;
+  margin-top: 2%;
 }
 
 .logo_container {
@@ -425,7 +429,7 @@
   }
 
   .when {
-    padding-bottom: 95%;
+    padding-bottom: 100%;
   }
   .when_text {
     margin: 40% 10% 0 10%;
@@ -433,6 +437,7 @@
 
   .treasure_chestContainer {
     margin-top: 10%;
+    margin-bottom: 75%;
   }
 
   .footer_text {
