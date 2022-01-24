@@ -6,6 +6,7 @@ import { useScrollEvent } from "/hooks/useScrollEvent";
 import s from "/sass/home/home.module.css";
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from '/atoms/Atoms';
+import { useEffect } from 'react';
 
 
 const { NFT, CrabAnat, WhenIsItOut, Footer }
@@ -29,6 +30,14 @@ export default function Home() {
   const setOffsetY = useScrollEvent();
   const scrollPercent = useRecoilValue(ScrollValue);
 
+  function StartAudio() {
+    document.getElementById('bg-music').play();
+    window.removeEventListener('click', StartAudio);
+  }
+
+  useEffect(() => {
+    window.addEventListener('click', StartAudio);
+  });
 
   return (
     <div className={s.App}>
@@ -40,11 +49,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/*
-          <audio id="BackgroundAudio" loop controls muted autoPlay>
-        <source src="/audio/UnderwaterLoop.wav" type="audio/x-wav"/>
+      <audio src="/audio/UnderwaterLoop.wav" type="audio/wav" id="bg-music" autoPlay loop>
       </audio>
-      */}
 
 
       <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
