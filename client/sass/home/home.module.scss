@@ -38,7 +38,7 @@ $mobile-margin: 40% 10% 0 10%;
 	position: relative;
 }
 
-/*   Nav Bar Area*/
+/* Nav Bar Area */
 .nav {
 	&_menu {
 		display: flex;
@@ -86,6 +86,12 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	&_img {
 		width: min(60vw, 850px);
+	}
+	&_heading {
+		@include highlightText(c.$normal-color, c.$primary-color);
+	}
+	&_paragraph {
+		padding: 5px 0px 3px 10px;
 	}
 }
 .sub {
@@ -155,8 +161,13 @@ $mobile-margin: 40% 10% 0 10%;
 		margin-top: 36%;
 	}
 
-	&_highlight {
+	&_heading {
 		@include highlightText(c.$normal-color, c.$primary-color);
+	}
+
+	// may put this as global later
+	&_paragraph {
+		padding: 5px 0px 3px 10px;
 	}
 }
 .crab {
@@ -186,13 +197,13 @@ $mobile-margin: 40% 10% 0 10%;
 		@include highlightText(c.$normal-color, c.$primary-color);
 	}
 	&_magical {
-		@include highlightText(c.$magic-color, c.$primary-font-color);
+		@include highlightText(c.$magic-color, c.$primary-color);
 	}
 	&_rare {
 		@include highlightText(c.$rare-color, c.$primary-font-color);
 	}
 	&_legend {
-		@include highlightText(c.$legend-color, c.$primary-font-color);
+		@include highlightText(c.$legend-color, c.$primary-color);
 	}
 }
 .when {
@@ -348,13 +359,13 @@ $mobile-margin: 40% 10% 0 10%;
 		&_zone {
 			flex-direction: column;
 			justify-content: center;
-			margin-left: 0;
+			max-width: 85%;
 		}
 		&_img {
 			width: 95vw;
 		}
 		&_text {
-			display: none;
+			 font-size: 1rem;
 		}
 	}
 	.sub {
@@ -390,9 +401,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 @media only screen and (max-width: 700px) {
 	.shop {
-		&_img {
-			margin-top: max(3vw, 100px);
-		}
+		
 	}
 	.nft {
 		padding-bottom: 100%;
@@ -431,8 +440,9 @@ $mobile-margin: 40% 10% 0 10%;
 }
 @media only screen and (max-width: 400px) {
 	.shop {
-		&_img {
-			margin-top: max(3vw, 120px);
+		&_text {
+	
+			 font-size: 0.95rem;
 		}
 	}
 	.sub {
@@ -443,14 +453,18 @@ $mobile-margin: 40% 10% 0 10%;
 			background-size: cover;
 			min-height: 45px;
 			width: min(65vw, 300px);
-			font-size: 0.8rem;
+			font-size: 0.95rem;
 			padding-bottom: 3%;
+		}
+	}
+	.nft {
+		&_text {
+			font-size: 0.95rem;
 		}
 	}
 	.crab {
 		&_text {
-			font-size:0.8rem;
+			font-size:1rem;
 		}
-		
 	}
 }

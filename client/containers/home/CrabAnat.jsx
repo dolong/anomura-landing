@@ -2,8 +2,11 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 export default function CrabAnat({ ScrollPercent }) {
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1850, -200, -200, -100, -200, -200);
+    /*  position for extracting the whole mobile view on Creative Review board, will remove once everything is approved
+        let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 1150, -200, -200, 100, -200, -200);
+    */
 
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1850, -200, -200, -100, -200, -200);
     return (
         <div className={s.crab_anat} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.crab_text}>

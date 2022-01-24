@@ -31,7 +31,7 @@
   position: relative;
 }
 
-/*   Nav Bar Area*/
+/* Nav Bar Area */
 .nav_menu {
   display: flex;
   background: url("/img/home/menu.png") no-repeat;
@@ -76,6 +76,16 @@
 }
 .shop_img {
   width: min(60vw, 850px);
+}
+.shop_heading {
+  background-color: #4cdebc;
+  color: #191226;
+  padding: 3px 10px 3px 10px;
+  min-width: 130px;
+  font-weight: 600;
+}
+.shop_paragraph {
+  padding: 5px 0px 3px 10px;
 }
 
 .sub_img {
@@ -149,12 +159,15 @@
   align-items: center;
   margin-top: 36%;
 }
-.nft_highlight {
+.nft_heading {
   background-color: #4cdebc;
   color: #191226;
   padding: 3px 10px 3px 10px;
   min-width: 130px;
   font-weight: 600;
+}
+.nft_paragraph {
+  padding: 5px 0px 3px 10px;
 }
 
 .crab_anat {
@@ -195,7 +208,7 @@
 }
 .crab_magical {
   background-color: #5afef9;
-  color: #fff;
+  color: #191226;
   padding: 3px 10px 3px 10px;
   min-width: 130px;
   font-weight: 600;
@@ -209,7 +222,7 @@
 }
 .crab_legend {
   background-color: #93fe5a;
-  color: #fff;
+  color: #191226;
   padding: 3px 10px 3px 10px;
   min-width: 130px;
   font-weight: 600;
@@ -367,13 +380,13 @@
   .shop_zone {
     flex-direction: column;
     justify-content: center;
-    margin-left: 0;
+    max-width: 85%;
   }
   .shop_img {
     width: 95vw;
   }
   .shop_text {
-    display: none;
+    font-size: 1rem;
   }
 
   .sub_img {
@@ -408,10 +421,6 @@
   }
 }
 @media only screen and (max-width: 700px) {
-  .shop_img {
-    margin-top: max(3vw, 100px);
-  }
-
   .nft {
     padding-bottom: 100%;
   }
@@ -445,8 +454,8 @@
   }
 }
 @media only screen and (max-width: 400px) {
-  .shop_img {
-    margin-top: max(3vw, 120px);
+  .shop_text {
+    font-size: 0.95rem;
   }
 
   .sub_img {
@@ -456,11 +465,15 @@
     background-size: cover;
     min-height: 45px;
     width: min(65vw, 300px);
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     padding-bottom: 3%;
   }
 
+  .nft_text {
+    font-size: 0.95rem;
+  }
+
   .crab_text {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=home.module.css.map */

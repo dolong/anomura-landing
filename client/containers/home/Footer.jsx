@@ -1,7 +1,10 @@
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 export default function Footer({ ScrollPercent }) {
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 5000, -950, -600, -750, -850, -850);
+    /*  position for extracting the whole page for mobile view on Creative Review board, will remove once everything is approved
+        let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 3000, -950, -600, -750, -850, -850);
+    */
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 5070, -950, -600, -750, -850, -850);
 
     return (
         <div className={s.footer} style={{ top: `calc(${calculatedOffsetY}px)` }}>

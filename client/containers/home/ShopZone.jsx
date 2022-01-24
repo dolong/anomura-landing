@@ -18,23 +18,32 @@ export default function ShopZone() {
             <div className={`${s.shop_zone} pt-[5%]`}>
                 <div className={s.shop_text}>
                     <div>
-                        <h2 className="font-bold">COMING SOON!</h2>
-                        <p>
-                            <br /> <span className="font-bold">Anomura</span> is a new indie play-to-earn game inspired by
-                            games like Loop Hero, Diablo and Ragnarok Online. Part strategic gameplay, part collectible NFT
-                            characters & loot, paired with an incredible community — Anomura is the <span className="font-bold">future of next-gen gaming.</span>
-
+                        <span className={`${s.shop_heading}`}>COMING SOON!</span>
+                        <p className={s.shop_paragraph}>
+                            <span className="font-bold"> Anomura</span> is a new indie play-to-earn
+                            game inspired by games like
+                            <span className="font-italic"> Loop Hero, Diablo</span> and
+                            <span className="font-italic"> Search for Eden</span>. Part strategic
+                            gameplay, part collectible NFT characters & loot, paired with an
+                            incredible community - Anomura is the
+                            <span className="font-bold"> future of next-gen gaming.</span>
+                        </p>
+                        <p className={s.shop_paragraph}>
+                            Brought to you by
+                            <span className="font-bold"> Virtually Human Studio, </span>
+                            creators of
+                            <a href="https://zed.run/" className="font-bold text-blue-500">
+                                {" "}
+                                ZED RUN
+                            </a>
                         </p>
                     </div>
-                    <p>
-                        <br />Brought to you by <span className="font-bold">Virtually Human Studio</span>, creators of <a href="https://zed.run/" className="underline"> ZED RUN!</a>
-                    </p>
-                    <h2 className="mt-4">Follow us for the latest updates:</h2>
-                    <div className="flex gap-6">
-                        <a href="https://twitter.com/anomuragame">
+                    <div className="">
+                        <span className={`${s.shop_paragraph} font-bold `}>Follow us on: </span>
+                        <a href="https://twitter.com/anomuragame" className="inline-block mr-2">
                             <p className="font-bold">Twitter</p>
                         </a>
-                        <a href="https://instagram.com/anomuragame">
+                        <a href="https://instagram.com/anomuragame" className="inline-block">
                             <p className="font-bold">Instagram</p>
                         </a>
                     </div>
@@ -60,6 +69,6 @@ export default function ShopZone() {
                     />
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
