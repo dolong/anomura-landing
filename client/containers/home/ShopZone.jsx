@@ -20,21 +20,16 @@ export default function ShopZone() {
                     <div>
                         <h2 className="font-bold">COMING SOON!</h2>
                         <p>
-                            True Pixel Indie RPG brilliant gameplay
-                            <br /> inspired by Loop Hero, Diablo, Ragnarok Online
-                        </p>
-                        <p>
-                            <br /> <span className="font-bold">Anomura</span> will be a unique game
-                            with gameplay
-                            <br /> that is both familiar and intriguing!
-                        </p>
-                        <p className="my-4">
-                            Welcome to <span className="font-bold">the future of Indie games</span>
-                            <br /> brought to you by <span className="font-bold">VHS Labs</span>,
-                            founder of <span className="bold">Zed.Run</span>
+                            <br /> <span className="font-bold">Anomura</span> is a new indie play-to-earn game inspired by
+                            games like Loop Hero, Diablo and Ragnarok Online. Part strategic gameplay, part collectible NFT
+                            characters & loot, paired with an incredible community — Anomura is the <span className="font-bold">future of next-gen gaming.</span>
+
                         </p>
                     </div>
-                    <h2 className="font-bold mt-4">Follow us on:</h2>
+                    <p>
+                        <br />Brought to you by <span className="font-bold">Virtually Human Studio</span>, creators of <a href="https://zed.run/" className="underline"> ZED RUN!</a>
+                    </p>
+                    <h2 className="mt-4">Follow us for the latest updates:</h2>
                     <div className="flex gap-6">
                         <a href="https://twitter.com/anomuragame">
                             <p className="font-bold">Twitter</p>
@@ -65,6 +60,6 @@ export default function ShopZone() {
                     />
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
