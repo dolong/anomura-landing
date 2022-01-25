@@ -10,7 +10,6 @@ export default function Footer({ ScrollPercent }) {
         <div className={s.footer} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.logo_container}>
                 <img src="/img/home/logos/vhs.png" alt="" />
-                <img src="/img/home/logos/zed.png" alt="" />
             </div>
             <div className={s.footer_info}>
                 <div className={s.footer_social}>
@@ -19,11 +18,13 @@ export default function Footer({ ScrollPercent }) {
                 </div>
                 <div>
                     <p className={s.footer_text}>
-                        Virtually Human is an NFT project studio exploring the boundaries of
-                        <br />
-                        entertainment. We experiment with emerging technologies in gaming, art
-                        <br />
-                        sports and digital collectables.
+                        Virtually Human Studio’s mission is to <br />
+                        uncover what the future of entertainment <br />
+                        can do for humanity. Their flagship game <br />
+                        ZED RUN  is one of the first of its kind <br />
+                        created on the blockchain and is one <br />
+                        of the leading NFT games built on Ethereum <br />
+                        globally.
                     </p>
                 </div>
             </div>
