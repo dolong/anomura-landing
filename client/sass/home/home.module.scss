@@ -227,22 +227,24 @@ $mobile-margin: 40% 10% 0 10%;
 		@include m.flex-master(column, center, center);
 	}
 
-	&_chestContainer {
+	&_image {
 		@include m.flex-master(column, null, center);
-		margin-top:3%;
+		position: relative;
+		margin-top:5%;
 	}
 
 	&_card {
 		margin-left: calc(14%);
+		position: absolute;
 
 		/* for reading card text properly */
-		width: clamp(15vw, 40%, 260px);
+		width: clamp(10vw, 23%, 225px);
 	}
 	
 	&_chest {
+		margin-top: 22%;
 		width: clamp(50vw, 75%, 100%);
 	}
-
 }
 
 .footer {
