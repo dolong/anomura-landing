@@ -15,7 +15,7 @@ export default function TreasureChest() {
 
     return (
         <div className={s.treasure_zone}>
-            <div className={s.treasure_chestContainer}>
+            <div className={s.treasure_image}>
                 {chestState === "opening" && (
                     <>
                         <img
@@ -23,7 +23,11 @@ export default function TreasureChest() {
                             src="/img/home/cards/Card.gif"
                             alt=""
                         />
-                        <img className={s.treasure_chest} src="/img/home/chest_open.gif" alt="" />
+                        <img
+                            className={`${s.treasure_chest}`}
+                            src="/img/home/chest_open.gif"
+                            alt=""
+                        />
                     </>
                 )}
                 {chestState === "opened" && (
@@ -32,9 +36,9 @@ export default function TreasureChest() {
                             className={`${s.treasure_card}`}
                             src="/img/home/cards/Card.gif"
                             alt=""
-                        />
+                        ></img>
                         <img
-                            className={s.treasure_chest}
+                            className={`${s.treasure_chest}`}
                             src="/img/home/chest_openedidle.gif"
                             alt=""
                         />
@@ -49,7 +53,7 @@ export default function TreasureChest() {
                         />
                         <img
                             onClick={OpenChest}
-                            className={s.treasure_chest}
+                            className={`${s.treasure_chest}`}
                             src="/img/home/chest_idle.gif"
                             alt=""
                         />

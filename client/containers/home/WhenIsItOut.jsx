@@ -3,8 +3,11 @@ import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
 export default function WhenIsItOut({ ScrollPercent }) {
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3400, -500, -150, -100, 5, 55);
+    /*  position for extracting the whole page for mobile view on Creative Review board, will remove once everything is approved
+        let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 1300, -500, -150, -100, 5, 55);
+    */
 
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3460, -500, -150, -100, 5, 55);
     return (
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.when_text}>
