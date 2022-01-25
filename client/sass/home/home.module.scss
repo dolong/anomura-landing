@@ -186,13 +186,13 @@ $mobile-margin: 40% 10% 0 10%;
 		@include highlightText(c.$normal-color, c.$primary-color);
 	}
 	&_magical {
-		@include highlightText(c.$magic-color, c.$primary-font-color);
+		@include highlightText(c.$magic-color, c.$primary-color);
 	}
 	&_rare {
-		@include highlightText(c.$rare-color, c.$primary-font-color);
+		@include highlightText(c.$rare-color, c.$primary-color);
 	}
 	&_legend {
-		@include highlightText(c.$legend-color, c.$primary-font-color);
+		@include highlightText(c.$legend-color, c.$primary-color);
 	}
 }
 .when {
