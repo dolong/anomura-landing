@@ -278,7 +278,7 @@
   width: clamp(50vw, 75%, 100%);
 }
 
-.footer {
+.footer_zone {
   pointer-events: none;
   width: 100%;
   background-image: url("/img/home/backgrounds/Layer6.png");
@@ -290,24 +290,24 @@
   flex-direction: column;
   align-items: center;
 }
-.footer_social {
-  display: flex;
-  justify-content: center;
-}
-.footer_text {
-  text-align: center;
-  margin-top: 2%;
-}
-
-.logo_container {
+.footer_logo {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-top: 38.5%;
   margin-bottom: 5%;
 }
-.logo_container > img {
+.footer_logo > img {
   width: min(400px, 20%);
+}
+.footer_social {
+  display: flex;
+  justify-content: center;
+}
+.footer_text {
+  width: 40%;
+  text-align: center;
+  margin-top: 2%;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -347,8 +347,8 @@
     margin-top: 4%;
   }
 
-  .crab_text {
-    width: 80%;
+  .footer_text {
+    width: 65%;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -453,7 +453,7 @@
   }
 
   .footer_text {
-    margin: 40% 10% 0 10%;
+    margin: 15% 10% 0 10%;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -478,5 +478,9 @@
 
   .crab_text {
     font-size: 1rem;
+  }
+
+  .footer_text {
+    width: 75%;
   }
 }/*# sourceMappingURL=home.module.css.map */
