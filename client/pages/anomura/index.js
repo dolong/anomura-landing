@@ -1,8 +1,9 @@
 import Head from 'next/head';
-
+import { Navbar, TreasureChest, Footer } from "/containers/anomura/ContainerIndex";
+import s from "/sass/anomura/anomura.module.css";
 export default function Anomura() {
     return (
-        <div>
+        <div className={s.app}>
             <Head>
                 <title>Anomura Landing</title>
                 <meta name="description" content="Anomura the next NFT game to take the world by storm." />
