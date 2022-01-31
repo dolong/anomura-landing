@@ -1,9 +1,6 @@
-.app {
-  background: center/cover no-repeat url("/img/anomura/backgrounds/sky_background.png");
-}
-
 .sky_zone {
   width: 100%;
+  background: center/cover no-repeat url("/img/anomura/backgrounds/sky_background.png");
 }
 .sky_text {
   text-align: center;

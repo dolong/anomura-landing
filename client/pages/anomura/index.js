@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Navbar, TreasureChest, Footer, SkyArea, SnowArea, LavaArea, PondArea } from "/containers/anomura/ContainerIndex";
+import { TreasureChest, Footer, SkyArea, SnowArea, LavaArea, PondArea } from "/containers/anomura/ContainerIndex";
 import s from "/sass/anomura/anomura.module.css";
 export default function Anomura() {
     return (
@@ -11,7 +11,6 @@ export default function Anomura() {
                 <meta name="keywords" content="Anomura, NFT, Game" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
             <SkyArea />
             <SnowArea />
             <LavaArea />
