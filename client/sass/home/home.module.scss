@@ -234,11 +234,6 @@ $mobile-margin: 40% 10% 0 10%;
 		width: clamp(50vw, 75%, 100%);
 	}
 
-	// &_cardContainer {
-	// 	@include m.flex-master(column, null, center);
-	// 	position: relative;
-	// 	width: clamp(50vw, 75%, 100%);
-	// }
 	&_card {
 		position: absolute;
 		left:47%;
@@ -255,6 +250,16 @@ $mobile-margin: 40% 10% 0 10%;
 		pointer-events: none;
 		position: absolute;
 		top: min(200px, 16vw);
+		//animation: flicker 2s infinite 1s forwards;
+		animation: flicker 3s infinite alternate;
+	}
+
+	@keyframes flicker {
+		40% {filter: brightness(0.85) opacity(0.8);}
+		47% {filter: brightness(1.05) opacity(1) blur(30px);}
+		54% {filter: brightness(0.85) opacity(0.8);}
+		61% {filter: brightness(1.05) opacity(1) blur(30px);}
+	    69% {filter: brightness(0.85) opacity(0.8);}
 	}
 }
 

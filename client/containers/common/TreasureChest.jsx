@@ -9,7 +9,7 @@ export default function TreasureChest() {
             setChestState("opening");
             setTimeout(() => {
                 setChestState("opened");
-            }, 400);
+            }, 300);
         }
     }
 
@@ -23,9 +23,15 @@ export default function TreasureChest() {
                             src="/img/home/cards/Card.gif"
                             alt=""
                         />
+
                         <img
                             className={`${s.treasure_chest}`}
                             src="/img/home/chest_open.gif"
+                            alt=""
+                        />
+                        <img
+                            className={`${s.treasure_chestLight}`}
+                            src="/img/home/chest_idle_lights_modified.png"
                             alt=""
                         />
                     </>
@@ -37,9 +43,15 @@ export default function TreasureChest() {
                             src="/img/home/cards/Card.gif"
                             alt=""
                         ></img>
+
                         <img
                             className={`${s.treasure_chest}`}
                             src="/img/home/chest_openedidle.gif"
+                            alt=""
+                        />
+                        <img
+                            className={`${s.treasure_chestLight}`}
+                            src="/img/home/chest_open_lights_modified.png"
                             alt=""
                         />
                     </>
@@ -51,10 +63,16 @@ export default function TreasureChest() {
                             src="/img/home/cards/Card.gif"
                             alt=""
                         />
+
                         <img
                             onClick={OpenChest}
                             className={`${s.treasure_chest}`}
                             src="/img/home/chest_idle.gif"
+                            alt=""
+                        />
+                        <img
+                            className={`${s.treasure_chestLight}`}
+                            src="/img/home/chest_idle_lights_modified.png"
                             alt=""
                         />
                     </>

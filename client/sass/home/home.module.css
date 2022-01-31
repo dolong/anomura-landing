@@ -282,6 +282,42 @@
   pointer-events: none;
   position: absolute;
   top: min(200px, 16vw);
+  -webkit-animation: flicker 3s infinite alternate;
+          animation: flicker 3s infinite alternate;
+}
+@-webkit-keyframes flicker {
+  40% {
+    filter: brightness(0.85) opacity(0.8);
+  }
+  47% {
+    filter: brightness(1.05) opacity(1) blur(30px);
+  }
+  54% {
+    filter: brightness(0.85) opacity(0.8);
+  }
+  61% {
+    filter: brightness(1.05) opacity(1) blur(30px);
+  }
+  69% {
+    filter: brightness(0.85) opacity(0.8);
+  }
+}
+@keyframes flicker {
+  40% {
+    filter: brightness(0.85) opacity(0.8);
+  }
+  47% {
+    filter: brightness(1.05) opacity(1) blur(30px);
+  }
+  54% {
+    filter: brightness(0.85) opacity(0.8);
+  }
+  61% {
+    filter: brightness(1.05) opacity(1) blur(30px);
+  }
+  69% {
+    filter: brightness(0.85) opacity(0.8);
+  }
 }
 
 .footer_zone {
