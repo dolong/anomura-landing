@@ -231,19 +231,30 @@ $mobile-margin: 40% 10% 0 10%;
 		@include m.flex-master(column, null, center);
 		position: relative;
 		margin-top:5%;
-	}
-
-	&_card {
-		margin-left: calc(14%);
-		position: absolute;
-
-		/* for reading card text properly */
-		width: clamp(10vw, 23%, 225px);
-	}
-	
-	&_chest {
-		margin-top: 22%;
 		width: clamp(50vw, 75%, 100%);
+	}
+
+	// &_cardContainer {
+	// 	@include m.flex-master(column, null, center);
+	// 	position: relative;
+	// 	width: clamp(50vw, 75%, 100%);
+	// }
+	&_card {
+		position: absolute;
+		left:47%;
+	
+		/* for reading card text properly */
+		width: clamp(8vw, 25%, 225px);
+	}
+
+	&_chest {
+		position: absolute;
+		top: min(200px, 16vw);
+	}
+	&_chestLight {
+		pointer-events: none;
+		position: absolute;
+		top: min(200px, 16vw);
 	}
 }
 

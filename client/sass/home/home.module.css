@@ -266,16 +266,22 @@
   align-items: center;
   position: relative;
   margin-top: 5%;
+  width: clamp(50vw, 75%, 100%);
 }
 .treasure_card {
-  margin-left: calc(14%);
   position: absolute;
+  left: 47%;
   /* for reading card text properly */
-  width: clamp(10vw, 23%, 225px);
+  width: clamp(8vw, 25%, 225px);
 }
 .treasure_chest {
-  margin-top: 22%;
-  width: clamp(50vw, 75%, 100%);
+  position: absolute;
+  top: min(200px, 16vw);
+}
+.treasure_chestLight {
+  pointer-events: none;
+  position: absolute;
+  top: min(200px, 16vw);
 }
 
 .footer_zone {
