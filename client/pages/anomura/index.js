@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Navbar, TreasureChest, Footer } from "/containers/anomura/ContainerIndex";
+import { Navbar, TreasureChest, Footer, SkyArea, SnowArea, LavaArea, PondArea } from "/containers/anomura/ContainerIndex";
 import s from "/sass/anomura/anomura.module.css";
 export default function Anomura() {
     return (
@@ -15,7 +15,7 @@ export default function Anomura() {
             {/* Navbar */}
 
             {/* Sky Area */}
-
+            <SkyArea></SkyArea>
 
             {/* Snow Area  */}
 
