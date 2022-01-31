@@ -248,27 +248,32 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .footer {
-	pointer-events:none;
-	@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 25%);
-	@include m.flex-master(column, null, center);
+	&_zone {
+		pointer-events:none;
+		@include m.z-layers(6, "/img/home/backgrounds/Layer6.png", 25%);
+		@include m.flex-master(column, null, center);
+	}
+	
+	&_logo {
+		@include m.flex-master(row, center, null);
+		margin-top: 38.5%;
+		margin-bottom: 5%;
+		& > img {
+			width: min(400px, 20%);
+		}
+	}
+	
 	&_social {
 		display: flex;
 		justify-content: center;
 	}
 	&_text {
+		width:40%;
 		text-align: center;
 		margin-top: 2%;
 	}
+}
 
-}
-.logo_container {
-	@include m.flex-master(row, center, null);
-	margin-top: 38.5%;
-	margin-bottom: 5%;
-	& > img {
-		width: min(400px, 20%);
-	}
-}
 @media only screen and (max-width: 1400px) {
 	.nav {
 		&_list {
@@ -317,9 +322,9 @@ $mobile-margin: 40% 10% 0 10%;
 		}
 	}
 
-	.crab {
+	.footer {
 		&_text {
-			width: 80%;
+			width: 65%;
 		}
 	}
 }
@@ -434,7 +439,7 @@ $mobile-margin: 40% 10% 0 10%;
 	
 	.footer {
 		&_text {
-			margin: $mobile-margin;
+			margin: 15% 10% 0 10%;
 		}
 	}
 }
@@ -465,6 +470,11 @@ $mobile-margin: 40% 10% 0 10%;
 	.crab {
 		&_text {
 			font-size:1rem;
+		}
+	}
+	.footer {
+		&_text {
+			width: 75%;
 		}
 	}
 }

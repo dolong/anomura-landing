@@ -10,12 +10,13 @@ export default function NFT({ ScrollPercent }) {
                     <span className={s.nft_heading}>NFT x VIDEOGAME!</span>
                     <p className={s.nft_paragraph}>Anomuras are the protectors of the earth.</p>
                     <p className={s.nft_paragraph}>
-                        10,000 original Anomuras with unique traits and habitats will be crafted to
-                        be minted.
+                        <span className="font-bold"> 10,000</span> original Anomuras with unique
+                        traits and habitats will be crafted to be minted.
                     </p>
                     <p className={s.nft_paragraph}>
-                        Your Anomura NFT will be your exclusive pass to gain early access to the
-                        game, reap rewards and participate in events.
+                        Your Anomura NFT will be your{" "}
+                        <span className="font-bold"> exclusive pass</span> to gain early access to
+                        the game, reap rewards and participate in events.
                     </p>
                 </div>
             </div>
