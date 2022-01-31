@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import { Navbar } from "/components/home/ComponentIndex";
 import { ShopZone } from "/containers/home/ContainerIndex";
 import { useScrollEvent } from "/hooks/useScrollEvent";
 import s from "/sass/home/home.module.css";
@@ -33,10 +32,12 @@ export default function Home() {
   function StartAudio() {
     document.getElementById('bg-music').play();
     window.removeEventListener('click', StartAudio);
+    window.removeEventListener('scroll', StartAudio);
   }
 
   useEffect(() => {
     window.addEventListener('click', StartAudio);
+    window.addEventListener('scroll', StartAudio);
   });
 
   return (
