@@ -1,3 +1,10 @@
 .app {
-  background-image: url("/img/anomura/anomura-bg.png");
+  background: center/cover no-repeat url("/img/anomura/backgrounds/sky_background.png");
+}
+
+.sky_zone {
+  width: 100%;
+}
+.sky_text {
+  text-align: center;
 }/*# sourceMappingURL=anomura.module.css.map */
