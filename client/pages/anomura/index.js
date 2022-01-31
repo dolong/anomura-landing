@@ -14,16 +14,16 @@ export default function Anomura() {
 
             {/* Navbar */}
 
-            {/* Main Header */}
+            {/* Sky Area */}
 
 
-            {/* SubSection 1  */}
+            {/* Snow Area  */}
 
-            {/* Gameplay Area */}
+            {/* Lava Area */}
 
-            {/* NFt Preview */}
+            {/* Pond Area */}
 
-            {/* Partners */}
+            {/* Treasure Chest */}
 
             {/* Footer */}
         </div>
