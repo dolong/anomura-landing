@@ -11,8 +11,7 @@ export default function Anomura() {
                 <meta name="keywords" content="Anomura, NFT, Game" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
-            {/* Navbar */}
+            <Navbar />
             <SkyArea />
             <SnowArea />
             <LavaArea />
