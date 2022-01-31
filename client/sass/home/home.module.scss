@@ -208,7 +208,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 .when {
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 65%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 75%);
 		@include m.flex-master(column, null, center);
 	}
 	&_text {
@@ -225,6 +225,7 @@ $mobile-margin: 40% 10% 0 10%;
 	&_zone {
 		width: 100%;
 		@include m.flex-master(column, center, center);
+		padding-bottom: 55%;
 	}
 
 	&_image {
@@ -250,7 +251,6 @@ $mobile-margin: 40% 10% 0 10%;
 		pointer-events: none;
 		position: absolute;
 		top: min(200px, 16vw);
-		//animation: flicker 2s infinite 1s forwards;
 		animation: flicker 3s infinite alternate;
 	}
 
