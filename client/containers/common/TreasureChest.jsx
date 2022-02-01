@@ -23,12 +23,17 @@ export default function TreasureChest() {
                             src="/img/home/cards/Card.gif"
                             alt=""
                         />
-
+                        <img
+                            className={`${s.treasure_chestFloor}`}
+                            src="/img/home/chestfloor_modified.png"
+                            alt=""
+                        />
                         <img
                             className={`${s.treasure_chest}`}
                             src="/img/home/chest_open.gif"
                             alt=""
                         />
+
                         <img
                             className={`${s.treasure_chestLight}`}
                             src="/img/home/chest_idle_lights_modified.png"
@@ -44,6 +49,11 @@ export default function TreasureChest() {
                             alt=""
                         ></img>
 
+                        <img
+                            className={`${s.treasure_chestFloor}`}
+                            src="/img/home/chestfloor_modified.png"
+                            alt=""
+                        />
                         <img
                             className={`${s.treasure_chest}`}
                             src="/img/home/chest_openedidle.gif"
@@ -63,7 +73,11 @@ export default function TreasureChest() {
                             src="/img/home/cards/Card.gif"
                             alt=""
                         />
-
+                        <img
+                            className={`${s.treasure_chestFloor}`}
+                            src="/img/home/chestfloor_modified.png"
+                            alt=""
+                        />
                         <img
                             onClick={OpenChest}
                             className={`${s.treasure_chest}`}

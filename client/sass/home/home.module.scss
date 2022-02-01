@@ -242,24 +242,43 @@ $mobile-margin: 40% 10% 0 10%;
 		/* for reading card text properly */
 		width: clamp(8vw, 25%, 225px);
 	}
-
 	&_chest {
 		position: absolute;
 		top: min(200px, 16vw);
+		z-index: 2;
 	}
+	
 	&_chestLight {
 		pointer-events: none;
 		position: absolute;
 		top: min(200px, 16vw);
 		animation: flicker 3s infinite alternate;
+		z-index: 3;
+		opacity: 0.8;
+	}
+	&_chestFloor {
+		pointer-events: none;
+		position: absolute;
+		top: min(200px, 16vw);
+		animation: floor 3s infinite alternate;
+		z-index: 1;
+		opacity: 0.7;
 	}
 
 	@keyframes flicker {
-		40% {filter: brightness(0.85) opacity(0.8);}
-		47% {filter: brightness(1.05) opacity(1) blur(30px);}
-		54% {filter: brightness(0.85) opacity(0.8);}
-		61% {filter: brightness(1.05) opacity(1) blur(30px);}
-	    69% {filter: brightness(0.85) opacity(0.8);}
+		40% {filter: brightness(0.75) opacity(0.8);}
+		47% {filter: brightness(0.75) opacity(0.9) blur(15px);}
+		54% {filter: brightness(0.75) opacity(0.8);}
+		61% {filter: brightness(0.75) opacity(0.9) blur(15px);}
+	    69% {filter: brightness(0.75) opacity(0.8);}
+	}
+
+	@keyframes floor {
+		40% {filter: brightness(0.75) opacity(0.7);}
+		47% {filter: brightness(0.75) opacity(0.75) blur(10px);}
+		54% {filter: brightness(0.75) opacity(0.7);}
+		61% {filter: brightness(0.75) opacity(0.75) blur(10px);}
+	    69% {filter: brightness(0.75) opacity(0.7);}
 	}
 }
 
