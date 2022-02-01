@@ -248,37 +248,45 @@ $mobile-margin: 40% 10% 0 10%;
 		z-index: 2;
 	}
 	
-	&_chestLight {
-		pointer-events: none;
-		position: absolute;
-		top: min(200px, 16vw);
-		animation: flicker 3s infinite alternate;
-		z-index: 3;
-		opacity: 0.8;
-	}
 	&_chestFloor {
 		pointer-events: none;
 		position: absolute;
 		top: min(200px, 16vw);
-		animation: floor 3s infinite alternate;
+		animation: floor 1.5s infinite ease-out;
 		z-index: 1;
 		opacity: 0.7;
 	}
+	&_chestLight {
+		pointer-events: none;
+		position: absolute;
+		top: min(200px, 16vw);
+		animation: light 1.5s infinite linear;
+		z-index: 3;
+		opacity: 0.7;
+	}
 
-	@keyframes flicker {
-		40% {filter: brightness(0.75) opacity(0.8);}
-		47% {filter: brightness(0.75) opacity(0.9) blur(15px);}
-		54% {filter: brightness(0.75) opacity(0.8);}
-		61% {filter: brightness(0.75) opacity(0.9) blur(15px);}
-	    69% {filter: brightness(0.75) opacity(0.8);}
+	@keyframes light {
+		10% {filter: opacity(0.94);}
+		20% {filter: opacity(1) blur(5px);}
+		30% {filter: opacity(0.8);}
+		41% {filter: opacity(1) blur(5px);}
+	    50% {filter: opacity(0.98);}
+		60% {filter: opacity(0.78) blur(5px);}
+		70% {filter: opacity(0.78) blur(5px);}
+		80% {filter: opacity(0.64) blur(5px);}
+		90% {filter: opacity(1) blur(5px);}
 	}
 
 	@keyframes floor {
-		40% {filter: brightness(0.75) opacity(0.7);}
-		47% {filter: brightness(0.75) opacity(0.75) blur(10px);}
-		54% {filter: brightness(0.75) opacity(0.7);}
-		61% {filter: brightness(0.75) opacity(0.75) blur(10px);}
-	    69% {filter: brightness(0.75) opacity(0.7);}
+		10% {filter: opacity(0.94);}
+		20% {filter: opacity(1) ;}
+		30% {filter: opacity(0.8);}
+		41% {filter: opacity(1) ;}
+	    50% {filter: opacity(0.98);}
+		60% {filter: opacity(0.78) ;}
+		70% {filter: opacity(0.78) ;}
+		80% {filter: opacity(0.64) ;}
+		90% {filter: opacity(1);}
 	}
 }
 

@@ -29,16 +29,16 @@ export default function Home() {
   const setOffsetY = useScrollEvent();
   const scrollPercent = useRecoilValue(ScrollValue);
 
-  function StartAudio() {
-    document.getElementById('bg-music').play();
-    window.removeEventListener('click', StartAudio);
-    window.removeEventListener('scroll', StartAudio);
-  }
+  // function StartAudio() {
+  //   document.getElementById('bg-music').play();
+  //   window.removeEventListener('click', StartAudio);
+  //   window.removeEventListener('scroll', StartAudio);
+  // }
 
-  useEffect(() => {
-    window.addEventListener('click', StartAudio);
-    window.addEventListener('scroll', StartAudio);
-  });
+  // useEffect(() => {
+  //   window.addEventListener('click', StartAudio);
+  //   window.addEventListener('scroll', StartAudio);
+  // });
 
   return (
     <div className={s.App}>
@@ -50,8 +50,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <audio src="/audio/UnderwaterLoop.wav" type="audio/wav" id="bg-music" autoPlay loop>
-      </audio>
+      {/* <audio src="/audio/UnderwaterLoop.wav" type="audio/wav" id="bg-music" autoPlay loop>
+      </audio> */}
 
 
       <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
