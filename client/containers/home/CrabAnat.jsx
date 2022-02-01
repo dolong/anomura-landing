@@ -6,7 +6,7 @@ export default function CrabAnat({ ScrollPercent }) {
         let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 1150, -200, -200, 100, -200, -200);
     */
 
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1850, -200, -200, -100, -200, -200);
+    let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1850, -200, -200, -180, -230, -200);
     return (
         <div className={s.crab_anat} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.crab_text}>

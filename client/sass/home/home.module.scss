@@ -157,6 +157,7 @@ $mobile-margin: 40% 10% 0 10%;
 	shape-outside: url("/img/home/backgrounds/Layer3.png");
 
 	&_text {
+		width: 80%;
 		@include m.flex-master(column, null, center);
 		margin-top: 36%;
 	}
@@ -207,9 +208,11 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 }
 .when {
+	
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 75%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 65%);
 		@include m.flex-master(column, null, center);
+	
 	}
 	&_text {
 		margin-top: 30%;
@@ -225,7 +228,6 @@ $mobile-margin: 40% 10% 0 10%;
 	&_zone {
 		width: 100%;
 		@include m.flex-master(column, center, center);
-		padding-bottom: 55%;
 	}
 
 	&_image {
@@ -233,25 +235,26 @@ $mobile-margin: 40% 10% 0 10%;
 		position: relative;
 		margin-top:5%;
 		width: clamp(50vw, 75%, 100%);
+		padding-bottom: 15%;
 	}
 
 	&_card {
 		position: absolute;
-		left:47%;
+		left:48%;
 	
 		/* for reading card text properly */
 		width: clamp(8vw, 25%, 225px);
 	}
 	&_chest {
 		position: absolute;
-		top: min(200px, 16vw);
+		top: min(210px, 16vw);
 		z-index: 2;
 	}
 	
 	&_chestFloor {
 		pointer-events: none;
 		position: absolute;
-		top: min(200px, 16vw);
+		top: min(210px, 16vw);
 		animation: floor 1.5s infinite ease-out;
 		z-index: 1;
 		opacity: 0.7;
@@ -259,7 +262,7 @@ $mobile-margin: 40% 10% 0 10%;
 	&_chestLight {
 		pointer-events: none;
 		position: absolute;
-		top: min(200px, 16vw);
+		top: min(210px, 16vw);
 		animation: light 1.5s infinite linear;
 		z-index: 3;
 		opacity: 0.7;
@@ -326,7 +329,11 @@ $mobile-margin: 40% 10% 0 10%;
 			font-size: 2.5rem;
 		}
 	}
-
+	.treasure {
+		&_zone {
+			padding-bottom: 35%;
+		}
+	}
 	.crab {
 		&_text {
 			margin-top: 30%;
@@ -443,6 +450,11 @@ $mobile-margin: 40% 10% 0 10%;
 			div:nth-child(2) {
 				text-align: right;
 			}
+		}
+	}
+	.treasure {
+		&_zone {
+			padding-bottom: 60%;
 		}
 	}
 	.footer {

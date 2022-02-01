@@ -154,6 +154,7 @@
   shape-outside: url("/img/home/backgrounds/Layer3.png");
 }
 .nft_text {
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,7 +235,7 @@
   background-size: cover;
   position: absolute;
   z-index: 5;
-  padding-bottom: 75%;
+  padding-bottom: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -259,7 +260,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 55%;
 }
 .treasure_image {
   display: flex;
@@ -268,22 +268,23 @@
   position: relative;
   margin-top: 5%;
   width: clamp(50vw, 75%, 100%);
+  padding-bottom: 15%;
 }
 .treasure_card {
   position: absolute;
-  left: 47%;
+  left: 48%;
   /* for reading card text properly */
   width: clamp(8vw, 25%, 225px);
 }
 .treasure_chest {
   position: absolute;
-  top: min(200px, 16vw);
+  top: min(210px, 16vw);
   z-index: 2;
 }
 .treasure_chestFloor {
   pointer-events: none;
   position: absolute;
-  top: min(200px, 16vw);
+  top: min(210px, 16vw);
   -webkit-animation: floor 1.5s infinite ease-out;
           animation: floor 1.5s infinite ease-out;
   z-index: 1;
@@ -292,7 +293,7 @@
 .treasure_chestLight {
   pointer-events: none;
   position: absolute;
-  top: min(200px, 16vw);
+  top: min(210px, 16vw);
   -webkit-animation: light 1.5s infinite linear;
           animation: light 1.5s infinite linear;
   z-index: 3;
@@ -455,6 +456,10 @@
     font-size: 2.5rem;
   }
 
+  .treasure_zone {
+    padding-bottom: 35%;
+  }
+
   .crab_text {
     margin-top: 30%;
     font-weight: 600;
@@ -554,6 +559,10 @@
   }
   .crab_rarityBlock div:nth-child(2) {
     text-align: right;
+  }
+
+  .treasure_zone {
+    padding-bottom: 60%;
   }
 
   .footer {
