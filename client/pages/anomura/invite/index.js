@@ -1,6 +1,47 @@
+import s from "/sass/anomura/invite/invite.module.css";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
+
+
+//Need to create a hook for connecting your wallet.
+
+
+export default function Invite({ whiteList }) {
+
+    let formData = {
+        wallet: "",
+        discordID: "",
+    }
+
+    function ConnectWallet() {
+        console.log("Connecting Wallet");
+    }
+
+    return (
+        <div className={s.app}>
+            <div className={s.board}>
+                <img className={s.board_title} src="/img/anomura/invite/anomura_big.png" alt="sign" />
+                <img className={s.board_welcome} src="/img/anomura/invite/welcome.png" alt="welcome" />
+                <button onClick={ConnectWallet} className={s.board_button}>Connect your wallet</button>
+            </div>
+
+            <div className={s.foreground}>
+
+            </div>
+
+
+            <style>{`
+            body {
+            font-size: clamp(18px,2vw,28px);
+            font-family: Atlantis;
+            color: #fff;
+            line-height: 1.5;
+            }
+      `}</style>
+        </div>
+    );
+}
 
 async function saveWhiteList(whiteList) {
     const response = await fetch("/api/dataCRUD",
@@ -16,26 +57,11 @@ async function saveWhiteList(whiteList) {
     return await response.json();
 }
 
-//Need to create a hook for connecting your wallet.
-
-
-export default function index({ whiteList }) {
-
-    let formData = {
-        wallet: "",
-        discordID: "",
-    }
-
-    return (
-        <div>
-
-        </div>
-    );
-}
 
 export async function getServerSideProps() {
     //We might need to change this down the line where prisma just find the current metamask if the user is already logged in to metamask
-    const whiteList = await prisma.whiteList.findMany();
+    //The first entry in the database is a dummy entry just so we can pass data to use server side props.
+    const whiteList = await prisma.whiteList.findFirst();
     return {
         props: {
             whiteList
