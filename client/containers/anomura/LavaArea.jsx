@@ -8,10 +8,10 @@ export default function LavaArea() {
   const craftText = "Combine the loot you get to craft all powerful gear to dominate the crabverse.";
   return (
     <div className={s.lava_zone}>
-      <div className={s.lava_banner_zone}>
-        <LavaBanner Header="Build" Text={buildText} Icon=""></LavaBanner>
-        <LavaBanner Header="Loot" Text={lootText} Icon=""></LavaBanner>
-        <LavaBanner Header="Craft" Text={craftText} Icon=""></LavaBanner>
+      <div className={s.lava_banner_zone + " flex justify-around"}>
+        <LavaBanner Header="Build" Text={buildText} Icon="/img/anomura/icons/lava_banner_1.png"></LavaBanner>
+        <LavaBanner Header="Loot" Text={lootText} Icon="/img/anomura/icons/lava_banner_2.png"></LavaBanner>
+        <LavaBanner Header="Craft" Text={craftText} Icon="/img/anomura/icons/lava_banner_3.png"></LavaBanner>
       </div>
     </div>
   );
