@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { TreasureChest, Footer, SkyArea, SnowArea, LavaArea, PondArea } from "/containers/anomura/ContainerIndex";
 import s from "/sass/anomura/anomura.module.css";
+
 export default function Anomura() {
     return (
         <div className={s.app}>
@@ -18,6 +19,15 @@ export default function Anomura() {
             {/* Treasure Chest */}
 
             {/* Footer */}
+
+            <style >{`
+                body {
+                font-family: Atlantis;
+                font-size:36px;
+                color:white;
+                }`}
+            </style>
         </div>
+
     )
 }
