@@ -11,9 +11,10 @@ datasource db {
 }
 
 model WhiteList {
-  id        Int    @id @default(autoincrement())
-  wallet    String
-  discordID String
+  id              Int    @id @default(autoincrement())
+  wallet          String
+  discordID       String
+  numberOfInvites Int
 }
 
 model Anomuras {
