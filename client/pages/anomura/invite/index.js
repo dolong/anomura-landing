@@ -26,9 +26,9 @@ export default function Invite({ whiteList }) {
                 <button onClick={ConnectWallet} className={s.board_button}>Connect your wallet</button>
             </div>
 
-            <div className={s.foreground}>
 
-            </div>
+            <div className={s.foreground} />
+
 
 
             <style>{`
