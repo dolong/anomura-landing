@@ -12,6 +12,7 @@
 $mobile-margin: 40% 10% 0 10%;
 
 .App {
+	
 	width: 100%;
 	background-image: url("/img/home/backgrounds/SandLayer.png");
 	background-size: auto;
@@ -157,6 +158,7 @@ $mobile-margin: 40% 10% 0 10%;
 	shape-outside: url("/img/home/backgrounds/Layer3.png");
 
 	&_text {
+		width: 80%;
 		@include m.flex-master(column, null, center);
 		margin-top: 36%;
 	}
@@ -207,9 +209,11 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 }
 .when {
+	
 	&_zone {
 		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 65%);
 		@include m.flex-master(column, null, center);
+	
 	}
 	&_text {
 		margin-top: 30%;
@@ -231,19 +235,62 @@ $mobile-margin: 40% 10% 0 10%;
 		@include m.flex-master(column, null, center);
 		position: relative;
 		margin-top:5%;
+		width: clamp(50vw, 75%, 100%);
+		padding-bottom: 15%;
 	}
 
 	&_card {
-		margin-left: calc(14%);
 		position: absolute;
-
+		left:48%;
+	
 		/* for reading card text properly */
-		width: clamp(10vw, 23%, 225px);
+		width: clamp(8vw, 25%, 225px);
+	}
+	&_chest {
+		position: absolute;
+		top: min(210px, 16vw);
+		z-index: 2;
 	}
 	
-	&_chest {
-		margin-top: 22%;
-		width: clamp(50vw, 75%, 100%);
+	&_chestFloor {
+		pointer-events: none;
+		position: absolute;
+		top: min(210px, 16vw);
+		animation: floor 1.5s infinite ease-out;
+		z-index: 1;
+		opacity: 0.7;
+	}
+	&_chestLight {
+		pointer-events: none;
+		position: absolute;
+		top: min(210px, 16vw);
+		animation: light 1.5s infinite linear;
+		z-index: 3;
+		opacity: 0.7;
+	}
+
+	@keyframes light {
+		10% {filter: opacity(0.94);}
+		20% {filter: opacity(1) blur(5px);}
+		30% {filter: opacity(0.8);}
+		41% {filter: opacity(1) blur(5px);}
+	    50% {filter: opacity(0.98);}
+		60% {filter: opacity(0.78) blur(5px);}
+		70% {filter: opacity(0.78) blur(5px);}
+		80% {filter: opacity(0.64) blur(5px);}
+		90% {filter: opacity(1) blur(5px);}
+	}
+
+	@keyframes floor {
+		10% {filter: opacity(0.94);}
+		20% {filter: opacity(1) ;}
+		30% {filter: opacity(0.8);}
+		41% {filter: opacity(1) ;}
+	    50% {filter: opacity(0.98);}
+		60% {filter: opacity(0.78) ;}
+		70% {filter: opacity(0.78) ;}
+		80% {filter: opacity(0.64) ;}
+		90% {filter: opacity(1);}
 	}
 }
 
@@ -283,7 +330,11 @@ $mobile-margin: 40% 10% 0 10%;
 			font-size: 2.5rem;
 		}
 	}
-
+	.treasure {
+		&_zone {
+			padding-bottom: 35%;
+		}
+	}
 	.crab {
 		&_text {
 			margin-top: 30%;
@@ -400,6 +451,11 @@ $mobile-margin: 40% 10% 0 10%;
 			div:nth-child(2) {
 				text-align: right;
 			}
+		}
+	}
+	.treasure {
+		&_zone {
+			padding-bottom: 60%;
 		}
 	}
 	.footer {

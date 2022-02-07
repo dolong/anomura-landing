@@ -154,6 +154,7 @@
   shape-outside: url("/img/home/backgrounds/Layer3.png");
 }
 .nft_text {
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,16 +267,153 @@
   align-items: center;
   position: relative;
   margin-top: 5%;
+  width: clamp(50vw, 75%, 100%);
+  padding-bottom: 15%;
 }
 .treasure_card {
-  margin-left: calc(14%);
   position: absolute;
+  left: 48%;
   /* for reading card text properly */
-  width: clamp(10vw, 23%, 225px);
+  width: clamp(8vw, 25%, 225px);
 }
 .treasure_chest {
-  margin-top: 22%;
-  width: clamp(50vw, 75%, 100%);
+  position: absolute;
+  top: min(210px, 16vw);
+  z-index: 2;
+}
+.treasure_chestFloor {
+  pointer-events: none;
+  position: absolute;
+  top: min(210px, 16vw);
+  -webkit-animation: floor 1.5s infinite ease-out;
+          animation: floor 1.5s infinite ease-out;
+  z-index: 1;
+  opacity: 0.7;
+}
+.treasure_chestLight {
+  pointer-events: none;
+  position: absolute;
+  top: min(210px, 16vw);
+  -webkit-animation: light 1.5s infinite linear;
+          animation: light 1.5s infinite linear;
+  z-index: 3;
+  opacity: 0.7;
+}
+@-webkit-keyframes light {
+  10% {
+    filter: opacity(0.94);
+  }
+  20% {
+    filter: opacity(1) blur(5px);
+  }
+  30% {
+    filter: opacity(0.8);
+  }
+  41% {
+    filter: opacity(1) blur(5px);
+  }
+  50% {
+    filter: opacity(0.98);
+  }
+  60% {
+    filter: opacity(0.78) blur(5px);
+  }
+  70% {
+    filter: opacity(0.78) blur(5px);
+  }
+  80% {
+    filter: opacity(0.64) blur(5px);
+  }
+  90% {
+    filter: opacity(1) blur(5px);
+  }
+}
+@keyframes light {
+  10% {
+    filter: opacity(0.94);
+  }
+  20% {
+    filter: opacity(1) blur(5px);
+  }
+  30% {
+    filter: opacity(0.8);
+  }
+  41% {
+    filter: opacity(1) blur(5px);
+  }
+  50% {
+    filter: opacity(0.98);
+  }
+  60% {
+    filter: opacity(0.78) blur(5px);
+  }
+  70% {
+    filter: opacity(0.78) blur(5px);
+  }
+  80% {
+    filter: opacity(0.64) blur(5px);
+  }
+  90% {
+    filter: opacity(1) blur(5px);
+  }
+}
+@-webkit-keyframes floor {
+  10% {
+    filter: opacity(0.94);
+  }
+  20% {
+    filter: opacity(1);
+  }
+  30% {
+    filter: opacity(0.8);
+  }
+  41% {
+    filter: opacity(1);
+  }
+  50% {
+    filter: opacity(0.98);
+  }
+  60% {
+    filter: opacity(0.78);
+  }
+  70% {
+    filter: opacity(0.78);
+  }
+  80% {
+    filter: opacity(0.64);
+  }
+  90% {
+    filter: opacity(1);
+  }
+}
+@keyframes floor {
+  10% {
+    filter: opacity(0.94);
+  }
+  20% {
+    filter: opacity(1);
+  }
+  30% {
+    filter: opacity(0.8);
+  }
+  41% {
+    filter: opacity(1);
+  }
+  50% {
+    filter: opacity(0.98);
+  }
+  60% {
+    filter: opacity(0.78);
+  }
+  70% {
+    filter: opacity(0.78);
+  }
+  80% {
+    filter: opacity(0.64);
+  }
+  90% {
+    filter: opacity(1);
+  }
 }
 
 .footer_zone {
@@ -316,6 +454,10 @@
   }
   .nav_item {
     font-size: 2.5rem;
+  }
+
+  .treasure_zone {
+    padding-bottom: 35%;
   }
 
   .crab_text {
@@ -417,6 +559,10 @@
   }
   .crab_rarityBlock div:nth-child(2) {
     text-align: right;
+  }
+
+  .treasure_zone {
+    padding-bottom: 60%;
   }
 
   .footer {
