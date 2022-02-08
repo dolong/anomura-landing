@@ -26,38 +26,25 @@ const { NFT, CrabAnat, WhenIsItOut, Footer } = {
 };
 
 export default function Home() {
-    const [audioSource, setAudioSource] = useState("/audio/UnderwaterLoop.wav");
+
+    const [audioSource] = useState("/audio/Underwater Loop Deep.wav");
     const setOffsetY = useScrollEvent();
     const scrollPercent = useRecoilValue(ScrollValue);
     const audioRef = React.createRef();
-    let timeoutId;
-
+   
     function StartAudio() {
-        let player = document.getElementById("bg-music");
-        let resp = player.play();
-        if (resp !== undefined) {
-            resp.then((_) => {}).catch((error) => {});
-        }
+        audioRef.current.volume = 1;
+        audioRef.current.play();
         window.removeEventListener("click", StartAudio);
         window.removeEventListener("scroll", StartAudio);
     }
-
-    const updateBackgroundSound = (source) => {
-        if (audioRef.current) {
-            audioRef.current.pause();
-
-            timeoutId = setTimeout(() => {
-                setAudioSource(source);
-            }, 500);
-        }
-    };
 
     useEffect(() => {
         window.addEventListener("click", StartAudio);
         window.addEventListener("scroll", StartAudio);
 
         return () => {
-            clearTimeout(timeoutId);
+            audioRef.current?.pause();
         };
     }, []);
 
@@ -81,6 +68,7 @@ export default function Home() {
                 id="bg-music"
                 autoPlay
                 loop
+             
             ></audio>
 
             <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
@@ -90,11 +78,7 @@ export default function Home() {
                 <ShopZone></ShopZone>
                 <NFT ScrollPercent={scrollPercent}></NFT>
                 <CrabAnat ScrollPercent={scrollPercent}></CrabAnat>
-                <WhenIsItOut
-                    ScrollPercent={scrollPercent}
-                    audioSource={audioSource}
-                    updateBackgroundSound={updateBackgroundSound}
-                ></WhenIsItOut>
+                <WhenIsItOut ScrollPercent={scrollPercent}></WhenIsItOut>
                 <Footer ScrollPercent={scrollPercent}></Footer>
             </div>
             {/* End Of Parallax Zone */}

@@ -9,6 +9,18 @@
 	font-weight: 600;
 }
 
+@keyframes interference  {
+	10% {filter: opacity(0.94);}
+	20% {filter: opacity(1) ;}
+	30% {filter: opacity(0.8);}
+	41% {filter: opacity(1) ;}
+	50% {filter: opacity(0.98);}
+	60% {filter: opacity(0.78) ;}
+	70% {filter: opacity(0.78) ;}
+	80% {filter: opacity(0.64) ;}
+	90% {filter: opacity(1) ;}
+}
+
 $mobile-margin: 40% 10% 0 10%;
 
 .App {
@@ -33,6 +45,7 @@ $mobile-margin: 40% 10% 0 10%;
 	top: 0;
 	left: 15%;
 	max-width: 60%;
+	animation: interference 1.5s infinite linear;
 }
 
 .parallax_group {
@@ -95,19 +108,39 @@ $mobile-margin: 40% 10% 0 10%;
 		padding: 5px 0px 3px 10px;
 	}
 }
-.sub {
+.follow {
 	&_img {
-		width: 400px;
-		height: 75px;
-		background: url("/img/home/subscribe.png") no-repeat;
+		width: 500px;
+		height: 82px;
+		background: url("/img/home/follow_off.webp") no-repeat;
 		background-size: 100%;
 		&:hover {
-			background: url("/img/home/subscribe-hover.png") no-repeat;
+			background: url("/img/home/follow_on.webp") no-repeat;
 			background-size: 100%;
 		}
 
-		z-index: 4;
 		position: relative;
+	}
+
+	&_iconContainer{
+		position: relative;
+		width: 202px;
+		height: 42px;
+		display: flex;
+		justify-content: space-between;
+
+		a {
+			width:50px;
+		}
+
+		&_icons {
+			pointer-events: none;
+			position: absolute;
+			width: 202px;
+			height: 42px;
+			background: url("/img/home/follow_icons.webp") no-repeat;
+			background-size: 100%;
+		}
 	}
 
 	&_container {
@@ -132,7 +165,6 @@ $mobile-margin: 40% 10% 0 10%;
 			border: black solid 1px;
 		}
 
-		z-index: 4;
 		position: relative;
 	}
 	&_arrow {
@@ -142,7 +174,6 @@ $mobile-margin: 40% 10% 0 10%;
 		background-size: 100%;
 		margin-left: 3px;
 
-		z-index: 4;
 		position: relative;
 	}
 }
@@ -153,6 +184,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .nft {
+	pointer-events: none;
 	@include m.z-layers(3, "/img/home/backgrounds/Layer3.png", 65%);
 	@include m.flex-master(null, center, null);
 	shape-outside: url("/img/home/backgrounds/Layer3.png");
@@ -256,7 +288,7 @@ $mobile-margin: 40% 10% 0 10%;
 		pointer-events: none;
 		position: absolute;
 		top: min(210px, 16vw);
-		animation: floor 1.5s infinite ease-out;
+		animation: interference 1.5s infinite ease-out;
 		z-index: 1;
 		opacity: 0.7;
 	}
@@ -264,33 +296,9 @@ $mobile-margin: 40% 10% 0 10%;
 		pointer-events: none;
 		position: absolute;
 		top: min(210px, 16vw);
-		animation: light 1.5s infinite linear;
+		animation: interference 1.5s infinite linear;
 		z-index: 3;
 		opacity: 0.7;
-	}
-
-	@keyframes light {
-		10% {filter: opacity(0.94);}
-		20% {filter: opacity(1) blur(5px);}
-		30% {filter: opacity(0.8);}
-		41% {filter: opacity(1) blur(5px);}
-	    50% {filter: opacity(0.98);}
-		60% {filter: opacity(0.78) blur(5px);}
-		70% {filter: opacity(0.78) blur(5px);}
-		80% {filter: opacity(0.64) blur(5px);}
-		90% {filter: opacity(1) blur(5px);}
-	}
-
-	@keyframes floor {
-		10% {filter: opacity(0.94);}
-		20% {filter: opacity(1) ;}
-		30% {filter: opacity(0.8);}
-		41% {filter: opacity(1) ;}
-	    50% {filter: opacity(0.98);}
-		60% {filter: opacity(0.78) ;}
-		70% {filter: opacity(0.78) ;}
-		80% {filter: opacity(0.64) ;}
-		90% {filter: opacity(1);}
 	}
 }
 
@@ -426,11 +434,13 @@ $mobile-margin: 40% 10% 0 10%;
 			 font-size: 1rem;
 		}
 	}
-	.sub {
+	.follow {
 		&_img {
 			//When we get a mobile navbar image we will have to play with this setting
 			margin-top: 3vh;
 		}
+
+
 		&_input {
 			font-size: 1.3rem;
 			padding-top: 2%;
@@ -499,6 +509,19 @@ $mobile-margin: 40% 10% 0 10%;
 		}
 	}
 }
+@media only screen and (max-width: 600px) {
+	.follow {
+		&_img {
+			width: 377px;
+			height: 62px;
+		}
+		&_iconContainer{
+			transform: scale(0.7);
+		}
+	}
+}
+
+
 @media only screen and (max-width: 400px) {
 	.shop {
 		&_text {
@@ -506,9 +529,10 @@ $mobile-margin: 40% 10% 0 10%;
 			 font-size: 0.95rem;
 		}
 	}
-	.sub {
+	.follow {
 		&_img {
-			width: 75vw;
+			width: 80vw;
+			height: 4vh;
 		}
 		&_input {
 			background-size: cover;

@@ -1,6 +1,64 @@
 /*Main Site colors*/
 /*Font colors*/
 /*Span bg colors */
+@-webkit-keyframes interference {
+  10% {
+    filter: opacity(0.94);
+  }
+  20% {
+    filter: opacity(1);
+  }
+  30% {
+    filter: opacity(0.8);
+  }
+  41% {
+    filter: opacity(1);
+  }
+  50% {
+    filter: opacity(0.98);
+  }
+  60% {
+    filter: opacity(0.78);
+  }
+  70% {
+    filter: opacity(0.78);
+  }
+  80% {
+    filter: opacity(0.64);
+  }
+  90% {
+    filter: opacity(1);
+  }
+}
+@keyframes interference {
+  10% {
+    filter: opacity(0.94);
+  }
+  20% {
+    filter: opacity(1);
+  }
+  30% {
+    filter: opacity(0.8);
+  }
+  41% {
+    filter: opacity(1);
+  }
+  50% {
+    filter: opacity(0.98);
+  }
+  60% {
+    filter: opacity(0.78);
+  }
+  70% {
+    filter: opacity(0.78);
+  }
+  80% {
+    filter: opacity(0.64);
+  }
+  90% {
+    filter: opacity(1);
+  }
+}
 .App {
   width: 100%;
   background-image: url("/img/home/backgrounds/SandLayer.webp");
@@ -25,6 +83,8 @@
   top: 0;
   left: 15%;
   max-width: 60%;
+  -webkit-animation: interference 1.5s infinite linear;
+          animation: interference 1.5s infinite linear;
 }
 
 .parallax_group {
@@ -88,25 +148,42 @@
   padding: 5px 0px 3px 10px;
 }
 
-.sub_img {
-  width: 400px;
-  height: 75px;
-  background: url("/img/home/subscribe.png") no-repeat;
+.follow_img {
+  width: 500px;
+  height: 82px;
+  background: url("/img/home/follow_off.webp") no-repeat;
   background-size: 100%;
-  z-index: 4;
   position: relative;
 }
-.sub_img:hover {
-  background: url("/img/home/subscribe-hover.png") no-repeat;
+.follow_img:hover {
+  background: url("/img/home/follow_on.webp") no-repeat;
   background-size: 100%;
 }
-.sub_container {
+.follow_iconContainer {
+  position: relative;
+  width: 202px;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+.follow_iconContainer a {
+  width: 50px;
+}
+.follow_iconContainer_icons {
+  pointer-events: none;
+  position: absolute;
+  width: 202px;
+  height: 42px;
+  background: url("/img/home/follow_icons.webp") no-repeat;
+  background-size: 100%;
+}
+.follow_container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-.sub_input {
+.follow_input {
   width: 350px;
   min-height: 35px;
   background: url("/img/home/subscribe_box.png") no-repeat;
@@ -116,22 +193,20 @@
   padding: 0 0 0 3%;
   background-color: rgba(0, 0, 0, 0);
   border: transparent solid 1px;
-  z-index: 4;
   position: relative;
 }
-.sub_input:hover {
+.follow_input:hover {
   border: black solid 1px;
 }
-.sub_input:focus {
+.follow_input:focus {
   border: black solid 1px;
 }
-.sub_arrow {
+.follow_arrow {
   width: 47px;
   min-height: 35px;
   background: url("/img/home/arrow.png") no-repeat;
   background-size: 100%;
   margin-left: 3px;
-  z-index: 4;
   position: relative;
 }
 
@@ -143,6 +218,7 @@
 }
 
 .nft {
+  pointer-events: none;
   width: 100%;
   background-image: url("/img/home/backgrounds/Layer3.png");
   background-size: cover;
@@ -285,8 +361,8 @@
   pointer-events: none;
   position: absolute;
   top: min(210px, 16vw);
-  -webkit-animation: floor 1.5s infinite ease-out;
-          animation: floor 1.5s infinite ease-out;
+  -webkit-animation: interference 1.5s infinite ease-out;
+          animation: interference 1.5s infinite ease-out;
   z-index: 1;
   opacity: 0.7;
 }
@@ -294,126 +370,10 @@
   pointer-events: none;
   position: absolute;
   top: min(210px, 16vw);
-  -webkit-animation: light 1.5s infinite linear;
-          animation: light 1.5s infinite linear;
+  -webkit-animation: interference 1.5s infinite linear;
+          animation: interference 1.5s infinite linear;
   z-index: 3;
   opacity: 0.7;
-}
-@-webkit-keyframes light {
-  10% {
-    filter: opacity(0.94);
-  }
-  20% {
-    filter: opacity(1) blur(5px);
-  }
-  30% {
-    filter: opacity(0.8);
-  }
-  41% {
-    filter: opacity(1) blur(5px);
-  }
-  50% {
-    filter: opacity(0.98);
-  }
-  60% {
-    filter: opacity(0.78) blur(5px);
-  }
-  70% {
-    filter: opacity(0.78) blur(5px);
-  }
-  80% {
-    filter: opacity(0.64) blur(5px);
-  }
-  90% {
-    filter: opacity(1) blur(5px);
-  }
-}
-@keyframes light {
-  10% {
-    filter: opacity(0.94);
-  }
-  20% {
-    filter: opacity(1) blur(5px);
-  }
-  30% {
-    filter: opacity(0.8);
-  }
-  41% {
-    filter: opacity(1) blur(5px);
-  }
-  50% {
-    filter: opacity(0.98);
-  }
-  60% {
-    filter: opacity(0.78) blur(5px);
-  }
-  70% {
-    filter: opacity(0.78) blur(5px);
-  }
-  80% {
-    filter: opacity(0.64) blur(5px);
-  }
-  90% {
-    filter: opacity(1) blur(5px);
-  }
-}
-@-webkit-keyframes floor {
-  10% {
-    filter: opacity(0.94);
-  }
-  20% {
-    filter: opacity(1);
-  }
-  30% {
-    filter: opacity(0.8);
-  }
-  41% {
-    filter: opacity(1);
-  }
-  50% {
-    filter: opacity(0.98);
-  }
-  60% {
-    filter: opacity(0.78);
-  }
-  70% {
-    filter: opacity(0.78);
-  }
-  80% {
-    filter: opacity(0.64);
-  }
-  90% {
-    filter: opacity(1);
-  }
-}
-@keyframes floor {
-  10% {
-    filter: opacity(0.94);
-  }
-  20% {
-    filter: opacity(1);
-  }
-  30% {
-    filter: opacity(0.8);
-  }
-  41% {
-    filter: opacity(1);
-  }
-  50% {
-    filter: opacity(0.98);
-  }
-  60% {
-    filter: opacity(0.78);
-  }
-  70% {
-    filter: opacity(0.78);
-  }
-  80% {
-    filter: opacity(0.64);
-  }
-  90% {
-    filter: opacity(1);
-  }
 }
 
 .footer_zone {
@@ -534,10 +494,10 @@
     font-size: 1rem;
   }
 
-  .sub_img {
+  .follow_img {
     margin-top: 3vh;
   }
-  .sub_input {
+  .follow_input {
     font-size: 1.3rem;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -602,15 +562,25 @@
     margin: 15% 10% 0 10%;
   }
 }
+@media only screen and (max-width: 600px) {
+  .follow_img {
+    width: 377px;
+    height: 62px;
+  }
+  .follow_iconContainer {
+    transform: scale(0.7);
+  }
+}
 @media only screen and (max-width: 400px) {
   .shop_text {
     font-size: 0.95rem;
   }
 
-  .sub_img {
-    width: 75vw;
+  .follow_img {
+    width: 80vw;
+    height: 4vh;
   }
-  .sub_input {
+  .follow_input {
     background-size: cover;
     min-height: 45px;
     width: min(65vw, 300px);
