@@ -5,6 +5,7 @@
 @font-face {
 	src: url("/fonts/AtlantisInternational.ttf");
 	font-family: Atlantis;
+	font-display: swap;
 }
 * {
 	box-sizing: border-box;

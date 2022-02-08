@@ -45,26 +45,9 @@ export default function ShopZone() {
                         </a>
                     </div>
                 </div>
-                <img className={s.shop_img} src="/img/home/shop.gif" alt="" />
+                <img className={s.shop_img} src="/img/home/shop.webp" alt="" />
             </div>
             <div className={s.sand_zone}>
-                <div className={s.sub_img} onClick={() => inputRef?.current.focus()} />
-                <div className={s.sub_container} action="">
-                    <input
-                        className={`${s.sub_input} placeholder:text-white placeholder:opacity-80`}
-                        type="text"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Subscribe with your email here."
-                        ref={inputRef}
-                    />
-                    <span
-                        className={s.sub_arrow}
-                        onClick={() => {
-                            alert("subscribe");
-                        }}
-                    />
-                </div>
             </div>
         </div>
     );
