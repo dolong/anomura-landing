@@ -156,7 +156,7 @@ export default function TreasureChest() {
                         <img
                             onClick={OpenChest}
                             className={`${s.treasure_chest}`}
-                            src="/img/home/chest_idle.gif"
+                            src="/img/home/chest_idle.webp"
                             alt=""
                         />
                         <img
