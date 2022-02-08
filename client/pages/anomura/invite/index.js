@@ -1,7 +1,7 @@
 import s from "/sass/anomura/invite/invite.module.css";
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
 
 
 //Need to create a hook for connecting your wallet.
@@ -25,7 +25,6 @@ export default function Invite({ whiteList }) {
                 <img className={s.board_welcome} src="/img/anomura/invite/welcome.png" alt="welcome" />
                 <button onClick={ConnectWallet} className={s.board_button}>Connect your wallet</button>
             </div>
-
 
             <div className={s.foreground} />
 
@@ -58,13 +57,13 @@ async function saveWhiteList(whiteList) {
 }
 
 
-export async function getServerSideProps() {
-    //We might need to change this down the line where prisma just find the current metamask if the user is already logged in to metamask
-    //The first entry in the database is a dummy entry just so we can pass data to use server side props.
-    const whiteList = await prisma.whiteList.findFirst();
-    return {
-        props: {
-            whiteList
-        }
-    }
-}
+// export async function getServerSideProps() {
+//     //We might need to change this down the line where prisma just find the current metamask if the user is already logged in to metamask
+//     //The first entry in the database is a dummy entry just so we can pass data to use server side props.
+//     const whiteList = await prisma.whiteList.findFirst();
+//     return {
+//         props: {
+//             whiteList
+//         }
+//     }
+// }
