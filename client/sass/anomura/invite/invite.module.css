@@ -15,15 +15,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 3vh;
   padding: 1vh;
 }
 .board_title {
   width: clamp(100px,50%,75vh);
-  margin: 15% 0 1vh 0;
 }
 .board_welcome {
   width: clamp(200px,70%,75vh);
-  margin-bottom: 1vh;
 }
 .board_button {
   width: clamp(350px,70%,95vh);
