@@ -26,17 +26,31 @@ $mobile-margin: 40% 10% 0 10%;
 .App {
 	
 	width: 100%;
-	background-image: url("/img/home/backgrounds/SandLayer.webp");
-	background-size: auto;
-	background-position: 0 -355px;
-	padding-bottom: 60%;
+	position: relative;
+	background: url("/img/home/backgrounds/Sky.png") no-repeat;
+	// background: url("/img/home/backgrounds/SandLayer.webp") no-repeat;
+	background-size: 100% 25%;
+ 	padding-bottom: 60%;
 
-	@media only screen and (max-width: 1200px) {
-		background-position: 0 -555px;
+	 @media only screen and (max-width: 3800px) {
+		 background-size: 100% 30%;
+	}  
+
+	@media only screen and (max-width: 2400px) {
+		background-size: 100% 34%;
+	} 
+
+	@media only screen and (max-width: 1600px) {
+		background-size: 100% 37%;
 		line-height: 1.2;
 	}
 
+	@media only screen and (max-width: 900px) {
+		background-size: 100% 46%;
+	}
+
 	@media only screen and (max-width: 600px) {
+		background-size: 100% 52%;
 		padding-bottom: 85%;
 	}
 }
@@ -91,34 +105,37 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .shop {
+
 	&_zone {
-		margin-left: 8%;
+	    margin-left: 8%;
 		display: flex;
 	}
 	&_text {
 		flex-basis: 35%;
 	}
 	&_img {
-		width: min(60vw, 850px);
+		width: min(60vw, 850px); 
+
 	}
 	&_heading {
 		@include highlightText(c.$normal-color, c.$primary-color);
 	}
 	&_paragraph {
-		padding: 5px 0px 3px 10px;
+		padding: 5px 0px 3px 10px; 
 	}
 }
 .follow {
 	&_img {
 		width: 500px;
 		height: 82px;
-		background: url("/img/home/follow_off.webp") no-repeat;
-		background-size: 100%;
-		&:hover {
-			background: url("/img/home/follow_on.webp") no-repeat;
-			background-size: 100%;
-		}
 
+		&:hover {
+			content:url("/img/home/follow_on.webp");
+
+			@media only screen and (max-width: 800px) {
+				content:url("/img/home/follow_on.gif");
+			}
+		}
 		position: relative;
 	}
 
@@ -180,6 +197,19 @@ $mobile-margin: 40% 10% 0 10%;
 .sand {
 	&_zone {
 		@include m.flex-master(column, flex-start, center);
+		position:relative;
+	
+		&_sand{
+		   width: 100%;
+		   background: url("/img/home/backgrounds/Layer2.png") no-repeat;
+		   background-position: 0 0;
+		   background-size: 100%;
+		   position: absolute;
+		   top:-2vh;
+		   padding-bottom: 65%;
+		   height:clamp(400px, 24vh, 2888px);
+		   object-fit: cover;
+	   }
 	}
 }
 
@@ -426,11 +456,13 @@ $mobile-margin: 40% 10% 0 10%;
 			flex-direction: column;
 			justify-content: center;
 			max-width: 85%;
+		
 		}
 		&_img {
 			width: 95vw;
 		}
 		&_text {
+	
 			 font-size: 1rem;
 		}
 	}
@@ -439,7 +471,6 @@ $mobile-margin: 40% 10% 0 10%;
 			//When we get a mobile navbar image we will have to play with this setting
 			margin-top: 3vh;
 		}
-
 
 		&_input {
 			font-size: 1.3rem;

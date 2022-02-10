@@ -61,19 +61,35 @@
 }
 .App {
   width: 100%;
-  background-image: url("/img/home/backgrounds/SandLayer.webp");
-  background-size: auto;
-  background-position: 0 -355px;
+  position: relative;
+  background: url("/img/home/backgrounds/Sky.png") no-repeat;
+  background-size: 100% 25%;
   padding-bottom: 60%;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 3800px) {
   .App {
-    background-position: 0 -555px;
+    background-size: 100% 30%;
+  }
+}
+@media only screen and (max-width: 2400px) {
+  .App {
+    background-size: 100% 34%;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .App {
+    background-size: 100% 37%;
     line-height: 1.2;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .App {
+    background-size: 100% 46%;
   }
 }
 @media only screen and (max-width: 600px) {
   .App {
+    background-size: 100% 52%;
     padding-bottom: 85%;
   }
 }
@@ -151,13 +167,15 @@
 .follow_img {
   width: 500px;
   height: 82px;
-  background: url("/img/home/follow_off.webp") no-repeat;
-  background-size: 100%;
   position: relative;
 }
 .follow_img:hover {
-  background: url("/img/home/follow_on.webp") no-repeat;
-  background-size: 100%;
+  content: url("/img/home/follow_on.webp");
+}
+@media only screen and (max-width: 800px) {
+  .follow_img:hover {
+    content: url("/img/home/follow_on.gif");
+  }
 }
 .follow_iconContainer {
   position: relative;
@@ -215,6 +233,19 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+}
+.sand_zone_sand {
+  width: 100%;
+  background: url("/img/home/backgrounds/Layer2.png") no-repeat;
+  background-position: 0 0;
+  background-size: 100%;
+  position: absolute;
+  top: -2vh;
+  padding-bottom: 65%;
+  height: clamp(400px, 24vh, 2888px);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .nft {
