@@ -36,7 +36,7 @@ export default function Home() {
         let player = document.getElementById("bg-music");
         let resp = player.play();
         if (resp !== undefined) {
-            resp.then((_) => {}).catch((error) => {});
+            resp.then((_) => { }).catch((error) => { });
         }
         window.removeEventListener("click", StartAudio);
         window.removeEventListener("scroll", StartAudio);
