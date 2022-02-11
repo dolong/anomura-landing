@@ -107,21 +107,24 @@ $mobile-margin: 40% 10% 0 10%;
 .shop {
 
 	&_zone {
+		position: relative;
 	    margin-left: 8%;
 		display: flex;
 	}
 	&_text {
-		flex-basis: 35%;
+		flex-basis: 35%; 
+		z-index:2;
 	}
 	&_img {
 		width: min(60vw, 850px); 
-
+		z-index:2;
 	}
 	&_heading {
 		@include highlightText(c.$normal-color, c.$primary-color);
 	}
 	&_paragraph {
 		padding: 5px 0px 3px 10px; 
+		z-index:2;
 	}
 }
 .follow {

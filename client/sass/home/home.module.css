@@ -144,14 +144,17 @@
 }
 
 .shop_zone {
+  position: relative;
   margin-left: 8%;
   display: flex;
 }
 .shop_text {
   flex-basis: 35%;
+  z-index: 2;
 }
 .shop_img {
   width: min(60vw, 850px);
+  z-index: 2;
 }
 .shop_heading {
   background-color: #4cdebc;
@@ -162,6 +165,7 @@
 }
 .shop_paragraph {
   padding: 5px 0px 3px 10px;
+  z-index: 2;
 }
 
 .follow_img {
