@@ -1,15 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "/sass/home/home.module.css";
 
 export default function ShopZone() {
-    const [email, setEmail] = useState("");
-    const inputRef = React.createRef();
-
-    function handleChange(event) {
-        setEmail(event.target.value);
-        console.log(email);
-    }
-
     return (
         <div>
             <div className={`${s.shop_zone} pt-[5%]`}>
@@ -48,6 +40,20 @@ export default function ShopZone() {
                 <img className={s.shop_img} src="/img/home/shop.webp" alt="" />
             </div>
             <div className={s.sand_zone}>
+                <div className={s.sand_zone_sand} />
+
+                <picture>
+                    <source srcset="/img/home/follow_off.webp" media="(min-width: 1200px)" />
+                    <source srcset="/img/home/follow_off.gif" media="(min-width: 800px)" />
+                    <img className={s.follow_img} src="/img/home/follow_off.gif" alt="" />
+                </picture>
+
+                <div className={s.follow_iconContainer}>
+                    <a href="https://twitter.com/anomuragame" target="_blank" />
+                    <a href="https://discord.com/anomuragame" target="_blank" />
+                    <a href="https://instagram.com/anomuragame" target="_blank" />
+                    <div className={s.follow_iconContainer_icons} />
+                </div>
             </div>
         </div>
     );
