@@ -8,20 +8,21 @@ export default async function crabHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                console.log(id)
+                console.log(id);
 
-                 const crab = await prisma.anomuras.findFirst({
-                     where: {
-                         crabId: id,
-                     },
-                 });
+                const crab = await prisma.anomuras.findFirst({
+                    where: {
+                        crabId: id,
+                    },
+                });
                 // const test = await prisma.anomuras.findMany();
                 // res.status(200).json({test})
 
                 if (crab) {
                     res.status(200).json({
-                        name: `Crab ${crab.id}`,
+                        name: `Crab ${crab.crabId}`,
                         description: "Crab test",
+                        image: crab.image,
                         attributes: [
                             {
                                 trait_type: "Background",
@@ -48,7 +49,6 @@ export default async function crabHandler(req, res) {
                                 value: "null",
                             },
                         ],
-                        image: crab.image,
                     });
                 } else {
                     res.status(200).json({
@@ -57,34 +57,34 @@ export default async function crabHandler(req, res) {
                         attributes: [
                             {
                                 trait_type: "Background",
-                                value: null,
+                                value: 123,
                             },
                             {
                                 trait_type: "Body",
-                                value: null,
+                                value: 13,
                             },
                             {
                                 trait_type: "Claws",
-                                value: null,
+                                value: 13,
                             },
                             {
                                 trait_type: "Legs",
-                                value: null,
+                                value: 13,
                             },
                             {
                                 trait_type: "Shell",
-                                value: null,
+                                value: 13,
                             },
                             {
                                 trait_type: "Head Pieces",
-                                value: null,
+                                value: 13,
                             },
                         ],
                     });
                 }
             } catch (err) {
-                console.log(err)
-                res.status(500).json({ error: err });
+                console.log(err);
+                res.status(500).json({ err });
             }
 
             break;
@@ -96,7 +96,33 @@ export default async function crabHandler(req, res) {
 
                 const crabId = parseInt(req.query.crabId);
 
-                //TODO: validation before create / upsert / update
+                const existingCrab = await prisma.anomuras.findFirst({
+                    where: {
+                        crabId,
+                    },
+                });
+
+                if (existingCrab) {
+                    // TODO: updating data
+                    console.log(`Found existing crab ${crabId} with id: ${existingCrab.id}, updating data`);
+                    const updatedCrab = await prisma.anomuras.update({
+                        where: {
+                          id: existingCrab.id,
+                        },
+                        data: {
+                            background,
+                            legs,
+                            shell,
+                            claws,
+                            body,
+                            image,
+                        },
+                      })
+
+                    console.log(`Updated crab successfully`);
+                    res.status(200).json({ data: updatedCrab });
+                    return;
+                }
 
                 const newCrab = await prisma.anomuras.create({
                     data: {
@@ -112,7 +138,8 @@ export default async function crabHandler(req, res) {
                 });
                 res.status(200).json({ data: newCrab });
             } catch (err) {
-                res.status(500).json({ error: err });
+                console.log(err)
+                res.status(500).json({ err });
             }
             break;
         default:
