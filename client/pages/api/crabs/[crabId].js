@@ -8,13 +8,15 @@ export default async function crabHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                console.log(321)
-                console.log(req.query.crabId)
-                const crab = await prisma.anomuras.findFirst({
-                    where: {
-                        crabId: id,
-                    },
-                });
+                console.log(id)
+
+                 const crab = await prisma.anomuras.findFirst({
+                     where: {
+                         crabId: id,
+                     },
+                 });
+                // const test = await prisma.anomuras.findMany();
+                // res.status(200).json({test})
 
                 if (crab) {
                     res.status(200).json({
@@ -81,7 +83,8 @@ export default async function crabHandler(req, res) {
                     });
                 }
             } catch (err) {
-                res.status(500).json({ err });
+                console.log(err)
+                res.status(500).json({ error: err });
             }
 
             break;
@@ -109,7 +112,7 @@ export default async function crabHandler(req, res) {
                 });
                 res.status(200).json({ data: newCrab });
             } catch (err) {
-                res.status(500).json({ err });
+                res.status(500).json({ error: err });
             }
             break;
         default:

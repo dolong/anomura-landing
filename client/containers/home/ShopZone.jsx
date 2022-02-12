@@ -43,8 +43,8 @@ export default function ShopZone() {
                 <div className={s.sand_zone_sand} />
 
                 <picture>
-                    <source srcset="/img/home/follow_off.webp" media="(min-width: 1200px)" />
-                    <source srcset="/img/home/follow_off.gif" media="(min-width: 800px)" />
+                    <source srcSet="/img/home/follow_off.webp" media="(min-width: 1200px)" />
+                    <source srcSet="/img/home/follow_off.gif" media="(min-width: 800px)" />
                     <img className={s.follow_img} src="/img/home/follow_off.gif" alt="" />
                 </picture>
 

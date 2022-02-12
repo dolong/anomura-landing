@@ -19,14 +19,14 @@ model WhiteList {
 }
 
 model Anomuras {
-  id    Int    @id @default(autoincrement())
-  crabId Int
+  id Int    @id @default(autoincrement())
   owner String
-  background  String
-  legs  String
+  crabId Int 
+  background String
+  legs String
   shell String
   claws String
-  body  String
+  body String
   image String @default("null")
 
   Players       Players? @relation(fields: [playersWallet], references: [wallet])
