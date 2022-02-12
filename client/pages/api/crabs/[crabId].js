@@ -8,7 +8,9 @@ export default async function crabHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                const crab = await prisma.Anomuras.findFirst({
+                console.log(321)
+                console.log(req.query.crabId)
+                const crab = await prisma.anomuras.findFirst({
                     where: {
                         crabId: id,
                     },
