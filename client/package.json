@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "vercel-build": "prisma generate && prisma migrate resolve --applied \"20220212014833_test_migration\" --preview-feature && next build",
     "prisma:generate": "prisma generate"
   },
   "dependencies": {
