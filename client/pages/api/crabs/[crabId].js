@@ -87,7 +87,7 @@ export default async function crabHandler(req, res) {
                 data: { background, body, legs, claws, shell, image },
             } = req.body;
 
-            const crabId = req.query.crabId;
+            const crabId = parseInt(req.query.crabId);
 
             //TODO: validation before create / upsert / update
 

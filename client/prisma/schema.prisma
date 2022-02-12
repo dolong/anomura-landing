@@ -27,7 +27,7 @@ model Anomuras {
   shell String
   claws String
   body  String
-  image String
+  image String @default("null")
 
   Players       Players? @relation(fields: [playersWallet], references: [wallet])
   playersWallet String?
