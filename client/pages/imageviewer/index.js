@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MultipleSelect } from "./MultipleSelect";
-import { backgroundData } from "./data";
+
 
 //const fetcher = (url) => fetch(url).then((res) => res.json());
 
