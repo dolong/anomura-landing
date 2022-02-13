@@ -22,7 +22,7 @@ export default async function crabHandler(req, res) {
                     res.status(200).json({
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
-                        image: crab.image,
+                        image: "http://https://anomura-landing.vercel.app/imageviewer",
                         attributes: [
                             {
                                 trait_type: "Background",
@@ -136,6 +136,7 @@ export default async function crabHandler(req, res) {
                         image,
                     },
                 });
+                console.log(`A new crab ${crabId} is saved`);
                 res.status(200).json({ data: newCrab });
             } catch (err) {
                 console.log(err)
