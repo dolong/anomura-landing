@@ -21,7 +21,7 @@ export default async function crabHandler(req, res) {
                     res.status(200).json({
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
-                        animation_url: "https://anomura-landing.vercel.app/imageviewer",
+                        animation_url: `https://anomura-landing.vercel.app/imageviewer/${crab.crabId}`,
 
                         attributes: [
                             {
