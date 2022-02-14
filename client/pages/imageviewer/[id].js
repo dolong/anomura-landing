@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { getBody, getClaws, getShell, getLegs, getBackground } from "./data";
+import { getBody, getClaws, getShell, getLegs, getBackground } from "../../utils/crabData";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
