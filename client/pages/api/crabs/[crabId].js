@@ -8,7 +8,6 @@ export default async function crabHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                console.log(id);
 
                 const crab = await prisma.anomuras.findFirst({
                     where: {
@@ -23,7 +22,7 @@ export default async function crabHandler(req, res) {
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
                         animation_url: "https://anomura-landing.vercel.app/imageviewer",
-                        
+
                         attributes: [
                             {
                                 trait_type: "Background",

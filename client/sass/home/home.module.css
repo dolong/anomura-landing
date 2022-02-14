@@ -169,8 +169,7 @@
 }
 
 .follow_img {
-  width: 500px;
-  height: 82px;
+  width: min(60vw, 850px);
   position: relative;
 }
 .follow_img:hover {
@@ -183,19 +182,19 @@
 }
 .follow_iconContainer {
   position: relative;
-  width: 202px;
-  height: 42px;
+  width: min(30vw, 425px);
   display: flex;
   justify-content: space-between;
 }
 .follow_iconContainer a {
-  width: 50px;
+  width: 95px;
+  height: 80px;
 }
 .follow_iconContainer_icons {
   pointer-events: none;
   position: absolute;
-  width: 202px;
-  height: 42px;
+  height: 82px;
+  width: min(30vw, 425px);
   background: url("/img/home/follow_icons.webp") no-repeat;
   background-size: 100%;
 }
@@ -530,7 +529,8 @@
   }
 
   .follow_img {
-    margin-top: 3vh;
+    margin-top: 1vh;
+    width: 85vw;
   }
   .follow_input {
     font-size: 1.3rem;
@@ -599,11 +599,11 @@
 }
 @media only screen and (max-width: 600px) {
   .follow_img {
-    width: 377px;
-    height: 62px;
+    width: 80vw;
   }
   .follow_iconContainer {
-    transform: scale(0.7);
+    transform: scale(0.85);
+    width: 40vw;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -612,8 +612,11 @@
   }
 
   .follow_img {
-    width: 80vw;
-    height: 4vh;
+    margin-top: 1vh;
+  }
+  .follow_iconContainer {
+    transform: scale(0.7);
+    width: 50vw;
   }
   .follow_input {
     background-size: cover;

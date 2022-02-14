@@ -24,16 +24,14 @@
 $mobile-margin: 40% 10% 0 10%;
 
 .App {
-	
 	width: 100%;
 	position: relative;
 	background: url("/img/home/backgrounds/Sky.png") no-repeat;
-	// background: url("/img/home/backgrounds/SandLayer.webp") no-repeat;
 	background-size: 100% 25%;
  	padding-bottom: 60%;
 
-	 @media only screen and (max-width: 3800px) {
-		 background-size: 100% 30%;
+	@media only screen and (max-width: 3800px) {
+		background-size: 100% 30%;
 	}  
 
 	@media only screen and (max-width: 2400px) {
@@ -105,7 +103,6 @@ $mobile-margin: 40% 10% 0 10%;
 }
 
 .shop {
-
 	&_zone {
 		position: relative;
 	    margin-left: 8%;
@@ -129,9 +126,7 @@ $mobile-margin: 40% 10% 0 10%;
 }
 .follow {
 	&_img {
-		width: 500px;
-		height: 82px;
-
+		width: min(60vw, 850px);
 		&:hover {
 			content:url("/img/home/follow_on.webp");
 
@@ -144,20 +139,21 @@ $mobile-margin: 40% 10% 0 10%;
 
 	&_iconContainer{
 		position: relative;
-		width: 202px;
-		height: 42px;
+		width: min(30vw, 425px);
 		display: flex;
 		justify-content: space-between;
 
 		a {
-			width:50px;
+			width:95px;
+			height:80px;
 		}
 
 		&_icons {
 			pointer-events: none;
 			position: absolute;
-			width: 202px;
-			height: 42px;
+			// width: 202px;
+			height: 82px;
+			width: min(30vw, 425px);
 			background: url("/img/home/follow_icons.webp") no-repeat;
 			background-size: 100%;
 		}
@@ -472,7 +468,8 @@ $mobile-margin: 40% 10% 0 10%;
 	.follow {
 		&_img {
 			//When we get a mobile navbar image we will have to play with this setting
-			margin-top: 3vh;
+			margin-top: 1vh;
+			width: 85vw;
 		}
 
 		&_input {
@@ -546,27 +543,28 @@ $mobile-margin: 40% 10% 0 10%;
 @media only screen and (max-width: 600px) {
 	.follow {
 		&_img {
-			width: 377px;
-			height: 62px;
+			width: 80vw;
 		}
 		&_iconContainer{
-			transform: scale(0.7);
+			transform: scale(0.85);
+			width: 40vw;
 		}
 	}
 }
 
-
 @media only screen and (max-width: 400px) {
 	.shop {
 		&_text {
-	
 			 font-size: 0.95rem;
 		}
 	}
 	.follow {
 		&_img {
-			width: 80vw;
-			height: 4vh;
+			margin-top: 1vh;
+		}
+		&_iconContainer{
+			transform: scale(0.7);
+			width: 50vw;
 		}
 		&_input {
 			background-size: cover;

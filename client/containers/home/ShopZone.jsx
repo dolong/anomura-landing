@@ -20,21 +20,11 @@ export default function ShopZone() {
                         <p className={s.shop_paragraph}>
                             Brought to you by
                             <span className="font-bold"> Virtually Human Studio, </span>
-                            creators of
-                            <a href="https://zed.run/" className="font-bold text-blue-500">
-                                {" "}
+                            creators of{" "}
+                            <a href="https://zed.run/" className="font-bold text-blue-800">
                                 ZED RUN
                             </a>
                         </p>
-                    </div>
-                    <div className="">
-                        <span className={`${s.shop_paragraph} font-bold `}>Follow us on: </span>
-                        <a href="https://twitter.com/anomuragame" className="inline-block mr-2">
-                            <p className="font-bold">Twitter</p>
-                        </a>
-                        <a href="https://instagram.com/anomuragame" className="inline-block">
-                            <p className="font-bold">Instagram</p>
-                        </a>
                     </div>
                 </div>
                 <img className={s.shop_img} src="/img/home/shop.webp" alt="" />
