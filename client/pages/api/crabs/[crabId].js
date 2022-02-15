@@ -1,85 +1,37 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-export default async function crabHandler(req, res) {
+export default async function crabQueryHandler(req, res) {
     const { method } = req;
 
     switch (method) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-
                 const crab = await prisma.anomuras.findFirst({
                     where: {
                         crabId: id,
                     },
+                    select: {
+                        crabId: true,
+                        background: true,
+                        shell: true,
+                        legs: true,
+                        claws: true,
+                        body: true,
+                    },
                 });
-                // const test = await prisma.anomuras.findMany();
-                // res.status(200).json({test})
-
+                
                 if (crab) {
-                    res.status(200).json({
-                        name: `Crab ${crab.crabId}`,
-                        description: "Crab test",
-                        animation_url: `https://anomura-landing.vercel.app/imageviewer/${crab.crabId}`,
-
-                        attributes: [
-                            {
-                                trait_type: "Background",
-                                value: crab.background,
-                            },
-                            {
-                                trait_type: "Body",
-                                value: crab.body,
-                            },
-                            {
-                                trait_type: "Claws",
-                                value: crab.claws,
-                            },
-                            {
-                                trait_type: "Legs",
-                                value: crab.legs,
-                            },
-                            {
-                                trait_type: "Shell",
-                                value: crab.shell,
-                            },
-                            {
-                                trait_type: "Head Pieces",
-                                value: "null",
-                            },
-                        ],
-                    });
+                    res.status(200).json(crab);
                 } else {
                     res.status(200).json({
-                        name: `Crab ${id}`,
-                        description: "Unminted crab",
-                        attributes: [
-                            {
-                                trait_type: "Background",
-                                value: 123,
-                            },
-                            {
-                                trait_type: "Body",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Claws",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Legs",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Shell",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Head Pieces",
-                                value: 13,
-                            },
-                        ],
+                        crabId: id,
+                        background: "unminted",
+                        shell: "unminted",
+                        legs: "unminted",
+                        claws: "unminted",
+                        body: "unminted",
                     });
                 }
             } catch (err) {
@@ -88,63 +40,20 @@ export default async function crabHandler(req, res) {
             }
 
             break;
-        case "POST":
-            try {
-                const {
-                    data: { background, body, legs, claws, shell, image },
-                } = req.body;
 
-                const crabId = parseInt(req.query.crabId);
-
-                const existingCrab = await prisma.anomuras.findFirst({
-                    where: {
-                        crabId,
-                    },
-                });
-
-                if (existingCrab) {
-                    // TODO: updating data
-                    console.log(`Found existing crab ${crabId} with id: ${existingCrab.id}, updating data`);
-                    const updatedCrab = await prisma.anomuras.update({
-                        where: {
-                          id: existingCrab.id,
-                        },
-                        data: {
-                            background,
-                            legs,
-                            shell,
-                            claws,
-                            body,
-                            image,
-                        },
-                      })
-
-                    console.log(`Updated crab successfully`);
-                    res.status(200).json({ data: updatedCrab });
-                    return;
-                }
-
-                const newCrab = await prisma.anomuras.create({
-                    data: {
-                        crabId,
-                        owner: "0x123456",
-                        background,
-                        legs,
-                        shell,
-                        claws,
-                        body,
-                        image,
-                    },
-                });
-                console.log(`A new crab ${crabId} is saved`);
-                res.status(200).json({ data: newCrab });
-            } catch (err) {
-                console.log(err)
-                res.status(500).json({ err });
-            }
-            break;
         default:
             res.setHeader("Allow", ["GET", "PUT"]);
             res.status(405).end(`Method ${method} Not Allowed`);
     }
 }
+
+/** in case there is issue with db connection, can use this template for testing
+ let crab = {
+                    crabId: 998,
+                    background: "science_lab",
+                    shell: "Majestic metal_alembic",
+                    legs: "snow_1",
+                    claws: "Indestructible snow_icycle",
+                    body: "Graceful partner_kongz",
+                };
+ */

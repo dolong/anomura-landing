@@ -9,7 +9,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function ImageViewerDetails() {
     const router = useRouter();
     const { id } = router.query;
-    const getCrabUrl = `https://anomura-landing.vercel.app/api/crabs/imageviewer/${id}`;
+    const getCrabUrl = `${process.env.WEBSITE_HOST}/api/crabs/${id}`;
 
     const { data, error } = useSWR(id ? getCrabUrl : null, fetcher);
     
@@ -20,10 +20,10 @@ export default function ImageViewerDetails() {
         body: "/./img/imageviewer/Body/",
         claws: "/./img/imageviewer/Claws/",
     };
-
+    //return <SVGComponent data={data} />;
     if (!data) return <div>Loading...</div>;
     else {
-        console.log(data)
+        
         const {background, body, claws, legs, shell} = data;
         sources.background = sources.background + getBackground(background);
         sources.shell = sources.shell + getShell(shell);
@@ -32,7 +32,6 @@ export default function ImageViewerDetails() {
         sources.claws = sources.claws + getClaws(claws);
 
         return <CrabCanvas sources={sources} />;
-        //return <SVGComponent data={data} />;
     }
 }
 
@@ -44,20 +43,21 @@ const CrabCanvas = ({ sources  }) => {
         if (canvasRef) {
             canvas = canvasRef?.current;
             context = canvas?.getContext("2d");
-            loadImages(sources).done((images) => {
+            
+             loadImages(sources).done((images) => {
 
-                let counter = 0;
-                setInterval(()=> {
-                    context.drawImage(images.background[counter], 0, 0);
-                    context.drawImage(images.shell[counter], 0, 0);
-                    context.drawImage(images.legs[counter], 0, 0);
-                    context.drawImage(images.body[counter], 0, 0);
-                    context.drawImage(images.claws[counter], 0, 0);
-                    if(counter == 23) counter=1;
-                    counter++;
-                }, 150)
-                
-            });
+                 let counter = 0;
+                 setInterval(()=> {
+                     context.drawImage(images.background[counter], 0, 0, 300, 300);
+                     context.drawImage(images.shell[counter], 0, 0, 300, 300);
+                     context.drawImage(images.legs[counter], 0, 0, 300, 300);
+                     context.drawImage(images.body[counter], 0, 0,300, 300);
+                     context.drawImage(images.claws[counter], 0, 0, 300, 300);
+                     if(counter == 23) counter=1;
+                     counter++;
+                 }, 120)
+              
+             });
         }
     }, []);
 
@@ -105,7 +105,8 @@ const CrabCanvas = ({ sources  }) => {
             },
         };
     };
-    return <canvas ref={canvasRef} width="384" height="384" />;
+    return <canvas ref={canvasRef} width="300" height="300"/>;
+    
 };
 
 const SVGComponent = ({ data }) => {
