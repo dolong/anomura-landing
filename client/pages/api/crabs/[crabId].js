@@ -13,8 +13,8 @@ export default async function crabImageViewerHandler(req, res) {
                     res.status(200).json({
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
-                        animation_url: `${process.env.WEBSITE_HOST}/imageviewer/animate/${crab.crabId}`,
-                        image: `${process.env.WEBSITE_HOST}/imageviewer/animate/${crab.crabId}`,
+                        animation_url: `${process.env.WEBSITE_HOST}/imageviewer/${crab.crabId}`,
+                        image: `${process.env.WEBSITE_HOST}/imageviewer/${crab.crabId}`,
 
                         attributes: [
                             {
