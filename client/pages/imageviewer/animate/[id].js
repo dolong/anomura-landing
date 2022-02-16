@@ -6,7 +6,6 @@ import { getAllCrabs, getCrabById } from "repositories/crabs";
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
     let allCrabs = await getAllCrabs();
-    console.log(allCrabs)
     const paths = allCrabs.map((p) => {
         return {
             params: { id: p.crabId.toString() },

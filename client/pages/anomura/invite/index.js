@@ -1,5 +1,5 @@
 import s from "/sass/anomura/invite/invite.module.css";
-import { prisma } from "../../../repositories/PrismaContext";
+import { prisma } from "repositories/PrismaContext";
 
 //Need to create a hook for connecting your wallet.
 

@@ -1,4 +1,4 @@
-import { prisma } from "../../repositories/PrismaContext";
+import { prisma } from "repositories/PrismaContext";
 
 export default async function handler(req, res) {
 
