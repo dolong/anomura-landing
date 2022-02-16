@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { getCrabById } from "../../../repositories/crabs";
 
 export default async function crabQueryHandler(req, res) {
     const { method } = req;
@@ -8,20 +7,8 @@ export default async function crabQueryHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                const crab = await prisma.anomuras.findFirst({
-                    where: {
-                        crabId: id,
-                    },
-                    select: {
-                        crabId: true,
-                        background: true,
-                        shell: true,
-                        legs: true,
-                        claws: true,
-                        body: true,
-                    },
-                });
-                
+                let crab = await getCrabById(id);
+
                 if (crab) {
                     res.status(200).json(crab);
                 } else {

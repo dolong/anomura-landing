@@ -1,8 +1,5 @@
 import s from "/sass/anomura/invite/invite.module.css";
-import { PrismaClient } from "@prisma/client";
-
-//const prisma = new PrismaClient();
-
+import { prisma } from "../../../repositories/PrismaContext";
 
 //Need to create a hook for connecting your wallet.
 
@@ -27,8 +24,6 @@ export default function Invite({ whiteList }) {
             </div>
 
             <div className={s.foreground} />
-
-
 
             <style>{`
             body {

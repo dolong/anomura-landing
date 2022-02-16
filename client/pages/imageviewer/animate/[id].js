@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getBody, getClaws, getShell, getLegs, getBackground } from "../../../utils/crabData";
+import { getAllCrabs, getCrabById } from "../../../repositories/crabs";
 
+/** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
-    const res = await fetch(`${process.env.WEBSITE_HOST}/api/crabs/`);
-    const data = await res.json();
-    const paths = data.map((p) => {
+    let allCrabs = await getAllCrabs();
+    const paths = allCrabs.map((p) => {
         return {
             params: { id: p.crabId.toString() },
         };
@@ -18,12 +19,9 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-    const id = context.params.id;
-    const res = await fetch(`${process.env.WEBSITE_HOST}/api/crabs/${id}`);
-    const data = await res.json();
-
+    const id = parseInt(context.params.id);
+    const data = await getCrabById(id);
     return {
-        // props: { id },
         props: { data },
         revalidate: 60,
     };
@@ -45,7 +43,7 @@ export default function AnimateViewerDetails({ data }) {
         return <div>Loading...</div>;
     } else {
         const { background, body, claws, legs, shell } = data;
-        console.log(data);
+        
         sources.background = sources.background + getBackground(background);
         sources.shell = sources.shell + getShell(shell);
         sources.legs = sources.legs + getLegs(legs);

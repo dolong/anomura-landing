@@ -6,6 +6,7 @@ import s from "/sass/home/home.module.css";
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
+import {BufferLoader} from "../utils/buffer-loader"
 
 
 const { NFT, CrabAnat, WhenIsItOut, Footer } = {
@@ -27,33 +28,77 @@ const { NFT, CrabAnat, WhenIsItOut, Footer } = {
 };
 
 export default function Home() {
-    const [audioSource] = useState("/audio/Underwater Loop Deep.wav");
+
     const setOffsetY = useScrollEvent();
     const scrollPercent = useRecoilValue(ScrollValue);
-   
-    function StartAudio() {
+    let bufferLoader, audioContext;
 
-        let bgMusic = document.getElementById("bg-music");
-        bgMusic.play();
-        window.removeEventListener("click", StartAudio);
-        
+    const [audioControl, setAudioControl] = useState({
+        bgMusic:{},
+        chestOpen:{}
+    })
 
-        loadChestChime();
+    function LoadAudios() {
+
+        // let bgMusic = document.getElementById("bg-music");
+        // bgMusic.play();
+        // window.removeEventListener("click", StartAudio);
+        // loadChestChime();
         //window.removeEventListener("scroll", StartAudio);
+
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioContext = new AudioContext();
+        bufferLoader = new BufferLoader(
+            audioContext,
+            [
+              '/audio/Underwater Loop Deep.wav',
+              '/audio/Chest Open.wav',
+            ],
+            onFinishedLoadingAudioSource
+            );
+        
+          bufferLoader.load();
     }
 
-    const loadChestChime = () => {
-        let chestChime = document.getElementById("chest-chime");
-        chestChime.muted = true;
-        chestChime.play();
-    };
+    // const loadChestChime = () => {
+    //     let chestChime = document.getElementById("chest-chime");
+    //     chestChime.muted = true;
+    //     chestChime.play();
+    // };
 
     useEffect(() => {
-        window.addEventListener("click", StartAudio);
+        window.addEventListener("click", LoadAudios);
         //window.addEventListener("scroll", StartAudio);
-
+        if(audioControl.bgMusic.music){
+            audioControl.bgMusic.music?.start(0) 
+        }
         return () => {};
-    }, []);
+    }, [audioControl]);
+
+    const onFinishedLoadingAudioSource = (bufferList) => {
+        let bgMusic = audioContext.createBufferSource();
+        let bgVolume = audioContext.createGain();
+        bgMusic.buffer = bufferList[0];
+        bgMusic.connect(bgVolume).connect(audioContext.destination);
+        //bgVolume.gain.value = 0.1
+
+        let chestOpen = audioContext.createBufferSource(); 
+        let chestOpenVolume = audioContext.createGain();
+        chestOpen.buffer = bufferList[1];
+        chestOpen.connect(chestOpenVolume.connect(audioContext.destination))
+
+        setAudioControl({
+            bgMusic:{
+                music: bgMusic,
+                gain: bgVolume.gain
+            },
+            chestOpen:{
+                music: chestOpen,
+                gain: chestOpenVolume.gain
+            }
+        })
+     
+      }
 
     return (
         <div className={s.App}>
@@ -68,8 +113,8 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <audio src={audioSource} type="audio/wav" id="bg-music" autoPlay loop />
-            <audio src="/audio/chest chime.wav" type="audio/wav" loop id="chest-chime" />
+            {/* <audio src={audioSource} type="audio/wav" id="bg-music" autoPlay loop />
+            <audio src="/audio/chest chime.wav" type="audio/wav" loop id="chest-chime" /> */}
 
             <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
 

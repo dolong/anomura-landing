@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { getCrabById, createCrab, updateCrabById } from "../../../repositories/crabs";
 
 export default async function crabImageViewerHandler(req, res) {
     const { method } = req;
@@ -8,12 +7,7 @@ export default async function crabImageViewerHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-
-                const crab = await prisma.anomuras.findFirst({
-                    where: {
-                        crabId: id,
-                    },
-                });
+                let crab = await getCrabById(id);
 
                 if (crab) {
                     res.status(200).json({
@@ -53,32 +47,6 @@ export default async function crabImageViewerHandler(req, res) {
                     res.status(200).json({
                         name: `Crab ${id}`,
                         description: "Unminted crab",
-                        attributes: [
-                            {
-                                trait_type: "Background",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Body",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Claws",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Legs",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Shell",
-                                value: 13,
-                            },
-                            {
-                                trait_type: "Head Pieces",
-                                value: 13,
-                            },
-                        ],
                     });
                 }
             } catch (err) {
@@ -94,51 +62,42 @@ export default async function crabImageViewerHandler(req, res) {
                 } = req.body;
 
                 const crabId = parseInt(req.query.crabId);
-
-                const existingCrab = await prisma.anomuras.findFirst({
-                    where: {
-                        crabId,
-                    },
-                });
+                const existingCrab = getCrabById(crabId);
 
                 if (existingCrab) {
-                    // TODO: updating data
-                    console.log(`Found existing crab ${crabId} with id: ${existingCrab.id}, updating data`);
-                    const updatedCrab = await prisma.anomuras.update({
-                        where: {
-                          id: existingCrab.id,
-                        },
-                        data: {
-                            background,
-                            legs,
-                            shell,
-                            claws,
-                            body,
-                            image,
-                        },
-                      })
+                    console.log(
+                        `Found existing crab ${crabId} with id: ${existingCrab.id}, updating data`
+                    );
+
+                    let crabId = existingCrab.id;
+                    const updatedCrab = updateCrabById({
+                        crabId,
+                        background,
+                        body,
+                        legs,
+                        claws,
+                        shell,
+                        image,
+                    });
 
                     console.log(`Updated crab successfully`);
                     res.status(200).json({ data: updatedCrab });
                     return;
                 }
 
-                const newCrab = await prisma.anomuras.create({
-                    data: {
-                        crabId,
-                        owner: "0x123456",
-                        background,
-                        legs,
-                        shell,
-                        claws,
-                        body,
-                        image,
-                    },
+                let newCrab = await createCrab({
+                    crabId,
+                    background,
+                    body,
+                    legs,
+                    claws,
+                    shell,
+                    image,
                 });
-                console.log(`A new crab ${crabId} is saved`);
+                console.log(`A new crab ${crabId} is created`);
                 res.status(200).json({ data: newCrab });
             } catch (err) {
-                console.log(err)
+                console.log(err);
                 res.status(500).json({ err });
             }
             break;
