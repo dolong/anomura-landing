@@ -63,24 +63,31 @@ export default async function crabImageViewerHandler(req, res) {
 
                 const crabId = parseInt(req.query.crabId);
                 const existingCrab = await getCrabById(crabId);
-                let crabImage = await CrabImagesBuilder({ crabId, background, body, legs, claws, shell });
+                let crabImage = await CrabImagesBuilder({
+                    crabId,
+                    background,
+                    body,
+                    legs,
+                    claws,
+                    shell,
+                });
 
                 if (existingCrab) {
                     console.log(
                         `Found existing crab ${crabId} with id: ${existingCrab.id}, updating...`
                     );
-                    if(existingCrab.image != crabImage){
+                    if (existingCrab.image != crabImage) {
                         let crabId = existingCrab.id;
                         const updatedCrab = updateCrabById({
                             crabId,
                             image: crabImage,
                         });
-                        console.log(`Updated crab successfully`);
-                        res.status(200).json({ data: updatedCrab });
+                        console.log(`Updated anomura attrs successfully`);
+                        res.status(200).json({ data: "Updated anomura attrs successfully" });
                         return;
                     }
                     console.log(`No need to update crab Image`);
-                    res.status(200).json({ data: existingCrab });
+                    res.status(200).json({ data: {}, message: "No need to update crab Image" });
                     return;
                 }
 
