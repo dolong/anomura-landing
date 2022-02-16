@@ -1,5 +1,5 @@
-import { getCrabById, createCrab, updateCrabById } from "../../../repositories/crabs";
-
+//import { getCrabById, createCrab, updateCrabById } from "../../../../repositories/crabs";
+import { getCrabById, createCrab, updateCrabById } from "repositories/crabs";
 export default async function crabImageViewerHandler(req, res) {
     const { method } = req;
 

@@ -1,4 +1,4 @@
-import { getCrabById } from "../../../repositories/crabs";
+import { getCrabById } from "repositories/crabs";
 
 export default async function crabQueryHandler(req, res) {
     const { method } = req;

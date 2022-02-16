@@ -6,7 +6,7 @@ import s from "/sass/home/home.module.css";
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
-import {BufferLoader} from "../utils/buffer-loader"
+import {BufferLoader} from "utils/buffer-loader"
 
 
 const { NFT, CrabAnat, WhenIsItOut, Footer } = {
