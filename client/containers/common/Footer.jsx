@@ -4,8 +4,10 @@ export default function Footer({ ScrollPercent }) {
     /*  position for extracting the whole page for mobile view on Creative Review board, will remove once everything is approved
         let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 2800, -950, -600, -750, -850, -850);
     */
-
+    //original:
     let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 4830, -800, -600, -720, -750, -750);
+
+    //let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 4830, -800, -600, -720, -1950, -750);
 
     return (
         <div className={s.footer_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>

@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 
+
 const { NFT, CrabAnat, WhenIsItOut, Footer } = {
     NFT: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.NFT), {
         ssr: false,
@@ -26,26 +27,32 @@ const { NFT, CrabAnat, WhenIsItOut, Footer } = {
 };
 
 export default function Home() {
-
     const [audioSource] = useState("/audio/Underwater Loop Deep.wav");
     const setOffsetY = useScrollEvent();
     const scrollPercent = useRecoilValue(ScrollValue);
-    const audioRef = React.createRef();
-
+   
     function StartAudio() {
-        audioRef.current.volume = 1;
-        audioRef.current.play();
+
+        let bgMusic = document.getElementById("bg-music");
+        bgMusic.play();
         window.removeEventListener("click", StartAudio);
-        window.removeEventListener("scroll", StartAudio);
+        
+
+        loadChestChime();
+        //window.removeEventListener("scroll", StartAudio);
     }
+
+    const loadChestChime = () => {
+        let chestChime = document.getElementById("chest-chime");
+        chestChime.muted = true;
+        chestChime.play();
+    };
 
     useEffect(() => {
         window.addEventListener("click", StartAudio);
-        window.addEventListener("scroll", StartAudio);
+        //window.addEventListener("scroll", StartAudio);
 
-        return () => {
-            audioRef.current?.pause();
-        };
+        return () => {};
     }, []);
 
     return (
@@ -61,25 +68,20 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <audio
-                ref={audioRef}
-                src={audioSource}
-                type="audio/wav"
-                id="bg-music"
-                autoPlay
-                loop
-
-            ></audio>
+            <audio src={audioSource} type="audio/wav" id="bg-music" autoPlay loop />
+            <audio src="/audio/chest chime.wav" type="audio/wav" loop id="chest-chime" />
 
             <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
 
             {/* Parallax Zone */}
             <div className={s.parallax_group}>
-                <ShopZone></ShopZone>
+                <ShopZone />
+               
                 <NFT ScrollPercent={scrollPercent}></NFT>
                 <CrabAnat ScrollPercent={scrollPercent}></CrabAnat>
                 <WhenIsItOut ScrollPercent={scrollPercent}></WhenIsItOut>
                 <Footer ScrollPercent={scrollPercent}></Footer>
+                
             </div>
             {/* End Of Parallax Zone */}
 

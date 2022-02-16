@@ -2,7 +2,10 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 export default function NFT({ ScrollPercent }) {
+    //original
     let calculatedOffsetY = useScrollValue(ScrollPercent, -6.5, 700, -125, -145, -70, -80, -90);
+
+    //let calculatedOffsetY = useScrollValue(ScrollPercent, -4.5, 700, -125, -145, -100, -190, -90);
     return (
         <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.nft_text}>

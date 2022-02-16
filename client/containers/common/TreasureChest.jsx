@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import s from "/sass/home/home.module.css";
 
-export default function TreasureChest() {
+export default function TreasureChest({ ScrollPercent }) {
     const [chestState, setChestState] = useState("idle");
     const [isChestChimePlay, setChestChimePlay] = useState(false);
     const [isChestFishPlay, setChestFishPlay] = useState(false);
@@ -27,18 +27,23 @@ export default function TreasureChest() {
         };
     }, [treasureRef]);
 
+    //console.log(ScrollPercent);
+
     const handleScroll = () => {
         if (treasureRef.current) {
             let rect = treasureRef.current.getBoundingClientRect();
+
             if (rect.top < 0 && chestState === "idle" && !isChestChimePlay) {
+                //loadChestChime();
+                chestChime.muted = false;
                 chestChime.play();
-                chestChime.volume = 0.08;
+                chestChime.volume = 0.05;
                 setChestChimePlay(true);
             }
             if (isChestChimePlay) {
-                let reference = Math.abs(rect.bottom);
+                let reference = Math.abs(rect.top);
 
-                let newVolume = 0.08 - reference / 10000;
+                let newVolume = 0.08 - reference / 100000;
                 if (newVolume < 0.02) {
                     chestChime.volume = 0;
                 } else {
@@ -46,6 +51,11 @@ export default function TreasureChest() {
                         chestChime.volume = newVolume;
                     }
                 }
+                // if (ScrollPercent < 110 || ScrollPercent > 180) {
+                //     chestChime.pause();
+                // } else {
+                //     chestChime.play();
+                // }
             }
             if (isChestFishPlay) {
                 let reference = Math.abs(rect.bottom);
@@ -74,28 +84,29 @@ export default function TreasureChest() {
             setChestState("opening");
             setTimeout(() => {
                 setChestState("opened");
-            }, 300);
+            }, 800);
         }
 
         chestChime.pause();
         chestOpen.play();
 
         timeoutRef.current = setTimeout(() => {
-            chestOpen.pause();
             chestFish.muted = false;
             let promise = chestFish.play();
 
             intervalRef.current = setInterval(() => {
                 chestFish.play();
-            }, 8400);
-        }, 4200);
+            }, 4400);
+        }, 2200);
+
+        // 8400, 4200
 
         setChestFishPlay(true);
     };
 
     return (
         <div className={s.treasure_zone} ref={treasureRef}>
-            <audio src="/audio/chest chime.wav" type="audio/wav" loop id="chest-chime"></audio>
+            {/* <audio src="/audio/chest chime.wav" type="audio/wav" loop id="chest-chime" /> */}
             <audio src="/audio/Fish Pass by 1.wav" type="audio/wav" id="chest-fish" />
             <audio src="/audio/Chest Open.wav" type="audio/wav" id="chest-open"></audio>
             <div className={s.treasure_image}>
@@ -103,23 +114,23 @@ export default function TreasureChest() {
                     <>
                         <img
                             className={`${s.treasure_card} invisible`}
-                            src="/img/home/cards/Card.gif"
+                            src="/img/home/cards/Card.webp"
                             alt=""
                         />
                         <img
                             className={`${s.treasure_chestFloor}`}
-                            src="/img/home/chestfloor_modified.png"
+                            src="/img/home/chests/chestfloor_modified.webp"
                             alt=""
                         />
                         <img
                             className={`${s.treasure_chest}`}
-                            src="/img/home/chest_open.gif"
+                            src="/img/home/chests/chest_opening_135f.gif"
                             alt=""
                         />
 
                         <img
                             className={`${s.treasure_chestLight}`}
-                            src="/img/home/chest_idle_lights_modified.png"
+                            src="/img/home/chests/chest_idle_lights_modified.webp"
                             alt=""
                         />
                     </>
@@ -128,23 +139,25 @@ export default function TreasureChest() {
                     <>
                         <img
                             className={`${s.treasure_card}`}
-                            src="/img/home/cards/Card.gif"
+                            src="/img/home/cards/Card.webp"
                             alt=""
                         ></img>
 
                         <img
                             className={`${s.treasure_chestFloor}`}
-                            src="/img/home/chestfloor_modified.png"
+                            src="/img/home/chests/chestfloor_modified.webp"
                             alt=""
                         />
+
                         <img
                             className={`${s.treasure_chest}`}
-                            src="/img/home/chest_openedidle.gif"
+                            src="/img/home/chests/chest_opened_175f.gif"
                             alt=""
                         />
+
                         <img
                             className={`${s.treasure_chestLight}`}
-                            src="/img/home/chest_open_lights_modified.png"
+                            src="/img/home/chests/chest_open_lights_modified.webp"
                             alt=""
                         />
                     </>
@@ -153,23 +166,24 @@ export default function TreasureChest() {
                     <>
                         <img
                             className={`${s.treasure_card} invisible`}
-                            src="/img/home/cards/Card.gif"
+                            src="/img/home/cards/Card.webp"
                             alt=""
                         />
                         <img
                             className={`${s.treasure_chestFloor}`}
-                            src="/img/home/chestfloor_modified.png"
+                            src="/img/home/chests/chestfloor_modified.webp"
                             alt=""
                         />
                         <img
                             onClick={OpenChest}
                             className={`${s.treasure_chest}`}
-                            src="/img/home/chest_idle.webp"
+                            src="/img/home/chests/idleChest_175f.gif"
                             alt=""
                         />
+
                         <img
                             className={`${s.treasure_chestLight}`}
-                            src="/img/home/chest_idle_lights_modified.png"
+                            src="/img/home/chests/chest_idle_lights_modified.webp"
                             alt=""
                         />
                     </>
