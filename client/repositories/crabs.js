@@ -17,25 +17,21 @@ export const getAllCrabs = async (crabId) => {
 };
 
 export const updateCrabById = async (crabData) => {
-// TODO: updating data only if data is different
-const {crabId, background, body, legs, claws, shell, image} = crabData
+    const { crabId, image } = crabData;
+
+    // should only update image here, other parts currently synced with contract
     return await prisma.anomuras.update({
         where: {
-          id: crabId,
+            id: crabId,
         },
         data: {
-            background,
-            legs,
-            shell,
-            claws,
-            body,
             image,
         },
-      })
+    });
 };
 
 export const createCrab = async (crabData) => {
-    const {crabId, background, body, legs, claws, shell, image} = crabData
+    const { crabId, background, body, legs, claws, shell, image } = crabData;
     return await prisma.anomuras.create({
         data: {
             crabId,
@@ -47,5 +43,5 @@ export const createCrab = async (crabData) => {
             body,
             image,
         },
-    })
+    });
 };

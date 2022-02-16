@@ -1,5 +1,5 @@
 import { getCrabById, createCrab, updateCrabById } from "repositories/crabs";
-
+import { CrabImagesBuilder } from "utils/crabImagesBuilder";
 export default async function crabImageViewerHandler(req, res) {
     const { method } = req;
 
@@ -14,7 +14,7 @@ export default async function crabImageViewerHandler(req, res) {
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
                         animation_url: `${process.env.WEBSITE_HOST}/imageviewer/${crab.crabId}`,
-                        image: `${process.env.WEBSITE_HOST}/imageviewer/${crab.crabId}`,
+                        image: `${process.env.WEBSITE_HOST}/img/imageviewer/${crab.image}`,
 
                         attributes: [
                             {
@@ -58,30 +58,29 @@ export default async function crabImageViewerHandler(req, res) {
         case "POST":
             try {
                 const {
-                    data: { background, body, legs, claws, shell, image },
+                    data: { background, body, legs, claws, shell },
                 } = req.body;
 
                 const crabId = parseInt(req.query.crabId);
-                const existingCrab = getCrabById(crabId);
+                const existingCrab = await getCrabById(crabId);
+                let crabImage = await CrabImagesBuilder({ crabId, background, body, legs, claws, shell });
 
                 if (existingCrab) {
                     console.log(
-                        `Found existing crab ${crabId} with id: ${existingCrab.id}, updating data`
+                        `Found existing crab ${crabId} with id: ${existingCrab.id}, updating...`
                     );
-
-                    let crabId = existingCrab.id;
-                    const updatedCrab = updateCrabById({
-                        crabId,
-                        background,
-                        body,
-                        legs,
-                        claws,
-                        shell,
-                        image,
-                    });
-
-                    console.log(`Updated crab successfully`);
-                    res.status(200).json({ data: updatedCrab });
+                    if(existingCrab.image != crabImage){
+                        let crabId = existingCrab.id;
+                        const updatedCrab = updateCrabById({
+                            crabId,
+                            image: crabImage,
+                        });
+                        console.log(`Updated crab successfully`);
+                        res.status(200).json({ data: updatedCrab });
+                        return;
+                    }
+                    console.log(`No need to update crab Image`);
+                    res.status(200).json({ data: existingCrab });
                     return;
                 }
 
@@ -96,6 +95,7 @@ export default async function crabImageViewerHandler(req, res) {
                 });
                 console.log(`A new crab ${crabId} is created`);
                 res.status(200).json({ data: newCrab });
+                res.status(200).json({ test: 123 });
             } catch (err) {
                 console.log(err);
                 res.status(500).json({ err });
