@@ -273,14 +273,15 @@
   height: 120px;
 }
 .sandBottom_right {
-  width: min(24vw, 450px);
-  flex: 30%;
+  width: min(20vw, 250px);
+  flex: 20%;
   position: relative;
 }
 .sandBottom_right_container {
   position: absolute;
+  right: 0;
   height: 100%;
-  width: min(20vw, 360px);
+  width: min(20vw, 200px);
   display: flex;
   flex-direction: column;
 }
@@ -297,11 +298,12 @@
 }
 .sandBottom_image {
   height: auto;
-  width: min(20vw, 360px);
+  width: min(20vw, 200px);
+  margin-left: auto;
 }
 @media only screen and (max-width: 600px) {
   .sandBottom_image {
-    width: min(24vw, 450px);
+    width: min(22vw, 360px);
   }
 }
 
@@ -315,13 +317,59 @@
   padding-bottom: 65%;
   display: flex;
   justify-content: center;
+  shape-outside: url("/img/home/backgrounds/Layer3.png");
 }
 .nft_text {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 36%;
+  margin-top: 40%;
+  position: relative;
+}
+.nft_bubble1 {
+  position: absolute;
+  height: auto;
+  left: 8%;
+  top: -15vw;
+  width: 42px;
+}
+@media only screen and (max-width: 1200px) {
+  .nft_bubble1 {
+    width: 32px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .nft_bubble1 {
+    width: 22px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .nft_bubble1 {
+    width: 15px;
+  }
+}
+.nft_bubble2 {
+  position: absolute;
+  height: auto;
+  right: 8%;
+  top: -15vw;
+  width: 42px;
+}
+@media only screen and (max-width: 1200px) {
+  .nft_bubble2 {
+    width: 32px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .nft_bubble2 {
+    width: 22px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .nft_bubble2 {
+    width: 15px;
+  }
 }
 .nft_heading {
   background-color: #4cdebc;

@@ -3,7 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
-export default function WhenIsItOut({ ScrollPercent }) {
+export default function WhenIsItOut({ ScrollPercent, audioControl }) {
     /*  position for extracting the whole page for mobile view on Creative Review board, will remove once everything is approved
         let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 1300, -500, -150, -100, 5, 55);
     */
@@ -24,7 +24,7 @@ export default function WhenIsItOut({ ScrollPercent }) {
                     shortly!
                 </p>
             </div>
-            <TreasureChest s={s} ScrollPercent={ScrollPercent}></TreasureChest>
+            <TreasureChest audioControl={audioControl}></TreasureChest>
         </div>
     );
 }
