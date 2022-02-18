@@ -39,19 +39,21 @@ export default function AnimateViewerDetails({ data }) {
         claws: "/./img/imageviewer/Claws/",
     };
 
-    if (router.isFallback) {
-        return <div>Loading...</div>;
-    } else {
-        const { background, body, claws, legs, shell } = data;
-        
-        sources.background = sources.background + getBackground(background);
-        sources.shell = sources.shell + getShell(shell);
-        sources.legs = sources.legs + getLegs(legs);
-        sources.body = sources.body + getBody(body);
-        sources.claws = sources.claws + getClaws(claws);
+     if (router.isFallback) {
+         return <div>Loading...</div>;
+     } else {
+        console.log("building images")
+         const { background, body, claws, legs, shell } = data;
+    
+         sources.background = sources.background + getBackground(background);
+         sources.shell = sources.shell + getShell(shell);
+         sources.legs = sources.legs + getLegs(legs);
+         sources.body = sources.body + getBody(body);
+         sources.claws = sources.claws + getClaws(claws);
 
         return <CrabCanvas sources={sources} />;
-    }
+  
+     }
 }
 
 const CrabCanvas = ({ sources }) => {
@@ -66,14 +68,15 @@ const CrabCanvas = ({ sources }) => {
             loadImages(sources).done((images) => {
                 let counter = 0;
                 setInterval(() => {
-                    context.drawImage(images.background[counter], 0, 0, 300, 300);
-                    context.drawImage(images.shell[counter], 0, 0, 300, 300);
-                    context.drawImage(images.legs[counter], 0, 0, 300, 300);
-                    context.drawImage(images.body[counter], 0, 0, 300, 300);
-                    context.drawImage(images.claws[counter], 0, 0, 300, 300);
-                    if (counter == 23) counter = 1;
+                    if (counter == 24) counter = 0;
+                    context.drawImage(images.background[counter], 0, 0, 500, 500);
+                    context.drawImage(images.shell[counter], 0, 0, 500, 500);
+                    context.drawImage(images.legs[counter], 0, 0, 500, 500);
+                    context.drawImage(images.body[counter], 0, 0, 500, 500);
+                    context.drawImage(images.claws[counter], 0, 0, 500, 500);
+                    
                     counter++;
-                }, 120);
+                }, 100);
             });
         }
     }, []);
@@ -111,7 +114,10 @@ const CrabCanvas = ({ sources }) => {
                     }
                 };
                 let counter = index + 1;
-                images[src][index].src = sources[src] + "_" + counter + ".svg";
+                if(src == "background")
+                    images[src][index].src = sources[src] + "_" + counter + ".png";
+                else
+                    images[src][index].src = sources[src] + "_" + counter + ".svg";
             }
         }
 
@@ -121,5 +127,5 @@ const CrabCanvas = ({ sources }) => {
             },
         };
     };
-    return <canvas ref={canvasRef} width="300" height="300" />;
+    return <canvas ref={canvasRef} width="500" height="500" />;
 };

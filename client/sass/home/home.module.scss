@@ -153,10 +153,10 @@ $mobile-margin: 40% 10% 0 10%;
 	&_img {
 		width: min(60vw, 850px);
 		&:hover {
-			content:url("/img/home/follow_on.webp");
+			content:url("/img/home/follow_us/follow_on_x3.webp");
 
 			@media only screen and (max-width: 800px) {
-				content:url("/img/home/follow_on.gif");
+				content:url("/img/home/follow_us/follow_on.gif");
 			}
 		}
 		position: relative;
@@ -164,7 +164,7 @@ $mobile-margin: 40% 10% 0 10%;
 
 	&_iconContainer{
 		position: relative;
-		width: min(30vw, 425px);
+		width: min(25vw, 375px);
 		display: flex;
 		justify-content: space-between;
 
@@ -177,9 +177,13 @@ $mobile-margin: 40% 10% 0 10%;
 			pointer-events: none;
 			position: absolute;
 			height: 82px;
-			width: min(30vw, 425px);
-			background: url("/img/home/follow_icons.webp") no-repeat;
+			width: min(25vw, 375px);
+			background: url("/img/home/follow_us/follow_icons_x3.png") no-repeat;
 			background-size: 100%;
+
+			@media only screen and (max-width: 800px){
+				background: url("/img/home/follow_us/follow_icons.webp") no-repeat;
+			}
 		}	
 	}
 
@@ -198,6 +202,7 @@ $mobile-margin: 40% 10% 0 10%;
 
 		opacity: 0;
 		transition: opacity 2s;
+		pointer-events:none;
 	}
 
 	&_left {
@@ -259,9 +264,10 @@ $mobile-margin: 40% 10% 0 10%;
 		height:auto;
 		width: min(20vw, 200px);
 		margin-left:auto;
-		
+
 		@media only screen and (max-width: 600px){
 			width: min(22vw, 360px);
+			content:url("/img/home/bottomSand/bottom_discord_mute_sign.png");
 		}
 	
 	}
@@ -455,6 +461,7 @@ $mobile-margin: 40% 10% 0 10%;
 		text-align: center;
 		margin-top: 2%;
 	}
+
 }
 
 

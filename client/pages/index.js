@@ -40,7 +40,7 @@ export default function Home() {
             isPlaying: false,
         },
         chestOpen: {},
-        // fishPass: {},
+        fishPass: {},
     });
 
     function LoadAudios() {

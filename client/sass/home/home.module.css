@@ -200,16 +200,16 @@
   position: relative;
 }
 .follow_img:hover {
-  content: url("/img/home/follow_on.webp");
+  content: url("/img/home/follow_us/follow_on_x3.webp");
 }
 @media only screen and (max-width: 800px) {
   .follow_img:hover {
-    content: url("/img/home/follow_on.gif");
+    content: url("/img/home/follow_us/follow_on.gif");
   }
 }
 .follow_iconContainer {
   position: relative;
-  width: min(30vw, 425px);
+  width: min(25vw, 375px);
   display: flex;
   justify-content: space-between;
 }
@@ -221,9 +221,14 @@
   pointer-events: none;
   position: absolute;
   height: 82px;
-  width: min(30vw, 425px);
-  background: url("/img/home/follow_icons.webp") no-repeat;
+  width: min(25vw, 375px);
+  background: url("/img/home/follow_us/follow_icons_x3.png") no-repeat;
   background-size: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .follow_iconContainer_icons {
+    background: url("/img/home/follow_us/follow_icons.webp") no-repeat;
+  }
 }
 .follow_container {
   display: flex;
@@ -242,6 +247,7 @@
   z-index: 10;
   opacity: 0;
   transition: opacity 2s;
+  pointer-events: none;
 }
 .sandBottom_left {
   flex: 20%;
@@ -304,6 +310,7 @@
 @media only screen and (max-width: 600px) {
   .sandBottom_image {
     width: min(22vw, 360px);
+    content: url("/img/home/bottomSand/bottom_discord_mute_sign.png");
   }
 }
 
