@@ -43,13 +43,13 @@ $mobile-margin: 40% 10% 0 10%;
 		line-height: 1.2;
 	}
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (max-width: 800px) {
 		background-size: 100% 46%;
 	}
 
 	@media only screen and (max-width: 600px) {
 		background-size: 100% 52%;
-		padding-bottom: 85%;
+		padding-bottom: 65%;
 	}
 }
 .sunlight {
@@ -152,19 +152,12 @@ $mobile-margin: 40% 10% 0 10%;
 .follow {
 	&_img {
 		width: min(60vw, 850px);
-		&:hover {
-			content:url("/img/home/follow_us/follow_on_x3.webp");
-
-			@media only screen and (max-width: 800px) {
-				content:url("/img/home/follow_us/follow_on.gif");
-			}
-		}
 		position: relative;
 	}
 
 	&_iconContainer{
 		position: relative;
-		width: min(25vw, 375px);
+		width: min(30vw, 425px);
 		display: flex;
 		justify-content: space-between;
 
@@ -177,12 +170,13 @@ $mobile-margin: 40% 10% 0 10%;
 			pointer-events: none;
 			position: absolute;
 			height: 82px;
-			width: min(25vw, 375px);
+			width: min(30vw, 425px);
 			background: url("/img/home/follow_us/follow_icons_x3.png") no-repeat;
 			background-size: 100%;
 
 			@media only screen and (max-width: 800px){
 				background: url("/img/home/follow_us/follow_icons.webp") no-repeat;
+				background-size: 100%;
 			}
 		}	
 	}
@@ -218,20 +212,23 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 
 	&_center {
-		align-self: flex-end;
-		width: min(60vw, 850px);
 		position: relative;
-		
+		align-self: flex-end;
+		width: min(30vw, 425px);
+		margin-left: 3%;
+
 		&_icons {
 			position: absolute;
-			height: 120px;
-			left: 18%;
-			width: 52%;
 			display: flex;
 			justify-content: space-between;
+
+			height: 120px;
+			left: 17%;
+			width: 54%;
 			a {
-				width:95px;
-				height: 120px;
+
+				width:25%;
+				height: auto;
 			}
 		}
 	}
@@ -245,7 +242,7 @@ $mobile-margin: 40% 10% 0 10%;
 			position: absolute;
 			right:0;
 			height: 100%;
-			width: min(20vw, 200px);
+			width: min(12vw, 120px);
 			@include m.flex-master(column, null, null);
 			&_discord {
 				width: auto;
@@ -262,12 +259,12 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 	&_image{
 		height:auto;
-		width: min(20vw, 200px);
+		width: min(12vw, 120px);
 		margin-left:auto;
 
 		@media only screen and (max-width: 600px){
-			width: min(22vw, 360px);
-			content:url("/img/home/bottomSand/bottom_discord_mute_sign.png");
+		//	width: min(15vw, 200px);
+		//	content:url("/img/home/bottomSand/bottom_discord_mute_sign.png");
 		}
 	
 	}
@@ -463,8 +460,6 @@ $mobile-margin: 40% 10% 0 10%;
 	}
 
 }
-
-
 
 @media only screen and (max-width: 1400px) {
 	.nav {

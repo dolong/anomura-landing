@@ -82,7 +82,7 @@
     line-height: 1.2;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
   .App {
     background-size: 100% 46%;
   }
@@ -90,7 +90,7 @@
 @media only screen and (max-width: 600px) {
   .App {
     background-size: 100% 52%;
-    padding-bottom: 85%;
+    padding-bottom: 65%;
   }
 }
 
@@ -199,17 +199,9 @@
   width: min(60vw, 850px);
   position: relative;
 }
-.follow_img:hover {
-  content: url("/img/home/follow_us/follow_on_x3.webp");
-}
-@media only screen and (max-width: 800px) {
-  .follow_img:hover {
-    content: url("/img/home/follow_us/follow_on.gif");
-  }
-}
 .follow_iconContainer {
   position: relative;
-  width: min(25vw, 375px);
+  width: min(30vw, 425px);
   display: flex;
   justify-content: space-between;
 }
@@ -221,13 +213,14 @@
   pointer-events: none;
   position: absolute;
   height: 82px;
-  width: min(25vw, 375px);
+  width: min(30vw, 425px);
   background: url("/img/home/follow_us/follow_icons_x3.png") no-repeat;
   background-size: 100%;
 }
 @media only screen and (max-width: 800px) {
   .follow_iconContainer_icons {
     background: url("/img/home/follow_us/follow_icons.webp") no-repeat;
+    background-size: 100%;
   }
 }
 .follow_container {
@@ -262,21 +255,22 @@
   }
 }
 .sandBottom_center {
-  align-self: flex-end;
-  width: min(60vw, 850px);
   position: relative;
+  align-self: flex-end;
+  width: min(30vw, 425px);
+  margin-left: 3%;
 }
 .sandBottom_center_icons {
   position: absolute;
-  height: 120px;
-  left: 18%;
-  width: 52%;
   display: flex;
   justify-content: space-between;
+  height: 120px;
+  left: 17%;
+  width: 54%;
 }
 .sandBottom_center_icons a {
-  width: 95px;
-  height: 120px;
+  width: 25%;
+  height: auto;
 }
 .sandBottom_right {
   width: min(20vw, 250px);
@@ -287,7 +281,7 @@
   position: absolute;
   right: 0;
   height: 100%;
-  width: min(20vw, 200px);
+  width: min(12vw, 120px);
   display: flex;
   flex-direction: column;
 }
@@ -304,16 +298,9 @@
 }
 .sandBottom_image {
   height: auto;
-  width: min(20vw, 200px);
+  width: min(12vw, 120px);
   margin-left: auto;
 }
-@media only screen and (max-width: 600px) {
-  .sandBottom_image {
-    width: min(22vw, 360px);
-    content: url("/img/home/bottomSand/bottom_discord_mute_sign.png");
-  }
-}
-
 .nft {
   pointer-events: none;
   width: 100%;

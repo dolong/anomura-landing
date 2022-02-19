@@ -3,15 +3,20 @@ import s from "/sass/home/home.module.css";
 
 export default function ShopZone() {
     const followRef = React.createRef();
-    const [isVisible, setVisible] = React.useState(false);
-
+    const [isSandSignVisible, setSandSignVisible] = React.useState(false);
+    const [windowSize, setWindowSize] = React.useState({ width: undefined });
     React.useEffect(() => {
+        if (typeof window !== "undefined") {
+            setWindowSize({
+                width: window.innerWidth,
+            });
+        }
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) {
-                    setVisible(true);
+                    setSandSignVisible(true);
                 } else {
-                    setVisible(false);
+                    setSandSignVisible(false);
                 }
             });
         });
@@ -63,21 +68,27 @@ export default function ShopZone() {
             </div>
             <div className={s.sand_zone}>
                 <div className={s.sand_zone_sand} />
-                <picture>
-                    <source
-                        srcSet="/img/home/follow_us/follow_off_x3.webp"
-                        media="(min-width: 1200px)"
-                    />
-                    <source
-                        srcSet="/img/home/follow_us/follow_off.gif"
-                        media="(min-width: 800px)"
-                    />
-                    <img
-                        className={s.follow_img}
-                        src="/img/home/follow_us/follow_off_x3.gif"
-                        alt=""
-                    />
-                </picture>
+                <img
+                    className={`${s.follow_img} `}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.src =
+                            windowSize.width > 800
+                                ? "/img/home/follow_us/follow_on_x3.webp"
+                                : "/img/home/follow_us/follow_on.gif";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.src =
+                            windowSize.width > 800
+                                ? "/img/home/follow_us/follow_off_x3.webp"
+                                : "/img/home/follow_us/follow_off.gif";
+                    }}
+                    src={`${
+                        windowSize.width > 800
+                            ? "/img/home/follow_us/follow_off_x3.webp"
+                            : "/img/home/follow_us/follow_off_x3.gif"
+                    }`}
+                    alt=""
+                />
 
                 <div ref={followRef} className={s.follow_iconContainer}>
                     <a href="https://twitter.com/anomuragame" target="_blank" />
@@ -87,7 +98,7 @@ export default function ShopZone() {
                 </div>
             </div>
             {/******************* Sand Fixed Bottom*****************/}
-            <div className={`${s.sandBottom_zone} ${isVisible ? "opacity-100 z-10" : ""}`}>
+            <div className={`${s.sandBottom_zone} ${isSandSignVisible ? "opacity-100 z-10" : ""}`}>
                 <div className={s.sandBottom_left} />
                 <div className={`${s.sandBottom_center} `}>
                     <div className={s.sandBottom_center_icons}>
@@ -95,21 +106,21 @@ export default function ShopZone() {
                             href="https://twitter.com/anomuragame"
                             target="_blank"
                             className={`${
-                                isVisible ? "pointer-events-auto" : "pointer-events-none"
+                                isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
                             }`}
                         />
                         <a
                             href="https://discord.com/anomuragame"
                             target="_blank"
                             className={`${
-                                isVisible ? "pointer-events-auto" : "pointer-events-none"
+                                isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
                             }`}
                         />
                         <a
                             href="https://instagram.com/anomuragame"
                             target="_blank"
                             className={`${
-                                isVisible ? "pointer-events-auto" : "pointer-events-none"
+                                isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
                             }`}
                         />
                     </div>
@@ -122,7 +133,7 @@ export default function ShopZone() {
                     <div className={s.sandBottom_right_container}>
                         <a
                             className={`${s.sandBottom_right_container_discord} ${
-                                isVisible ? "pointer-events-auto" : "pointer-events-none"
+                                isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
                             }`}
                             href="https://discord.com/anomuragame"
                             target="_blank"
@@ -130,7 +141,7 @@ export default function ShopZone() {
                         <a
                             href=""
                             className={`${s.sandBottom_right_container_soundOff} ${
-                                isVisible ? "pointer-events-auto" : "pointer-events-none"
+                                isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
                             }`}
                             onClick={TurnOffSound}
                         />
