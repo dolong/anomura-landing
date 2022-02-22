@@ -1,17 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
-export default function NFT({ ScrollPercent, audioControl }) {
-    //original
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -6.5, 700, -125, -145, -70, -80, -90);
+const InitialOffset = 600,
+    TwelveHundredOffSet = -125,
+    OneThousandOffSet = -60,
+    EightHundredOffSet = 70,
+    SixHundredOffSet = -150,
+    FourHundredOffSet = -140;
 
-    //let calculatedOffsetY = useScrollValue(ScrollPercent, -4.5, 700, -125, -145, -100, -190, -90);
+export default function NFT({ ScrollPercent, audioControl }) {
+    const [scrollSpeed, setScrollSpeed] = React.useState(-6.5);
+
+    let calculatedOffsetY = useScrollValue(
+        ScrollPercent,
+        scrollSpeed,
+        InitialOffset,
+        TwelveHundredOffSet,
+        OneThousandOffSet,
+        EightHundredOffSet,
+        SixHundredOffSet,
+        FourHundredOffSet
+    );
 
     const nftRef = React.createRef();
     const [audioState, setAudioState] = useState("unloaded");
     const [showBubble, setshowBubble] = useState(false);
     let timeout;
+
+    useLayoutEffect(() => {
+        if (window.innerWidth <= 1200) setScrollSpeed(-4.5);
+        if (window.innerWidth <= 400) setScrollSpeed(-2.5);
+    });
 
     useEffect(() => {
         timeout = setTimeout(() => {
@@ -23,24 +43,28 @@ export default function NFT({ ScrollPercent, audioControl }) {
     }, []);
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", changeAudioVolume);
+        return () => {
+            window.removeEventListener("scroll", changeAudioVolume);
+        };
+    }, [nftRef]);
 
+    useEffect(() => {
+        changeAudioVolume();
         if (audioControl.chestChime != null && audioState == "unloaded") {
             setAudioState("loaded");
         }
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [audioControl, nftRef]);
+        return () => {};
+    }, [audioControl]);
 
-    const handleScroll = () => {
+    const changeAudioVolume = () => {
         if (nftRef.current && audioState == "loaded") {
             let rect = nftRef.current.getBoundingClientRect();
-            console.log(rect.top);
+            //console.log(audioControl);
             let reference = Math.abs(rect.top) + 200;
 
             let bubbleVolume = 0.5 - reference / 1500;
-            if (bubbleVolume < 0.01) {
+            if (bubbleVolume < 0.01 || !audioControl.isSoundOn) {
                 audioControl.bubble.setVolume(0);
             } else {
                 {

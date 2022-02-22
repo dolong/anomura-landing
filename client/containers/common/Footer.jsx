@@ -1,13 +1,31 @@
+import React from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
-export default function Footer({ ScrollPercent }) {
-    /*  position for extracting the whole page for mobile view on Creative Review board, will remove once everything is approved
-        let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 2800, -950, -600, -750, -850, -850);
-    */
-    //original:
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 4830, -800, -600, -720, -750, -750);
 
-    //let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 4830, -800, -600, -720, -1950, -750);
+const InitialOffset = 5000,
+    TwelveHundredOffSet = -500,
+    OneThousandOffSet = -1550,
+    EightHundredOffSet = -1150,
+    SixHundredOffSet = -1530,
+    FourHundredOffSet = -1850;
+
+export default function Footer({ ScrollPercent }) {
+    const [scrollSpeed, setScrollSpeed] = React.useState(-55);
+    let calculatedOffsetY = useScrollValue(
+        ScrollPercent,
+        scrollSpeed,
+        InitialOffset,
+        TwelveHundredOffSet,
+        OneThousandOffSet,
+        EightHundredOffSet,
+        SixHundredOffSet,
+        FourHundredOffSet
+    );
+
+    React.useLayoutEffect(() => {
+        if (window.innerWidth <= 1200) setScrollSpeed(-25);
+        if (window.innerWidth <= 600) setScrollSpeed(-22);
+    }, []);
 
     return (
         <div className={s.footer_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>

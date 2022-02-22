@@ -1,13 +1,33 @@
+import React from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
+const InitialOffset = 1850,
+    TwelveHundredOffSet = -200,
+    OneThousandOffSet = -400,
+    EightHundredOffSet = -250,
+    SixHundredOffSet = -640,
+    FourHundredOffSet = -750;
+
 export default function CrabAnat({ ScrollPercent }) {
-    /*  position for extracting the whole mobile view on Creative Review board, will remove once everything is approved
-        let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 1150, -200, -200, 100, -200, -200);
-    */
-    // original:
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -25, 1850, -200, -200, -180, -230, -200);
-    //let calculatedOffsetY = useScrollValue(ScrollPercent, -10, 1650, -200, -200, -180, -530, -200);
+    const [scrollSpeed, setScrollSpeed] = React.useState(-25);
+
+    let calculatedOffsetY = useScrollValue(
+        ScrollPercent,
+        scrollSpeed,
+        InitialOffset,
+        TwelveHundredOffSet,
+        OneThousandOffSet,
+        EightHundredOffSet,
+        SixHundredOffSet,
+        FourHundredOffSet
+    );
+
+    React.useLayoutEffect(() => {
+        if (window.innerWidth <= 1200) setScrollSpeed(-14);
+        if (window.innerWidth <= 600) setScrollSpeed(-9);
+    }, []);
+
     return (
         <div className={s.crab_anat} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.crab_text}>
@@ -17,7 +37,7 @@ export default function CrabAnat({ ScrollPercent }) {
                         Each body part has a chance of being normal to legendary in rarity.
                     </div>
                 </div>
-
+                <br />
                 <div className={s.crab_rarityContainer}>
                     <div className={s.crab_rarityBlock}>
                         <div>

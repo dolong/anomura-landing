@@ -3,14 +3,30 @@ import { useScrollValue } from "/lib/useScrollValue";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
-export default function WhenIsItOut({ ScrollPercent, audioControl }) {
-    /*  position for extracting the whole page for mobile view on Creative Review board, will remove once everything is approved
-        let calculatedOffsetY = useScrollValue(ScrollPercent, -6, 1300, -500, -150, -100, 5, 55);
-    */
-    //original:
-    let calculatedOffsetY = useScrollValue(ScrollPercent, -55, 3460, -500, -150, -140, -130, 55);
+const InitialOffset = 3500,
+    TwelveHundredOffSet = -500,
+    OneThousandOffSet = -1200,
+    EightHundredOffSet = -850,
+    SixHundredOffSet = -1530,
+    FourHundredOffSet = -1300;
 
-    //let calculatedOffsetY = useScrollValue(ScrollPercent, -18, 3460, -500, -150, -140, -1530, 55);
+export default function WhenIsItOut({ ScrollPercent, audioControl }) {
+    const [scrollSpeed, setScrollSpeed] = React.useState(-55);
+    let calculatedOffsetY = useScrollValue(
+        ScrollPercent,
+        scrollSpeed,
+        InitialOffset,
+        TwelveHundredOffSet,
+        OneThousandOffSet,
+        EightHundredOffSet,
+        SixHundredOffSet,
+        FourHundredOffSet
+    );
+
+    React.useLayoutEffect(() => {
+        if (window.innerWidth <= 1200) setScrollSpeed(-20);
+        if (window.innerWidth <= 600) setScrollSpeed(-18);
+    }, []);
 
     return (
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>

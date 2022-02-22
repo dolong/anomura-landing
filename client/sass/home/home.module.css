@@ -82,9 +82,14 @@
     line-height: 1.2;
   }
 }
+@media only screen and (max-width: 1200px) {
+  .App {
+    background-size: 100% 40%;
+  }
+}
 @media only screen and (max-width: 800px) {
   .App {
-    background-size: 100% 46%;
+    background-size: 100% 48%;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -148,6 +153,7 @@
   margin-left: 8%;
   display: flex;
   z-index: 3;
+  padding-top: 6%;
 }
 .shop_text {
   flex-basis: 35%;
@@ -183,7 +189,7 @@
   background-position: 0 0;
   background-size: 100%;
   position: absolute;
-  top: -2vh;
+  top: -3vh;
   padding-bottom: 65%;
   height: clamp(400px, 24vh, 2888px);
   -o-object-fit: cover;
@@ -201,27 +207,45 @@
 }
 .follow_iconContainer {
   position: relative;
-  width: min(30vw, 425px);
   display: flex;
   justify-content: space-between;
+  width: min(30vw, 425px);
 }
 .follow_iconContainer a {
-  width: 95px;
-  height: 80px;
+  z-index: 2;
+}
+.follow_iconContainer_twitter {
+  width: 26%;
+  height: 0;
+  padding-bottom: 21%;
+}
+.follow_iconContainer_twitter:hover {
+  background: url("/img/home/follow_us/follow_icons_twitter_on_x3.png") no-repeat;
+  background-size: contain;
+}
+.follow_iconContainer_discord {
+  width: 26%;
+  height: 0;
+  padding-bottom: 21%;
+}
+.follow_iconContainer_discord:hover {
+  background: url("/img/home/follow_us/follow_icons_discord_on_x3.png") no-repeat;
+  background-size: contain;
+}
+.follow_iconContainer_instagram {
+  width: 26%;
+  height: 0;
+  padding-bottom: 21%;
+}
+.follow_iconContainer_instagram:hover {
+  margin-top: 1.5%;
+  background: url("/img/home/follow_us/follow_icons_instagram_on_x3.png") no-repeat;
+  background-size: contain;
 }
 .follow_iconContainer_icons {
   pointer-events: none;
   position: absolute;
-  height: 82px;
   width: min(30vw, 425px);
-  background: url("/img/home/follow_us/follow_icons_x3.png") no-repeat;
-  background-size: 100%;
-}
-@media only screen and (max-width: 800px) {
-  .follow_iconContainer_icons {
-    background: url("/img/home/follow_us/follow_icons.webp") no-repeat;
-    background-size: 100%;
-  }
 }
 .follow_container {
   display: flex;
@@ -247,12 +271,7 @@
 }
 .sandBottom_icons {
   align-self: flex-end;
-  width: min(60vw, 850px);
-}
-@media only screen and (max-width: 600px) {
-  .sandBottom_icons {
-    transform: scale(1.3);
-  }
+  width: min(30vw, 425px);
 }
 .sandBottom_center {
   position: relative;
@@ -269,8 +288,38 @@
   width: 54%;
 }
 .sandBottom_center_icons a {
-  width: 25%;
-  height: auto;
+  z-index: 2;
+}
+.sandBottom_center_icons_twitter {
+  width: 26%;
+  height: 0;
+  padding-bottom: 21%;
+}
+.sandBottom_center_icons_twitter:hover {
+  background: url("/img/home/follow_us/follow_icons_twitter_on_x3.png") no-repeat;
+  background-size: contain;
+}
+.sandBottom_center_icons_discord {
+  width: 26%;
+  height: 0;
+  padding-bottom: 20%;
+}
+.sandBottom_center_icons_discord:hover {
+  margin-top: 0.9px;
+  width: 25.5%;
+  background: url("/img/home/follow_us/follow_icons_discord_on_x3.png") no-repeat;
+  background-size: contain;
+}
+.sandBottom_center_icons_instagram {
+  width: 26%;
+  height: 0;
+  padding-bottom: 20%;
+}
+.sandBottom_center_icons_instagram:hover {
+  width: 26.5%;
+  margin-top: 3px;
+  background: url("/img/home/follow_us/follow_icons_instagram_on_x3.png") no-repeat;
+  background-size: contain;
 }
 .sandBottom_right {
   width: min(20vw, 250px);
@@ -301,6 +350,7 @@
   width: min(12vw, 120px);
   margin-left: auto;
 }
+
 .nft {
   pointer-events: none;
   width: 100%;
@@ -440,11 +490,11 @@
   background-size: cover;
   position: absolute;
   z-index: 5;
-  padding-bottom: 100%;
+  padding-bottom: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 80%;
+  padding-bottom: 60%;
 }
 .when_text {
   margin-top: 30%;
@@ -514,7 +564,7 @@
   background-size: cover;
   position: absolute;
   z-index: 6;
-  padding-bottom: 25%;
+  padding-bottom: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -580,8 +630,46 @@
     margin-top: 4%;
   }
 
+  .footer_zone {
+    padding-bottom: 20%;
+  }
   .footer_text {
     width: 65%;
+  }
+}
+/* ----------- General ipads ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-min-device-pixel-ratio: 2) {
+  .App {
+    background-size: 100% 46%;
+  }
+
+  .shop_zone {
+    padding-top: 20%;
+  }
+  .shop_text {
+    margin-top: -10%;
+    font-size: 1.3rem;
+  }
+  .shop_img {
+    width: max(65vw, 600px);
+  }
+
+  .follow_img {
+    padding-top: 2%;
+  }
+
+  .nft_text {
+    width: 75%;
+    margin-top: 50%;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .crab_text {
+    margin-top: 40%;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    width: 80%;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -593,7 +681,7 @@
   }
 
   .shop_img {
-    width: max(62vw, 600px);
+    width: max(65vw, 600px);
   }
 
   .crab_text {
@@ -622,11 +710,11 @@
     width: 95vw;
   }
   .shop_text {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .follow_img {
-    margin-top: 1vh;
+    margin-top: 0.7vh;
     margin-left: 15px;
     width: 84vw;
   }
@@ -636,8 +724,19 @@
     padding-bottom: 2%;
   }
 
+  .nft {
+    padding-bottom: 57%;
+  }
+  .nft_text {
+    margin: 40% 10% 0 10%;
+    padding-top: 15%;
+  }
+
+  .crab_anat {
+    padding-bottom: 80%;
+  }
   .crab_text {
-    margin-top: 35%;
+    margin-top: 45%;
   }
   .crab_rarityContainer {
     display: flex;
@@ -654,35 +753,25 @@
     text-align: right;
   }
 
-  .treasure_zone {
-    padding-bottom: 60%;
-  }
-
-  .footer {
-    padding-bottom: 35%;
-  }
-}
-@media only screen and (max-width: 700px) {
-  .nft {
-    padding-bottom: 100%;
-  }
-  .nft_text {
-    margin: 40% 10% 0 10%;
-    padding-top: 10%;
-  }
-
-  .crab_anat {
-    padding-bottom: 100%;
-  }
-  .crab_text {
-    font-weight: 500;
-    margin: 40% 10% 0 10%;
-  }
-
   .when {
     padding-bottom: 100%;
   }
   .when_text {
+    margin: 40% 10% 0 10%;
+  }
+
+  .treasure_zone {
+    margin-top: 5%;
+    padding-bottom: 60%;
+  }
+
+  .footer_zone {
+    padding-bottom: 35%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .crab_text {
+    font-weight: 500;
     margin: 40% 10% 0 10%;
   }
 
@@ -703,12 +792,34 @@
 
   .treasure_image {
     left: -5vw;
-    margin-top: 2vh;
+    margin-top: 5vh;
   }
 }
 @media only screen and (max-width: 400px) {
   .shop_text {
     font-size: 0.95rem;
+  }
+
+  .sandBottom_left {
+    flex: 20%;
+  }
+  .sandBottom_icons {
+    width: min(60vw, 850px);
+  }
+  .sandBottom_center {
+    width: min(60vw, 850px);
+    margin-left: 0%;
+  }
+  .sandBottom_center_icons a {
+    width: 25%;
+    height: 0;
+    padding-bottom: 21%;
+  }
+  .sandBottom_right_container {
+    width: min(15vw, 150px);
+  }
+  .sandBottom_image {
+    width: min(15vw, 150px);
   }
 
   .follow_img {
@@ -727,9 +838,17 @@
   }
 
   .crab_text {
+    padding-top: 15%;
     font-size: 1rem;
   }
 
+  .when_text {
+    line-height: 1.5rem;
+  }
+
+  .footer_zone {
+    padding-bottom: 50%;
+  }
   .footer_text {
     width: 75%;
   }
