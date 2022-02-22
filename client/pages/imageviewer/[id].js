@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
 import { getBody, getClaws, getShell, getLegs, getBackground } from "utils/crabData";
 import { getAllCrabs, getCrabById } from "repositories/crabs";
+
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
@@ -86,7 +88,7 @@ const CrabCanvas = ({ sources }) => {
                 y: canvas.offsetTop,
             };
 
-            canvas.addEventListener("mousemove", OnMouseMoveInCanvas);
+            //canvas.addEventListener("mousemove", OnMouseMoveInCanvas);
             DrawImagesOnCanvas(imagesSrc);
         }
     }, [imagesSrc]);
@@ -115,14 +117,15 @@ const CrabCanvas = ({ sources }) => {
     const DrawImagesOnCanvas =(images) => {
         canvas = canvasRef?.current;
         context = canvas?.getContext("2d");
+        let width = 508, height=508;
         let counter = 0;
         setInterval(() => {
             if (counter == 24) counter = 0;
-            context.drawImage(images.background[counter], 0, 0, 250, 250);
-            context.drawImage(images.shell[counter], 0, 0, 250, 250);
-            context.drawImage(images.legs[counter], 0, 0, 250, 250);
-            context.drawImage(images.body[counter], 0, 0, 250, 250);
-            context.drawImage(images.claws[counter], 0, 0, 250, 250);
+            context.drawImage(images.background[counter], 0, 0, width, height);
+            context.drawImage(images.shell[counter], 0, 0, width, height);
+            context.drawImage(images.legs[counter], 0, 0, width, height);
+            context.drawImage(images.body[counter], 0, 0, width, height);
+            context.drawImage(images.claws[counter], 0, 0, width, height);
 
             counter++;
         }, 100);
@@ -191,11 +194,14 @@ const CrabCanvas = ({ sources }) => {
         };
     };
     return (
-        <>
+        <div >
             <canvas ref={canvasRef} width="508" height="508" />
-          <canvas ref={canvasOtherRef} width="508" height="508" style={{position: 'absolute', left: 350, top: 0}}/> 
+            {/* <canvas ref={canvasOtherRef} width="508" height="508" style={{position: 'absolute', left: 350, top: 0}}/>  */}
             {/* <canvas ref={canvasOtherRef} width="508" height="508" /> */}
+            <div className={s.inventory_zone}>
+
+            </div>
             <p id="myCoords"></p>
-        </>
+        </div>
     );
 };

@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+}
+
+.inventory_zone {
+  width: 100%;
+  max-width: 508px;
+  min-height: 100px;
+  background: url("/img/imageviewer/Others/containerAttr.png") no-repeat;
+  background-size: 100% 150%;
+}/*# sourceMappingURL=imageviewer.module.css.map */

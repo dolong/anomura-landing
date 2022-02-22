@@ -259,9 +259,6 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            {/* <audio src={audioSource} type="audio/wav" id="bg-music" autoPlay loop />
-            <audio src="/audio/chest chime.wav" type="audio/wav" loop id="chest-chime" /> */}
-
             <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
 
             {/* Parallax Zone */}
