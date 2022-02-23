@@ -1,16 +1,16 @@
 import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "utils/crabData";
 import fs from "fs";
 import path from "path";
-import { svg2png } from "svg-png-converter";
 const tools = require("simple-svg-tools");
-const cloudinary = require("cloudinary").v2;
+//import { svg2png } from "svg-png-converter";
+// const cloudinary = require("cloudinary").v2;
 
-cloudinary.config({
-    cloud_name: "mrleewatch",
-    api_key: "558526949884865",
-    api_secret: "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY",
-    secure: false,
-});
+// cloudinary.config({
+//     cloud_name: "mrleewatch",
+//     api_key: "558526949884865",
+//     api_secret: "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY",
+//     secure: false,
+// });
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
@@ -52,22 +52,22 @@ export const CrabImagesBuilder = async (crab) => {
         clawsLayer +
         "</svg>";
 
-    let base64String = await svg2png({
-        input: combineLayer.trim(),
-        encoding: "dataURL",
-        format: "png",
-        width: 384,
-        height: 384,
-    });
+    // let base64String = await svg2png({
+    //     input: combineLayer.trim(),
+    //     encoding: "dataURL",
+    //     format: "png",
+    //     width: 384,
+    //     height: 384,
+    // });
 
     
-    
-    let result = await cloudinary.uploader
-        .unsigned_upload(base64String, "worldwatch", { public_id: fileName })
-        .catch((error) => {
-            console.log("Catch exception upload image to cloudinary " + error);
-        });
-    return result.secure_url
+    return "";
+    // let result = await cloudinary.uploader
+    //     .unsigned_upload(base64String, "worldwatch", { public_id: fileName })
+    //     .catch((error) => {
+    //         console.log("Catch exception upload image to cloudinary " + error);
+    //     });
+    // return result.secure_url
 };
 
 const loadImage = async (pathToSvg) => {
