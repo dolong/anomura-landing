@@ -52,13 +52,13 @@ export const CrabImagesBuilder = async (crab) => {
         clawsLayer +
         "</svg>";
 
-    // let base64String = await svg2png({
-    //     input: combineLayer.trim(),
-    //     encoding: "dataURL",
-    //     format: "png",
-    //     width: 384,
-    //     height: 384,
-    // });
+    let base64String = await svg2png({
+        input: combineLayer.trim(),
+        encoding: "dataURL",
+        format: "png",
+        width: 384,
+        height: 384,
+    });
 
     
     return "";
