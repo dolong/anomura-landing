@@ -10,7 +10,7 @@ const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 export const CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
-    const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
+    const imageDir = path.join(process.cwd(), "./public/" + dirRelativeToPublicFolder);
     const crabImage = `${imageDir}/Anomuras/${crabId}.svg`;
         
     let isFileExist = await fileExists(crabImage)
