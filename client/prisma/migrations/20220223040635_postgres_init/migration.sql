@@ -5,4 +5,4 @@
 
 */
 -- AlterTable
-ALTER TABLE "Anomuras" ADD COLUMN     "headpieces" TEXT NOT NULL;
+ALTER TABLE "Anomuras" ADD COLUMN     "headpieces" TEXT SET DEFAULT E'null';
