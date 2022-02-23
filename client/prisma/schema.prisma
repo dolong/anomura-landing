@@ -28,7 +28,7 @@ model Anomuras {
   claws String
   body String
   image String @default("null")
-  headpieces String
+  headpieces String @default("null")
 
   Players       Players? @relation(fields: [playersWallet], references: [wallet])
   playersWallet String?
