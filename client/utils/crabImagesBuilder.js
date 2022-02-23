@@ -2,28 +2,24 @@ import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } fr
 import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
-import getConfig from "next/config";
+//import getConfig from "next/config";
 //import { svg2png } from "svg-png-converter";
 //let FormData = require('form-data');
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
 
-// merge images svg, return the location of the image, based on id
 export const CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
     // const imageDir = path.join(
-    //     getConfig().serverRuntimeConfig.PROJECT_ROOT,
+    //     getConfig().serverRuntimeConfig.PROJECT_ROOT, //  process.cwd()
     //     "./public/" + dirRelativeToPublicFolder
     // );
+    const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
 
-    const imageDir = path.join(
-        process.cwd(),
-        "./public/" + dirRelativeToPublicFolder
-    );
     const fileName = `Anomura_${crabId}`;
-    const crabImage = `${imageDir}\\Anomuras\\${crabId+10}.svg`;
+    const crabImage = `${imageDir}\\Anomuras\\${crabId}.svg`;
 
     console.log(crabImage)
     let isFileExist = await fileExists(crabImage);
@@ -96,7 +92,12 @@ export const CrabImagesBuilder = async (crab) => {
     //     throw new Error(err)
     // });
 
-    await fs.writeFileSync(`${crabImage}`, combineLayer);
+    //await fs.writeFileSync(`${crabImage}`, combineLayer);
+    tools.ExportSVG(combineLayer, crabImage).then(() => {
+        console.log('Exported!');
+    }).catch(err => {
+        console.log(err);
+    });
     return `Anomuras/${crabId}.svg`;
 };
 
