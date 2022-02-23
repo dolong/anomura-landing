@@ -1,6 +1,9 @@
 // next.config.js
 module.exports = {
     swcMinify: true,
+    serverRuntimeConfig: {
+        PROJECT_ROOT: __dirname
+    },
     async headers() {
         return [
             {

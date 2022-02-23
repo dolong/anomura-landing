@@ -2,16 +2,9 @@ import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } fr
 import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
-import { svg2png } from "svg-png-converter";
-let FormData = require('form-data');
-// const cloudinary = require("cloudinary").v2;
-
-// cloudinary.config({
-//     cloud_name: "mrleewatch",
-//     api_key: "558526949884865",
-//     api_secret: "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY",
-//     secure: false,
-// });
+import getConfig from "next/config";
+//import { svg2png } from "svg-png-converter";
+//let FormData = require('form-data');
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
@@ -20,8 +13,21 @@ const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 export const CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
-    const imageDir = path.join(process.cwd(), "./public/" + dirRelativeToPublicFolder);
+    const imageDir = path.join(
+        getConfig().serverRuntimeConfig.PROJECT_ROOT,
+        "./public/" + dirRelativeToPublicFolder
+    );
     const fileName = `Anomura_${crabId}`;
+    const crabImage = `${imageDir}\\Anomuras\\${crabId}.svg`;
+
+    console.log(crabImage)
+    let isFileExist = await fileExists(crabImage);
+
+    if (isFileExist) {
+        console.log("crab image already existed, overwritten the image");
+    } else {
+        console.log("crab image not exists, building new image");
+    }
 
     let backgroundName = getBackground(background);
     let shellName = getShell(shell);
@@ -53,24 +59,23 @@ export const CrabImagesBuilder = async (crab) => {
         clawsLayer +
         "</svg>";
 
-    let base64String = await svg2png({
-        input: combineLayer.trim(),
-        encoding: "dataURL",
-        format: "png",
-        width: 384,
-        height: 384,
-    });
+    // let base64String = await svg2png({
+    //     input: combineLayer.trim(),
+    //     encoding: "dataURL",
+    //     format: "png",
+    //     width: 384,
+    //     height: 384,
+    // });
 
-    const formData = new FormData();
-    formData.append("file", base64String);
-    formData.append("api_key", "558526949884865");
-    formData.append("api_secret", "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY");
-    formData.append("upload_preset", "worldwatch");
-    formData.append("public_id", fileName);
+    // const formData = new FormData();
+    // formData.append("file", base64String);
+    // formData.append("api_key", "558526949884865");
+    // formData.append("api_secret", "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY");
+    // formData.append("upload_preset", "worldwatch");
+    // formData.append("public_id", fileName);
 
     const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
 
-    console.log(321)
     // fetch(url, {
     //     method: "POST",
     //     body: formData
@@ -81,12 +86,13 @@ export const CrabImagesBuilder = async (crab) => {
     //     let result = JSON.parse(data);
     //     console.log()
     //     return result.secure_url;
-     
+
     // }).catch(err => {
     //     throw new Error(err)
     // });
 
-
+    await fs.writeFileSync(`${crabImage}`, combineLayer);
+    return `Anomuras/${crabId}.svg`;
 };
 
 const loadImage = async (pathToSvg) => {
