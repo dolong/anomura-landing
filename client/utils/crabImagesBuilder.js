@@ -23,7 +23,7 @@ export const CrabImagesBuilder = async (crab) => {
         "./public/" + dirRelativeToPublicFolder
     );
     const fileName = `Anomura_${crabId}`;
-    const crabImage = `${imageDir}\\Anomuras\\${crabId}.svg`;
+    const crabImage = `${imageDir}\\Anomuras\\${crabId+10}.svg`;
 
     console.log(crabImage)
     let isFileExist = await fileExists(crabImage);
