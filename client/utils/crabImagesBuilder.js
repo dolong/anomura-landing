@@ -6,7 +6,7 @@ const tools = require("simple-svg-tools");
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
 
-// return the location of the image, based on id
+// merge images svg, return the location of the image, based on id
 export const CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
@@ -16,11 +16,14 @@ export const CrabImagesBuilder = async (crab) => {
     let isFileExist = await fileExists(crabImage)
     
     if (isFileExist) {
-        console.log("crab image already existed, return image path");
+        console.log("crab image already existed, overwritten the image");
         
     } else {
         console.log("crab image not exists, building new image");
-        let backgroundName = getBackground(background);
+        
+    }
+
+    let backgroundName = getBackground(background);
         let shellName = getShell(shell);
         let legsName = getLegs(legs);
         let bodyName = getBody(body);
@@ -49,7 +52,6 @@ export const CrabImagesBuilder = async (crab) => {
             "</svg>";
 
         await fs.writeFileSync(`${crabImage}`, combineLayer)
-    }
 
     return `Anomuras/${crabId}.svg`;
 };

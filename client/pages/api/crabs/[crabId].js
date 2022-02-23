@@ -77,8 +77,7 @@ export default async function crabImageViewerHandler(req, res) {
                     console.log(
                         `Found existing crab ${crabId} with id: ${existingCrab.id}, updating...`
                     );
-                    console.log(existingCrab.image)
-                    console.log(crabImage)
+
                     if (existingCrab.image != crabImage) {
                         let crabId = existingCrab.id;
                         const updatedCrab = updateCrabById({
