@@ -3,7 +3,7 @@ import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
 import { getBody, getClaws, getShell, getLegs, getBackground } from "utils/crabData";
 import { getAllCrabs, getCrabById } from "repositories/crabs";
-
+import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
@@ -32,7 +32,6 @@ export const getStaticProps = async (context) => {
 /* order of layers to work: background, shells, legs, body, claws */
 export default function AnimateViewerDetails({ data }) {
     const router = useRouter();
-
     let sources = {
         background: "/./img/imageviewer/Background/",
         shell: "/./img/imageviewer/Shell/",
@@ -45,7 +44,7 @@ export default function AnimateViewerDetails({ data }) {
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {
-        console.log("building images");
+        // console.log(data);
         const { background, body, claws, legs, shell } = data;
 
         sources.background = sources.background + getBackground(background);
@@ -54,33 +53,29 @@ export default function AnimateViewerDetails({ data }) {
         sources.body = sources.body + getBody(body);
         sources.claws = sources.claws + getClaws(claws);
 
-        return <CrabCanvas sources={sources} />;
+        return <CrabCanvas sources={sources} data={data} />;
     }
 }
 
-const CrabCanvas = ({ sources }) => {
+const CrabCanvas = ({ sources, data }) => {
+    const [imagesSrc, setImageSrc] = React.useState({});
+    const [isLoaded, setIsLoaded] = React.useState(false);
+    const [modalOpen, setModalOpen] = React.useState(false);
 
-    const [imagesSrc, setImageSrc] = React.useState({})
-    const [isLoaded, setIsLoaded] = React.useState(false)
     const canvasRef = React.createRef(null);
-    const canvasOtherRef = React.createRef(null);
     let canvas = null;
     let context = null;
-    let canvasPos = {
-        x: null,
-        y: null,
-    };
 
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
-                console.log(images)
+                console.log(images);
                 setImageSrc(images);
-                setIsLoaded(true)
+                setIsLoaded(true);
             });
         }
-    
-        if(isLoaded == true){
+
+        if (isLoaded == true) {
             canvas = canvasRef?.current;
             context = canvas?.getContext("2d");
             canvasPos = {
@@ -93,43 +88,25 @@ const CrabCanvas = ({ sources }) => {
         }
     }, [imagesSrc]);
 
-    const OnMouseMoveInCanvas = (e) => {
-        let otherCanvas = canvasOtherRef?.current;
-        let otherContext = otherCanvas?.getContext("2d");
-        let mousePoint = {
-            x: e.pageX - canvasPos.x,
-            y: e.pageY - canvasPos.y,
-        };
-        let coords = document.getElementById("myCoords");
-
-        coords.textContent = "(" + mousePoint.x + ", " + mousePoint.y + ")";
-        if (mousePoint.x > 85 && mousePoint.y > 100) {
-           // console.log(imagesSrc.others['normal'])
-           otherContext.drawImage(imagesSrc.others['normal'], 0, 0, 124, 175);
-        }
-        else{
-            console.log(34)
-            otherContext.clearRect(0, 0, otherCanvas.width, otherCanvas.height);
-        }
-        
-    };
-
-    const DrawImagesOnCanvas =(images) => {
+    const DrawImagesOnCanvas = (images) => {
         canvas = canvasRef?.current;
         context = canvas?.getContext("2d");
-        let width = 508, height=508;
+        let width = 508;
+        let height = 508;
         let counter = 0;
+
         setInterval(() => {
             if (counter == 24) counter = 0;
             context.drawImage(images.background[counter], 0, 0, width, height);
             context.drawImage(images.shell[counter], 0, 0, width, height);
+            context.drawImage(images.headpieces[counter], 0, 0, width, height);
             context.drawImage(images.legs[counter], 0, 0, width, height);
             context.drawImage(images.body[counter], 0, 0, width, height);
             context.drawImage(images.claws[counter], 0, 0, width, height);
 
             counter++;
         }, 100);
-    }
+    };
 
     const LoadImages = (sources, onFinished) => {
         let imageLoaded = 0,
@@ -141,9 +118,7 @@ const CrabCanvas = ({ sources }) => {
             legs: [],
             body: [],
             claws: [],
-            others: {
-                normal: null
-            },
+            headpieces: [],
         };
         var postaction = function () {};
 
@@ -160,30 +135,18 @@ const CrabCanvas = ({ sources }) => {
         }
         for (var src in sources) {
             for (let index = 0; index <= 23; index++) {
-                if (src != "others") {
-                    images[src][index] = new Image();
-                    images[src][index].onload = function () {
-                        if (++imageLoaded >= numImages) {
-                            onFinished(images);
-                        }
-                    };
-                    let counter = index + 1;
+                images[src][index] = new Image();
+                images[src][index].onload = function () {
+                    if (++imageLoaded >= numImages) {
+                        onFinished(images);
+                    }
+                };
+                let counter = index + 1;
 
-                    if (src == "background") // fixed here for all png images
-                        images[src][index].src = sources[src] + "_" + counter + ".png";
-                    else images[src][index].src = sources[src] + "_" + counter + ".svg";
-                } else {
-                    
-
-                    images[src]['normal'] = new Image();
-                    images[src]['normal'].onload = function () {
-                        if (++imageLoaded >= numImages) {
-                            onFinished(images);
-                        }
-                    };
-                    images[src]['normal'].src = sources[src] + 'normalAttr' + '.png'
-
-                }
+                if (src == "background")
+                    // fixed here for all png images
+                    images[src][index].src = sources[src] + "_" + counter + ".png";
+                else images[src][index].src = sources[src] + "_" + counter + ".svg";
             }
         }
 
@@ -193,15 +156,24 @@ const CrabCanvas = ({ sources }) => {
             },
         };
     };
-    return (
-        <div >
-            <canvas ref={canvasRef} width="508" height="508" />
-            {/* <canvas ref={canvasOtherRef} width="508" height="508" style={{position: 'absolute', left: 350, top: 0}}/>  */}
-            {/* <canvas ref={canvasOtherRef} width="508" height="508" /> */}
-            <div className={s.inventory_zone}>
 
-            </div>
-            <p id="myCoords"></p>
+    return (
+        <div className={s.container}>
+            <canvas ref={canvasRef} width="508" height="508" />
+            <img
+                onClick={() => setModalOpen(!modalOpen)}
+                className={s.toggleModal}
+                src="/img/imageviewer/Others/bowl.svg"
+            />
+            {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
+            <style>
+                {`
+                        body {
+                            font-family: Atlantis;
+                            font-size:36px;
+                            color:white;
+                    }`}
+            </style>
         </div>
     );
 };
