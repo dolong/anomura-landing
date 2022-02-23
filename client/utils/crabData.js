@@ -1,8 +1,28 @@
 
 let Background = {
+  earth_crystalcaveazure:"earth_crystalcaveazure",
+  earth_crystalcaverainbow:"earth_crystalcaverainbow",
+  earth_emeraldforest:"earth_emeraldforest",
+  earth_gardenOfEden: "earth_gardenOfEden",
+  earth_goldenGlade: "earth_goldenGlade",
+
+  extras_autofarm: "extras_autofarm",
   extras_vietnam: "extras_vietnam",
+
   ocean_abysbioluminescence: "ocean_abysbioluminescence",
+  ocean_beach: "ocean_beach",
+  ocean_magicDeepSea: "ocean_magicDeepSea",
+  ocean_natureSea: "ocean_natureSea",
+
+  science_furnacePlain:"science_furnacePlain",
   science_lab: "science_lab",
+  science_steamApparat: "science_steamApparat",
+
+  sky_happysnowfield: "sky_happysnowfield",
+  sky_nightMountain: "sky_nightMountain",
+  sky_star: "sky_star",
+  sky_sunsetCliffs: "sky_sunsetCliffs"
+
 };
 export const getBackground = (backgroundSrc) => {
 
@@ -42,7 +62,7 @@ export const getClaws = (src) => {
             //return await loadImage(path.resolve(`images/Claws/${Claws[key]}_1.svg`));
         }
     }
-    console.error(`Claw ${src} cannot be found. Or image path for src is invalid`);
+    console.error(`Claws ${src} cannot be found. Or image path for src is invalid`);
 };
 
 let Legs = {
@@ -61,16 +81,52 @@ export const getLegs = (src) => {
 
 
 let Body = {
-  metal_golden: "metal_golden",
-  wood_beastman: "wood_beastman",
-  partner_kongz: "partner_kongz",
+    crystal1: "crystal1",
+    crystal2: "crystal2",
+    "crystal2-1": "crystal2-1",
+    "crystal2-2": "crystal2-2",
+    "crystal2-3": "crystal2-3",
+    "crystal3-1": "crystal3-1",
+    "crystal3-2": "crystal3-2",
+    "crystal3-3": "crystal3-3",
+    fire1: "fire1",
+    fire2: "fire2",
+    fire3: "fire3",
+    lotus1: "lotus1",
+    lotus2: "lotus2",
+    lotus3: "lotus3",
+    moon1: "moon1",
+    moon2: "moon2",
+    moon3: "moon3",
+    skull1: "skull1",
+    skull2: "skull2",
+    skull3: "skull3",
+    starfish1: "starfish1",
+    starfish2: "starfish2",
+    starfish3: "starfish3",
+    sun1: "sun1",
+    sun2: "sun2",
+    sun3: "sun3",
 };
 export const getBody = (src) => {
     for (const [key, value] of Object.entries(Body)) {
         if (src.includes(key)) {
             return Body[key]
-            //return await loadImage(path.resolve(`images/Body/${Body[key]}_1.svg`));
         }
     }
-    console.error(`Shell ${src} cannot be found. Or image path for src is invalid`);
+    console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
 };
+
+let HeadPieces = {
+    metal_golden: "metal_golden",
+    wood_beastman: "wood_beastman",
+    partner_kongz: "partner_kongz",
+  };
+  export const getHeadPieces = (src) => {
+      for (const [key, value] of Object.entries(HeadPieces)) {
+          if (src.includes(key)) {
+              return HeadPieces[key]
+          }
+      }
+      console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
+  };

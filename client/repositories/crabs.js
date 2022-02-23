@@ -17,7 +17,7 @@ export const getAllCrabs = async (crabId) => {
 };
 
 export const updateCrabById = async (crabData) => {
-    const { crabId, image } = crabData;
+    const { crabId, image, body, legs, claws, shell, headpieces, background } = crabData;
 
     // should only update image here, other parts currently synced with contract
     return await prisma.anomuras.update({
@@ -26,12 +26,18 @@ export const updateCrabById = async (crabData) => {
         },
         data: {
             image,
+            body,
+            legs,
+            claws,
+            shell,
+            headpieces,
+            background
         },
     });
 };
 
 export const createCrab = async (crabData) => {
-    const { crabId, background, body, legs, claws, shell, image } = crabData;
+    const { crabId, background, body, legs, claws, shell, image, headpieces } = crabData;
     return await prisma.anomuras.create({
         data: {
             crabId,
@@ -42,6 +48,7 @@ export const createCrab = async (crabData) => {
             claws,
             body,
             image,
+            headpieces
         },
     });
 };

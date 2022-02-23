@@ -39,7 +39,7 @@ export default async function crabImageViewerHandler(req, res) {
                             },
                             {
                                 trait_type: "Head Pieces",
-                                value: "null",
+                                value: crab.headpieces,
                             },
                         ],
                     });
@@ -58,7 +58,7 @@ export default async function crabImageViewerHandler(req, res) {
         case "POST":
             try {
                 const {
-                    data: { background, body, legs, claws, shell },
+                    data: { background, body, legs, claws, shell, headpieces },
                 } = req.body;
 
                 const crabId = parseInt(req.query.crabId);
@@ -70,6 +70,7 @@ export default async function crabImageViewerHandler(req, res) {
                     legs,
                     claws,
                     shell,
+                    headpieces,
                 });
 
                 if (existingCrab) {
@@ -81,6 +82,12 @@ export default async function crabImageViewerHandler(req, res) {
                         const updatedCrab = updateCrabById({
                             crabId,
                             image: crabImage,
+                            background,
+                            body,
+                            legs,
+                            claws,
+                            shell,
+                            headpieces,
                         });
                         console.log(`Updated anomura attrs successfully`);
                         res.status(200).json({ data: "Updated anomura attrs successfully" });
@@ -99,6 +106,7 @@ export default async function crabImageViewerHandler(req, res) {
                     claws,
                     shell,
                     image,
+                    headpieces
                 });
                 console.log(`A new crab ${crabId} is created`);
                 res.status(200).json({ data: newCrab });
