@@ -14,8 +14,8 @@ export default async function crabImageViewerHandler(req, res) {
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
                         animation_url: `${process.env.WEBSITE_HOST}/imageviewer/${crab.crabId}`,
-                        image: `${process.env.WEBSITE_HOST}/img/imageviewer/${crab.image}`,
-
+                        //image: `${process.env.WEBSITE_HOST}/img/imageviewer/${crab.image}`,
+                        image: crab.image,
                         attributes: [
                             {
                                 trait_type: "Background",
