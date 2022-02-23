@@ -81,6 +81,20 @@ export const getLegs = (src) => {
 
 
 let Body = {
+    metal_golden: "metal_golden",
+    wood_beastman: "wood_beastman",
+    partner_kongz: "partner_kongz",
+};
+export const getBody = (src) => {
+    for (const [key, value] of Object.entries(Body)) {
+        if (src.includes(key)) {
+            return Body[key]
+        }
+    }
+    console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
+};
+
+let HeadPieces = {
     crystal1: "crystal1",
     crystal2: "crystal2",
     "crystal2-1": "crystal2-1",
@@ -104,23 +118,10 @@ let Body = {
     starfish1: "starfish1",
     starfish2: "starfish2",
     starfish3: "starfish3",
+    starfish4: "starfish4",
     sun1: "sun1",
     sun2: "sun2",
     sun3: "sun3",
-};
-export const getBody = (src) => {
-    for (const [key, value] of Object.entries(Body)) {
-        if (src.includes(key)) {
-            return Body[key]
-        }
-    }
-    console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
-};
-
-let HeadPieces = {
-    metal_golden: "metal_golden",
-    wood_beastman: "wood_beastman",
-    partner_kongz: "partner_kongz",
   };
   export const getHeadPieces = (src) => {
       for (const [key, value] of Object.entries(HeadPieces)) {

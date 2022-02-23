@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
-import { getBody, getClaws, getShell, getLegs, getBackground } from "utils/crabData";
+import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "utils/crabData";
 import { getAllCrabs, getCrabById } from "repositories/crabs";
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 
@@ -29,7 +29,7 @@ export const getStaticProps = async (context) => {
     };
 };
 
-/* order of layers to work: background, shells, legs, body, claws */
+/* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
 export default function AnimateViewerDetails({ data }) {
     const router = useRouter();
     let sources = {
@@ -38,21 +38,23 @@ export default function AnimateViewerDetails({ data }) {
         legs: "/./img/imageviewer/Legs/",
         body: "/./img/imageviewer/Body/",
         claws: "/./img/imageviewer/Claws/",
-        others: "/./img/imageviewer/Others/",
+        headpieces: "/./img/imageviewer/HeadPieces/",
+        shadow: "/./img/imageviewer/Services/shadow"
     };
 
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {
         // console.log(data);
-        const { background, body, claws, legs, shell } = data;
+        const { background, body, claws, legs, shell, headpieces } = data;
 
         sources.background = sources.background + getBackground(background);
         sources.shell = sources.shell + getShell(shell);
         sources.legs = sources.legs + getLegs(legs);
         sources.body = sources.body + getBody(body);
         sources.claws = sources.claws + getClaws(claws);
-
+        sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
+        
         return <CrabCanvas sources={sources} data={data} />;
     }
 }
@@ -78,11 +80,6 @@ const CrabCanvas = ({ sources, data }) => {
         if (isLoaded == true) {
             canvas = canvasRef?.current;
             context = canvas?.getContext("2d");
-            canvasPos = {
-                x: canvas.offsetLeft,
-                y: canvas.offsetTop,
-            };
-
             //canvas.addEventListener("mousemove", OnMouseMoveInCanvas);
             DrawImagesOnCanvas(imagesSrc);
         }
@@ -98,6 +95,7 @@ const CrabCanvas = ({ sources, data }) => {
         setInterval(() => {
             if (counter == 24) counter = 0;
             context.drawImage(images.background[counter], 0, 0, width, height);
+            context.drawImage(images.shadow[counter], 0, 0, width, height);
             context.drawImage(images.shell[counter], 0, 0, width, height);
             context.drawImage(images.headpieces[counter], 0, 0, width, height);
             context.drawImage(images.legs[counter], 0, 0, width, height);
@@ -112,6 +110,7 @@ const CrabCanvas = ({ sources, data }) => {
         let imageLoaded = 0,
             i = 0,
             numImages = 0;
+
         const images = {
             background: [],
             shell: [],
@@ -119,13 +118,14 @@ const CrabCanvas = ({ sources, data }) => {
             body: [],
             claws: [],
             headpieces: [],
+            shadow:[]
         };
         var postaction = function () {};
 
         function onFinished() {
             imageLoaded++;
             console.log(imageLoaded);
-            if (imageLoaded == 235) {
+            if (imageLoaded == 330) {
                 // todo: fix here
                 postaction(images);
             }
@@ -142,11 +142,7 @@ const CrabCanvas = ({ sources, data }) => {
                     }
                 };
                 let counter = index + 1;
-
-                if (src == "background")
-                    // fixed here for all png images
-                    images[src][index].src = sources[src] + "_" + counter + ".png";
-                else images[src][index].src = sources[src] + "_" + counter + ".svg";
+                images[src][index].src = sources[src] + "_" + counter + ".png";
             }
         }
 
@@ -163,7 +159,7 @@ const CrabCanvas = ({ sources, data }) => {
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
-                src="/img/imageviewer/Others/bowl.svg"
+                src="/img/imageviewer/Others/bowl10frames.gif"
             />
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>

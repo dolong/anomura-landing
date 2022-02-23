@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 
 export default function CrabViewModal({ data, setModalOpen }) {
-    const { background, body, claws, legs, shell } = data;
+    const { background, body, claws, legs, shell, headpieces } = data;
     const [hoverInfo, setHoverInfo] = React.useState({ name: "", src: "", color: null });
     const [rarity, setRarity] = React.useState({
         bodyR: null,
@@ -17,7 +17,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         let shellR = GetCardRarity(shell);
         let legsR = GetCardRarity(legs);
         let clawsR = GetCardRarity(claws);
-        // let headpiecesR = GetCardRarity(headpieces);
+        let headpiecesR = GetCardRarity(headpieces);
 
         setRarity((prevState) => ({
             ...prevState,
@@ -25,6 +25,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
             shellR,
             legsR,
             clawsR,
+            headpiecesR,
         }));
     }, []);
 
@@ -32,7 +33,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         let cardRarity = null,
             cardImg = null,
             cardName = "";
-        console.log(body);
+
         switch (e.target.id) {
             case "shell":
                 cardRarity = GetCardRarity(shell);
@@ -50,21 +51,21 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 cardRarity = GetCardRarity(claws);
                 cardName = claws;
                 break;
-            //case "headpieces":
-            // rarity = GetCardRarity(claws);
-            //  cardName = claws;
-            //  break;
+            case "headpieces":
+                console.log(headpieces);
+                cardRarity = GetCardRarity(headpieces);
+                cardName = headpieces;
+                break;
             default:
                 throw new Error("not a valid part");
         }
-        console.log(cardRarity);
 
         cardImg = GetCardImage(cardRarity);
 
         setHoverInfo({
             name: "place holder",
             src: cardImg,
-            nameColor: "text-red-500",
+            nameColor: "place holder text-red-500", // for info on the card
         });
     };
 
@@ -77,7 +78,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
     };
 
     const GetCardRarity = (name) => {
-        console.log(name);
         let containLegendAttr = legendAttrs.some((el) => name.includes(el));
         if (containLegendAttr) {
             return Legend;
@@ -231,7 +231,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
-                                        id="claws"
+                                        id="headpieces"
                                         className={s.component_list_item_icon_img}
                                         src="/img/imageviewer/Others/star.png"
                                         onMouseEnter={ShowCard}
@@ -243,7 +243,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${GetRarityTextColor(rarity.clawsR)} font-extrabold`}
                                 >
-                                    <span>{rarity.clawsR?.description}</span>
+                                    <span>{rarity.headpiecesR?.description}</span>
                                     <span className="ml-2">Head Pieces</span>
                                 </div>
                             </div>
