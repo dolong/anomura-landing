@@ -70,20 +70,22 @@ export const CrabImagesBuilder = async (crab) => {
 
     const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
 
-    fetch(url, {
-        method: "POST",
-        body: formData
-      }).then((response) => {
-        return response.text();
-    })
-    .then((data) => {
-        let result = JSON.parse(data);
-        console.log()
-        return result.secure_url;
+    console.log(321)
+    // fetch(url, {
+    //     method: "POST",
+    //     body: formData
+    //   }).then((response) => {
+    //     return response.text();
+    // })
+    // .then((data) => {
+    //     let result = JSON.parse(data);
+    //     console.log()
+    //     return result.secure_url;
      
-    }).catch(err => {
-        throw new Error(err)
-    });
+    // }).catch(err => {
+    //     throw new Error(err)
+    // });
+
 
 };
 
