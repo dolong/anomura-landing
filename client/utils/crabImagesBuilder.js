@@ -2,7 +2,8 @@ import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } fr
 import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
-//import { svg2png } from "svg-png-converter";
+import { svg2png } from "svg-png-converter";
+let FormData = require('form-data');
 // const cloudinary = require("cloudinary").v2;
 
 // cloudinary.config({
@@ -60,14 +61,30 @@ export const CrabImagesBuilder = async (crab) => {
         height: 384,
     });
 
-    
-    return "";
-    // let result = await cloudinary.uploader
-    //     .unsigned_upload(base64String, "worldwatch", { public_id: fileName })
-    //     .catch((error) => {
-    //         console.log("Catch exception upload image to cloudinary " + error);
-    //     });
-    // return result.secure_url
+    const formData = new FormData();
+    formData.append("file", base64String);
+    formData.append("api_key", "558526949884865");
+    formData.append("api_secret", "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY");
+    formData.append("upload_preset", "worldwatch");
+    formData.append("public_id", fileName);
+
+    const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
+
+    fetch(url, {
+        method: "POST",
+        body: formData
+      }).then((response) => {
+        return response.text();
+    })
+    .then((data) => {
+        let result = JSON.parse(data);
+        console.log()
+        return result.secure_url;
+     
+    }).catch(err => {
+        throw new Error(err)
+    });
+
 };
 
 const loadImage = async (pathToSvg) => {
