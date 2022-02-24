@@ -47,8 +47,6 @@ export const CrabImagesBuilder = async (crab) => {
         clawsLayer +
         "</svg>";
 
-    
-
     let base64fromSVG = `data:image/svg+xml;base64,` + Buffer.from(combineLayer).toString("base64");
 
     const fileName = `Anomura_${crabId}`;

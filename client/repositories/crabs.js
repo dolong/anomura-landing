@@ -18,8 +18,7 @@ export const getAllCrabs = async (crabId) => {
 
 export const updateCrabById = async (crabData) => {
     const { crabId, image, body, legs, claws, shell, headpieces, background } = crabData;
-
-    // should only update image here, other parts currently synced with contract
+    console.log("******************************** prisma update anomura by id")
     return await prisma.anomuras.update({
         where: {
             id: crabId,
