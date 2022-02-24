@@ -2,11 +2,8 @@ import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } fr
 import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
-let FormData = require("form-data");
-import getConfig from "next/config";
-//import { svg2png } from "svg-png-converter";
-
-//const svg64 = require('svg64');
+const sharp = require("sharp");
+let FormData = require("form-data")
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
@@ -24,6 +21,17 @@ export const CrabImagesBuilder = async (crab) => {
     let clawsName = getClaws(claws);
     let headpiecesName = getHeadPieces(headpieces);
 
+    // let backgroundLayer = await loadImage(
+    //     path.resolve(`${imageDir}/Background/${backgroundName}_1.svg`)
+    // );
+    // let shellLayer = await loadImage(path.resolve(`${imageDir}/Shell/${shellName}_1.svg`));
+    // let legsLayer = await loadImage(path.resolve(`${imageDir}/Legs/${legsName}_1.svg`));
+    // let bodyLayer = await loadImage(path.resolve(`${imageDir}/Body/${bodyName}_1.svg`));
+    // let clawsLayer = await loadImage(path.resolve(`${imageDir}/Claws/${clawsName}_1.svg`));
+    // let headpiecesLayer = await loadImage(
+    //     path.resolve(`${imageDir}/HeadPieces/${headpiecesName}_1.svg`)
+    // );
+
     let backgroundLayer = await loadImage(
         path.resolve(`${imageDir}/Background/${backgroundName}_1.svg`)
     );
@@ -34,6 +42,7 @@ export const CrabImagesBuilder = async (crab) => {
     let headpiecesLayer = await loadImage(
         path.resolve(`${imageDir}/HeadPieces/${headpiecesName}_1.svg`)
     );
+
     let shadowLayer = await loadImage(path.resolve(`${imageDir}/Services/shadow_1.svg`));
 
     let combineLayer =
@@ -47,11 +56,15 @@ export const CrabImagesBuilder = async (crab) => {
         clawsLayer +
         "</svg>";
 
-    let base64fromSVG = `data:image/svg+xml;base64,` + Buffer.from(combineLayer).toString("base64");
+    //let base64fromSVG = `data:image/svg+xml;base64,` + Buffer.from(combineLayer).toString("base64");
+
+    const pngBuffer = await sharp(Buffer.from(combineLayer)).png().toBuffer();
+
+    let base64png = `data:image/png;base64,` + Buffer.from(pngBuffer).toString("base64");
 
     const fileName = `Anomura_${crabId}`;
     const formData = new FormData();
-    formData.append("file", base64fromSVG);
+    formData.append("file", base64png);
     formData.append("api_key", "558526949884865");
     formData.append("api_secret", "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY");
     formData.append("upload_preset", "worldwatch");
@@ -68,9 +81,11 @@ export const CrabImagesBuilder = async (crab) => {
         throw new Error(message);
     }
 
-    let responseData = await response.text()
+    let responseData = await response.text();
     let result = await JSON.parse(responseData);
-    return result.secure_url;
+ 
+    return result.url;
+    // return result.secure_url;
 };
 
 const loadImage = async (pathToSvg) => {
