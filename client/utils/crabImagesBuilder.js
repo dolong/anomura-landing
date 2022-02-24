@@ -2,9 +2,11 @@ import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } fr
 import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
-//import getConfig from "next/config";
-//import { svg2png } from "svg-png-converter";
 let FormData = require('form-data');
+import getConfig from "next/config";
+//import { svg2png } from "svg-png-converter";
+
+//const svg64 = require('svg64');
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
@@ -12,23 +14,13 @@ const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 export const CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
-    // const imageDir = path.join(
-    //     getConfig().serverRuntimeConfig.PROJECT_ROOT, //  process.cwd()
-    //     "./public/" + dirRelativeToPublicFolder
-    // );
-    const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
+     const imageDir = path.join(
+         getConfig().serverRuntimeConfig.PROJECT_ROOT, //  process.cwd()
+         "./public/" + dirRelativeToPublicFolder
+     );
+    //const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
 
-    const fileName = `Anomura_${crabId}`;
-    const crabImage = `${imageDir}\\Anomuras\\${crabId}.svg`;
-
-    console.log(crabImage);
-    let isFileExist = await fileExists(crabImage);
-
-    if (isFileExist) {
-        console.log("crab image already existed, overwritten the image");
-    } else {
-        console.log("crab image not exists, building new image");
-    }
+    
 
     let backgroundName = getBackground(background);
     let shellName = getShell(shell);
@@ -68,30 +60,34 @@ export const CrabImagesBuilder = async (crab) => {
     //     height: 384,
     // });
 
+    // console.log(base64String)
+
     const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
 
-    //await fs.writeFileSync(`${crabImage}`, combineLayer);
-    let svg = new tools.SVG(combineLayer);
+    // let svg = new tools.SVG(combineLayer);
+    //console.log(svg)
+   // const base64fromSVG = svg64(svg);    
+    let base64fromSVG = `data:image/svg+xml;base64,` + Buffer.from(combineLayer).toString('base64')
 
+    const fileName = `Anomura_${crabId}`;
     const formData = new FormData();
-    formData.append("file", combineLayer);
+    formData.append("file", base64fromSVG);
     formData.append("api_key", "558526949884865");
     formData.append("api_secret", "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY");
     formData.append("upload_preset", "worldwatch");
-    formData.append("public_id", fileName);
-   // formData.append("format", "svg");    
+    formData.append("encoding", "dataURL");
+    formData.append("public_id", fileName);    
 
     fetch(url, {
         method: "POST",
         body: formData,
     })
         .then((response) => {
-            console.log(response);
             return response.text();
         })
         .then((data) => {
             let result = JSON.parse(data);
-            console.log(result);
+            console.log(result.secure_url);
             return result.secure_url;
         })
         .catch((err) => {

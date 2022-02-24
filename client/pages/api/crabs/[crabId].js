@@ -73,6 +73,8 @@ export default async function crabImageViewerHandler(req, res) {
                     headpieces,
                 });
 
+                console.log(`Anomura ${crabId} image: ${crabImage}`)
+
                 if (existingCrab) {
                     console.log(
                         `Found existing crab ${crabId} with id: ${existingCrab.id}, updating...`
