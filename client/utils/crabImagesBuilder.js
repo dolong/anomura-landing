@@ -2,7 +2,7 @@ import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } fr
 import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
-let FormData = require('form-data');
+let FormData = require("form-data");
 import getConfig from "next/config";
 //import { svg2png } from "svg-png-converter";
 
@@ -14,13 +14,8 @@ const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 export const CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
-    //  const imageDir = path.join(
-    //      getConfig().serverRuntimeConfig.PROJECT_ROOT, //  process.cwd()
-    //      "./public/" + dirRelativeToPublicFolder
-    //  );
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
-
-    
+    const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
 
     let backgroundName = getBackground(background);
     let shellName = getShell(shell);
@@ -52,22 +47,9 @@ export const CrabImagesBuilder = async (crab) => {
         clawsLayer +
         "</svg>";
 
-    // let base64String = await svg2png({
-    //     input: combineLayer.trim(),
-    //     encoding: "dataURL",
-    //     format: "png",
-    //     width: 384,
-    //     height: 384,
-    // });
+    
 
-    // console.log(base64String)
-
-    const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
-
-    // let svg = new tools.SVG(combineLayer);
-    //console.log(svg)
-   // const base64fromSVG = svg64(svg);    
-    let base64fromSVG = `data:image/svg+xml;base64,` + Buffer.from(combineLayer).toString('base64')
+    let base64fromSVG = `data:image/svg+xml;base64,` + Buffer.from(combineLayer).toString("base64");
 
     const fileName = `Anomura_${crabId}`;
     const formData = new FormData();
@@ -76,25 +58,21 @@ export const CrabImagesBuilder = async (crab) => {
     formData.append("api_secret", "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY");
     formData.append("upload_preset", "worldwatch");
     formData.append("encoding", "dataURL");
-    formData.append("public_id", fileName);    
+    formData.append("public_id", fileName);
 
-    fetch(url, {
+    const response = await fetch(url, {
         method: "POST",
         body: formData,
-    })
-        .then((response) => {
-            return response.text();
-        })
-        .then((data) => {
-            let result = JSON.parse(data);
-            console.log(result.secure_url);
-            return result.secure_url;
-        })
-        .catch((err) => {
-            throw new Error(err);
-        });
+    });
 
-    //return `Anomuras/${crabId}.svg`;
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+
+    let responseData = await response.text()
+    let result = await JSON.parse(responseData);
+    return result.secure_url;
 };
 
 const loadImage = async (pathToSvg) => {
