@@ -1,6 +1,6 @@
 .container{
     width:508px;
-    height: 508px;
+    height: 500px;
     position: relative;
 }
 
@@ -84,10 +84,9 @@
 
     &_left{
         flex-basis:25%;
-        height:100%;
-        //width: 100px;
-        
+        height:100%;   
         z-index: 1;
+
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

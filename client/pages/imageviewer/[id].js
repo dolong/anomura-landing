@@ -80,7 +80,6 @@ const CrabCanvas = ({ sources, data }) => {
         if (isLoaded == true) {
             canvas = canvasRef?.current;
             context = canvas?.getContext("2d");
-            //canvas.addEventListener("mousemove", OnMouseMoveInCanvas);
             DrawImagesOnCanvas(imagesSrc);
         }
     }, [imagesSrc]);
@@ -155,7 +154,7 @@ const CrabCanvas = ({ sources, data }) => {
 
     return (
         <div className={s.container}>
-            <canvas ref={canvasRef} width="508" height="508" />
+            <canvas ref={canvasRef} width="508" height="500" />
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
