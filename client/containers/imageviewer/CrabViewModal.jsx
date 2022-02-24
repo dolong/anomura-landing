@@ -241,7 +241,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div
                                     className={`${
                                         s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.clawsR)} font-extrabold`}
+                                    } ${GetRarityTextColor(rarity.headpiecesR)} font-extrabold`}
                                 >
                                     <span>{rarity.headpiecesR?.description}</span>
                                     <span className="ml-2">Head Pieces</span>
