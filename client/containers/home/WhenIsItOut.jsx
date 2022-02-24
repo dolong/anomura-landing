@@ -4,8 +4,8 @@ import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 3500,
-    TwelveHundredOffSet = -500,
-    OneThousandOffSet = -1200,
+    TwelveHundredOffSet = -800,
+    OneThousandOffSet = -1100,
     EightHundredOffSet = -850,
     SixHundredOffSet = -1530,
     FourHundredOffSet = -1300;

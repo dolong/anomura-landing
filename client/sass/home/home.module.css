@@ -447,6 +447,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin-top: 3%;
+  position: relative;
 }
 .crab_rarityBlock {
   display: flex;
@@ -482,6 +483,50 @@
   padding: 3px 10px 3px 10px;
   min-width: 130px;
   font-weight: 600;
+}
+.crab_bubble1 {
+  position: absolute;
+  height: auto;
+  left: 5%;
+  top: 10vw;
+  width: 42px;
+}
+@media only screen and (max-width: 1200px) {
+  .crab_bubble1 {
+    width: 32px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .crab_bubble1 {
+    width: 22px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .crab_bubble1 {
+    width: 15px;
+  }
+}
+.crab_bubble2 {
+  position: absolute;
+  height: auto;
+  right: 13%;
+  top: -15vw;
+  width: 42px;
+}
+@media only screen and (max-width: 1200px) {
+  .crab_bubble2 {
+    width: 32px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .crab_bubble2 {
+    width: 22px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .crab_bubble2 {
+    width: 15px;
+  }
 }
 
 .when_zone {
@@ -524,7 +569,7 @@
   position: relative;
   margin-top: 2%;
   width: clamp(50vw, 75%, 100%);
-  padding-bottom: 15%;
+  padding-bottom: 35%;
   left: -5vw;
 }
 .treasure_card {
@@ -628,6 +673,10 @@
   }
   .crab_rarityContainer {
     margin-top: 4%;
+  }
+
+  .treasure_image {
+    margin-top: 10%;
   }
 
   .footer_zone {

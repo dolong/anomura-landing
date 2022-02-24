@@ -3,8 +3,8 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 5000,
-    TwelveHundredOffSet = -500,
-    OneThousandOffSet = -1550,
+    TwelveHundredOffSet = -700,
+    OneThousandOffSet = -1250,
     EightHundredOffSet = -1150,
     SixHundredOffSet = -1530,
     FourHundredOffSet = -1850;

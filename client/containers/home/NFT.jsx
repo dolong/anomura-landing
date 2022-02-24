@@ -3,7 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 600,
-    TwelveHundredOffSet = -125,
+    TwelveHundredOffSet = -85,
     OneThousandOffSet = -60,
     EightHundredOffSet = 70,
     SixHundredOffSet = -150,
@@ -60,7 +60,6 @@ export default function NFT({ ScrollPercent, audioControl }) {
     const changeAudioVolume = () => {
         if (nftRef.current && audioState == "loaded") {
             let rect = nftRef.current.getBoundingClientRect();
-            //console.log(audioControl);
             let reference = Math.abs(rect.top) + 200;
 
             let bubbleVolume = 0.5 - reference / 1500;

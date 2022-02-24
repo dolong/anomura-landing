@@ -372,6 +372,7 @@ $mobile-lineHeight: 1.5rem;
 	&_rarityContainer {
 		@include m.flex-master(row, space-between, null);
 		margin-top: 3%;
+		position: relative;
 	}
 
 	&_rarityBlock {
@@ -393,6 +394,39 @@ $mobile-lineHeight: 1.5rem;
 	}
 	&_legend {
 		@include highlightText(c.$legend-color, c.$primary-color);
+	}
+
+	&_bubble1 {
+		position: absolute;
+		height: auto;
+		left: 5%;
+		top: 10vw;
+		width: 42px;
+		@media only screen and (max-width: 1200px) {
+			width: 32px;
+		}
+		@media only screen and (max-width: 800px) {
+			width: 22px;
+		}
+		@media only screen and (max-width: 400px) {
+			width: 15px;
+		}
+	}
+	&_bubble2 {
+		position: absolute;
+		height: auto;
+		right: 13%;
+		top: -15vw;
+		width: 42px;
+		@media only screen and (max-width: 1200px) {
+			width: 32px;
+		}
+		@media only screen and (max-width: 800px) {
+			width: 22px;
+		}
+		@media only screen and (max-width: 400px) {
+			width: 15px;
+		}
 	}
 }
 .when {
@@ -422,7 +456,7 @@ $mobile-lineHeight: 1.5rem;
 		position: relative;
 		margin-top:2%;
 		width: clamp(50vw, 75%, 100%);
-		padding-bottom: 15%;
+		padding-bottom: 35%;
 		left:-5vw;
 	}
 
@@ -531,6 +565,13 @@ $mobile-lineHeight: 1.5rem;
 		}
 		&_rarityContainer {
 			margin-top: 4%;
+		}
+	}
+	.treasure {
+		&_image {
+			
+			margin-top:10%;
+
 		}
 	}
 	.footer {

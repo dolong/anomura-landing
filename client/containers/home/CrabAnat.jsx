@@ -11,6 +11,8 @@ const InitialOffset = 1850,
 
 export default function CrabAnat({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-25);
+    const [showBubble, setshowBubble] = React.useState(false);
+    let timeout;
 
     let calculatedOffsetY = useScrollValue(
         ScrollPercent,
@@ -28,6 +30,15 @@ export default function CrabAnat({ ScrollPercent }) {
         if (window.innerWidth <= 600) setScrollSpeed(-9);
     }, []);
 
+    React.useEffect(() => {
+        timeout = setTimeout(() => {
+            setshowBubble(true);
+        }, 3000);
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, []);
+
     return (
         <div className={s.crab_anat} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.crab_text}>
@@ -38,7 +49,18 @@ export default function CrabAnat({ ScrollPercent }) {
                     </div>
                 </div>
                 <br />
+
                 <div className={s.crab_rarityContainer}>
+                    <img
+                        className={`${s.crab_bubble1}  `}
+                        src="/img/home/bubbles_animated-export.gif"
+                    />
+                    {showBubble && (
+                        <img
+                            className={s.crab_bubble2}
+                            src="/img/home/bubbles_animated-export2.gif"
+                        />
+                    )}
                     <div className={s.crab_rarityBlock}>
                         <div>
                             <span className={s.crab_magical}>Magical Item</span>
