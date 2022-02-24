@@ -50,7 +50,8 @@ export default function Home() {
         bufferLoader = new BufferLoader(
             audioContext,
             [
-                "/audio/Underwater Loop Deep.wav",
+                // "/audio/Underwater Loop Deep.wav",
+                "/audio/Underwater DEEP Fixed.wav",
                 "/audio/Chest Open.wav",
                 "/audio/Fish Pass by 1.wav",
                 "/audio/chest chime.wav",
@@ -63,11 +64,15 @@ export default function Home() {
     }
     const PlayBackgroundMusic = () => {
         window.removeEventListener("click", PlayBackgroundMusic);
+        console.log("play background music");
         if (audioControl.bgMusic.isPlaying == false) {
             if (typeof audioControl.bgMusic.playSound === "function") {
-                audioControl.bgMusic.playSound();
-                audioControl.chestChime.playSound();
-                audioControl.bubble.playSound();
+                console.log(audioControl.isSoundOn);
+                if (audioControl.isSoundOn) {
+                    audioControl.bgMusic.playSound();
+                    audioControl.chestChime.playSound();
+                    audioControl.bubble.playSound();
+                }
 
                 setAudioControl((prevState) => ({
                     ...prevState,
@@ -93,7 +98,6 @@ export default function Home() {
         setAudioControl((prevState) => ({
             ...prevState,
             setSound: function (val) {
-
                 if (val === false) {
                     this.bgMusic.setVolume(0);
                     this.bubble.setVolume(0);
@@ -101,20 +105,22 @@ export default function Home() {
                     //this.chestChime.stop();
                 } else {
                     // no need to resume bubble, fish as these are controlled when audio state change
-                    this.bgMusic.playSound();
+                    // this.bgMusic.playSound();
+                    this.bgMusic.playSound(0.5);
                 }
             },
 
             bufferList,
             bgMusic: {
-                source: null,
-                gainNode: null,
+                source: audioContext.createBufferSource(),
+                gainNode: audioContext.createGain(),
                 playSound: function () {
                     this.source = audioContext.createBufferSource();
-                    this.source.buffer = bufferList[0];
                     if (this.gainNode == null) {
                         this.gainNode = audioContext.createGain(); // to not reset the volume next time we play
                     }
+
+                    this.source.buffer = bufferList[0];
                     this.source.connect(this.gainNode).connect(audioContext.destination);
                     this.source.loop = true;
                     this.source.start(0);
@@ -122,15 +128,9 @@ export default function Home() {
                 },
                 isPlaying: false,
                 setVolume: function (val) {
-                    //this.source.suspend();
                     if (val === 0) {
-                        this.source.stop();
-                        //audioContext.suspend();
-                        return;
                         let counter = 0;
                         let interval = setInterval(() => {
-                            console.log("looping reduce volume");
-                            console.log(this.gainNode.gain.value);
                             this.gainNode.gain.value = this.gainNode.gain.value - 0.1;
                             counter++;
                             if (counter == 5) {
@@ -138,10 +138,16 @@ export default function Home() {
                             }
                         }, 100);
                         return;
-                    } else {
-                        this.gainNode.gain.value = val;
+                    } else if (val === 1) {
+                        let counter = 0;
+                        let interval = setInterval(() => {
+                            this.gainNode.gain.value = this.gainNode.gain.value + 0.1;
+                            counter++;
+                            if (counter == 5) {
+                                clearInterval(interval);
+                            }
+                        }, 100);
                     }
-    
                 },
             },
             chestOpen: {
@@ -156,7 +162,8 @@ export default function Home() {
                     this.source.start(0);
                 },
             },
-            fishPass: { // ok
+            fishPass: {
+                // ok
                 sourceF: null,
                 gainNodeF: null,
                 playSound: function (volumeVal = 0) {
@@ -179,18 +186,20 @@ export default function Home() {
                     }
                 },
             },
-            chestChime: { // should not play when first time click???
+            chestChime: {
+                // should not play when first time click???
                 source: null,
                 gainNode: null,
-                shouldPlay:true,
+                shouldPlay: true,
                 playSound: function () {
-                    if(!this.shouldPlay){
-                        console.log("chest chime should not play and return")
+                    if (!this.shouldPlay) {
+                        console.log("chest chime should not play and return");
                         return;
                     }
                     this.source = audioContext.createBufferSource();
-                    if (this.gainNode == null) { // to not reset the volume next time we play
-                        this.gainNode = audioContext.createGain(); 
+                    if (this.gainNode == null) {
+                        // to not reset the volume next time we play
+                        this.gainNode = audioContext.createGain();
                     }
                     this.source.buffer = bufferList[3];
                     this.source.connect(this.gainNode).connect(audioContext.destination);
@@ -199,7 +208,7 @@ export default function Home() {
                     this.source.start(0);
                 },
                 stop: function () {
-                    console.log("stop chest chime")
+                    console.log("stop chest chime");
                     this.shouldPlay = false;
                     if (this.source) {
                         this.source.stop();
@@ -216,7 +225,8 @@ export default function Home() {
                     }
                 },
             },
-            bubble: { // need to test initially
+            bubble: {
+                // need to test initially
                 sourceB: null,
                 gainNodeB: null,
                 playSound: function () {
