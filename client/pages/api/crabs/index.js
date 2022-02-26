@@ -1,6 +1,20 @@
-const users = [{ id: 1 }, { id: 2 }, { id: 3 }]
+import { getAllCrabs } from "../../../repositories/crabs";
 
-export default function handler(req, res) {
-  console.log(req.query)
-  res.status(200).json(users)
+export default async function crabsQuery(req, res) {
+    const { method } = req;
+
+    switch (method) {
+        case "GET":
+            try {
+                let allCrabs = await getAllCrabs();
+                res.status(200).json(allCrabs);
+            } catch (err) {
+                console.log(err);
+                res.status(500).json({ err });
+            }
+            break;
+        default:
+            res.setHeader("Allow", ["GET", "PUT"]);
+            res.status(405).end(`Method ${method} Not Allowed`);
+    }
 }

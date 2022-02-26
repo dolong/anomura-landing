@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import s from "/sass/anomura/invite/invite.module.css";
-import * as MetaMaskConnection from "/lib/MetamaskConnection";
-import dynamic from "next/dynamic";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "repositories/PrismaContext";
 
-const prisma = new PrismaClient();
+//Need to create a hook for connecting your wallet.
 
 
 export default function Invite({ whiteList }) {
@@ -41,18 +39,14 @@ export default function Invite({ whiteList }) {
             }
             <div className={s.foreground} />
 
-
-            <style>
-                {
-                    `body {
-                        font-size: clamp(18px,2vw,28px);
-                        font-family: Atlantis;
-                        color: #fff;
-                        line-height: 1.5;
-                        }`
-                }
-            </style>
-
+            <style>{`
+            body {
+            font-size: clamp(18px,2vw,28px);
+            font-family: Atlantis;
+            color: #fff;
+            line-height: 1.5;
+            }
+      `}</style>
         </div>
     );
 }
