@@ -155,85 +155,9 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
-                                        id="body"
-                                        className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/body.png"
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
-                                    />
-                                </div>
-                                <div
-                                    className={`${
-                                        s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.bodyR)} font-extrabold`}
-                                >
-                                    <span>{rarity.bodyR?.description}</span>
-                                    <span className="ml-2">Body</span>
-                                </div>
-                            </div>
-                            <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="shell"
-                                        className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/shell.png"
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
-                                    />
-                                </div>
-                                <div
-                                    className={`${
-                                        s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.shellR)} font-extrabold`}
-                                >
-                                    <span>{rarity.shellR?.description}</span>
-                                    <span className="ml-2">Shell</span>
-                                </div>
-                            </div>
-                            <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="legs"
-                                        className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/legs.png"
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
-                                    />
-                                </div>
-                                <div
-                                    className={`${
-                                        s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.legsR)} font-extrabold`}
-                                >
-                                    <span>{rarity.legsR?.description}</span>
-                                    <span className="ml-2">Legs</span>
-                                </div>
-                            </div>
-                            <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="claws"
-                                        className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/claws.png"
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
-                                    />
-                                </div>
-                                <div
-                                    className={`${
-                                        s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.clawsR)} font-extrabold`}
-                                >
-                                    <span>{rarity.clawsR?.description}</span>
-                                    <span className="ml-2">Claws</span>
-                                </div>
-                            </div>
-                            <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
                                         id="headpieces"
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/star.png"
+                                        src="/img/imageviewer/Others/headpiecesIcon.png"
                                         onMouseEnter={ShowCard}
                                         onMouseLeave={HideCard}
                                     />
@@ -243,8 +167,97 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${GetRarityTextColor(rarity.headpiecesR)} font-extrabold`}
                                 >
-                                    <span>{rarity.headpiecesR?.description}</span>
-                                    <span className="ml-2">Head Pieces</span>
+                                    {rarity.headpiecesR?.description !== "Normal" && (
+                                        <span className="mr-2">
+                                            {rarity.headpiecesR?.description}
+                                        </span>
+                                    )}
+                                    <span>Head Pieces</span>
+                                </div>
+                            </div>
+                            <div className={s.component_list_item}>
+                                <div className={s.component_list_item_icon}>
+                                    <img
+                                        id="body"
+                                        className={s.component_list_item_icon_img}
+                                        src="/img/imageviewer/Others/bodyIcon.png"
+                                        onMouseEnter={ShowCard}
+                                        onMouseLeave={HideCard}
+                                    />
+                                </div>
+                                <div
+                                    className={`${
+                                        s.component_list_item_description
+                                    } ${GetRarityTextColor(rarity.bodyR)} font-extrabold`}
+                                >
+                                    {rarity.bodyR?.description !== "Normal" && (
+                                        <span className="mr-2">{rarity.bodyR?.description}</span>
+                                    )}
+                                    <span>Body</span>
+                                </div>
+                            </div>
+                            <div className={s.component_list_item}>
+                                <div className={s.component_list_item_icon}>
+                                    <img
+                                        id="claws"
+                                        className={s.component_list_item_icon_img}
+                                        src="/img/imageviewer/Others/clawsIcon.png"
+                                        onMouseEnter={ShowCard}
+                                        onMouseLeave={HideCard}
+                                    />
+                                </div>
+                                <div
+                                    className={`${
+                                        s.component_list_item_description
+                                    } ${GetRarityTextColor(rarity.clawsR)} font-extrabold`}
+                                >
+                                    {rarity.clawsR?.description !== "Normal" && (
+                                        <span className="mr-2">{rarity.clawsR?.description}</span>
+                                    )}
+                                    <span>Claws</span>
+                                </div>
+                            </div>
+                            <div className={s.component_list_item}>
+                                <div className={s.component_list_item_icon}>
+                                    <img
+                                        id="shell"
+                                        className={s.component_list_item_icon_img}
+                                        src="/img/imageviewer/Others/shellIcon.png"
+                                        onMouseEnter={ShowCard}
+                                        onMouseLeave={HideCard}
+                                    />
+                                </div>
+                                <div
+                                    className={`${
+                                        s.component_list_item_description
+                                    } ${GetRarityTextColor(rarity.shellR)} font-extrabold`}
+                                >
+                                    {rarity.shellR?.description !== "Normal" && (
+                                        <span className="mr-2">{rarity.shellR?.description}</span>
+                                    )}
+
+                                    <span>Shell</span>
+                                </div>
+                            </div>
+                            <div className={s.component_list_item}>
+                                <div className={s.component_list_item_icon}>
+                                    <img
+                                        id="legs"
+                                        className={s.component_list_item_icon_img}
+                                        src="/img/imageviewer/Others/legsIcon.png"
+                                        onMouseEnter={ShowCard}
+                                        onMouseLeave={HideCard}
+                                    />
+                                </div>
+                                <div
+                                    className={`${
+                                        s.component_list_item_description
+                                    } ${GetRarityTextColor(rarity.legsR)} font-extrabold`}
+                                >
+                                    {rarity.legsR?.description !== "Normal" && (
+                                        <span className="mr-2">{rarity.legsR?.description}</span>
+                                    )}
+                                    <span>Legs</span>
                                 </div>
                             </div>
                             {/* background */}
@@ -252,7 +265,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/bg.png"
+                                        src="/img/imageviewer/Others/backgroundIcon.png"
                                     />
                                 </div>
                                 <div
