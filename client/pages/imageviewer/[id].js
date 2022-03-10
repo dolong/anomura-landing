@@ -39,7 +39,7 @@ export default function AnimateViewerDetails({ data }) {
         body: "/./img/imageviewer/Body/",
         claws: "/./img/imageviewer/Claws/",
         headpieces: "/./img/imageviewer/HeadPieces/",
-        shadow: "/./img/imageviewer/Services/shadow"
+        shadow: "/./img/imageviewer/Services/shadow",
     };
 
     if (router.isFallback) {
@@ -54,7 +54,7 @@ export default function AnimateViewerDetails({ data }) {
         sources.body = sources.body + getBody(body);
         sources.claws = sources.claws + getClaws(claws);
         sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
-        
+
         return <CrabCanvas sources={sources} data={data} />;
     }
 }
@@ -117,7 +117,7 @@ const CrabCanvas = ({ sources, data }) => {
             body: [],
             claws: [],
             headpieces: [],
-            shadow:[]
+            shadow: [],
         };
         var postaction = function () {};
 
@@ -158,7 +158,7 @@ const CrabCanvas = ({ sources, data }) => {
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
-                src="/img/imageviewer/Others/bowl10frames.gif"
+                src="/img/imageviewer/Others/starfish01_small.gif"
             />
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>
