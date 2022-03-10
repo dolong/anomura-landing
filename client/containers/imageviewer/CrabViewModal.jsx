@@ -172,7 +172,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                             {rarity.headpiecesR?.description}
                                         </span>
                                     )}
-                                    <span>Head Pieces</span>
+                                    <span>Headpiece</span>
                                 </div>
                             </div>
                             <div className={s.component_list_item}>
