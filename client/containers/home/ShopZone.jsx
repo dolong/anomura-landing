@@ -3,7 +3,7 @@ import s from "/sass/home/home.module.css";
 
 export default function ShopZone({ audioControl, setAudioControl }) {
     const comingSoonRef = React.createRef();
-    const [isSandSignVisible, setSandSignVisible] = React.useState(false);
+
     const [windowSize, setWindowSize] = React.useState({ width: undefined });
 
     React.useEffect(() => {
@@ -96,13 +96,9 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 </div>
             </div>
             {/******************* Sand Fixed Bottom*****************/}
-            <div className={s.sandBottom_zone}>
+            <div className={`${s.sandBottom_zone}`}>
                 <div className={s.sandBottom_leftSticker}>
-                    <div
-                        className={`${s.sandBottom_leftSticker_icons} ${
-                            isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
-                        } `}
-                    >
+                    <div className={`${s.sandBottom_leftSticker_icons}`}>
                         <a
                             href="https://twitter.com/anomuragame"
                             target="_blank"
@@ -125,11 +121,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     />
                 </div>
                 <div className={s.sandBottom_right}>
-                    <div
-                        className={`${s.sandBottom_right_container} ${
-                            isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
-                        }`}
-                    >
+                    <div className={`${s.sandBottom_right_container}`}>
                         <a
                             className={`${s.sandBottom_right_container_discord}`}
                             href="https://discord.com/anomuragame"

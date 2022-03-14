@@ -75,8 +75,8 @@ export default function NFT({ ScrollPercent, audioControl }) {
     return (
         <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }} ref={nftRef}>
             <div className={s.nft_text}>
-                <img className={`${s.nft_star1}  `} src="/img/home/starfish01.gif" />
-                <img className={s.nft_star2} src="/img/home/starfish01.gif" />
+                <img className={`${s.nft_star} ${s.nft_star1}  `} src="/img/home/starfish01.gif" />
+                <img className={`${s.nft_star} ${s.nft_star2}`} src="/img/home/starfish01.gif" />
 
                 <div>
                     <div className={s.nft_heading}>NFT X VIDEOGAME!</div>
