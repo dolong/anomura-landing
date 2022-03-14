@@ -46,7 +46,7 @@ export default function Footer({ ScrollPercent }) {
                     </a>
                     <a href="https://instagram.com/anomuragame" target="_blank">
                         <img src="/img/home/footer/Instagram Button.png" alt="instagram link" />
-                        <div>Instaram</div>
+                        <div>Instagram</div>
                     </a>
                     <a href="https://twitter.com/anomuragame" target="_blank">
                         <img src="/img/home/footer/Twitter Button.png" alt="twitter link" />

@@ -12,23 +12,8 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 width: window.innerWidth,
             });
         }
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    setSandSignVisible(true);
-                } else {
-                    setSandSignVisible(false);
-                }
-            });
-        });
 
-        observer.observe(comingSoonRef.current);
-
-        return () => {
-            if (comingSoonRef.current) {
-                observer.unobserve(comingSoonRef.current);
-            }
-        };
+        return () => {};
     }, []);
 
     const TurnOffSound = (e) => {
@@ -76,7 +61,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 <div className={s.sand_zone_sand} />
                 <img
                     ref={comingSoonRef}
-                    className={`${s.follow_img} `}
+                    className={`${s.comingsoon_img} `}
                     onClick={() => ComingSoonScrollAction()}
                     onMouseEnter={(e) => {
                         e.currentTarget.src =
@@ -97,26 +82,21 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     }`}
                     alt=""
                 />
-                <div className={s.follow_text}>
-                    <div>
-                        {/* <span className={`${s.shop_heading}`}>COMING SOON!</span> */}
-                        <p className={s.follow_text_paragraph}>
-                            <span className="font-bold">
-                                Anomura is a new retro play-to-earn game utilizing NFTs and
-                                blockchain technology.
-                            </span>
+                <div className={`${s.comingsoon_zone}`}>
+                    <div className={s.comingsoon_text}>
+                        <p className={s.comingsoon_paragraph}>
+                            Anomura is a new retro play-to-earn game utilizing NFTs and blockchain
+                            technology.
                         </p>
-                        <p className={s.follow_text_paragraph}>
-                            <span className="font-bold ">
-                                Addictive gameplay, beautiful pixel art, contributions to wildlife
-                                preservation - this is a game with a greater purpose.
-                            </span>
+                        <p className={s.comingsoon_paragraph}>
+                            Addictive gameplay, beautiful pixel art, contributions to wildlife
+                            preservation - this is a game with a greater purpose.
                         </p>
                     </div>
                 </div>
             </div>
             {/******************* Sand Fixed Bottom*****************/}
-            <div className={`${s.sandBottom_zone} ${isSandSignVisible ? "opacity-100 z-10" : ""}`}>
+            <div className={s.sandBottom_zone}>
                 <div className={s.sandBottom_leftSticker}>
                     <div
                         className={`${s.sandBottom_leftSticker_icons} ${
@@ -144,36 +124,6 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         src="/img/home/bottomSand/Sticky Socials.png"
                     />
                 </div>
-                {/* <div className={s.sandBottom_left2}></div>
-                <div className={s.sandBottom_left2}></div>
-                <div className={s.sandBottom_left2}></div> */}
-                {/* <div className={`${s.sandBottom_center} `}>
-                    <div
-                        className={`${s.sandBottom_center_icons} ${
-                            isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
-                        } `}
-                    >
-                        <a
-                            href="https://twitter.com/anomuragame"
-                            target="_blank"
-                            className={`${s.sandBottom_center_icons_twitter}`}
-                        />
-                        <a
-                            href="https://discord.com/anomuragame"
-                            target="_blank"
-                            className={`${s.sandBottom_center_icons_discord}`}
-                        />
-                        <a
-                            href="https://instagram.com/anomuragame"
-                            target="_blank"
-                            className={`${s.sandBottom_center_icons_instagram}`}
-                        />
-                    </div>
-                    <img
-                        className={s.sandBottom_icons}
-                        src="/img/home/bottomSand/bottom_sand_icons_bump_x3.png"
-                    />
-                </div> */}
                 <div className={s.sandBottom_right}>
                     <div
                         className={`${s.sandBottom_right_container} ${
@@ -206,14 +156,6 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         </div>
                         <div></div>
                     </div>
-                    {/* <img
-                        className={s.sandBottom_image}
-                        src={`${
-                            audioControl.isSoundOn
-                                ? "/img/home/bottomSand/bottom_discord_unmute_sign_x3.png"
-                                : "/img/home/bottomSand/bottom_discord_mute_sign_x3.png"
-                        }`}
-                    /> */}
                     <img
                         className={s.sandBottom_image}
                         src="/img/home/bottomSand/Wood sign_blank.png"

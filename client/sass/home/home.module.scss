@@ -16,8 +16,11 @@
 }
 
 @mixin paragraph(){
-	font-size: 2rem;
-	padding: 5px 0px 3px 10px;
+	font-size: 1.125rem;
+	font-weight: 400;
+	font-style: normal;
+	text-align: center;
+	line-height: 31px;
 }
 
 @keyframes interference  {
@@ -126,7 +129,7 @@ $mobile-lineHeight: 1.5rem;
 		display: flex;
 		justify-content: center;
 		z-index:3;
-		padding-top: 7%;
+		padding-top: 4%;
 	}
 	&_text {
 		flex-basis: 35%; 
@@ -164,21 +167,27 @@ $mobile-lineHeight: 1.5rem;
 	   }
 	}
 }
-.follow {
-	&_text{
-		width: min(48vw, 680px); // 80% of shop / coming soon text
+.comingsoon {
+	&_zone{
+		width: $desktop-text-section;
 		z-index: 2;
-		text-align: center;
-		color: #0D6C5D;
-		font-size: 2rem;
-		line-height: 1;
-		&_paragraph {
-			padding: 5px 0px 10px 10px; 
-		}
 	}
+	&_text{
+		 text-align: center;
+	}
+	&_paragraph {
+		@include paragraph();
+		color: #064F43;
+		font-family: PF Ronda Seven;
+		font-weight: 600;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
 	&_img {
 		width: min(60vw, 850px);
 		position: relative;
+		margin-bottom: 31px;
 	}
 	&_iconContainer{
 		position: relative;
@@ -237,7 +246,7 @@ $mobile-lineHeight: 1.5rem;
 		width: 100%;
 		bottom:0px;
 		z-index:10;
-		opacity: 0;
+		opacity: 1;
 		transition: opacity 2s;
 		pointer-events:none;
 	}
@@ -364,17 +373,18 @@ $mobile-lineHeight: 1.5rem;
 	&_text {
 		width: $desktop-text-section;
 		@include m.flex-master(column, null, center);
-		margin-top: 40%;
+		margin-top: 45%;
 		position: relative;
 		text-align: center;
 	}
 	&_heading {
 		@include heading();	
-		text-shadow: 1px 4px #127163;
+		text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
+		margin-bottom: 2.5rem;
 	}
 	&_paragraph {
 		@include paragraph();
-		margin-top: 2rem;
+		font-family: PF Ronda Seven;
 	}
 	&_star1 {
 		position: absolute;
@@ -384,10 +394,12 @@ $mobile-lineHeight: 1.5rem;
 		width: 90px;
 		transform: skew(23deg, -16deg);
 		@media only screen and (max-width: 1200px) {
-			width: 32px;
+			width: 60px;
+			top: 35vw;
 		}
 		@media only screen and (max-width: 800px) {
-			width: 22px;
+			width: 32px;
+			top: 40vw;
 		}
 		@media only screen and (max-width: 400px) {
 			width: 15px;
@@ -401,10 +413,10 @@ $mobile-lineHeight: 1.5rem;
 		width: 77px;
 		transform: skew(340deg, 22deg);
 		@media only screen and (max-width: 1200px) {
-			width: 32px;
+			width: 60px;
 		}
 		@media only screen and (max-width: 800px) {
-			width: 22px;
+			width: 32px;
 		}
 		@media only screen and (max-width: 400px) {
 			width: 15px;
@@ -893,15 +905,12 @@ $mobile-lineHeight: 1.5rem;
 		}
 		&_chest {
 			position: absolute;
-			// top: min(210px, 16vw);
 			bottom:0;
 			z-index: 2;
 		}
 		
 		&_floor {
-			//pointer-events: none;
 			position: absolute;
-			//top: min(210px, 16vw);
 			bottom:0;
 			animation: interference 1.5s infinite ease-out;
 			z-index: 1;
@@ -1092,7 +1101,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		padding-bottom: 57%; // for covering behind layer
 		&_text {
 			margin: $mobile-margin;
-			padding-top: 15%;
+			margin-top: 55%;
 		}
 	}
 	.crab {

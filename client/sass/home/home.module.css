@@ -153,7 +153,7 @@
   display: flex;
   justify-content: center;
   z-index: 3;
-  padding-top: 7%;
+  padding-top: 4%;
 }
 .shop_text {
   flex-basis: 35%;
@@ -197,64 +197,73 @@
   }
 }
 
-.follow_text {
-  width: min(48vw, 680px);
+.comingsoon_zone {
+  width: 60vw;
   z-index: 2;
+}
+.comingsoon_text {
   text-align: center;
-  color: #0D6C5D;
-  font-size: 2rem;
-  line-height: 1;
 }
-.follow_text_paragraph {
-  padding: 5px 0px 10px 10px;
+.comingsoon_paragraph {
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  line-height: 31px;
+  color: #064F43;
+  font-family: PF Ronda Seven;
+  font-weight: 600;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-.follow_img {
+.comingsoon_img {
   width: min(60vw, 850px);
   position: relative;
+  margin-bottom: 31px;
 }
-.follow_iconContainer {
+.comingsoon_iconContainer {
   position: relative;
   display: flex;
   justify-content: space-between;
   width: min(30vw, 425px);
 }
-.follow_iconContainer a {
+.comingsoon_iconContainer a {
   z-index: 2;
 }
-.follow_iconContainer_twitter {
+.comingsoon_iconContainer_twitter {
   width: 26%;
   height: 0;
   padding-bottom: 21%;
 }
-.follow_iconContainer_twitter:hover {
+.comingsoon_iconContainer_twitter:hover {
   background: url("/img/home/follow_us/follow_icons_twitter_on_x3.png") no-repeat;
   background-size: contain;
 }
-.follow_iconContainer_discord {
+.comingsoon_iconContainer_discord {
   width: 26%;
   height: 0;
   padding-bottom: 21%;
 }
-.follow_iconContainer_discord:hover {
+.comingsoon_iconContainer_discord:hover {
   background: url("/img/home/follow_us/follow_icons_discord_on_x3.png") no-repeat;
   background-size: contain;
 }
-.follow_iconContainer_instagram {
+.comingsoon_iconContainer_instagram {
   width: 26%;
   height: 0;
   padding-bottom: 21%;
 }
-.follow_iconContainer_instagram:hover {
+.comingsoon_iconContainer_instagram:hover {
   margin-top: 1.5%;
   background: url("/img/home/follow_us/follow_icons_instagram_on_x3.png") no-repeat;
   background-size: contain;
 }
-.follow_iconContainer_icons {
+.comingsoon_iconContainer_icons {
   pointer-events: none;
   position: absolute;
   width: min(30vw, 425px);
 }
-.follow_container {
+.comingsoon_container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -269,7 +278,7 @@
   width: 100%;
   bottom: 0px;
   z-index: 10;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 2s;
   pointer-events: none;
 }
@@ -383,19 +392,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40%;
+  margin-top: 45%;
   position: relative;
   text-align: center;
 }
 .nft_heading {
   font-size: 3.5rem;
   font-family: Safety Goggles;
-  text-shadow: 1px 4px #127163;
+  text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
+  margin-bottom: 2.5rem;
 }
 .nft_paragraph {
-  font-size: 2rem;
-  padding: 5px 0px 3px 10px;
-  margin-top: 2rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  line-height: 31px;
+  font-family: PF Ronda Seven;
 }
 .nft_star1 {
   position: absolute;
@@ -407,12 +420,14 @@
 }
 @media only screen and (max-width: 1200px) {
   .nft_star1 {
-    width: 32px;
+    width: 60px;
+    top: 35vw;
   }
 }
 @media only screen and (max-width: 800px) {
   .nft_star1 {
-    width: 22px;
+    width: 32px;
+    top: 40vw;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -430,12 +445,12 @@
 }
 @media only screen and (max-width: 1200px) {
   .nft_star2 {
-    width: 32px;
+    width: 60px;
   }
 }
 @media only screen and (max-width: 800px) {
   .nft_star2 {
-    width: 22px;
+    width: 32px;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -476,8 +491,11 @@
   width: 50%;
 }
 .crab_paragraph {
-  font-size: 2rem;
-  padding: 5px 0px 3px 10px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  line-height: 31px;
   margin-bottom: 2rem;
   position: relative;
 }
@@ -673,8 +691,11 @@
   font-family: Safety Goggles;
 }
 .when_paragraph {
-  font-size: 2rem;
-  padding: 5px 0px 3px 10px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  line-height: 31px;
   margin-top: 3rem;
 }
 .when_roadmap {
@@ -1136,7 +1157,7 @@
   }
   .nft_text {
     margin: 40% 10% 0 10%;
-    padding-top: 15%;
+    margin-top: 55%;
   }
 
   .crab_anat {
