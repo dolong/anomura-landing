@@ -2,7 +2,7 @@ import React from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import { randomIntFromInterval } from "../../utils/utils";
-const InitialOffset = 1850,
+const InitialOffset = 2050,
     TwelveHundredOffSet = -200,
     OneThousandOffSet = -400,
     EightHundredOffSet = -250,

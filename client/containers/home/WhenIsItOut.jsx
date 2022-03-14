@@ -3,7 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
-const InitialOffset = 4000,
+const InitialOffset = 4300,
     TwelveHundredOffSet = -800,
     OneThousandOffSet = -1100,
     EightHundredOffSet = -850,
