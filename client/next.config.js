@@ -2,7 +2,7 @@
 module.exports = {
     swcMinify: true,
     serverRuntimeConfig: {
-        PROJECT_ROOT: __dirname
+        PROJECT_ROOT: __dirname,
     },
     async headers() {
         return [
@@ -24,4 +24,18 @@ module.exports = {
             },
         ];
     },
+    rewrites: async () => [
+        {
+            source: "/public/PrivacyPolicy.html",
+            destination: "/pages/api/static/home/privacyPolicy.js",
+        },
+        {
+            source: "/public/CCPANotice.html",
+            destination: "/pages/api/static/home/ccpaNotice.js",
+        },
+        {
+            source: "/public/TERMSANDCONDITIONS.html",
+            destination: "/pages/api/static/home/termsAndConditions.js",
+        },
+    ],
 };

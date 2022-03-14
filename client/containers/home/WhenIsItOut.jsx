@@ -3,7 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
-const InitialOffset = 3500,
+const InitialOffset = 4000,
     TwelveHundredOffSet = -800,
     OneThousandOffSet = -1100,
     EightHundredOffSet = -850,
@@ -29,18 +29,75 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
     }, []);
 
     return (
+        // <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>
+        //     <div className={s.when_text}>
+        //         <div>
+        //             <span className={s.when_highlight}>WHEN IS IT OUT?</span>
+        //         </div>
+        //         <p className={s.when_paragraph}>
+        //             Anomura is targeted to be released by the end of 2021, <br />
+        //             with many alpha and beta releases. <br />A detailed road map will be available
+        //             shortly!
+        //         </p>
+        //     </div>
+        //     <TreasureChest audioControl={audioControl}></TreasureChest>
+        // </div>
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.when_text}>
                 <div>
-                    <span className={s.when_highlight}>WHEN IS IT OUT?</span>
+                    <span className={s.when_heading}>LAUNCH ROADMAP</span>
+                    <div>
+                        <p className={s.when_paragraph}>Stay tuned for a more detailed roadmap.</p>
+                    </div>
                 </div>
-                <p className={s.when_paragraph}>
-                    Anomura is targeted to be released by the end of 2021, <br />
-                    with many alpha and beta releases. <br />A detailed road map will be available
-                    shortly!
-                </p>
             </div>
-            <TreasureChest audioControl={audioControl}></TreasureChest>
+            <div className={s.when_roadmap}>
+                <div className={`${s.when_roadmap_details}  `}>
+                    <div className={`${s.when_roadmap_imgContainer}  `}>
+                        <img
+                            className={`${s.when_roadmap_imgContainer_image}  `}
+                            src="/img/home/whenSection/bowlx5.gif"
+                        />
+                    </div>
+                    <div className={`${s.when_roadmap_text}  `}>
+                        <span>COMING SOON</span>
+                        <span>Mystery Bowl NFT Drop</span>
+                    </div>
+                    <img
+                        className={s.when_roadmap_trail1}
+                        src="/img/home/whenSection/Roadmap trail.png"
+                    />
+                </div>
+                <div className={`${s.when_roadmap_details}  `}>
+                    <div className={`${s.when_roadmap_imgContainer}  `}>
+                        <img
+                            className={`${s.when_roadmap_imgContainer_anomura}  `}
+                            src="/img/home/whenSection/Roadmap anomura.gif"
+                        />
+                    </div>
+                    <div className={`${s.when_roadmap_text}  `}>
+                        <span>COMING SOON</span>
+                        <span>Anomura Hatching Day</span>
+                    </div>
+                    <img
+                        className={s.when_roadmap_trail2}
+                        src="/img/home/whenSection/Roadmap trail.png"
+                    />
+                </div>
+                <div className={`${s.when_roadmap_details}  `}>
+                    <div className={`${s.when_roadmap_imgContainer}  `}>
+                        <img
+                            className={`${s.when_roadmap_imgContainer_anomura}  `}
+                            src="/img/home/whenSection/Roadmap anomura.gif"
+                        />
+                    </div>
+
+                    <div className={`${s.when_roadmap_text}  `}>
+                        <span>TBA</span>
+                        <span>More to come!</span>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

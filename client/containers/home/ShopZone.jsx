@@ -114,32 +114,40 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         </p>
                     </div>
                 </div>
-                {/* <div ref={followRef} className={s.follow_iconContainer}>
-                    <a
-                        href="https://twitter.com/anomuragame"
-                        target="_blank"
-                        className={`${s.follow_iconContainer_twitter}`}
-                    />
-                    <a
-                        href="https://discord.com/anomuragame"
-                        target="_blank"
-                        className={`${s.follow_iconContainer_discord}`}
-                    />
-                    <a
-                        href="https://instagram.com/anomuragame"
-                        target="_blank"
-                        className={`${s.follow_iconContainer_instagram}`}
-                    />
-                    <img
-                        className={s.follow_iconContainer_icons}
-                        src="/img/home/follow_us/follow_icons_x3.png"
-                    />
-                </div> */}
             </div>
             {/******************* Sand Fixed Bottom*****************/}
             <div className={`${s.sandBottom_zone} ${isSandSignVisible ? "opacity-100 z-10" : ""}`}>
-                <div className={s.sandBottom_left} />
-                <div className={`${s.sandBottom_center} `}>
+                <div className={s.sandBottom_leftSticker}>
+                    <div
+                        className={`${s.sandBottom_leftSticker_icons} ${
+                            isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
+                        } `}
+                    >
+                        <a
+                            href="https://twitter.com/anomuragame"
+                            target="_blank"
+                            className={`${s.sandBottom_leftSticker_icons_twitter}`}
+                        />
+                        <a
+                            href="https://discord.com/anomuragame"
+                            target="_blank"
+                            className={`${s.sandBottom_leftSticker_icons_discord}`}
+                        />
+                        <a
+                            href="https://instagram.com/anomuragame"
+                            target="_blank"
+                            className={`${s.sandBottom_leftSticker_icons_instagram}`}
+                        />
+                    </div>
+                    <img
+                        className={s.sandBottom_icons}
+                        src="/img/home/bottomSand/Sticky Socials.png"
+                    />
+                </div>
+                {/* <div className={s.sandBottom_left2}></div>
+                <div className={s.sandBottom_left2}></div>
+                <div className={s.sandBottom_left2}></div> */}
+                {/* <div className={`${s.sandBottom_center} `}>
                     <div
                         className={`${s.sandBottom_center_icons} ${
                             isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
@@ -165,7 +173,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         className={s.sandBottom_icons}
                         src="/img/home/bottomSand/bottom_sand_icons_bump_x3.png"
                     />
-                </div>
+                </div> */}
                 <div className={s.sandBottom_right}>
                     <div
                         className={`${s.sandBottom_right_container} ${
@@ -176,21 +184,39 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             className={`${s.sandBottom_right_container_discord}`}
                             href="https://discord.com/anomuragame"
                             target="_blank"
-                        />
-                        <a
-                            href=""
-                            className={`${s.sandBottom_right_container_soundOff}`}
-                            onClick={TurnOffSound}
-                        />
+                        >
+                            Discord
+                        </a>
+                        <div className={`${s.sandBottom_right_container_soundOff}`}>
+                            <a href="" className={s.sandBottom_right_container_soundOff_link}>
+                                <img
+                                    className={s.sandBottom_right_container_soundOff_icon}
+                                    src={`${
+                                        audioControl.isSoundOn
+                                            ? "/img/home/bottomSand/volumne on.png"
+                                            : "/img/home/bottomSand/volumne off.png"
+                                    }`}
+                                    onClick={TurnOffSound}
+                                />
+                            </a>
+
+                            <span className={s.sandBottom_right_container_soundOff_text}>
+                                Music
+                            </span>
+                        </div>
                         <div></div>
                     </div>
-                    <img
+                    {/* <img
                         className={s.sandBottom_image}
                         src={`${
                             audioControl.isSoundOn
                                 ? "/img/home/bottomSand/bottom_discord_unmute_sign_x3.png"
                                 : "/img/home/bottomSand/bottom_discord_mute_sign_x3.png"
                         }`}
+                    /> */}
+                    <img
+                        className={s.sandBottom_image}
+                        src="/img/home/bottomSand/Wood sign_blank.png"
                     />
                 </div>
             </div>

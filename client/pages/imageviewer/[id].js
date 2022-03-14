@@ -158,7 +158,7 @@ const CrabCanvas = ({ sources, data }) => {
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
-                src="/img/imageviewer/Others/starfish01_small.gif"
+                src="/img/imageviewer/Others/inventory_bag_01.png"
             />
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>
