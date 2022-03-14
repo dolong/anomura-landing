@@ -68,12 +68,12 @@
 }
 @media only screen and (max-width: 3800px) {
   .App {
-    background-size: 100% 30%;
+    background-size: 100% 29%;
   }
 }
 @media only screen and (max-width: 2400px) {
   .App {
-    background-size: 100% 34%;
+    background-size: 100% 31%;
   }
 }
 @media only screen and (max-width: 1600px) {
@@ -150,10 +150,10 @@
 
 .shop_zone {
   position: relative;
-  margin-left: 8%;
   display: flex;
+  justify-content: center;
   z-index: 3;
-  padding-top: 6%;
+  padding-top: 7%;
 }
 .shop_text {
   flex-basis: 35%;
@@ -169,10 +169,6 @@
   padding: 3px 10px 3px 10px;
   min-width: 130px;
   font-weight: 600;
-}
-.shop_paragraph {
-  padding: 5px 0px 3px 10px;
-  z-index: 2;
 }
 
 .sand_zone {
@@ -201,6 +197,17 @@
   }
 }
 
+.follow_text {
+  width: min(48vw, 680px);
+  z-index: 2;
+  text-align: center;
+  color: #0D6C5D;
+  font-size: 2rem;
+  line-height: 1;
+}
+.follow_text_paragraph {
+  padding: 5px 0px 10px 10px;
+}
 .follow_img {
   width: min(60vw, 850px);
   position: relative;

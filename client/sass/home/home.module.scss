@@ -33,11 +33,11 @@ $mobile-lineHeight: 1.5rem;
  	padding-bottom: 60%;
 
 	@media only screen and (max-width: 3800px) {
-		background-size: 100% 30%;
+		background-size: 100% 29%;
 	}  
 
 	@media only screen and (max-width: 2400px) {
-		background-size: 100% 34%;
+		background-size: 100% 31%;
 	} 
 
 	@media only screen and (max-width: 1600px) {
@@ -110,10 +110,10 @@ $mobile-lineHeight: 1.5rem;
 .shop {
 	&_zone {
 		position: relative;
-	    margin-left: 8%;
 		display: flex;
+		justify-content: center;
 		z-index:3;
-		padding-top: 6%;
+		padding-top: 7%;
 	}
 	&_text {
 		flex-basis: 35%; 
@@ -126,10 +126,7 @@ $mobile-lineHeight: 1.5rem;
 	&_heading {
 		@include highlightText(c.$normal-color, c.$primary-color);
 	}
-	&_paragraph {
-		padding: 5px 0px 3px 10px; 
-		z-index:2;
-	}
+	
 }
 
 .sand {
@@ -155,6 +152,17 @@ $mobile-lineHeight: 1.5rem;
 	}
 }
 .follow {
+	&_text{
+		width: min(48vw, 680px); // 80% of shop / coming soon text
+		z-index: 2;
+		text-align: center;
+		color: #0D6C5D;
+		font-size: 2rem;
+		line-height: 1;
+		&_paragraph {
+			padding: 5px 0px 10px 10px; 
+		}
+	}
 	&_img {
 		width: min(60vw, 850px);
 		position: relative;
