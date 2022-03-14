@@ -95,7 +95,7 @@ export default function CrabAnat({ ScrollPercent }) {
                                         </div>
                                     </div>
                                 )}
-                                normal
+                                <span className="ml-2"></span> normal
                             </div>
                             ,{" "}
                             <div
