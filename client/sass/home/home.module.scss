@@ -20,6 +20,8 @@
 	font-weight: 400;
 	font-style: normal;
 	text-align: center;
+	position: relative;
+	font-family: PF Ronda Seven;
 	line-height: 31px;
 }
 
@@ -36,9 +38,11 @@
 }
 
 $desktop-text-section: 60vw;
+$desktop-text-size: 1.125rem;
+$mobile-text-section: 80vw;
+$mobile-text-size: 0.875rem;
 
 $mobile-margin: 40% 10% 0 10%;
-
 $mobile-lineHeight: 1.5rem;
 
 .App {
@@ -178,7 +182,6 @@ $mobile-lineHeight: 1.5rem;
 	&_paragraph {
 		@include paragraph();
 		color: #064F43;
-		font-family: PF Ronda Seven;
 		font-weight: 600;
 		padding-left: 1rem;
 		padding-right: 1rem;
@@ -267,7 +270,7 @@ $mobile-lineHeight: 1.5rem;
 			height: 120px;
 			left: 4%;
 			width: 79%;
-
+			pointer-events: auto;
 			a {
 				z-index: 2;
 			}
@@ -278,6 +281,7 @@ $mobile-lineHeight: 1.5rem;
     			margin-top: 4%;
     			transform: skew(342deg, 18deg);
 			
+				// place holder for Momo icon later
 				// &:hover{
 				// 	background: url("/img/home/follow_us/follow_icons_twitter_on_x3.png") no-repeat;
 				// 	background-size: contain;
@@ -289,6 +293,7 @@ $mobile-lineHeight: 1.5rem;
 				margin-top: 8%;
 				transform: skew(20deg, -17deg);
 				
+				// place holder for Momo icon later
 				// &:hover{
 				// 	margin-top:0.9px;
 				// 	width:25.5%;
@@ -302,6 +307,8 @@ $mobile-lineHeight: 1.5rem;
 				margin-top: 13%;
 				margin-right:3%;
 				transform: skew(342deg, 18deg);
+
+				// place holder for Momo icon later
 				// &:hover{
 				// 	width:26.5%;
 				// 	margin-top:3px;
@@ -318,11 +325,12 @@ $mobile-lineHeight: 1.5rem;
 		align-self: flex-end;
 		&_container{
 			@include m.flex-master(column, null, null);
-			position: absolute;
 			right:0;
 			bottom:0;
 			height: 100%;
 			width: min(20vw, 150px);
+			position: absolute;
+			pointer-events: auto;
 
 			&_discord {
 				display: flex;
@@ -386,13 +394,10 @@ $mobile-lineHeight: 1.5rem;
 		@include paragraph();
 		font-family: PF Ronda Seven;
 	}
-	&_star1 {
+
+	&_star{
 		position: absolute;
 		height: auto;
-		left: 8%;
-		top: 29vw;
-		width: 90px;
-		transform: skew(23deg, -16deg);
 		@media only screen and (max-width: 1200px) {
 			width: 60px;
 			top: 35vw;
@@ -405,22 +410,18 @@ $mobile-lineHeight: 1.5rem;
 			width: 15px;
 		}
 	}
+	&_star1 {
+		left: 8%;
+		top: 27vw;
+		width: 90px;
+		transform: skew(23deg, -15deg);
+		
+	}
 	&_star2 {
-		position: absolute;
-		height: auto;
 		right: 8%;
-		top: -7vw;
-		width: 77px;
-		transform: skew(340deg, 22deg);
-		@media only screen and (max-width: 1200px) {
-			width: 60px;
-		}
-		@media only screen and (max-width: 800px) {
-			width: 32px;
-		}
-		@media only screen and (max-width: 400px) {
-			width: 15px;
-		}
+		top: -8vw;
+		width: 67px;
+		transform: skew(340deg, 26.5deg);
 	}
 }
 .crab {
@@ -440,7 +441,7 @@ $mobile-lineHeight: 1.5rem;
 	&_heading {
 		@include heading();	
 		text-shadow: 1px 4px #004D41;
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 	&_rarityPopup {
 		display:flex;
@@ -649,7 +650,7 @@ $mobile-lineHeight: 1.5rem;
 		width:$desktop-text-section;
 		&_details{
 			display: flex;
-			margin-top: 7rem;
+			margin-top: 30%;//7rem
 			position: relative;
 		}
 		&_imgContainer{
@@ -846,10 +847,7 @@ $mobile-lineHeight: 1.5rem;
 		justify-content: center;
 	}
 	&_text {
-		position:relative;
-		text-align: center;
-		font-size: 2rem;
-		margin-bottom: 4rem;
+		@include paragraph();
 		& > p {
 			color: #95DDC0;
 		}
@@ -987,9 +985,6 @@ $mobile-lineHeight: 1.5rem;
 		&_zone {
 			padding-bottom: 20%;
 		}
-		&_text {
-			width: 65%;
-		}
 	}
 	
 }
@@ -1059,6 +1054,15 @@ and (-webkit-min-device-pixel-ratio: 2) {
 @media only screen and (max-width: 850px) {
 	.shop_img {
 		width: min(55vh, 600px);
+	}
+	.footer {
+		&_zone {
+			padding-bottom: 35%;
+		}
+		&_container {
+			margin-top: 38.5%;
+			width: $mobile-text-section;
+		}
 	}
 }
 @media only screen and (max-width: 800px) {
@@ -1138,6 +1142,39 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.footer {
 		&_zone {
 			padding-bottom: 35%;
+		}
+		
+		&_buttons{
+			display:flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 8rem;
+			& > a {
+				// position:relative;
+				// width: 30%;
+				// color: #FFFFFF!important;
+				margin-bottom: 1rem;
+				// & > div {
+				// 	position:absolute;
+				// 	width:100%;
+				// 	height:100%;
+				// 	top:1.2rem;
+				// 	text-align: center;
+				// 	align-items: center;
+				// 	font-family: Safety Goggles;
+				// 	font-size:2rem;
+				// }
+			}
+		}
+
+		&_text {
+		
+			font-size: $mobile-text-size;
+			margin-bottom: 2rem;
+			& > p {
+				color: #95DDC0;
+			}
 		}
 	}
 }

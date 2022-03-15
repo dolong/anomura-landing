@@ -209,9 +209,10 @@
   font-weight: 400;
   font-style: normal;
   text-align: center;
+  position: relative;
+  font-family: PF Ronda Seven;
   line-height: 31px;
   color: #064F43;
-  font-family: PF Ronda Seven;
   font-weight: 600;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -298,6 +299,7 @@
   height: 120px;
   left: 4%;
   width: 79%;
+  pointer-events: auto;
 }
 .sandBottom_leftSticker_icons a {
   z-index: 2;
@@ -331,11 +333,12 @@
 .sandBottom_right_container {
   display: flex;
   flex-direction: column;
-  position: absolute;
   right: 0;
   bottom: 0;
   height: 100%;
   width: min(20vw, 150px);
+  position: absolute;
+  pointer-events: auto;
 }
 .sandBottom_right_container_discord {
   display: flex;
@@ -407,56 +410,43 @@
   font-weight: 400;
   font-style: normal;
   text-align: center;
+  position: relative;
+  font-family: PF Ronda Seven;
   line-height: 31px;
   font-family: PF Ronda Seven;
 }
-.nft_star1 {
+.nft_star {
   position: absolute;
   height: auto;
-  left: 8%;
-  top: 29vw;
-  width: 90px;
-  transform: skew(23deg, -16deg);
 }
 @media only screen and (max-width: 1200px) {
-  .nft_star1 {
+  .nft_star {
     width: 60px;
     top: 35vw;
   }
 }
 @media only screen and (max-width: 800px) {
-  .nft_star1 {
+  .nft_star {
     width: 32px;
     top: 40vw;
   }
 }
 @media only screen and (max-width: 400px) {
-  .nft_star1 {
+  .nft_star {
     width: 15px;
   }
+}
+.nft_star1 {
+  left: 8%;
+  top: 27vw;
+  width: 90px;
+  transform: skew(23deg, -15deg);
 }
 .nft_star2 {
-  position: absolute;
-  height: auto;
   right: 8%;
-  top: -7vw;
-  width: 77px;
-  transform: skew(340deg, 22deg);
-}
-@media only screen and (max-width: 1200px) {
-  .nft_star2 {
-    width: 60px;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .nft_star2 {
-    width: 32px;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .nft_star2 {
-    width: 15px;
-  }
+  top: -8vw;
+  width: 67px;
+  transform: skew(340deg, 26.5deg);
 }
 
 .crab_anat {
@@ -481,7 +471,7 @@
   font-size: 3.5rem;
   font-family: Safety Goggles;
   text-shadow: 1px 4px #004D41;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .crab_rarityPopup {
   display: flex;
@@ -495,6 +485,8 @@
   font-weight: 400;
   font-style: normal;
   text-align: center;
+  position: relative;
+  font-family: PF Ronda Seven;
   line-height: 31px;
   margin-bottom: 2rem;
   position: relative;
@@ -695,6 +687,8 @@
   font-weight: 400;
   font-style: normal;
   text-align: center;
+  position: relative;
+  font-family: PF Ronda Seven;
   line-height: 31px;
   margin-top: 3rem;
 }
@@ -703,7 +697,7 @@
 }
 .when_roadmap_details {
   display: flex;
-  margin-top: 7rem;
+  margin-top: 30%;
   position: relative;
 }
 .when_roadmap_imgContainer {
@@ -932,10 +926,13 @@
   justify-content: center;
 }
 .footer_text {
-  position: relative;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 4rem;
+  position: relative;
+  font-family: PF Ronda Seven;
+  line-height: 31px;
 }
 .footer_text > p {
   color: #95DDC0;
@@ -1061,9 +1058,6 @@
   .footer_zone {
     padding-bottom: 20%;
   }
-  .footer_text {
-    width: 65%;
-  }
 }
 /* ----------- General ipads ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1119,6 +1113,14 @@
 @media only screen and (max-width: 850px) {
   .shop_img {
     width: min(55vh, 600px);
+  }
+
+  .footer_zone {
+    padding-bottom: 35%;
+  }
+  .footer_container {
+    margin-top: 38.5%;
+    width: 80vw;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -1195,6 +1197,23 @@
 
   .footer_zone {
     padding-bottom: 35%;
+  }
+  .footer_buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8rem;
+  }
+  .footer_buttons > a {
+    margin-bottom: 1rem;
+  }
+  .footer_text {
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+  .footer_text > p {
+    color: #95DDC0;
   }
 }
 @media only screen and (max-width: 700px) {
