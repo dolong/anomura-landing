@@ -3,7 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
-const InitialOffset = 5700,
+const InitialOffset = 6200,
     TwelveHundredOffSet = -700,
     OneThousandOffSet = -1250,
     EightHundredOffSet = -1150,
@@ -36,21 +36,28 @@ export default function Footer({ ScrollPercent }) {
                     <img className={s.footer_bubble1} src="/img/home/footer/bubbles.gif" />
                 </div>
 
-                <div className={s.footer_text}>
+                <div className={s.footer_followText}>
                     Join our community and follow us for the latest updates and upcoming events.
                 </div>
                 <div className={s.footer_buttons}>
                     <a href="https://discord.com/anomuragame" target="_blank">
-                        <div>Discord</div>
+                        <div>
+                            <span>Discord</span>
+                        </div>
                         <img src="/img/home/footer/Discord Button.png" alt="discord link" />
                     </a>
                     <a href="https://instagram.com/anomuragame" target="_blank">
                         <img src="/img/home/footer/Instagram Button.png" alt="instagram link" />
-                        <div>Instagram</div>
+                        <div>
+                            {" "}
+                            <span>Instagram</span>
+                        </div>
                     </a>
                     <a href="https://twitter.com/anomuragame" target="_blank">
                         <img src="/img/home/footer/Twitter Button.png" alt="twitter link" />
-                        <div>Twitter</div>
+                        <div>
+                            <span>Twitter</span>
+                        </div>
                     </a>
                 </div>
                 <div className={s.footer_anomura}>
@@ -125,7 +132,7 @@ const Chest = () => {
     };
     return (
         <div className={s.footer_chestImage_wrapper}>
-            {renderCard()}
+            {/* {renderCard()} */}
             {renderChestFloor()}
             {renderChest()}
             {renderChestLight()}

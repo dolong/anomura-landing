@@ -198,7 +198,7 @@
 }
 
 .comingsoon_zone {
-  width: 60vw;
+  width: 50%;
   z-index: 2;
 }
 .comingsoon_text {
@@ -391,7 +391,7 @@
   shape-outside: url("/img/home/backgrounds/Layer3.png");
 }
 .nft_text {
-  width: 60vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -460,7 +460,7 @@
   justify-content: center;
 }
 .crab_container {
-  width: 60vw;
+  width: 50%;
   margin-top: 33%;
   display: flex;
   flex-direction: column;
@@ -674,7 +674,7 @@
 }
 .when_text {
   margin-top: 30%;
-  width: 60vw;
+  width: 50%;
   position: relative;
   text-align: center;
 }
@@ -693,7 +693,7 @@
   margin-top: 3rem;
 }
 .when_roadmap {
-  width: 60vw;
+  width: 50%;
 }
 .when_roadmap_details {
   display: flex;
@@ -832,11 +832,18 @@
 }
 .footer_container {
   margin-top: 38.5%;
-  width: 60vw;
+  width: 50%;
 }
 .footer_follow {
-  margin-bottom: 4rem;
+  margin-bottom: 60px;
   position: relative;
+}
+.footer_followText {
+  font-size: 1.125rem;
+  font-family: PF Ronda Seven;
+  margin-bottom: 60px;
+  line-height: 23.93px;
+  text-align: center;
 }
 .footer_bubble1 {
   position: absolute;
@@ -886,28 +893,40 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 8rem;
+  align-items: center;
+  margin-bottom: 60px;
+  font-size: 2rem;
+  width: 100%;
 }
 .footer_buttons > a {
   position: relative;
   width: 30%;
   color: #FFFFFF !important;
+  display: flex;
+  justify-content: center;
 }
 .footer_buttons > a > div {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 1.2rem;
+  display: flex;
   text-align: center;
   align-items: center;
+  height: 80%;
+}
+.footer_buttons > a > div > span {
   font-family: Safety Goggles;
-  font-size: 2rem;
+}
+.footer_buttons > a > img {
+  width: min(100%, 250px);
+}
+.footer_social {
+  display: flex;
+  justify-content: center;
 }
 .footer_anomura {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 60px;
 }
 .footer_anomura > img {
   width: min(400px, 50%);
@@ -916,14 +935,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 6rem;
+  margin-bottom: 60px;
 }
 .footer_logo > img {
   width: min(400px, 33%);
-}
-.footer_social {
-  display: flex;
-  justify-content: center;
 }
 .footer_text {
   font-size: 1.125rem;
@@ -933,6 +948,7 @@
   position: relative;
   font-family: PF Ronda Seven;
   line-height: 31px;
+  margin-bottom: 60px;
 }
 .footer_text > p {
   color: #95DDC0;
@@ -941,7 +957,6 @@
   position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 4rem;
 }
 .footer_policy_line {
   width: 100%;
@@ -950,7 +965,7 @@
 }
 .footer_policy > div {
   margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 1.25rem;
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -958,6 +973,7 @@
 }
 .footer_policy > div > a {
   color: #F55690 !important;
+  font-family: PF Ronda Seven;
 }
 .footer_image {
   display: flex;
@@ -971,9 +987,9 @@
 }
 .footer_chestImage {
   position: absolute;
-  left: 0;
+  left: -12%;
   bottom: 0;
-  width: 20%;
+  width: 40%;
 }
 .footer_chestImage_wrapper {
   position: relative;
@@ -991,6 +1007,7 @@
   position: absolute;
   bottom: 0;
   z-index: 2;
+  transform: scaleX(-1);
 }
 .footer_chestImage_floor {
   position: absolute;
@@ -999,6 +1016,7 @@
           animation: interference 1.5s infinite ease-out;
   z-index: 1;
   opacity: 0.7;
+  transform: scaleX(-1);
 }
 .footer_chestImage_light {
   pointer-events: none;
@@ -1008,6 +1026,7 @@
           animation: interference 1.5s infinite linear;
   z-index: 3;
   opacity: 0.7;
+  transform: scaleX(-1);
 }
 
 @media only screen and (max-width: 1400px) {
@@ -1055,8 +1074,8 @@
     margin-top: 10%;
   }
 
-  .footer_zone {
-    padding-bottom: 20%;
+  .footer_buttons {
+    font-size: 1.3125rem;
   }
 }
 /* ----------- General ipads ----------- */
@@ -1109,6 +1128,10 @@
   .crab_text {
     width: 80%;
   }
+
+  .policy > div {
+    font-size: 1.125rem;
+  }
 }
 @media only screen and (max-width: 850px) {
   .shop_img {
@@ -1116,11 +1139,20 @@
   }
 
   .footer_zone {
-    padding-bottom: 35%;
+    padding-bottom: 5%;
   }
   .footer_container {
     margin-top: 38.5%;
-    width: 80vw;
+    width: 60%;
+  }
+  .footer_policy > div {
+    font-size: 1.25rem;
+    flex-direction: column;
+    align-items: center;
+    line-height: 3;
+  }
+  .footer_policy > div > a {
+    line-height: 24px;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -1195,18 +1227,20 @@
     padding-bottom: 60%;
   }
 
-  .footer_zone {
-    padding-bottom: 35%;
-  }
   .footer_buttons {
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 8rem;
+    justify-content: center;
+    width: 100%;
+    font-size: 2rem;
   }
   .footer_buttons > a {
-    margin-bottom: 1rem;
+    width: 80%;
+    height: 100%;
+    margin-bottom: 2rem;
+  }
+  .footer_buttons > a > img {
+    width: 100%;
   }
   .footer_text {
     font-size: 0.875rem;
@@ -1226,10 +1260,6 @@
     margin-top: 10%;
     margin-bottom: 75%;
   }
-
-  .footer_text {
-    margin: 15% 10% 0 10%;
-  }
 }
 @media only screen and (max-width: 600px) {
   .follow_iconContainer {
@@ -1237,9 +1267,50 @@
     transform: scale(1.3);
   }
 
+  .sandBottom_leftSticker {
+    display: none;
+  }
+  .sandBottom_right {
+    display: none;
+  }
+
   .treasure_image {
     left: -5vw;
     margin-top: 5vh;
+  }
+
+  .footer_zone {
+    padding-bottom: 10%;
+  }
+  .footer_container {
+    margin-top: 80%;
+  }
+  .footer_followText {
+    font-size: 0.875rem;
+  }
+  .footer_buttons > a {
+    width: 100%;
+  }
+  .footer_anomura > img {
+    width: 100%;
+  }
+  .footer_logo > img {
+    width: 50%;
+  }
+  .footer_chestImage {
+    display: none;
+  }
+  .footer_text {
+    margin-bottom: 60px;
+    font-size: 0.8125rem;
+  }
+  .footer_policy_line {
+    width: 100%;
+    border-bottom: 1px solid #F55690;
+    position: absolute;
+  }
+  .footer_policy > div {
+    font-size: 0.875rem;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -1291,12 +1362,5 @@
 
   .when_text {
     line-height: 1.5rem;
-  }
-
-  .footer_zone {
-    padding-bottom: 50%;
-  }
-  .footer_text {
-    width: 75%;
   }
 }/*# sourceMappingURL=home.module.css.map */

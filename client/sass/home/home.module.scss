@@ -37,13 +37,17 @@
 	90% {filter: opacity(1) ;}
 }
 
-$desktop-text-section: 60vw;
+$desktop-text-section: 50%;
 $desktop-text-size: 1.125rem;
-$mobile-text-section: 80vw;
+
+$medium-text-size: 1.3125rem;
+
+$mobile-text-section: 60%;
 $mobile-text-size: 0.875rem;
 
 $mobile-margin: 40% 10% 0 10%;
 $mobile-lineHeight: 1.5rem;
+$header-space-bottom: 60px;
 
 .App {
 	width: 100%;
@@ -772,8 +776,15 @@ $mobile-lineHeight: 1.5rem;
 		width: $desktop-text-section;
 	}
 	&_follow {
-		margin-bottom:4rem;
+		margin-bottom: $header-space-bottom;
 		position: relative;
+	}
+	&_followText {
+		font-size:$desktop-text-size;
+		font-family: PF Ronda Seven;
+		margin-bottom: $header-space-bottom;
+		line-height: 23.93px;
+		text-align: center;
 	}
 	&_bubble1 {
 		position: absolute;
@@ -811,52 +822,61 @@ $mobile-lineHeight: 1.5rem;
 		display:flex;
 		flex-direction: row;
 		justify-content: space-between;
-		margin-bottom: 8rem;
+		align-items: center;
+		margin-bottom: $header-space-bottom;
+		font-size:2rem;
+		width: 100%;
 		& > a {
 			position:relative;
 			width: 30%;
 			color: #FFFFFF!important;
+			display:flex;
+			justify-content: center;
 			& > div {
 				position:absolute;
-				width:100%;
-				height:100%;
-				top:1.2rem;
+				display: flex;
 				text-align: center;
 				align-items: center;
-				font-family: Safety Goggles;
-				font-size:2rem;
+				height: 80%;
+				& > span { 
+					font-family: Safety Goggles;
+				}
 			}
-		}
-	}
-	&_anomura {
-		@include m.flex-master(row, center, null);
-		margin-bottom: 4rem;
-		& > img {
-			width: min(400px, 50%);
-		}
-	}
-	&_logo {
-		@include m.flex-master(row, center, null);
-		margin-bottom:6rem;
-		& > img {
-			width: min(400px, 33%);
+			& > img {
+				width: min(100%, 250px);
+			}
 		}
 	}
 	&_social {
 		display: flex;
 		justify-content: center;
 	}
+	&_anomura {
+		@include m.flex-master(row, center, null);
+		margin-bottom:$header-space-bottom;
+		& > img {
+			width: min(400px, 50%);
+		}
+	}
+	&_logo {
+		@include m.flex-master(row, center, null);
+		margin-bottom:$header-space-bottom;
+		& > img {
+			width: min(400px, 33%);
+		}
+	}
 	&_text {
 		@include paragraph();
 		& > p {
 			color: #95DDC0;
 		}
+		margin-bottom:$header-space-bottom;
 	}
+	
 	&_policy {
 		position: relative;
 		display: flex;
 		justify-content: center;
-		padding-top:4rem;
 		&_line {
 			width: 100%;
 			border-bottom: 1px solid #F55690;
@@ -864,13 +884,14 @@ $mobile-lineHeight: 1.5rem;
 		}
 		& > div {
 			margin-top: 2rem;
-			font-size:2rem;
+			font-size:1.25rem; //
 			width: 80%;
 			display: flex;
 			flex-direction: row;
 			justify-content:space-around;
 			& > a{
 				color: #F55690!important;
+				font-family: PF Ronda Seven;
 			}
 		}
 	}
@@ -885,9 +906,9 @@ $mobile-lineHeight: 1.5rem;
 	}
 	&_chestImage{
 		position:absolute;
-		left: 0;
+		left: -12%;
 		bottom:0;
-		width:20%;
+		width:40%;
 
 		&_wrapper{
 			position: relative;
@@ -905,6 +926,7 @@ $mobile-lineHeight: 1.5rem;
 			position: absolute;
 			bottom:0;
 			z-index: 2;
+			transform: scaleX(-1)
 		}
 		
 		&_floor {
@@ -913,6 +935,7 @@ $mobile-lineHeight: 1.5rem;
 			animation: interference 1.5s infinite ease-out;
 			z-index: 1;
 			opacity: 0.7;
+			transform: scaleX(-1)
 		}
 		&_light {
 			pointer-events: none;
@@ -921,6 +944,7 @@ $mobile-lineHeight: 1.5rem;
 			animation: interference 1.5s infinite linear;
 			z-index: 3;
 			opacity: 0.7;
+			transform: scaleX(-1)
 		}
 	}
 }
@@ -982,8 +1006,9 @@ $mobile-lineHeight: 1.5rem;
 		}
 	}
 	.footer {
-		&_zone {
-			padding-bottom: 20%;
+	
+		&_buttons {
+			font-size:$medium-text-size;
 		}
 	}
 	
@@ -1050,6 +1075,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
 			width: 80%;
 		}
 	}
+
+	.policy {
+		& > div {
+			font-size: $desktop-text-size;
+		}
+	}
 }
 @media only screen and (max-width: 850px) {
 	.shop_img {
@@ -1057,11 +1088,22 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	}
 	.footer {
 		&_zone {
-			padding-bottom: 35%;
+			padding-bottom: 5%;
 		}
 		&_container {
 			margin-top: 38.5%;
 			width: $mobile-text-section;
+		}
+		&_policy {
+			& > div {
+				font-size: 1.25rem;
+				flex-direction: column;
+				align-items: center;
+				line-height:3;
+				& > a {
+					line-height: 24px;
+				}
+			}
 		}
 	}
 }
@@ -1140,36 +1182,22 @@ and (-webkit-min-device-pixel-ratio: 2) {
 		}
 	}
 	.footer {
-		&_zone {
-			padding-bottom: 35%;
-		}
-		
-		&_buttons{
-			display:flex;
+		&_buttons {
 			flex-direction: column;
-			justify-content: space-between;
 			align-items: center;
-			margin-bottom: 8rem;
+			justify-content:center;
+			width:100%;
+			font-size: 2rem;
 			& > a {
-				// position:relative;
-				// width: 30%;
-				// color: #FFFFFF!important;
-				margin-bottom: 1rem;
-				// & > div {
-				// 	position:absolute;
-				// 	width:100%;
-				// 	height:100%;
-				// 	top:1.2rem;
-				// 	text-align: center;
-				// 	align-items: center;
-				// 	font-family: Safety Goggles;
-				// 	font-size:2rem;
-				// }
+				width:80%;
+				height: 100%;
+				margin-bottom: 2rem;
+				& > img { 
+					width:100%;
+				}
 			}
 		}
-
 		&_text {
-		
 			font-size: $mobile-text-size;
 			margin-bottom: 2rem;
 			& > p {
@@ -1180,23 +1208,16 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 @media only screen and (max-width: 700px) {
 	.crab {
-		
 		&_text {
 			font-weight: 500;
 			margin: $mobile-margin;
 		}
 	}
-	
 	.treasure {
 		&_chestContainer {
 			margin-top:10%;
 			margin-bottom:75%;
 		}	
-	}
-	.footer {
-		&_text {
-			margin: 15% 10% 0 10%;
-		}
 	}
 }
 @media only screen and (max-width: 600px) {
@@ -1206,10 +1227,66 @@ and (-webkit-min-device-pixel-ratio: 2) {
 			transform: scale(1.3);
 		}
 	}
+	.sandBottom {
+		&_leftSticker {
+			display: none;
+		}
+		&_right {
+			display: none;
+		}
+
+	}	
 	.treasure {
 		&_image {
 			left:-5vw;
 			margin-top:5vh;
+		}
+	}
+
+	.footer{
+		&_zone{		
+			padding-bottom: 10%;
+		}
+		&_container {
+			margin-top: 80%;
+		}
+		&_followText {
+			font-size:0.875rem;
+		}
+		&_buttons {
+			
+			
+			& > a {
+				width:100%;
+			}
+		}
+		&_anomura {
+			& > img {
+				width: 100%;
+			}
+		}
+		&_logo {
+			& > img {
+				width: 50%;
+			}
+		}
+		&_chestImage{
+			display:none;
+		}
+		&_text {
+			margin-bottom: $header-space-bottom;
+			font-size: 0.8125rem; //13px
+		}
+		&_policy {
+			&_line {
+				width: 100%;
+				border-bottom: 1px solid #F55690;
+				position: absolute;
+			}
+			 & > div {
+			 	font-size:0.875rem;
+			 	
+			 }
 		}
 	}
 }
@@ -1273,15 +1350,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.when {
 		&_text {
 			line-height: $mobile-lineHeight;
-		}
-	}
-	.footer {
-		&_zone {
-			padding-bottom: 50%;
-		}
-		
-		&_text {
-			width: 75%;
 		}
 	}
 }
