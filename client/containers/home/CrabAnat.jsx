@@ -6,8 +6,8 @@ const InitialOffset = 2050,
     TwelveHundredOffSet = -200,
     OneThousandOffSet = -400,
     EightHundredOffSet = -250,
-    SixHundredOffSet = -640,
-    FourHundredOffSet = -750;
+    SixHundredOffSet = -260,
+    FourHundredOffSet = -250;
 
 const anomuras = [
     "/img/home/anatomy/01.gif",
@@ -126,12 +126,19 @@ export default function CrabAnat({ ScrollPercent }) {
             <div className={s.crab_container}>
                 <div className={s.crab_heading}>ANOMURA ANATOMY</div>
 
-                {/* <div> */}
-                <div className={s.crab_paragraph}>
+                <div className={s.crab_paragraphContainer}>
                     Each body part has a chance of being
                     <div
                         className={s.crab_normal}
-                        onClick={() =>
+                        onMouseEnter={() =>
+                            setShowTooltip({
+                                normal: !tooltip.normal,
+                                magic: false,
+                                rare: false,
+                                legendary: false,
+                            })
+                        }
+                        onMouseLeave={() =>
                             setShowTooltip({
                                 normal: !tooltip.normal,
                                 magic: false,
@@ -144,7 +151,9 @@ export default function CrabAnat({ ScrollPercent }) {
                             <div className={s.crab_normal_popup}>
                                 <img src="/img/home/anatomy/popup-green.png" />
                                 <div className={s.crab_normal_popupText}>
-                                    <span>Information for normal tier</span>
+                                    <div>
+                                        <span>Information for normal tier</span>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -153,7 +162,15 @@ export default function CrabAnat({ ScrollPercent }) {
                     ,{" "}
                     <div
                         className={s.crab_magic}
-                        onClick={() =>
+                        onMouseEnter={() =>
+                            setShowTooltip({
+                                normal: false,
+                                magic: !tooltip.magic,
+                                rare: false,
+                                legendary: false,
+                            })
+                        }
+                        onMouseLeave={() =>
                             setShowTooltip({
                                 normal: false,
                                 magic: !tooltip.magic,
@@ -166,9 +183,11 @@ export default function CrabAnat({ ScrollPercent }) {
                             <div className={s.crab_magic_popup}>
                                 <img src="/img/home/anatomy/popup-purple.png" />
                                 <div className={s.crab_magic_popupText}>
-                                    <span>11% - 1 Magical Prefix</span>
-                                    <span>11% - 1 Magical Suffix</span>
-                                    <span>22% - Magic item</span>
+                                    <div>
+                                        <span>11% - 1 Magical Prefix</span>
+                                        <span>11% - 1 Magical Suffix</span>
+                                        <span>22% - Magic item</span>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -177,7 +196,15 @@ export default function CrabAnat({ ScrollPercent }) {
                     ,{" "}
                     <div
                         className={s.crab_rare}
-                        onClick={() =>
+                        onMouseEnter={() =>
+                            setShowTooltip({
+                                normal: false,
+                                magic: false,
+                                rare: !tooltip.rare,
+                                legendary: false,
+                            })
+                        }
+                        onMouseLeave={() =>
                             setShowTooltip({
                                 normal: false,
                                 magic: false,
@@ -190,8 +217,10 @@ export default function CrabAnat({ ScrollPercent }) {
                             <div className={s.crab_rare_popup}>
                                 <img src="/img/home/anatomy/popup-blue.png" />
                                 <div className={s.crab_rare_popupText}>
-                                    <span> 11% - Magical Prefix </span>
-                                    <span>11% - Magical Suffix</span>
+                                    <div>
+                                        <span> 11% - Magical Prefix </span>
+                                        <span>11% - Magical Suffix</span>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -200,7 +229,15 @@ export default function CrabAnat({ ScrollPercent }) {
                     , or{" "}
                     <div
                         className={s.crab_legendary}
-                        onClick={() =>
+                        onMouseEnter={() =>
+                            setShowTooltip({
+                                normal: false,
+                                magic: false,
+                                rare: false,
+                                legendary: !tooltip.legendary,
+                            })
+                        }
+                        onMouseLeave={() =>
                             setShowTooltip({
                                 normal: false,
                                 magic: false,
@@ -213,7 +250,9 @@ export default function CrabAnat({ ScrollPercent }) {
                             <div className={s.crab_legendary_popup}>
                                 <img src="/img/home/anatomy/popup-orange.png" />
                                 <div className={s.crab_legendary_popupText}>
-                                    <span> 2% - Legendary Prefix </span>
+                                    <div>
+                                        <span> 2% - Legendary Prefix </span>
+                                    </div>
                                 </div>
                             </div>
                         )}

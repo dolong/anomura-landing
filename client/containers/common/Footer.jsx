@@ -3,12 +3,12 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
-const InitialOffset = 6200,
-    TwelveHundredOffSet = -700,
+const InitialOffset = 5800,
+    TwelveHundredOffSet = -1000,
     OneThousandOffSet = -1250,
-    EightHundredOffSet = -1150,
-    SixHundredOffSet = -1530,
-    FourHundredOffSet = -1850;
+    EightHundredOffSet = -1050,
+    SixHundredOffSet = -1100,
+    FourHundredOffSet = -1000;
 
 export default function Footer({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
@@ -42,20 +42,31 @@ export default function Footer({ ScrollPercent }) {
                     </p>
                 </div>
                 <div className={s.footer_buttons}>
-                    <a href="https://discord.com/anomuragame" target="_blank">
+                    <a
+                        href="https://discord.com/anomuragame"
+                        target="_blank"
+                        className={s.footer_discord}
+                    >
                         <div>
                             <span>Discord</span>
                         </div>
                         <img src="/img/home/footer/Discord Button.png" alt="discord link" />
                     </a>
-                    <a href="https://instagram.com/anomuragame" target="_blank">
+                    <a
+                        href="https://instagram.com/anomuragame"
+                        target="_blank"
+                        className={s.footer_instagram}
+                    >
                         <img src="/img/home/footer/Instagram Button.png" alt="instagram link" />
                         <div>
-                            {" "}
                             <span>Instagram</span>
                         </div>
                     </a>
-                    <a href="https://twitter.com/anomuragame" target="_blank">
+                    <a
+                        href="https://twitter.com/anomuragame"
+                        target="_blank"
+                        className={s.footer_twitter}
+                    >
                         <img src="/img/home/footer/Twitter Button.png" alt="twitter link" />
                         <div>
                             <span>Twitter</span>
