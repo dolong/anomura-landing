@@ -751,7 +751,7 @@ $header-space-bottom: 60px;
 	}
 	&_container {
 		width:$desktop-text-section;
-		margin-top: 37%;
+		margin-top: 35%;
 	}
 	&_text {
 		position: relative;
@@ -783,8 +783,11 @@ $header-space-bottom: 60px;
 				}
 
 				@media only screen and (max-width: 800px) {
-					width: min(16vw, 140px);
-					height: 150px;
+				//	width: min(16vw, 140px);
+					height: 100px;
+				}
+				@media only screen and (max-width: 600px) {
+					height: 65px;
 				}
 				@media only screen and (max-width: 400px) {
 					width: min(15vw, 140px);

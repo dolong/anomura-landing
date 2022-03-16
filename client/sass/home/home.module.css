@@ -982,7 +982,7 @@
 }
 .when_container {
   width: 50%;
-  margin-top: 37%;
+  margin-top: 35%;
 }
 .when_text {
   position: relative;
@@ -1073,8 +1073,12 @@
 }
 @media only screen and (max-width: 800px) {
   .when_roadmap_imgContainer_image {
-    width: min(16vw, 140px);
-    height: 150px;
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .when_roadmap_imgContainer_image {
+    height: 65px;
   }
 }
 @media only screen and (max-width: 400px) {

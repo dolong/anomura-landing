@@ -4,11 +4,11 @@ import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 4200,
-    SixteenHundredOffset = -900,
+    SixteenHundredOffset = -500,
     TwelveHundredOffSet = -800,
     OneThousandOffSet = -1100,
     EightHundredOffSet = -950,
-    SixHundredOffSet = -750,
+    SixHundredOffSet = -650,
     FourHundredOffSet = -700;
 
 export default function WhenIsItOut({ ScrollPercent, audioControl }) {

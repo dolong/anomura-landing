@@ -8,7 +8,7 @@ const InitialOffset = 1950,
     TwelveHundredOffSet = -100,
     OneThousandOffSet = -250,
     EightHundredOffSet = -250,
-    SixHundredOffSet = -260,
+    SixHundredOffSet = -190,
     FourHundredOffSet = -250;
 
 const anomuras = [
