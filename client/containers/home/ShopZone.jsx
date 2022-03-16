@@ -3,7 +3,7 @@ import s from "/sass/home/home.module.css";
 
 export default function ShopZone({ audioControl, setAudioControl }) {
     const comingSoonRef = React.createRef();
-    const [isSandSignVisible, setSandSignVisible] = React.useState(false);
+
     const [windowSize, setWindowSize] = React.useState({ width: undefined });
 
     React.useEffect(() => {
@@ -12,23 +12,8 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 width: window.innerWidth,
             });
         }
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    setSandSignVisible(true);
-                } else {
-                    setSandSignVisible(false);
-                }
-            });
-        });
 
-        observer.observe(comingSoonRef.current);
-
-        return () => {
-            if (comingSoonRef.current) {
-                observer.unobserve(comingSoonRef.current);
-            }
-        };
+        return () => {};
     }, []);
 
     const TurnOffSound = (e) => {
@@ -76,7 +61,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 <div className={s.sand_zone_sand} />
                 <img
                     ref={comingSoonRef}
-                    className={`${s.follow_img} `}
+                    className={`${s.comingsoon_img} `}
                     onClick={() => ComingSoonScrollAction()}
                     onMouseEnter={(e) => {
                         e.currentTarget.src =
@@ -97,100 +82,75 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     }`}
                     alt=""
                 />
-                <div className={s.follow_text}>
-                    <div>
-                        {/* <span className={`${s.shop_heading}`}>COMING SOON!</span> */}
-                        <p className={s.follow_text_paragraph}>
-                            <span className="font-bold">
-                                Anomura is a new retro play-to-earn game utilizing NFTs and
-                                blockchain technology.
-                            </span>
+                <div className={`${s.comingsoon_zone}`}>
+                    <div className={s.comingsoon_paragraphContainer}>
+                        <p>
+                            Anomura is a new retro play-to-earn game utilizing NFTs and blockchain
+                            technology.
                         </p>
-                        <p className={s.follow_text_paragraph}>
-                            <span className="font-bold ">
-                                Addictive gameplay, beautiful pixel art, contributions to wildlife
-                                preservation - this is a game with a greater purpose.
-                            </span>
+                        <p>
+                            Addictive gameplay, beautiful pixel art, contributions to wildlife
+                            preservation - this is a game with a greater purpose.
                         </p>
                     </div>
                 </div>
-                {/* <div ref={followRef} className={s.follow_iconContainer}>
-                    <a
-                        href="https://twitter.com/anomuragame"
-                        target="_blank"
-                        className={`${s.follow_iconContainer_twitter}`}
-                    />
-                    <a
-                        href="https://discord.com/anomuragame"
-                        target="_blank"
-                        className={`${s.follow_iconContainer_discord}`}
-                    />
-                    <a
-                        href="https://instagram.com/anomuragame"
-                        target="_blank"
-                        className={`${s.follow_iconContainer_instagram}`}
-                    />
-                    <img
-                        className={s.follow_iconContainer_icons}
-                        src="/img/home/follow_us/follow_icons_x3.png"
-                    />
-                </div> */}
             </div>
             {/******************* Sand Fixed Bottom*****************/}
-            <div className={`${s.sandBottom_zone} ${isSandSignVisible ? "opacity-100 z-10" : ""}`}>
-                <div className={s.sandBottom_left} />
-                <div className={`${s.sandBottom_center} `}>
-                    <div
-                        className={`${s.sandBottom_center_icons} ${
-                            isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
-                        } `}
-                    >
+            <div className={`${s.sandBottom_zone}`}>
+                <div className={s.sandBottom_leftSticker}>
+                    <div className={`${s.sandBottom_leftSticker_icons}`}>
                         <a
                             href="https://twitter.com/anomuragame"
                             target="_blank"
-                            className={`${s.sandBottom_center_icons_twitter}`}
+                            className={`${s.sandBottom_leftSticker_icons_twitter}`}
                         />
                         <a
                             href="https://discord.com/anomuragame"
                             target="_blank"
-                            className={`${s.sandBottom_center_icons_discord}`}
+                            className={`${s.sandBottom_leftSticker_icons_discord}`}
                         />
                         <a
                             href="https://instagram.com/anomuragame"
                             target="_blank"
-                            className={`${s.sandBottom_center_icons_instagram}`}
+                            className={`${s.sandBottom_leftSticker_icons_instagram}`}
                         />
                     </div>
                     <img
                         className={s.sandBottom_icons}
-                        src="/img/home/bottomSand/bottom_sand_icons_bump_x3.png"
+                        src="/img/home/bottomSand/Sticky Socials.png"
                     />
                 </div>
                 <div className={s.sandBottom_right}>
-                    <div
-                        className={`${s.sandBottom_right_container} ${
-                            isSandSignVisible ? "pointer-events-auto" : "pointer-events-none"
-                        }`}
-                    >
+                    <div className={`${s.sandBottom_right_container}`}>
                         <a
                             className={`${s.sandBottom_right_container_discord}`}
                             href="https://discord.com/anomuragame"
                             target="_blank"
-                        />
-                        <a
-                            href=""
-                            className={`${s.sandBottom_right_container_soundOff}`}
-                            onClick={TurnOffSound}
-                        />
+                        >
+                            Discord
+                        </a>
+                        <div className={`${s.sandBottom_right_container_soundOff}`}>
+                            <a href="" className={s.sandBottom_right_container_soundOff_link}>
+                                <img
+                                    className={s.sandBottom_right_container_soundOff_icon}
+                                    src={`${
+                                        audioControl.isSoundOn
+                                            ? "/img/home/bottomSand/volumne on.png"
+                                            : "/img/home/bottomSand/volumne off.png"
+                                    }`}
+                                    onClick={TurnOffSound}
+                                />
+                            </a>
+
+                            <span className={s.sandBottom_right_container_soundOff_text}>
+                                Music
+                            </span>
+                        </div>
                         <div></div>
                     </div>
                     <img
                         className={s.sandBottom_image}
-                        src={`${
-                            audioControl.isSoundOn
-                                ? "/img/home/bottomSand/bottom_discord_unmute_sign_x3.png"
-                                : "/img/home/bottomSand/bottom_discord_mute_sign_x3.png"
-                        }`}
+                        src="/img/home/bottomSand/Wood sign_blank.png"
                     />
                 </div>
             </div>

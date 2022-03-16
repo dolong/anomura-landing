@@ -71,7 +71,7 @@ const CrabCanvas = ({ sources, data }) => {
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
-                console.log(images);
+                //console.log(images);
                 setImageSrc(images);
                 setIsLoaded(true);
             });
@@ -158,7 +158,7 @@ const CrabCanvas = ({ sources, data }) => {
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
-                src="/img/imageviewer/Others/starfish01_small.gif"
+                src="/img/imageviewer/Others/OpenSea Invetory_icons_03.png"
             />
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>
