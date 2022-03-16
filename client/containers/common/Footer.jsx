@@ -36,8 +36,10 @@ export default function Footer({ ScrollPercent }) {
                     <img className={s.footer_bubble1} src="/img/home/footer/bubbles.gif" />
                 </div>
 
-                <div className={s.footer_followText}>
-                    Join our community and follow us for the latest updates and upcoming events.
+                <div className={s.footer_followContainer}>
+                    <p>
+                        Join our community and follow us for the latest updates and upcoming events.
+                    </p>
                 </div>
                 <div className={s.footer_buttons}>
                     <a href="https://discord.com/anomuragame" target="_blank">
@@ -64,13 +66,15 @@ export default function Footer({ ScrollPercent }) {
                     <img src="/img/home/footer/logo-pink.png" alt="AnomuraLogo" />
                 </div>
 
-                <div className={s.footer_text}>Presented by</div>
+                <div className={s.footer_presented}>
+                    <p>Presented by</p>
+                </div>
 
                 <div className={s.footer_logo}>
                     <img src="/img/home/footer/vhs logo trim.png" alt="" />
                 </div>
 
-                <div className={s.footer_text}>
+                <div className={s.footer_mission}>
                     <p>
                         Virtually Human’s mission is to uncover what the future of entertainment can
                         do for humanity. Their flagship game ZED RUN is one of the first of its kind

@@ -25,21 +25,11 @@ export default function NFT({ ScrollPercent, audioControl }) {
 
     const nftRef = React.createRef();
     const [audioState, setAudioState] = useState("unloaded");
-    let timeout;
 
     useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-4.5);
         if (window.innerWidth <= 400) setScrollSpeed(-2.5);
     });
-
-    // useEffect(() => {
-    //     timeout = setTimeout(() => {
-    //         setshowBubble(true);
-    //     }, 3000);
-    //     return () => {
-    //         clearTimeout(timeout);
-    //     };
-    // }, []);
 
     useEffect(() => {
         window.addEventListener("scroll", changeAudioVolume);
@@ -74,24 +64,34 @@ export default function NFT({ ScrollPercent, audioControl }) {
 
     return (
         <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }} ref={nftRef}>
-            <div className={s.nft_text}>
-                <img className={`${s.nft_star} ${s.nft_star1}  `} src="/img/home/starfish01.gif" />
-                <img className={`${s.nft_star} ${s.nft_star2}`} src="/img/home/starfish01.gif" />
+            <div className={s.nft_container}>
+                <div className={s.nft_text}>
+                    <div className={`${s.nft_star2Container}`}>
+                        <img
+                            className={`${s.nft_star} ${s.nft_star2}`}
+                            src="/img/home/starfish01.gif"
+                        />
+                    </div>
 
-                <div>
-                    <div className={s.nft_heading}>NFT X VIDEOGAME!</div>
                     <div>
-                        <p className={s.nft_paragraph}>
-                            Anomuras are sworn protectors of the Earth and all realms in the
-                            Infinity Circle.
-                        </p>
-                        <p className={s.nft_paragraph}>
-                            Mint original Anomuras, each with unique traits and habitats.
-                        </p>
-                        <p className={s.nft_paragraph}>
-                            Gain exclusive access to the game using your Anomura NFT, reap rewards,
-                            participate in events, and more.
-                        </p>
+                        <div className={s.nft_heading}>NFT X VIDEOGAME!</div>
+                        <div className={s.nft_paragraphContainer}>
+                            <p>
+                                Anomuras are sworn protectors of the Earth and all realms in the
+                                Infinity Circle.
+                            </p>
+                            <p>Mint original Anomuras, each with unique traits and habitats.</p>
+                            <p>
+                                Gain exclusive access to the game using your Anomura NFT, reap
+                                rewards, participate in events, and more.
+                            </p>
+                        </div>
+                    </div>
+                    <div className={`${s.nft_star1Container}`}>
+                        <img
+                            className={`${s.nft_star} ${s.nft_star1}  `}
+                            src="/img/home/starfish01.gif"
+                        />
                     </div>
                 </div>
             </div>

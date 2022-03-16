@@ -9,22 +9,6 @@
 	font-weight: 600;
 }
 
-@mixin heading(){
-	font-size: 3.5rem;
-	font-family: Safety Goggles;
-	
-}
-
-@mixin paragraph(){
-	font-size: 1.125rem;
-	font-weight: 400;
-	font-style: normal;
-	text-align: center;
-	position: relative;
-	font-family: PF Ronda Seven;
-	line-height: 31px;
-}
-
 @keyframes interference  {
 	10% {filter: opacity(0.94);}
 	20% {filter: opacity(1) ;}
@@ -48,6 +32,48 @@ $mobile-text-size: 0.875rem;
 $mobile-margin: 40% 10% 0 10%;
 $mobile-lineHeight: 1.5rem;
 $header-space-bottom: 60px;
+
+
+/* For all heading on top of paragraph  */
+@mixin heading(){
+	font-size: 3.75rem; // based on Miro size 60px;
+	line-height: 2.6rem; // to not have space below this font-family;
+	font-family: Safety Goggles;
+	margin-bottom: $header-space-bottom;
+	text-align: center;
+
+	@media only screen and (max-width: 850px) {
+		font-size: 3.1875rem;
+		line-height: 2.4rem;
+	} 
+
+	@media only screen and (max-width: 600px) {
+		font-size: 2.1875rem;
+	} 
+}
+
+@mixin paragraphContainer(){
+
+	font-size: 1.125rem;
+	font-weight: 400;
+	font-style: normal;
+	text-align: center;
+	position: relative;
+	font-family: PF Ronda Seven;
+	line-height: 31px;
+
+	@media only screen and (max-width: 600px) {
+		font-size: 0.875rem;
+	} 
+
+	& > p {
+		margin-bottom:30px;
+	}
+	& > p:last-child {
+		margin-bottom:0px;
+	}
+	margin-bottom: 60px;
+}
 
 .App {
 	width: 100%;
@@ -180,15 +206,11 @@ $header-space-bottom: 60px;
 		width: $desktop-text-section;
 		z-index: 2;
 	}
-	&_text{
-		 text-align: center;
-	}
-	&_paragraph {
-		@include paragraph();
+	&_paragraphContainer {
+		@include paragraphContainer();
 		color: #064F43;
 		font-weight: 600;
-		padding-left: 1rem;
-		padding-right: 1rem;
+		text-align: center;
 	}
 
 	&_img {
@@ -382,50 +404,67 @@ $header-space-bottom: 60px;
 	@include m.flex-master(null, center, null);
 	shape-outside: url("/img/home/backgrounds/Layer3.png");
 
-	&_text {
+	&_container {
 		width: $desktop-text-section;
+	}
+	&_text {
 		@include m.flex-master(column, null, center);
-		margin-top: 45%;
+		margin-top: 70%;
 		position: relative;
 		text-align: center;
 	}
 	&_heading {
 		@include heading();	
 		text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
-		margin-bottom: 2.5rem;
+		margin-bottom: $header-space-bottom;
 	}
-	&_paragraph {
-		@include paragraph();
-		font-family: PF Ronda Seven;
+	&_paragraphContainer {
+		@include paragraphContainer();
 	}
 
-	&_star{
+	&_star1Container {
+		width:100%;
+		height: $header-space-bottom;
+		align-self: start;
+		// margin-top: 60px;
+		position: relative;
+	}
+
+	&_star2Container {
+		width:100%;
+		height: $header-space-bottom;
+		align-self: end;
+		margin-bottom: 60px;
+		position: relative;
+	}
+
+	&_star {
 		position: absolute;
 		height: auto;
 		@media only screen and (max-width: 1200px) {
 			width: 60px;
-			top: 35vw;
+			height:auto;
 		}
 		@media only screen and (max-width: 800px) {
 			width: 32px;
-			top: 40vw;
 		}
 		@media only screen and (max-width: 400px) {
 			width: 15px;
 		}
 	}
 	&_star1 {
-		left: 8%;
-		top: 27vw;
 		width: 90px;
+		height: 75px;
 		transform: skew(23deg, -15deg);
-		
 	}
 	&_star2 {
-		right: 8%;
-		top: -8vw;
+		right: 0;
 		width: 67px;
 		transform: skew(340deg, 26.5deg);
+
+		@media only screen and (max-width: 850px) {
+			display: none;
+		}
 	}
 }
 .crab {
@@ -445,7 +484,8 @@ $header-space-bottom: 60px;
 	&_heading {
 		@include heading();	
 		text-shadow: 1px 4px #004D41;
-		margin-bottom: 2rem;
+		word-spacing: 0rem;
+		letter-spacing: 0rem;
 	}
 	&_rarityPopup {
 		display:flex;
@@ -454,33 +494,35 @@ $header-space-bottom: 60px;
 			width:50%;
 		}
 	}
-	&_paragraph {
-		@include paragraph();
-		margin-bottom: 2rem;
+	&_paragraphContainer {
+		@include paragraphContainer();
+		margin-bottom: $header-space-bottom;
 		position:relative; 
-		// display:flex;
-		// flex-direction: row;
+		font-size: 1.25rem;
 	}
 	&_reroll{
 		display:flex;
 		flex-direction: row;
 		justify-content:center;
-		margin-bottom: 1rem;
+		margin-bottom: $header-space-bottom;
 
 		& > a {
 			position:relative;
-			width: 30%;
+			width: 202px;
+			height:90px;
 			color: #FFFFFF!important;
 
 			& > div {
 				position:absolute;
-				width:100%;
-				height:100%;
-				top:1.2rem;
-				text-align: center;
+				width:135px;
+				height:70px;
+				top: 3px;
+				right:4px;
+				display:flex;
+				justify-content:center;
 				align-items: center;
 				font-family: Safety Goggles;
-				font-size:2rem;
+				font-size:2.1875rem;
 			}
 		}
 	}
@@ -605,7 +647,7 @@ $header-space-bottom: 60px;
 		}
 	}
 	&_frame {
-		width: min(70vw, 500px); // 70% 40rem
+		width: min(60vw, 500px); // 70% 40rem
 		height:auto;
 		position:relative;
 		
@@ -645,8 +687,8 @@ $header-space-bottom: 60px;
 	&_heading {
 		@include heading();	
 	}
-	&_paragraph {
-		@include paragraph();
+	&_paragraphContainer {
+		@include paragraphContainer();
 		margin-top: 3rem;
 	}
 
@@ -779,12 +821,8 @@ $header-space-bottom: 60px;
 		margin-bottom: $header-space-bottom;
 		position: relative;
 	}
-	&_followText {
-		font-size:$desktop-text-size;
-		font-family: PF Ronda Seven;
-		margin-bottom: $header-space-bottom;
-		line-height: 23.93px;
-		text-align: center;
+	&_followContainer {
+		@include paragraphContainer();
 	}
 	&_bubble1 {
 		position: absolute;
@@ -865,12 +903,15 @@ $header-space-bottom: 60px;
 			width: min(400px, 33%);
 		}
 	}
-	&_text {
-		@include paragraph();
+	&_presented {
+		@include paragraphContainer();
+	}
+	
+	&_mission {
+		@include paragraphContainer();
 		& > p {
 			color: #95DDC0;
 		}
-		margin-bottom:$header-space-bottom;
 	}
 	
 	&_policy {
@@ -986,9 +1027,10 @@ $header-space-bottom: 60px;
 	}
 	.nft {
 		&_text {
-			margin-top: 45%;
+			margin-top: 65%;
 		}
 	}
+	
 	.crab {
 		&_text {
 			margin-top: 30%;
@@ -1070,6 +1112,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 			width: max(65vw, 600px);
 		}
 	}
+	
 	.crab {
 		&_text {
 			width: 80%;
@@ -1086,6 +1129,33 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.shop_img {
 		width: min(55vh, 600px);
 	}
+
+	.crab {
+		&_container {
+			width: $mobile-text-section;
+		}
+
+	}
+	.nft {
+		padding-bottom: 80%; // for covering behind layer
+		&_container {
+			width: $mobile-text-section;
+		}
+		&_text {
+			margin-top: 60%;
+		}
+		&_star1Container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&_star1 {
+			width: 70px;
+			height: 58px;
+			transform: skew(0deg, 0deg);
+		}
+	}
+
 	.footer {
 		&_zone {
 			padding-bottom: 5%;
@@ -1143,13 +1213,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 			padding-bottom: 2%;
 		}
 	}
-	.nft {
-		padding-bottom: 57%; // for covering behind layer
-		&_text {
-			margin: $mobile-margin;
-			margin-top: 55%;
-		}
-	}
+	
 	.crab {
 		&_anat {
 			padding-bottom: 80%;
@@ -1210,7 +1274,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	.crab {
 		&_text {
 			font-weight: 500;
-			margin: $mobile-margin;
+			// margin: $mobile-margin;
 		}
 	}
 	.treasure {
@@ -1254,8 +1318,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 			font-size:0.875rem;
 		}
 		&_buttons {
-			
-			
 			& > a {
 				width:100%;
 			}

@@ -71,7 +71,7 @@ const CrabCanvas = ({ sources, data }) => {
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
-                console.log(images);
+                //console.log(images);
                 setImageSrc(images);
                 setIsLoaded(true);
             });

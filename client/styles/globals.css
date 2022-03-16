@@ -12,13 +12,13 @@
 @font-face {
 	src: url("/fonts/pf_ronda_seven.ttf");
 	font-family: PF Ronda Seven;
-	font-display: swap;
+	/* font-display: swap; */
 }
 
 @font-face {
 	src: url("/fonts/Safety Goggles.ttf");
 	font-family: Safety Goggles;
-	font-display: swap;
+	/* font-display: swap; */
 }
 * {
 	box-sizing: border-box;

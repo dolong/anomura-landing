@@ -83,12 +83,12 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     alt=""
                 />
                 <div className={`${s.comingsoon_zone}`}>
-                    <div className={s.comingsoon_text}>
-                        <p className={s.comingsoon_paragraph}>
+                    <div className={s.comingsoon_paragraphContainer}>
+                        <p>
                             Anomura is a new retro play-to-earn game utilizing NFTs and blockchain
                             technology.
                         </p>
-                        <p className={s.comingsoon_paragraph}>
+                        <p>
                             Addictive gameplay, beautiful pixel art, contributions to wildlife
                             preservation - this is a game with a greater purpose.
                         </p>

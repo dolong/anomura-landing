@@ -59,6 +59,7 @@
     filter: opacity(1);
   }
 }
+/* For all heading on top of paragraph  */
 .App {
   width: 100%;
   position: relative;
@@ -201,10 +202,7 @@
   width: 50%;
   z-index: 2;
 }
-.comingsoon_text {
-  text-align: center;
-}
-.comingsoon_paragraph {
+.comingsoon_paragraphContainer {
   font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
@@ -212,10 +210,21 @@
   position: relative;
   font-family: PF Ronda Seven;
   line-height: 31px;
+  margin-bottom: 60px;
   color: #064F43;
   font-weight: 600;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .comingsoon_paragraphContainer {
+    font-size: 0.875rem;
+  }
+}
+.comingsoon_paragraphContainer > p {
+  margin-bottom: 30px;
+}
+.comingsoon_paragraphContainer > p:last-child {
+  margin-bottom: 0px;
 }
 .comingsoon_img {
   width: min(60vw, 850px);
@@ -390,22 +399,38 @@
   justify-content: center;
   shape-outside: url("/img/home/backgrounds/Layer3.png");
 }
-.nft_text {
+.nft_container {
   width: 50%;
+}
+.nft_text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 45%;
+  margin-top: 70%;
   position: relative;
   text-align: center;
 }
 .nft_heading {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
+  line-height: 2.6rem;
   font-family: Safety Goggles;
+  margin-bottom: 60px;
+  text-align: center;
   text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
-  margin-bottom: 2.5rem;
+  margin-bottom: 60px;
 }
-.nft_paragraph {
+@media only screen and (max-width: 850px) {
+  .nft_heading {
+    font-size: 3.1875rem;
+    line-height: 2.4rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .nft_heading {
+    font-size: 2.1875rem;
+  }
+}
+.nft_paragraphContainer {
   font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
@@ -413,7 +438,31 @@
   position: relative;
   font-family: PF Ronda Seven;
   line-height: 31px;
-  font-family: PF Ronda Seven;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 600px) {
+  .nft_paragraphContainer {
+    font-size: 0.875rem;
+  }
+}
+.nft_paragraphContainer > p {
+  margin-bottom: 30px;
+}
+.nft_paragraphContainer > p:last-child {
+  margin-bottom: 0px;
+}
+.nft_star1Container {
+  width: 100%;
+  height: 60px;
+  align-self: start;
+  position: relative;
+}
+.nft_star2Container {
+  width: 100%;
+  height: 60px;
+  align-self: end;
+  margin-bottom: 60px;
+  position: relative;
 }
 .nft_star {
   position: absolute;
@@ -422,13 +471,12 @@
 @media only screen and (max-width: 1200px) {
   .nft_star {
     width: 60px;
-    top: 35vw;
+    height: auto;
   }
 }
 @media only screen and (max-width: 800px) {
   .nft_star {
     width: 32px;
-    top: 40vw;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -437,16 +485,19 @@
   }
 }
 .nft_star1 {
-  left: 8%;
-  top: 27vw;
   width: 90px;
+  height: 75px;
   transform: skew(23deg, -15deg);
 }
 .nft_star2 {
-  right: 8%;
-  top: -8vw;
+  right: 0;
   width: 67px;
   transform: skew(340deg, 26.5deg);
+}
+@media only screen and (max-width: 850px) {
+  .nft_star2 {
+    display: none;
+  }
 }
 
 .crab_anat {
@@ -468,10 +519,25 @@
   align-items: center;
 }
 .crab_heading {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
+  line-height: 2.6rem;
   font-family: Safety Goggles;
+  margin-bottom: 60px;
+  text-align: center;
   text-shadow: 1px 4px #004D41;
-  margin-bottom: 2rem;
+  word-spacing: 0rem;
+  letter-spacing: 0rem;
+}
+@media only screen and (max-width: 850px) {
+  .crab_heading {
+    font-size: 3.1875rem;
+    line-height: 2.4rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .crab_heading {
+    font-size: 2.1875rem;
+  }
 }
 .crab_rarityPopup {
   display: flex;
@@ -480,7 +546,7 @@
 .crab_rarityPopup > div {
   width: 50%;
 }
-.crab_paragraph {
+.crab_paragraphContainer {
   font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
@@ -488,29 +554,45 @@
   position: relative;
   font-family: PF Ronda Seven;
   line-height: 31px;
-  margin-bottom: 2rem;
+  margin-bottom: 60px;
+  margin-bottom: 60px;
   position: relative;
+  font-size: 1.25rem;
+}
+@media only screen and (max-width: 600px) {
+  .crab_paragraphContainer {
+    font-size: 0.875rem;
+  }
+}
+.crab_paragraphContainer > p {
+  margin-bottom: 30px;
+}
+.crab_paragraphContainer > p:last-child {
+  margin-bottom: 0px;
 }
 .crab_reroll {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 60px;
 }
 .crab_reroll > a {
   position: relative;
-  width: 30%;
+  width: 202px;
+  height: 90px;
   color: #FFFFFF !important;
 }
 .crab_reroll > a > div {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 1.2rem;
-  text-align: center;
+  width: 135px;
+  height: 70px;
+  top: 3px;
+  right: 4px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   font-family: Safety Goggles;
-  font-size: 2rem;
+  font-size: 2.1875rem;
 }
 .crab_normal {
   color: #58BCA2;
@@ -633,7 +715,7 @@
   font-size: 1.5rem;
 }
 .crab_frame {
-  width: min(70vw, 500px);
+  width: min(60vw, 500px);
   height: auto;
   position: relative;
 }
@@ -679,10 +761,24 @@
   text-align: center;
 }
 .when_heading {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
+  line-height: 2.6rem;
   font-family: Safety Goggles;
+  margin-bottom: 60px;
+  text-align: center;
 }
-.when_paragraph {
+@media only screen and (max-width: 850px) {
+  .when_heading {
+    font-size: 3.1875rem;
+    line-height: 2.4rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .when_heading {
+    font-size: 2.1875rem;
+  }
+}
+.when_paragraphContainer {
   font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
@@ -690,7 +786,19 @@
   position: relative;
   font-family: PF Ronda Seven;
   line-height: 31px;
+  margin-bottom: 60px;
   margin-top: 3rem;
+}
+@media only screen and (max-width: 600px) {
+  .when_paragraphContainer {
+    font-size: 0.875rem;
+  }
+}
+.when_paragraphContainer > p {
+  margin-bottom: 30px;
+}
+.when_paragraphContainer > p:last-child {
+  margin-bottom: 0px;
 }
 .when_roadmap {
   width: 50%;
@@ -838,12 +946,26 @@
   margin-bottom: 60px;
   position: relative;
 }
-.footer_followText {
+.footer_followContainer {
   font-size: 1.125rem;
-  font-family: PF Ronda Seven;
-  margin-bottom: 60px;
-  line-height: 23.93px;
+  font-weight: 400;
+  font-style: normal;
   text-align: center;
+  position: relative;
+  font-family: PF Ronda Seven;
+  line-height: 31px;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 600px) {
+  .footer_followContainer {
+    font-size: 0.875rem;
+  }
+}
+.footer_followContainer > p {
+  margin-bottom: 30px;
+}
+.footer_followContainer > p:last-child {
+  margin-bottom: 0px;
 }
 .footer_bubble1 {
   position: absolute;
@@ -940,7 +1062,7 @@
 .footer_logo > img {
   width: min(400px, 33%);
 }
-.footer_text {
+.footer_presented {
   font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
@@ -950,7 +1072,39 @@
   line-height: 31px;
   margin-bottom: 60px;
 }
-.footer_text > p {
+@media only screen and (max-width: 600px) {
+  .footer_presented {
+    font-size: 0.875rem;
+  }
+}
+.footer_presented > p {
+  margin-bottom: 30px;
+}
+.footer_presented > p:last-child {
+  margin-bottom: 0px;
+}
+.footer_mission {
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  position: relative;
+  font-family: PF Ronda Seven;
+  line-height: 31px;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 600px) {
+  .footer_mission {
+    font-size: 0.875rem;
+  }
+}
+.footer_mission > p {
+  margin-bottom: 30px;
+}
+.footer_mission > p:last-child {
+  margin-bottom: 0px;
+}
+.footer_mission > p {
   color: #95DDC0;
 }
 .footer_policy {
@@ -1059,7 +1213,7 @@
   }
 
   .nft_text {
-    margin-top: 45%;
+    margin-top: 65%;
   }
 
   .crab_text {
@@ -1138,6 +1292,30 @@
     width: min(55vh, 600px);
   }
 
+  .crab_container {
+    width: 60%;
+  }
+
+  .nft {
+    padding-bottom: 80%;
+  }
+  .nft_container {
+    width: 60%;
+  }
+  .nft_text {
+    margin-top: 60%;
+  }
+  .nft_star1Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nft_star1 {
+    width: 70px;
+    height: 58px;
+    transform: skew(0deg, 0deg);
+  }
+
   .footer_zone {
     padding-bottom: 5%;
   }
@@ -1184,14 +1362,6 @@
     font-size: 1.3rem;
     padding-top: 2%;
     padding-bottom: 2%;
-  }
-
-  .nft {
-    padding-bottom: 57%;
-  }
-  .nft_text {
-    margin: 40% 10% 0 10%;
-    margin-top: 55%;
   }
 
   .crab_anat {
@@ -1253,7 +1423,6 @@
 @media only screen and (max-width: 700px) {
   .crab_text {
     font-weight: 500;
-    margin: 40% 10% 0 10%;
   }
 
   .treasure_chestContainer {
