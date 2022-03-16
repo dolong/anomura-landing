@@ -3,7 +3,8 @@ import { useScrollValue } from "/lib/useScrollValue";
 import { TreasureChest } from "/containers/home/ContainerIndex";
 import s from "/sass/home/home.module.css";
 
-const InitialOffset = 4300,
+const InitialOffset = 4200,
+    SixteenHundredOffset = -900,
     TwelveHundredOffSet = -800,
     OneThousandOffSet = -1100,
     EightHundredOffSet = -950,
@@ -16,6 +17,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,
         EightHundredOffSet,

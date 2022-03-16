@@ -42,6 +42,16 @@ $header-space-bottom: 60px;
 	margin-bottom: $header-space-bottom;
 	text-align: center;
 
+	@media only screen and (min-width: 2560px) {
+		font-size: 6.67rem;
+		line-height: 31px;
+	} 
+
+	@media only screen and (min-width: 1440px) {
+		font-size: 5.15rem;
+		line-height: 31px;
+	} 
+
 	@media only screen and (max-width: 850px) {
 		font-size: 3.1875rem;
 		line-height: 2.4rem;
@@ -69,6 +79,16 @@ $header-space-bottom: 60px;
 	}
 	margin-bottom: 60px;
 
+	@media only screen and (min-width: 2560px) {
+		font-size: 2rem;
+		line-height: 31px;
+	} 
+
+	@media only screen and (min-width: 1440px) {
+		font-size: 1.546rem;
+		line-height: 31px;
+	} 
+
 	@media only screen and (max-width: 600px) {
 		font-size: 0.875rem;
 		line-height: 23px;
@@ -83,7 +103,7 @@ $header-space-bottom: 60px;
 @mixin rarityHover () {
 	position:relative; 
 	display: inline-block;
-
+	font-weight: 600;
 	&_popup {
 		position:absolute;	
 		width:204px;
@@ -731,7 +751,7 @@ $header-space-bottom: 60px;
 	}
 	&_container {
 		width:$desktop-text-section;
-		margin-top: 30%;
+		margin-top: 37%;
 	}
 	&_text {
 		position: relative;
@@ -758,10 +778,14 @@ $header-space-bottom: 60px;
 
 			&_image {
 				width: min(12vw, 140px);
-				@media only screen and (max-width: 600px) {
-					width: min(15vw, 140px);
+				@media only screen and (max-width: 900px) {
+					width: min(14vw, 140px);
 				}
 
+				@media only screen and (max-width: 800px) {
+					width: min(16vw, 140px);
+					height: 150px;
+				}
 				@media only screen and (max-width: 400px) {
 					width: min(15vw, 140px);
 					height: 80%;
@@ -815,6 +839,10 @@ $header-space-bottom: 60px;
 				left: 18vw;
 				top: 10vw;
 			}
+			@media only screen and (max-width: 1000px) {
+				width: 32px;
+				top: 16vw;
+			}
 			@media only screen and (max-width: 800px) {
 				width: 22px;
 				top: 15vw;
@@ -845,6 +873,10 @@ $header-space-bottom: 60px;
 			@media only screen and (max-width: 1600px) {
 				top: 12vw;
 				left: 4vw;
+			}
+			@media only screen and (max-width: 1000px) {
+				width: 32px;
+				top: 15vw;
 			}
 			@media only screen and (max-width: 800px) {
 				top: 15vw;

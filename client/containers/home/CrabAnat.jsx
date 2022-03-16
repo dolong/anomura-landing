@@ -2,9 +2,11 @@ import React from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import { randomIntFromInterval } from "../../utils/utils";
-const InitialOffset = 2050,
-    TwelveHundredOffSet = -200,
-    OneThousandOffSet = -400,
+
+const InitialOffset = 1950,
+    SixteenHundredOffset = -220,
+    TwelveHundredOffSet = -100,
+    OneThousandOffSet = -250,
     EightHundredOffSet = -250,
     SixHundredOffSet = -260,
     FourHundredOffSet = -250;
@@ -64,6 +66,7 @@ export default function CrabAnat({ ScrollPercent }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,
         EightHundredOffSet,
@@ -97,7 +100,7 @@ export default function CrabAnat({ ScrollPercent }) {
                 ...prevState,
                 currentImage: randomIntFromInterval(0, 14),
             }));
-            if (counter <= 15) {
+            if (counter <= 20) {
                 counter++;
             } else {
                 clearInterval(imageInterval);

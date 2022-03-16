@@ -4,6 +4,7 @@ import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
 const InitialOffset = 5800,
+    SixteenHundredOffset = -1100,
     TwelveHundredOffSet = -1000,
     OneThousandOffSet = -1250,
     EightHundredOffSet = -1050,
@@ -16,6 +17,7 @@ export default function Footer({ ScrollPercent }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,
         EightHundredOffSet,

@@ -249,6 +249,18 @@
 .comingsoon_paragraphContainer > p:last-child {
   margin-bottom: 0px;
 }
+@media only screen and (min-width: 2560px) {
+  .comingsoon_paragraphContainer {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .comingsoon_paragraphContainer {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .comingsoon_paragraphContainer {
     font-size: 0.875rem;
@@ -488,6 +500,18 @@
   text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
   margin-bottom: 60px;
 }
+@media only screen and (min-width: 2560px) {
+  .nft_heading {
+    font-size: 6.67rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .nft_heading {
+    font-size: 5.15rem;
+    line-height: 31px;
+  }
+}
 @media only screen and (max-width: 850px) {
   .nft_heading {
     font-size: 3.1875rem;
@@ -514,6 +538,18 @@
 }
 .nft_paragraphContainer > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (min-width: 2560px) {
+  .nft_paragraphContainer {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .nft_paragraphContainer {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .nft_paragraphContainer {
@@ -598,6 +634,18 @@
   word-spacing: 0rem;
   letter-spacing: 0rem;
 }
+@media only screen and (min-width: 2560px) {
+  .crab_heading {
+    font-size: 6.67rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .crab_heading {
+    font-size: 5.15rem;
+    line-height: 31px;
+  }
+}
 @media only screen and (max-width: 850px) {
   .crab_heading {
     font-size: 3.1875rem;
@@ -634,6 +682,18 @@
 }
 .crab_paragraphContainer > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (min-width: 2560px) {
+  .crab_paragraphContainer {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .crab_paragraphContainer {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .crab_paragraphContainer {
@@ -672,6 +732,7 @@
   color: #58BCA2;
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 .crab_normal_popup {
   position: absolute;
@@ -719,6 +780,7 @@
   color: #B88AF5;
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 .crab_magic_popup {
   position: absolute;
@@ -766,6 +828,7 @@
   color: #8ED5FB;
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 .crab_rare_popup {
   position: absolute;
@@ -813,6 +876,7 @@
   color: #F19A46;
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 .crab_legendary_popup {
   position: absolute;
@@ -918,7 +982,7 @@
 }
 .when_container {
   width: 50%;
-  margin-top: 30%;
+  margin-top: 37%;
 }
 .when_text {
   position: relative;
@@ -930,6 +994,18 @@
   font-family: Safety Goggles;
   margin-bottom: 60px;
   text-align: center;
+}
+@media only screen and (min-width: 2560px) {
+  .when_heading {
+    font-size: 6.67rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .when_heading {
+    font-size: 5.15rem;
+    line-height: 31px;
+  }
 }
 @media only screen and (max-width: 850px) {
   .when_heading {
@@ -958,6 +1034,18 @@
 .when_paragraphContainer > p:last-child {
   margin-bottom: 0px;
 }
+@media only screen and (min-width: 2560px) {
+  .when_paragraphContainer {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .when_paragraphContainer {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .when_paragraphContainer {
     font-size: 0.875rem;
@@ -978,9 +1066,15 @@
 .when_roadmap_imgContainer_image {
   width: min(12vw, 140px);
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .when_roadmap_imgContainer_image {
-    width: min(15vw, 140px);
+    width: min(14vw, 140px);
+  }
+}
+@media only screen and (max-width: 800px) {
+  .when_roadmap_imgContainer_image {
+    width: min(16vw, 140px);
+    height: 150px;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -1040,6 +1134,12 @@
     top: 10vw;
   }
 }
+@media only screen and (max-width: 1000px) {
+  .when_roadmap_trail1 {
+    width: 32px;
+    top: 16vw;
+  }
+}
 @media only screen and (max-width: 800px) {
   .when_roadmap_trail1 {
     width: 22px;
@@ -1078,6 +1178,12 @@
   .when_roadmap_trail2 {
     top: 12vw;
     left: 4vw;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .when_roadmap_trail2 {
+    width: 32px;
+    top: 15vw;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -1183,6 +1289,18 @@
 }
 .footer_followContainer > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (min-width: 2560px) {
+  .footer_followContainer {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .footer_followContainer {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .footer_followContainer {
@@ -1310,6 +1428,18 @@
 .footer_presented > p:last-child {
   margin-bottom: 0px;
 }
+@media only screen and (min-width: 2560px) {
+  .footer_presented {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .footer_presented {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .footer_presented {
     font-size: 0.875rem;
@@ -1331,6 +1461,18 @@
 }
 .footer_mission > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (min-width: 2560px) {
+  .footer_mission {
+    font-size: 2rem;
+    line-height: 31px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .footer_mission {
+    font-size: 1.546rem;
+    line-height: 31px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .footer_mission {
