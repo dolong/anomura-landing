@@ -3,11 +3,11 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 600,
-    TwelveHundredOffSet = -85,
-    OneThousandOffSet = -60,
-    EightHundredOffSet = 70,
-    SixHundredOffSet = -150,
-    FourHundredOffSet = -140;
+    TwelveHundredOffSet = 25,
+    OneThousandOffSet = 50,
+    EightHundredOffSet = 90,
+    SixHundredOffSet = 40,
+    FourHundredOffSet = 10;
 
 export default function NFT({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-6.5);
@@ -28,7 +28,7 @@ export default function NFT({ ScrollPercent, audioControl }) {
 
     useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-4.5);
-        if (window.innerWidth <= 400) setScrollSpeed(-2.5);
+        if (window.innerWidth <= 600) setScrollSpeed(-2.5);
     });
 
     useEffect(() => {

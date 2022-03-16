@@ -45,16 +45,25 @@ export default function ShopZone({ audioControl, setAudioControl }) {
     };
     return (
         <div>
+            {/******************* Shop Zone *****************/}
             <div className={`${s.shop_zone}`}>
+                <div className={s.shop_fish1}>
+                    <img src="/img/home/Fish Left.gif" alt="" />
+                </div>
+
                 <picture>
                     <source
-                        srcSet="/img/home/shop.webp"
+                        srcSet="/img/home/shop new sign.webp"
                         media="(min-width: 1200px)"
                         type="image/webp"
                     />
-                    <source srcSet="/img/home/shop.gif" media="(min-width: 800px)" />
-                    <img className={s.shop_img} src="/img/home/shop.gif" alt="" />
+                    <source srcSet="/img/home/shop new sign.gif" media="(min-width: 800px)" />
+                    <img className={s.shop_img} src="/img/home/shop new sign.gif" alt="" />
                 </picture>
+
+                <div className={s.shop_fish2}>
+                    <img src="/img/home/Fish Right.gif" alt="" />
+                </div>
             </div>
             {/******************* Sand Zone and Coming Soon *****************/}
             <div className={s.sand_zone}>
@@ -82,6 +91,11 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     }`}
                     alt=""
                 />
+
+                <div className={`${s.comingsoon_imgMobile} `}>
+                    <img src="/img/home/follow_us/coming.gif" alt="" />
+                    <img src="/img/home/follow_us/soon.gif" alt="" />
+                </div>
                 <div className={`${s.comingsoon_zone}`}>
                     <div className={s.comingsoon_paragraphContainer}>
                         <p>
@@ -115,10 +129,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             className={`${s.sandBottom_leftSticker_icons_instagram}`}
                         />
                     </div>
-                    <img
-                        className={s.sandBottom_icons}
-                        src="/img/home/bottomSand/Sticky Socials.png"
-                    />
+                    <img className={s.sandBottom_icons} src="/img/home/bottomSand/socials.png" />
                 </div>
                 <div className={s.sandBottom_right}>
                     <div className={`${s.sandBottom_right_container}`}>
@@ -152,6 +163,14 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         className={s.sandBottom_image}
                         src="/img/home/bottomSand/Wood sign_blank.png"
                     />
+                </div>
+                <div className={s.sandBottom_mobileIcons}>
+                    <a href="https://discord.com/anomuragame" target="_blank">
+                        <img src="/img/home/follow_us/mobile discord.png" />
+                    </a>
+                    <a href="https://twitter.com/anomuragame" target="_blank">
+                        <img src="/img/home/follow_us/mobile twitter.png" />
+                    </a>
                 </div>
             </div>
         </div>

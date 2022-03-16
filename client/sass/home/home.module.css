@@ -69,18 +69,22 @@
 }
 @media only screen and (max-width: 3800px) {
   .App {
-    background-size: 100% 29%;
+    background-size: 100% 25%;
   }
 }
-@media only screen and (max-width: 2400px) {
+@media only screen and (max-width: 2560px) {
   .App {
-    background-size: 100% 31%;
+    background-size: 100% 25%;
   }
 }
 @media only screen and (max-width: 1600px) {
   .App {
     background-size: 100% 37%;
-    line-height: 1.2;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .App {
+    background-size: 100% 32%;
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -95,8 +99,14 @@
 }
 @media only screen and (max-width: 600px) {
   .App {
-    background-size: 100% 52%;
-    padding-bottom: 65%;
+    background-size: 100% 38%;
+    padding-bottom: 25%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .App {
+    background-size: 100% 35%;
+    padding-bottom: 25%;
   }
 }
 
@@ -153,23 +163,41 @@
   position: relative;
   display: flex;
   justify-content: center;
+  flex-direction: row;
   z-index: 3;
   padding-top: 4%;
 }
-.shop_text {
-  flex-basis: 35%;
-  z-index: 2;
+.shop_fish1 {
+  width: min(8vw, 131px);
+  position: relative;
+}
+.shop_fish1 > img {
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .shop_fish1 {
+    display: none;
+  }
+}
+.shop_fish2 {
+  width: min(8vw, 131px);
+  position: relative;
+}
+.shop_fish2 > img {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .shop_fish2 {
+    display: none;
+  }
 }
 .shop_img {
-  width: min(60vw, 850px);
+  width: min(70vw, 850px);
   z-index: 2;
-}
-.shop_heading {
-  background-color: #4cdebc;
-  color: #191226;
-  padding: 3px 10px 3px 10px;
-  min-width: 130px;
-  font-weight: 600;
 }
 
 .sand_zone {
@@ -187,7 +215,7 @@
   background-size: 100%;
   position: absolute;
   top: -3vh;
-  padding-bottom: 65%;
+  padding-bottom: 150%;
   height: clamp(400px, 24vh, 2888px);
   -o-object-fit: cover;
      object-fit: cover;
@@ -215,21 +243,43 @@
   font-weight: 600;
   text-align: center;
 }
-@media only screen and (max-width: 600px) {
-  .comingsoon_paragraphContainer {
-    font-size: 0.875rem;
-  }
-}
 .comingsoon_paragraphContainer > p {
   margin-bottom: 30px;
 }
 .comingsoon_paragraphContainer > p:last-child {
   margin-bottom: 0px;
 }
+@media only screen and (max-width: 600px) {
+  .comingsoon_paragraphContainer {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
+}
 .comingsoon_img {
   width: min(60vw, 850px);
   position: relative;
-  margin-bottom: 31px;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 600px) {
+  .comingsoon_img {
+    display: none;
+  }
+}
+.comingsoon_imgMobile {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .comingsoon_imgMobile {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    z-index: 2;
+  }
+  .comingsoon_imgMobile > img:nth-child(2) {
+    width: 80%;
+  }
 }
 .comingsoon_iconContainer {
   position: relative;
@@ -292,6 +342,9 @@
   transition: opacity 2s;
   pointer-events: none;
 }
+.sandBottom_mobileIcons {
+  display: none;
+}
 .sandBottom_icons {
   align-self: flex-end;
   width: auto;
@@ -305,7 +358,7 @@
   position: absolute;
   display: flex;
   justify-content: space-between;
-  height: 120px;
+  height: 200px;
   left: 4%;
   width: 79%;
   pointer-events: auto;
@@ -314,24 +367,35 @@
   z-index: 2;
 }
 .sandBottom_leftSticker_icons_twitter {
-  width: 24%;
-  height: 41%;
-  margin-left: 4%;
-  margin-top: 4%;
-  transform: skew(342deg, 18deg);
+  width: 28%;
+  margin-left: 1%;
+  margin-top: 2%;
+  background: url("/img/home/bottomSand/twitter_inactive.png") no-repeat;
+  background-size: contain;
+}
+.sandBottom_leftSticker_icons_twitter:hover {
+  background: url("/img/home/bottomSand/twitter.png") no-repeat;
+  background-size: contain;
 }
 .sandBottom_leftSticker_icons_discord {
-  width: 26%;
-  height: 40%;
-  margin-top: 8%;
-  transform: skew(20deg, -17deg);
+  width: 29%;
+  margin-top: 7%;
+  background: url("/img/home/bottomSand/discord.png") no-repeat;
+  background-size: contain;
+}
+.sandBottom_leftSticker_icons_discord:hover {
+  background: url("/img/home/bottomSand/discord_hover.png") no-repeat;
+  background-size: contain;
 }
 .sandBottom_leftSticker_icons_instagram {
-  width: 24%;
-  height: 40%;
-  margin-top: 13%;
-  margin-right: 3%;
-  transform: skew(342deg, 18deg);
+  width: 29%;
+  margin-top: 9.8%;
+  background: url("/img/home/bottomSand/instagram.png") no-repeat;
+  background-size: contain;
+}
+.sandBottom_leftSticker_icons_instagram:hover {
+  background: url("/img/home/bottomSand/instagram_hover.png") no-repeat;
+  background-size: contain;
 }
 .sandBottom_right {
   flex: 20%;
@@ -345,7 +409,7 @@
   right: 0;
   bottom: 0;
   height: 100%;
-  width: min(20vw, 150px);
+  width: min(18vw, 170px);
   position: absolute;
   pointer-events: auto;
 }
@@ -356,18 +420,24 @@
   width: auto;
   margin-top: 9%;
   height: 33%;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-family: Safety Goggles;
-  color: #F8D4B3 !important;
+  color: #F0C297 !important;
 }
 .sandBottom_right_container_discord:hover {
-  color: #F0C297 !important;
+  color: #FFCF8E !important;
+  text-decoration: none;
 }
 .sandBottom_right_container_soundOff {
   height: 33%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #F0C297;
+}
+.sandBottom_right_container_soundOff:hover {
+  color: #FFCF8E !important;
+  text-decoration: none;
 }
 .sandBottom_right_container_soundOff_link {
   height: 40%;
@@ -377,13 +447,12 @@
   margin-right: 5px;
 }
 .sandBottom_right_container_soundOff_text {
-  color: #F8D4B3;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-family: Safety Goggles;
 }
 .sandBottom_image {
   height: auto;
-  width: min(20vw, 150px);
+  width: min(18vw, 170px);
   margin-left: auto;
 }
 
@@ -440,16 +509,17 @@
   line-height: 31px;
   margin-bottom: 60px;
 }
-@media only screen and (max-width: 600px) {
-  .nft_paragraphContainer {
-    font-size: 0.875rem;
-  }
-}
 .nft_paragraphContainer > p {
   margin-bottom: 30px;
 }
 .nft_paragraphContainer > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (max-width: 600px) {
+  .nft_paragraphContainer {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
 }
 .nft_star1Container {
   width: 100%;
@@ -559,16 +629,17 @@
   position: relative;
   font-size: 1.25rem;
 }
-@media only screen and (max-width: 600px) {
-  .crab_paragraphContainer {
-    font-size: 0.875rem;
-  }
-}
 .crab_paragraphContainer > p {
   margin-bottom: 30px;
 }
 .crab_paragraphContainer > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (max-width: 600px) {
+  .crab_paragraphContainer {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
 }
 .crab_reroll {
   display: flex;
@@ -594,6 +665,9 @@
   font-family: Safety Goggles;
   font-size: 2.1875rem;
 }
+.crab_reroll > a:hover {
+  color: #38796D !important;
+}
 .crab_normal {
   color: #58BCA2;
   position: relative;
@@ -601,9 +675,8 @@
 }
 .crab_normal_popup {
   position: absolute;
-  width: min(30vw, 280px);
-  top: -300%;
-  left: -7rem;
+  width: 204px;
+  height: 87px;
 }
 .crab_normal_popup > img {
   position: absolute;
@@ -612,17 +685,35 @@
   filter: drop-shadow(5px 5px 2px #00574A);
 }
 .crab_normal_popupText {
+  height: 80px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 6rem;
 }
-.crab_normal_popupText > span {
-  font-size: 1rem;
-  color: #ffffff;
+.crab_normal_popupText > div {
+  height: 77px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
-  font-size: 1.5rem;
+}
+.crab_normal_popupText > div > span {
+  font-size: 0.8725rem;
+  font-family: PF Ronda Seven;
+  color: #ffffff;
+  line-height: 22px;
+}
+.crab_normal_popup {
+  top: -300%;
+  left: -4rem;
+}
+@media only screen and (max-width: 600px) {
+  .crab_normal_popup {
+    top: -400%;
+    left: -4.5rem;
+  }
 }
 .crab_magic {
   color: #B88AF5;
@@ -631,9 +722,8 @@
 }
 .crab_magic_popup {
   position: absolute;
-  width: min(30vw, 280px);
-  top: -300%;
-  left: -7rem;
+  width: 204px;
+  height: 87px;
 }
 .crab_magic_popup > img {
   position: absolute;
@@ -642,17 +732,35 @@
   filter: drop-shadow(5px 5px 2px #00574A);
 }
 .crab_magic_popupText {
+  height: 80px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 6rem;
 }
-.crab_magic_popupText > span {
-  font-size: 1rem;
-  color: #ffffff;
+.crab_magic_popupText > div {
+  height: 77px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
-  font-size: 1.5rem;
+}
+.crab_magic_popupText > div > span {
+  font-size: 0.8725rem;
+  font-family: PF Ronda Seven;
+  color: #ffffff;
+  line-height: 22px;
+}
+.crab_magic_popup {
+  top: -300%;
+  left: -4.75rem;
+}
+@media only screen and (max-width: 600px) {
+  .crab_magic_popup {
+    top: -400%;
+    left: -5.5rem;
+  }
 }
 .crab_rare {
   color: #8ED5FB;
@@ -661,9 +769,8 @@
 }
 .crab_rare_popup {
   position: absolute;
-  width: min(30vw, 280px);
-  top: -300%;
-  left: -7rem;
+  width: 204px;
+  height: 87px;
 }
 .crab_rare_popup > img {
   position: absolute;
@@ -672,17 +779,35 @@
   filter: drop-shadow(5px 5px 2px #00574A);
 }
 .crab_rare_popupText {
+  height: 80px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 6rem;
 }
-.crab_rare_popupText > span {
-  font-size: 1rem;
-  color: #ffffff;
+.crab_rare_popupText > div {
+  height: 77px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
-  font-size: 1.5rem;
+}
+.crab_rare_popupText > div > span {
+  font-size: 0.8725rem;
+  font-family: PF Ronda Seven;
+  color: #ffffff;
+  line-height: 22px;
+}
+.crab_rare_popup {
+  top: -300%;
+  left: -5.25rem;
+}
+@media only screen and (max-width: 600px) {
+  .crab_rare_popup {
+    top: -400%;
+    left: -5.5rem;
+  }
 }
 .crab_legendary {
   color: #F19A46;
@@ -691,9 +816,8 @@
 }
 .crab_legendary_popup {
   position: absolute;
-  width: min(30vw, 280px);
-  top: -300%;
-  left: -6rem;
+  width: 204px;
+  height: 87px;
 }
 .crab_legendary_popup > img {
   position: absolute;
@@ -702,17 +826,35 @@
   filter: drop-shadow(5px 5px 2px #00574A);
 }
 .crab_legendary_popupText {
+  height: 80px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 6rem;
 }
-.crab_legendary_popupText > span {
-  font-size: 1rem;
-  color: #ffffff;
+.crab_legendary_popupText > div {
+  height: 77px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
-  font-size: 1.5rem;
+}
+.crab_legendary_popupText > div > span {
+  font-size: 0.8725rem;
+  font-family: PF Ronda Seven;
+  color: #ffffff;
+  line-height: 22px;
+}
+.crab_legendary_popup {
+  top: -300%;
+  left: -5.25rem;
+}
+@media only screen and (max-width: 600px) {
+  .crab_legendary_popup {
+    top: -400%;
+    left: -5rem;
+  }
 }
 .crab_frame {
   width: min(60vw, 500px);
@@ -729,6 +871,26 @@
 }
 .crab_frame_image > img {
   width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  .crab_frame {
+    width: 400px;
+  }
+  .crab_frame_image {
+    top: 6.5%;
+    width: 89%;
+    left: 1rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .crab_frame {
+    width: 60vw;
+  }
+  .crab_frame_image {
+    top: 6.5%;
+    width: 89%;
+    left: 0.8rem;
+  }
 }
 .crab_rarityContainer {
   display: flex;
@@ -754,9 +916,11 @@
   align-items: center;
   padding-bottom: 60%;
 }
-.when_text {
-  margin-top: 30%;
+.when_container {
   width: 50%;
+  margin-top: 30%;
+}
+.when_text {
   position: relative;
   text-align: center;
 }
@@ -787,12 +951,6 @@
   font-family: PF Ronda Seven;
   line-height: 31px;
   margin-bottom: 60px;
-  margin-top: 3rem;
-}
-@media only screen and (max-width: 600px) {
-  .when_paragraphContainer {
-    font-size: 0.875rem;
-  }
 }
 .when_paragraphContainer > p {
   margin-bottom: 30px;
@@ -800,21 +958,36 @@
 .when_paragraphContainer > p:last-child {
   margin-bottom: 0px;
 }
-.when_roadmap {
-  width: 50%;
+@media only screen and (max-width: 600px) {
+  .when_paragraphContainer {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
 }
 .when_roadmap_details {
   display: flex;
-  margin-top: 30%;
+  margin-bottom: 60px;
   position: relative;
 }
 .when_roadmap_imgContainer {
   flex: 50%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .when_roadmap_imgContainer_image {
   width: min(12vw, 140px);
+}
+@media only screen and (max-width: 600px) {
+  .when_roadmap_imgContainer_image {
+    width: min(15vw, 140px);
+  }
+}
+@media only screen and (max-width: 400px) {
+  .when_roadmap_imgContainer_image {
+    width: min(15vw, 140px);
+    height: 80%;
+  }
 }
 .when_roadmap_imgContainer_anomura {
   width: min(16vw, 200px);
@@ -824,35 +997,67 @@
   display: flex;
   flex-direction: column;
   align-self: center;
-  font-size: 2.5rem;
 }
 .when_roadmap_text > span:nth-child(1) {
+  font-size: 1.25rem;
   color: #3760D1;
+  font-family: PF Ronda Seven;
+}
+@media only screen and (max-width: 600px) {
+  .when_roadmap_text > span:nth-child(1) {
+    font-size: 0.875rem;
+  }
 }
 .when_roadmap_text > span:nth-child(2) {
+  font-size: 2rem;
   color: #FFFFFF;
   font-family: Safety Goggles;
+}
+@media only screen and (max-width: 600px) {
+  .when_roadmap_text > span:nth-child(2) {
+    font-size: 1.25rem;
+  }
+}
+.when_roadmap_trailContainer {
+  position: relative;
 }
 .when_roadmap_trail1 {
   position: absolute;
   height: auto;
   top: 10vw;
-  left: 20vw;
+  right: 4vw;
   width: 40px;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 3800px) {
   .when_roadmap_trail1 {
-    width: 32px;
+    top: 6vw;
+    right: 7vw;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .when_roadmap_trail1 {
+    left: 18vw;
+    top: 10vw;
   }
 }
 @media only screen and (max-width: 800px) {
   .when_roadmap_trail1 {
     width: 22px;
+    top: 15vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .when_roadmap_trail1 {
+    width: 15px;
+    top: 24vw;
+    left: 14vw;
   }
 }
 @media only screen and (max-width: 400px) {
   .when_roadmap_trail1 {
     width: 15px;
+    top: 24vw;
+    left: 14vw;
   }
 }
 .when_roadmap_trail2 {
@@ -863,19 +1068,36 @@
   width: 40px;
   transform: rotate(180deg);
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 3800px) {
   .when_roadmap_trail2 {
-    width: 32px;
+    top: 7vw;
+    left: 7vw;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .when_roadmap_trail2 {
+    top: 12vw;
+    left: 4vw;
   }
 }
 @media only screen and (max-width: 800px) {
   .when_roadmap_trail2 {
+    top: 15vw;
     width: 22px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .when_roadmap_trail2 {
+    width: 15px;
+    top: 18vw;
+    left: -2vw;
   }
 }
 @media only screen and (max-width: 400px) {
   .when_roadmap_trail2 {
     width: 15px;
+    top: 18vw;
+    left: 0vw;
   }
 }
 
@@ -956,16 +1178,17 @@
   line-height: 31px;
   margin-bottom: 60px;
 }
-@media only screen and (max-width: 600px) {
-  .footer_followContainer {
-    font-size: 0.875rem;
-  }
-}
 .footer_followContainer > p {
   margin-bottom: 30px;
 }
 .footer_followContainer > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (max-width: 600px) {
+  .footer_followContainer {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
 }
 .footer_bubble1 {
   position: absolute;
@@ -1040,6 +1263,15 @@
 .footer_buttons > a > img {
   width: min(100%, 250px);
 }
+.footer_discord:hover {
+  color: #032F9F !important;
+}
+.footer_instagram:hover {
+  color: #AA0047 !important;
+}
+.footer_twitter:hover {
+  color: #007DAA !important;
+}
 .footer_social {
   display: flex;
   justify-content: center;
@@ -1072,16 +1304,17 @@
   line-height: 31px;
   margin-bottom: 60px;
 }
-@media only screen and (max-width: 600px) {
-  .footer_presented {
-    font-size: 0.875rem;
-  }
-}
 .footer_presented > p {
   margin-bottom: 30px;
 }
 .footer_presented > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (max-width: 600px) {
+  .footer_presented {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
 }
 .footer_mission {
   font-size: 1.125rem;
@@ -1093,16 +1326,17 @@
   line-height: 31px;
   margin-bottom: 60px;
 }
-@media only screen and (max-width: 600px) {
-  .footer_mission {
-    font-size: 0.875rem;
-  }
-}
 .footer_mission > p {
   margin-bottom: 30px;
 }
 .footer_mission > p:last-child {
   margin-bottom: 0px;
+}
+@media only screen and (max-width: 600px) {
+  .footer_mission {
+    font-size: 0.875rem;
+    line-height: 23px;
+  }
 }
 .footer_mission > p {
   color: #95DDC0;
@@ -1128,6 +1362,7 @@
 .footer_policy > div > a {
   color: #F55690 !important;
   font-family: PF Ronda Seven;
+  text-decoration: none;
 }
 .footer_image {
   display: flex;
@@ -1213,15 +1448,22 @@
   }
 
   .nft_text {
-    margin-top: 65%;
+    margin-top: 70%;
   }
 
+  .crab_container {
+    margin-top: 35%;
+  }
   .crab_text {
     margin-top: 30%;
     width: 80%;
   }
   .crab_rarityContainer {
     margin-top: 4%;
+  }
+
+  .when_container {
+    margin-top: 40%;
   }
 
   .treasure_image {
@@ -1235,29 +1477,15 @@
 /* ----------- General ipads ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-min-device-pixel-ratio: 2) {
   .App {
-    background-size: 100% 46%;
+    background-size: 100% 33%;
   }
 
   .shop_zone {
-    padding-top: 20%;
-  }
-  .shop_text {
-    margin-top: -10%;
-    font-size: 1.3rem;
-  }
-  .shop_img {
-    width: max(65vw, 600px);
+    padding-top: 15%;
   }
 
-  .follow_img {
+  .comingsoon_img {
     padding-top: 2%;
-  }
-
-  .nft_text {
-    width: 75%;
-    margin-top: 50%;
-    font-size: 1.2rem;
-    line-height: 1.3;
   }
 
   .crab_text {
@@ -1275,10 +1503,6 @@
     font-size: 1.5rem;
   }
 
-  .shop_img {
-    width: max(65vw, 600px);
-  }
-
   .crab_text {
     width: 80%;
   }
@@ -1288,8 +1512,12 @@
   }
 }
 @media only screen and (max-width: 850px) {
-  .shop_img {
-    width: min(55vh, 600px);
+  .sandBottom_right_container_discord {
+    font-size: 1.5rem;
+  }
+  .sandBottom_right_container_soundOff_text {
+    font-size: 1rem;
+    font-family: Safety Goggles;
   }
 
   .crab_container {
@@ -1341,27 +1569,8 @@
     display: none;
   }
 
-  .shop_zone {
-    flex-direction: column;
-    justify-content: center;
-    max-width: 85%;
-  }
   .shop_img {
-    width: 95vw;
-  }
-  .shop_text {
-    font-size: 1.1rem;
-  }
-
-  .follow_img {
-    margin-top: 0.7vh;
-    margin-left: 15px;
-    width: 84vw;
-  }
-  .follow_input {
-    font-size: 1.3rem;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    width: 80vw;
   }
 
   .crab_anat {
@@ -1388,15 +1597,15 @@
   .when {
     padding-bottom: 100%;
   }
-  .when_text {
-    margin: 40% 10% 0 10%;
-  }
 
   .treasure_zone {
     margin-top: 5%;
     padding-bottom: 60%;
   }
 
+  .footer_container {
+    margin-top: 55%;
+  }
   .footer_buttons {
     flex-direction: column;
     align-items: center;
@@ -1431,16 +1640,41 @@
   }
 }
 @media only screen and (max-width: 600px) {
-  .follow_iconContainer {
-    margin-top: 1.2vh;
-    transform: scale(1.3);
+  .shop_zone {
+    padding-top: 18%;
+  }
+  .shop_img {
+    width: 100vw;
+    z-index: 2;
   }
 
+  .comingsoon_zone {
+    width: 60%;
+  }
+
+  .sandBottom_zone {
+    display: flex;
+    flex-direction: column;
+  }
   .sandBottom_leftSticker {
     display: none;
   }
   .sandBottom_right {
     display: none;
+  }
+  .sandBottom_mobileIcons {
+    pointer-events: auto;
+    align-self: flex-start;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-bottom: 60px;
+  }
+  .sandBottom_mobileIcons > a {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
   }
 
   .treasure_image {
@@ -1448,11 +1682,22 @@
     margin-top: 5vh;
   }
 
+  .crab_container {
+    margin-top: 55%;
+  }
+
+  .when_container {
+    width: 60%;
+  }
+  .when_roadmap_imgContainer {
+    justify-content: flex-start;
+  }
+
   .footer_zone {
-    padding-bottom: 10%;
+    padding-bottom: 15%;
   }
   .footer_container {
-    margin-top: 80%;
+    margin-top: 100%;
   }
   .footer_followText {
     font-size: 0.875rem;
@@ -1483,10 +1728,6 @@
   }
 }
 @media only screen and (max-width: 400px) {
-  .shop_text {
-    font-size: 0.95rem;
-  }
-
   .sandBottom_left {
     flex: 20%;
   }
@@ -1531,5 +1772,9 @@
 
   .when_text {
     line-height: 1.5rem;
+  }
+
+  .footer_container {
+    margin-top: 100%;
   }
 }/*# sourceMappingURL=home.module.css.map */
