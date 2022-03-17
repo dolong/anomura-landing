@@ -4,22 +4,25 @@
 
 
 @font-face {
-	src: url("/fonts/AtlantisInternational.ttf");
-	font-family: Atlantis;
+	src: url("/fonts/AtlantisInternational.ttf") format("TrueType");
+	font-family: "Atlantis";
 	font-display: swap;
 }
 
 @font-face {
-	src: url("/fonts/pf_ronda_seven.ttf");
-	font-family: PF Ronda Seven;
-	/* font-display: swap; */
+	src: url("/fonts/pf_ronda.ttf") format("TrueType");
+	font-family: "PFRondaSeven";
+	font-display: swap;
 }
+
+
 
 @font-face {
 	src: url("/fonts/Safety Goggles.ttf");
-	font-family: Safety Goggles;
+	font-family: "Safety Goggles";
 	/* font-display: swap; */
 }
+
 * {
 	box-sizing: border-box;
 	padding: 0;
