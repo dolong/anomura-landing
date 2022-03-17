@@ -3,6 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 600,
+    SixteenHundredOffset = 25,
     TwelveHundredOffSet = 25,
     OneThousandOffSet = 50,
     EightHundredOffSet = 90,
@@ -16,6 +17,7 @@ export default function NFT({ ScrollPercent, audioControl }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,
         EightHundredOffSet,

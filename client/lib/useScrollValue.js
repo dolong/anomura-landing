@@ -2,6 +2,7 @@
  * @param {The percentage of the screen already scrolled.} ScrollPercent
  * @param {Speed multiplier for scroll speed. This has to be a negative value.} ScrollSpeed
  * @param {Offset that sets the initial position before any scrolling is done. } InitialOffset
+ * @param {This is value added when reaching the sixteen hundred width.} SixteenHundredOffset
  * @param {This is value added when reaching the twelve hundred width.} TwelveHundredOffSet
  * @param {This is value added when reaching the one thousand width.} OneThousandOffSet
  * @param {This is value added when reaching the eight hundred width.} EightHundredOffSet
@@ -12,6 +13,7 @@ export function useScrollValue(
     ScrollPercent,
     ScrollSpeed,
     InitialOffset,
+    SixteenHundredOffset = 0,
     TwelveHundredOffSet = 0,
     OneThousandOffSet = 0,
     EightHundredOffSet = -100,
@@ -50,6 +52,12 @@ export function useScrollValue(
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + TwelveHundredOffSet + (ScrollPercent * ScrollSpeed) / scrollMultiplier
+        );
+        return calculatedOffsetY;
+    } else if (window.innerWidth <= 1600) {
+        scrollMultiplier = 5;
+        calculatedOffsetY = Math.floor(
+            InitialOffset + SixteenHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
     }
