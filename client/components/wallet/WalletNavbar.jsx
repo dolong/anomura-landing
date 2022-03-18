@@ -1,5 +1,17 @@
 import "/sass/wallet/wallet.module.css";
+import { SiteContext } from "../../context/SiteContext";
+import { useEffect, useContext } from "react";
+
 export default function WalletNavbar() {
+
+    const { ConnectWallet } = useContext(SiteContext);
+    let ethereum;
+
+    useEffect(() => {
+        ethereum = window.ethereum;
+        console.log(ethereum);
+    }), [];
+
     return (
         <nav className="flex justify-between">
             <div className="grow" >
@@ -13,13 +25,16 @@ export default function WalletNavbar() {
                 <button className=" w-[30%] border-[#4949ce] border-2 rounded-md">
                     <h2 className="text-3xl text-[#202060]">Solana</h2>
                 </button>
-                <button className=" w-[30%] border-[#4949ce] border-2 rounded-md">
+                <button onClick={() => ConnectWallet(ethereum, "")} className=" w-[30%] border-[#4949ce] border-2 rounded-md">
                     <h2 className="text-3xl text-[#202060]">Wallet</h2>
                     {/*<img src="" alt="wallet" />*/}
                 </button>
                 <div>
                     <img src="" alt="sun" />
                     <img src="" alt="moon" />
+                </div>
+                <div>
+
                 </div>
             </div>
         </nav>
