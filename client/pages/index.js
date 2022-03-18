@@ -91,7 +91,7 @@ export default function Home() {
         }
 
         window.addEventListener("click", PlayBackgroundMusic);
-        return () => {};
+        return () => { };
     }, [audioState]);
 
     const onFinishedLoadingAudioSource = (bufferList) => {
@@ -266,7 +266,7 @@ export default function Home() {
                 />
                 <meta name="author" content="Jonathan Westfall" />
                 <meta name="keywords" content="Anomura, NFT, Game" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/favicon.png" />
             </Head>
 
             <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />

@@ -10,7 +10,7 @@ export default function Anomura() {
                 <meta name="description" content="Anomura the next NFT game to take the world by storm." />
                 <meta name="author" content="Jonathan Westfall" />
                 <meta name="keywords" content="Anomura, NFT, Game" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/img/favicons/faviconBowl.png" />
             </Head>
             <SkyArea />
             <SnowArea />

@@ -7,7 +7,7 @@ export default function Wallet() {
         <div className="App p-8">
             <Head>
                 <title>Anomura Wallet</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/img/favicons/faviconShell.png" />
             </Head>
             <WalletNavbar></WalletNavbar>
             {/* Main Wrapper */}
