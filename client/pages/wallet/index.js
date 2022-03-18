@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import { WalletNavbar, WalletCard } from "/components/wallet";
 import "/sass/wallet/wallet.module.css";
 
