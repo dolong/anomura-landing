@@ -1,4 +1,4 @@
-import { prisma } from "@context/PrismaContext";
+import { prisma } from "repositories/PrismaContext";
 
 export default async function crabsQuery(req, res) {
     const { method } = req;
