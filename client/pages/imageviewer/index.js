@@ -55,6 +55,7 @@ export default function ImageViewerIndex() {
                         <div key={index}>
                             <a
                                 href={`http://localhost:3000/imageviewer/${anomura.crabId}`}
+                                target="_blank"
                                 className="text-red-200"
                             >
                                 <img src={anomura.image} alt="" />
@@ -67,6 +68,11 @@ export default function ImageViewerIndex() {
                             <div className="text-lg break-words">Claws: {anomura.claws}</div>
                             <div className="text-lg break-words">Legs: {anomura.legs}</div>
                             <div className="text-lg break-words">Shells: {anomura.shell}</div>
+                            {anomura.headpieces != " " && (
+                                <div className="text-lg break-words">
+                                    Headpiece: {anomura.headpieces}
+                                </div>
+                            )}
                         </div>
                     );
                 })}
