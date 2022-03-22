@@ -122,13 +122,10 @@ export default function CrabAnat({ ScrollPercent }) {
             img.src = image;
         });
 
-        // those are heavy
-        new Image().src = "/img/home/anatomy/03.webp";
-        new Image().src = "/img/home/anatomy/06.webp";
-        new Image().src = "/img/home/anatomy/07.webp";
-        new Image().src = "/img/home/anatomy/09.webp";
-        new Image().src = "/img/home/anatomy/12.webp";
-        new Image().src = "/img/home/anatomy/14.webp";
+        anomuras.forEach((image) => {
+            const img = new Image();
+            img.src = image;
+        });
     };
 
     return (
