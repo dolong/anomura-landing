@@ -54,7 +54,7 @@ export default function ImageViewerIndex() {
                     return (
                         <div key={index}>
                             <a
-                                href={`http://localhost:3000/imageviewer/${anomura.crabId}`}
+                                href={`${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/${anomura.crabId}`}
                                 target="_blank"
                                 className="text-red-200"
                             >
