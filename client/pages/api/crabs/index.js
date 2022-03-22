@@ -1,4 +1,4 @@
-import { getAllCrabs } from "../../../repositories/crabs";
+import { prisma } from "@context/PrismaContext";
 
 export default async function crabsQuery(req, res) {
     const { method } = req;
@@ -17,6 +17,8 @@ export default async function crabsQuery(req, res) {
                         },
                     ],
                 });
+
+                console.log(allCrabs.length);
                 res.status(200).json(allCrabs);
             } catch (err) {
                 console.log(err);
