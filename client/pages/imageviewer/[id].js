@@ -45,21 +45,31 @@ export default function AnimateViewerDetails({ data }) {
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {
-        // console.log(data);
+        if (!data) {
+            return <div>Failed to load this anomuras</div>;
+        }
         const { background, body, claws, legs, shell, headpieces } = data;
 
-        sources.background = sources.background + getBackground(background);
-        sources.shell = sources.shell + getShell(shell);
-        sources.legs = sources.legs + getLegs(legs);
-        sources.body = sources.body + getBody(body);
-        sources.claws = sources.claws + getClaws(claws);
-        sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
+        // sources.background = sources.background + getBackground(background);
+        // sources.shell = sources.shell + getShell(shell);
+        // sources.legs = sources.legs + getLegs(legs);
+        // sources.body = sources.body + getBody(body);
+        // sources.claws = sources.claws + getClaws(claws);
+        // sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
 
-        return <CrabCanvas sources={sources} data={data} />;
+        sources.background = sources.background + background;
+        sources.shell = sources.shell + shell;
+        sources.legs = sources.legs + legs;
+        sources.body = sources.body + body;
+        sources.claws = sources.claws + claws;
+        sources.headpieces = sources.headpieces + headpieces;
+
+        let isDrawHeadpieces = headpieces.toString().trim() !== "";
+        return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
     }
 }
 
-const CrabCanvas = ({ sources, data }) => {
+const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     const [imagesSrc, setImageSrc] = React.useState({});
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -71,7 +81,6 @@ const CrabCanvas = ({ sources, data }) => {
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
-                //console.log(images);
                 setImageSrc(images);
                 setIsLoaded(true);
             });
@@ -96,7 +105,7 @@ const CrabCanvas = ({ sources, data }) => {
             context.drawImage(images.background[counter], 0, 0, width, height);
             context.drawImage(images.shadow[counter], 0, 0, width, height);
             context.drawImage(images.shell[counter], 0, 0, width, height);
-            context.drawImage(images.headpieces[counter], 0, 0, width, height);
+            isDrawHeadpieces && context.drawImage(images.headpieces[counter], 0, 0, width, height);
             context.drawImage(images.legs[counter], 0, 0, width, height);
             context.drawImage(images.body[counter], 0, 0, width, height);
             context.drawImage(images.claws[counter], 0, 0, width, height);
@@ -121,11 +130,12 @@ const CrabCanvas = ({ sources, data }) => {
         };
         var postaction = function () {};
 
+        // 24 frames per part, we have 7 parts ~ 24 * 7 = 168
         function onFinished() {
-            imageLoaded++;
-            console.log(imageLoaded);
-            if (imageLoaded == 330) {
-                // todo: fix here
+            if (imageLoaded == 144 && isDrawHeadpieces === false) {
+                postaction(images);
+            }
+            if (imageLoaded == 168) {
                 postaction(images);
             }
         }
@@ -133,6 +143,10 @@ const CrabCanvas = ({ sources, data }) => {
             numImages++;
         }
         for (var src in sources) {
+            if (src == "headpieces" && isDrawHeadpieces === false) {
+                console.log("no headpiece to draw");
+                continue;
+            }
             for (let index = 0; index <= 23; index++) {
                 images[src][index] = new Image();
                 images[src][index].onload = function () {
@@ -158,7 +172,7 @@ const CrabCanvas = ({ sources, data }) => {
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
-                src="/img/imageviewer/Others/OpenSea Invetory_icons_03.png"
+                src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png"
             />
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>
