@@ -91,7 +91,7 @@ export default function Home() {
         }
 
         window.addEventListener("click", PlayBackgroundMusic);
-        return () => { };
+        return () => {};
     }, [audioState]);
 
     const onFinishedLoadingAudioSource = (bufferList) => {

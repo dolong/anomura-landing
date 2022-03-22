@@ -6,7 +6,17 @@ export default async function crabsQuery(req, res) {
     switch (method) {
         case "GET":
             try {
-                let allCrabs = await getAllCrabs();
+                const currentPage = req.query.page;
+
+                let allCrabs = await prisma.anomuras.findMany({
+                    skip: currentPage * 100,
+                    take: 100,
+                    orderBy: [
+                        {
+                            crabId: "asc",
+                        },
+                    ],
+                });
                 res.status(200).json(allCrabs);
             } catch (err) {
                 console.log(err);

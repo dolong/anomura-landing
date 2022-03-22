@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 const tools = require("simple-svg-tools");
 const sharp = require("sharp");
-let FormData = require("form-data")
+let FormData = require("form-data");
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
 <svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
@@ -83,7 +83,7 @@ export const CrabImagesBuilder = async (crab) => {
 
     let responseData = await response.text();
     let result = await JSON.parse(responseData);
- 
+
     return result.url;
     // return result.secure_url;
 };
