@@ -3,11 +3,15 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 console.log(process.env.NEXT_PUBLIC_WEBSITE_HOST);
+
 export default function ImageViewerIndex() {
     const [pageIndex, setPageIndex] = useState(0);
-    const { data } = useSWR(`/api/crabs?page=${pageIndex}`, fetcher);
+    const { data, error } = useSWR(`/api/crabs?page=${pageIndex}`, fetcher);
+
+    useEffect(() => {});
 
     if (data) console.log(data);
+    if (error) console.log(error);
     return (
         <>
             <div class="flex flex-col items-center">
