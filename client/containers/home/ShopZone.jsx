@@ -13,7 +13,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
             });
         }
 
-        return () => {};
+        return () => { };
     }, []);
 
     const TurnOffSound = (e) => {
@@ -84,11 +84,10 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                                 ? "/img/home/follow_us/coming_soon_off.webp"
                                 : "/img/home/follow_us/coming_soon_off.gif";
                     }}
-                    src={`${
-                        windowSize.width > 1200
-                            ? "/img/home/follow_us/coming_soon_off.webp"
-                            : "/img/home/follow_us/coming_soon_off.gif"
-                    }`}
+                    src={`${windowSize.width > 1200
+                        ? "/img/home/follow_us/coming_soon_off.webp"
+                        : "/img/home/follow_us/coming_soon_off.gif"
+                        }`}
                     alt=""
                 />
 
@@ -98,13 +97,14 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 </div>
                 <div className={`${s.comingsoon_zone}`}>
                     <div className={s.comingsoon_paragraphContainer}>
+                        <h1 className={s.comingsoon_hero_text}>
+                            The Cove Awaits You...
+                        </h1>
                         <p>
-                            Anomura is a new retro play-to-earn game utilizing NFTs and blockchain
-                            technology.
+                            Anomura is an addictive indie game utilizing NFTs and blockchain technology.
                         </p>
                         <p>
-                            Addictive gameplay, beautiful pixel art, contributions to wildlife
-                            preservation - this is a game with a greater purpose.
+                            Strategic gameplay, beautiful pixel art, contributions to wildlife preservation—this is a game with a greater purpose.
                         </p>
                     </div>
                 </div>
@@ -144,11 +144,10 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             <a href="" className={s.sandBottom_right_container_soundOff_link}>
                                 <img
                                     className={s.sandBottom_right_container_soundOff_icon}
-                                    src={`${
-                                        audioControl.isSoundOn
-                                            ? "/img/home/bottomSand/volumne on.png"
-                                            : "/img/home/bottomSand/volumne off.png"
-                                    }`}
+                                    src={`${audioControl.isSoundOn
+                                        ? "/img/home/bottomSand/volumne on.png"
+                                        : "/img/home/bottomSand/volumne off.png"
+                                        }`}
                                     onClick={TurnOffSound}
                                 />
                             </a>
