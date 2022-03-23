@@ -272,6 +272,18 @@
   font-size: 60px;
   margin-bottom: 4rem;
 }
+@media only screen and (max-width: 850px) {
+  .comingsoon_hero_text {
+    font-size: 3.1875rem;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .comingsoon_hero_text {
+    font-size: 2.1875rem;
+  }
+}
 .comingsoon_img {
   width: min(60vw, 850px);
   position: relative;
@@ -1090,11 +1102,10 @@
 @media only screen and (max-width: 400px) {
   .when_roadmap_imgContainer_image {
     width: min(15vw, 140px);
-    height: 80%;
   }
 }
 .when_roadmap_imgContainer_anomura {
-  width: min(16vw, 200px);
+  width: min(30vw, 200px);
 }
 .when_roadmap_text {
   flex: 50%;
