@@ -8,8 +8,8 @@
 }
 
 .board {
-  width: clamp(700px,40vw,100vh);
-  aspect-ratio: clamp(1,6/5,9/7);
+  width: clamp(700px, 40vw, 100vh);
+  aspect-ratio: 1.2;
   background: center/contain no-repeat url("/img/anomura/invite/board_small.png");
   display: flex;
   flex-direction: column;
@@ -19,13 +19,13 @@
   padding: 1vh;
 }
 .board_title {
-  width: clamp(100px,50%,75vh);
+  width: clamp(100px, 50%, 75vh);
 }
 .board_welcome {
-  width: clamp(200px,70%,75vh);
+  width: clamp(200px, 70%, 75vh);
 }
 .board_button {
-  width: clamp(350px,70%,95vh);
+  width: clamp(350px, 70%, 95vh);
   min-height: 10%;
   background: center/contain no-repeat url("/img/anomura/invite/button_wallet.png");
   font-size: 1.75rem;
