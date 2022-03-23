@@ -45,7 +45,7 @@ export default function Footer({ ScrollPercent }) {
                 </div>
                 <div className={s.footer_buttons}>
                     <a
-                        href="https://discord.com/anomuragame"
+                        href="https://discord.gg/anomuragame"
                         target="_blank"
                         className={s.footer_discord}
                     >
