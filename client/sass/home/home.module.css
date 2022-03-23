@@ -267,10 +267,15 @@
     line-height: 23px;
   }
 }
+.comingsoon_hero_text {
+  font-family: Safety Goggles;
+  font-size: 60px;
+  margin-bottom: 4rem;
+}
 .comingsoon_img {
   width: min(60vw, 850px);
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 @media only screen and (max-width: 600px) {
   .comingsoon_img {
@@ -994,6 +999,7 @@
   font-family: Safety Goggles;
   margin-bottom: 60px;
   text-align: center;
+  font-weight: 400;
 }
 @media only screen and (min-width: 2560px) {
   .when_heading {
