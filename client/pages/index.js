@@ -266,7 +266,7 @@ export default function Home() {
                 />
                 <meta name="author" content="Jonathan Westfall" />
                 <meta name="keywords" content="Anomura, NFT, Game" />
-                <link rel="icon" href="/favicon.png" />
+                <link rel="icon" href="/img/favicons/faviconShell.png" />
             </Head>
 
             <img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
