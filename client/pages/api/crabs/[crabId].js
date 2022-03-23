@@ -13,8 +13,7 @@ export default async function crabImageViewerHandler(req, res) {
                     res.status(200).json({
                         name: `Crab ${crab.crabId}`,
                         description: "Crab test",
-                        animation_url: `${process.env.WEBSITE_HOST}/imageviewer/${crab.crabId}`,
-                        //image: `${process.env.WEBSITE_HOST}/img/imageviewer/${crab.image}`,
+                        animation_url: `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/${crab.crabId}`,
                         image: crab.image,
                         attributes: [
                             {
@@ -106,8 +105,8 @@ export default async function crabImageViewerHandler(req, res) {
                     legs,
                     claws,
                     shell,
-                    crabImage ,
-                    headpieces
+                    crabImage,
+                    headpieces,
                 });
                 console.log(`A new crab ${crabId} is created`);
                 res.status(200).json({ data: newCrab });

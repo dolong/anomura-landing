@@ -1,0 +1,88 @@
+const {
+    getBody,
+    getClaws,
+    getShell,
+    getLegs,
+    getBackground,
+    getHeadPieces,
+} = require("./crabData");
+
+const fs = require("fs");
+const path = require("path");
+const tools = require("simple-svg-tools");
+const sharp = require("sharp");
+let FormData = require("form-data");
+
+let cloudinary = require("cloudinary").v2;
+//import fetch from "node-fetch";
+
+cloudinary.config({
+    cloud_name: "mrleewatch",
+    api_key: "558526949884865",
+    api_secret: "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY",
+});
+
+const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
+<svg version="1.1" width="384" height="384" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">`;
+
+exports.CrabImagesBuilder = async (crab) => {
+    const { crabId, background, body, legs, claws, shell, headpieces } = crab;
+    const dirRelativeToPublicFolder = "img/imageviewer";
+    const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
+    const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
+
+    // let backgroundName = getBackground(background);
+    // let shellName = getShell(shell);
+    // let legsName = getLegs(legs);
+    // let bodyName = getBody(body);
+    // let clawsName = getClaws(claws);
+    let backgroundName = background;
+    let shellName = shell;
+    let legsName = legs;
+    let bodyName = body;
+    let clawsName = claws;
+    let headpiecesName = " ";
+    if (headpieces !== " ") headpiecesName = headpieces;
+
+    let backgroundLayer = await loadImage(
+        path.resolve(`${imageDir}/Background/${backgroundName}_1.svg`)
+    );
+    let shellLayer = await loadImage(path.resolve(`${imageDir}/Shell/${shellName}_1.svg`));
+    let legsLayer = await loadImage(path.resolve(`${imageDir}/Legs/${legsName}_1.svg`));
+    let bodyLayer = await loadImage(path.resolve(`${imageDir}/Body/${bodyName}_1.svg`));
+    let clawsLayer = await loadImage(path.resolve(`${imageDir}/Claws/${clawsName}_1.svg`));
+
+    let headpiecesLayer = " ";
+    if (headpiecesName !== " ")
+        headpiecesLayer = await loadImage(
+            path.resolve(`${imageDir}/HeadPieces/${headpiecesName}_1.svg`)
+        );
+
+    let shadowLayer = await loadImage(path.resolve(`${imageDir}/Services/shadow_1.svg`));
+
+    let combineLayer =
+        SVG_PREFIXTAG +
+        backgroundLayer +
+        shadowLayer +
+        shellLayer +
+        headpiecesLayer +
+        legsLayer +
+        bodyLayer +
+        clawsLayer +
+        "</svg>";
+
+    const pngBuffer = await sharp(Buffer.from(combineLayer)).png().toBuffer();
+    let base64png = `data:image/png;base64,` + Buffer.from(pngBuffer).toString("base64");
+    const fileName = `Anomura_${crabId}`;
+    console.log(fileName);
+    let res = await cloudinary.uploader.upload(base64png, { public_id: fileName });
+    //console.log(res);
+    return res.secure_url;
+};
+
+const loadImage = async (pathToSvg) => {
+    let crabImg = await tools.ImportSVG(pathToSvg);
+    return crabImg.getBody();
+};
+
+const fileExists = async (path) => !!(await fs.promises.stat(path).catch((e) => false));

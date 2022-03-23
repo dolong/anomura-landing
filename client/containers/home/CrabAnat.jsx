@@ -12,21 +12,21 @@ const InitialOffset = 1950,
     FourHundredOffSet = -250;
 
 const anomuras = [
-    "/img/home/anatomy/01.gif",
-    "/img/home/anatomy/02.gif",
-    "/img/home/anatomy/03.gif",
-    "/img/home/anatomy/04.gif",
-    "/img/home/anatomy/05.gif",
-    "/img/home/anatomy/06.gif",
-    "/img/home/anatomy/07.gif",
-    "/img/home/anatomy/08.gif",
-    "/img/home/anatomy/09.gif",
-    "/img/home/anatomy/10.gif",
-    "/img/home/anatomy/11.gif",
-    "/img/home/anatomy/12.gif",
-    "/img/home/anatomy/13.gif",
-    "/img/home/anatomy/14.gif",
-    "/img/home/anatomy/15.gif",
+    "/img/home/anatomy/01.webp",
+    "/img/home/anatomy/02.webp",
+    "/img/home/anatomy/03.webp",
+    "/img/home/anatomy/04.webp",
+    "/img/home/anatomy/05.webp",
+    "/img/home/anatomy/06.webp",
+    "/img/home/anatomy/07.webp",
+    "/img/home/anatomy/08.webp",
+    "/img/home/anatomy/09.webp",
+    "/img/home/anatomy/10.webp",
+    "/img/home/anatomy/11.webp",
+    "/img/home/anatomy/12.webp",
+    "/img/home/anatomy/13.webp",
+    "/img/home/anatomy/14.webp",
+    "/img/home/anatomy/15.webp",
 ];
 
 export default function CrabAnat({ ScrollPercent }) {
@@ -100,7 +100,7 @@ export default function CrabAnat({ ScrollPercent }) {
                 ...prevState,
                 currentImage: randomIntFromInterval(0, 14),
             }));
-            if (counter <= 20) {
+            if (counter <= 14) {
                 counter++;
             } else {
                 clearInterval(imageInterval);
@@ -112,13 +112,17 @@ export default function CrabAnat({ ScrollPercent }) {
         do {
             newIndex = randomIntFromInterval(0, 14);
         } while (newIndex == anomuraIndex);
-        //console.log(`new index is: ${newIndex}`);
 
         setAnomuraIndex(newIndex);
     };
 
     const preloadImages = () => {
         imageSource.images.forEach((image) => {
+            const img = new Image();
+            img.src = image;
+        });
+
+        anomuras.forEach((image) => {
             const img = new Image();
             img.src = image;
         });
