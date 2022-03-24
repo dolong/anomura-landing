@@ -131,7 +131,7 @@ $header-space-bottom: 60px;
 			z-index: 2;
 			& > span {
 				font-size: 0.8725rem;
-				font-family: PF Ronda Seven;
+				font-family: PFRondaSeven;
 				color: #ffffff;
 				line-height:22px;
 			}
@@ -824,7 +824,7 @@ $header-space-bottom: 60px;
 			& > span:nth-child(1)  {
 				font-size: 1.25rem;
 				color:#3760D1;
-				font-family: PF Ronda Seven;
+				font-family: PFRondaSeven;
 
 				@media only screen and (max-width: 600px) {
 					font-size: 0.875rem;
@@ -1100,7 +1100,7 @@ $header-space-bottom: 60px;
 			justify-content:space-around;
 			& > a {
 				color: #F55690!important;
-				font-family: PF Ronda Seven;
+				font-family: PFRondaSeven;
 				text-decoration: none;
 			}
 		}

@@ -779,7 +779,7 @@
 }
 .crab_normal_popupText > div > span {
   font-size: 0.8725rem;
-  font-family: PF Ronda Seven;
+  font-family: PFRondaSeven;
   color: #ffffff;
   line-height: 22px;
 }
@@ -827,7 +827,7 @@
 }
 .crab_magic_popupText > div > span {
   font-size: 0.8725rem;
-  font-family: PF Ronda Seven;
+  font-family: PFRondaSeven;
   color: #ffffff;
   line-height: 22px;
 }
@@ -875,7 +875,7 @@
 }
 .crab_rare_popupText > div > span {
   font-size: 0.8725rem;
-  font-family: PF Ronda Seven;
+  font-family: PFRondaSeven;
   color: #ffffff;
   line-height: 22px;
 }
@@ -923,7 +923,7 @@
 }
 .crab_legendary_popupText > div > span {
   font-size: 0.8725rem;
-  font-family: PF Ronda Seven;
+  font-family: PFRondaSeven;
   color: #ffffff;
   line-height: 22px;
 }
@@ -1116,7 +1116,7 @@
 .when_roadmap_text > span:nth-child(1) {
   font-size: 1.25rem;
   color: #3760D1;
-  font-family: PF Ronda Seven;
+  font-family: PFRondaSeven;
 }
 @media only screen and (max-width: 600px) {
   .when_roadmap_text > span:nth-child(1) {
@@ -1524,7 +1524,7 @@
 }
 .footer_policy > div > a {
   color: #F55690 !important;
-  font-family: PF Ronda Seven;
+  font-family: PFRondaSeven;
   text-decoration: none;
 }
 .footer_image {
