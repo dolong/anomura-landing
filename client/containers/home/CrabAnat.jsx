@@ -134,7 +134,8 @@ export default function CrabAnat({ ScrollPercent }) {
                 <div className={s.crab_heading}>ANOMURA ANATOMY</div>
 
                 <div className={s.crab_paragraphContainer}>
-                    Each body part has a chance of being
+                    All Anomura will hold unique attributes based on their body parts. Each randomly
+                    generated anatomical part will have a chance of being
                     <div
                         className={s.crab_normal}
                         onMouseEnter={() =>
@@ -159,7 +160,7 @@ export default function CrabAnat({ ScrollPercent }) {
                                 <img src="/img/home/anatomy/popup-green.png" />
                                 <div className={s.crab_normal_popupText}>
                                     <div>
-                                        <span>Information for normal tier</span>
+                                        <span>Just your everyday normal crab.</span>
                                     </div>
                                 </div>
                             </div>
@@ -191,9 +192,7 @@ export default function CrabAnat({ ScrollPercent }) {
                                 <img src="/img/home/anatomy/popup-purple.png" />
                                 <div className={s.crab_magic_popupText}>
                                     <div>
-                                        <span>11% - 1 Magical Prefix</span>
-                                        <span>11% - 1 Magical Suffix</span>
-                                        <span>22% - Magic item</span>
+                                        <span>Increased Scarcity. More Power.</span>
                                     </div>
                                 </div>
                             </div>
@@ -225,8 +224,7 @@ export default function CrabAnat({ ScrollPercent }) {
                                 <img src="/img/home/anatomy/popup-blue.png" />
                                 <div className={s.crab_rare_popupText}>
                                     <div>
-                                        <span> 11% - Magical Prefix </span>
-                                        <span>11% - Magical Suffix</span>
+                                        <span>Hard to find. Good luck.</span>
                                     </div>
                                 </div>
                             </div>
@@ -258,13 +256,14 @@ export default function CrabAnat({ ScrollPercent }) {
                                 <img src="/img/home/anatomy/popup-orange.png" />
                                 <div className={s.crab_legendary_popupText}>
                                     <div>
-                                        <span> 2% - Legendary Prefix </span>
+                                        <span>Unlimited Power. Ridiculously rare.</span>
                                     </div>
                                 </div>
                             </div>
                         )}
                         legendary
                     </div>
+                    <span> in rarity.</span>
                 </div>
                 {/* </div> */}
                 <div className={s.crab_reroll}>
