@@ -104,9 +104,10 @@ $header-space-bottom: 60px;
 	position:relative; 
 	display: inline-block;
 	font-weight: 600;
+	text-decoration: underline;
 	&_popup {
 		position:absolute;	
-		width:204px;
+		min-width:204px;	
 		height: 87px;
 		& > img {
 			position:absolute;
@@ -119,6 +120,7 @@ $header-space-bottom: 60px;
 		height: 80px;
 		width:100%;
 		display:flex;
+		padding: 8%;
 		justify-content: center;
 		align-items: center;
 		
@@ -1136,7 +1138,7 @@ $header-space-bottom: 60px;
 			position: absolute;
 			bottom:0;
 			z-index: 2;
-			transform: scaleX(-1)
+
 		}
 		
 		&_floor {
@@ -1145,7 +1147,6 @@ $header-space-bottom: 60px;
 			animation: interference 1.5s infinite ease-out;
 			z-index: 1;
 			opacity: 0.7;
-			transform: scaleX(-1)
 		}
 		&_light {
 			pointer-events: none;
@@ -1154,8 +1155,17 @@ $header-space-bottom: 60px;
 			animation: interference 1.5s infinite linear;
 			z-index: 3;
 			opacity: 0.7;
-			transform: scaleX(-1)
 		}
+	}
+	&_fish{
+		position:absolute;
+		right: -12%;
+		bottom:0;
+		width:40%;
+		&__fishImage{
+
+		}
+
 	}
 }
 
@@ -1219,9 +1229,7 @@ $header-space-bottom: 60px;
 	}
 	.treasure {
 		&_image {
-			
 			margin-top:10%;
-
 		}
 	}
 	.footer {

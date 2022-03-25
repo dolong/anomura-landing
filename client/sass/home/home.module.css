@@ -750,10 +750,11 @@
   position: relative;
   display: inline-block;
   font-weight: 600;
+  text-decoration: underline;
 }
 .crab_normal_popup {
   position: absolute;
-  width: 204px;
+  min-width: 204px;
   height: 87px;
 }
 .crab_normal_popup > img {
@@ -766,6 +767,7 @@
   height: 80px;
   width: 100%;
   display: flex;
+  padding: 8%;
   justify-content: center;
   align-items: center;
 }
@@ -798,10 +800,11 @@
   position: relative;
   display: inline-block;
   font-weight: 600;
+  text-decoration: underline;
 }
 .crab_magic_popup {
   position: absolute;
-  width: 204px;
+  min-width: 204px;
   height: 87px;
 }
 .crab_magic_popup > img {
@@ -814,6 +817,7 @@
   height: 80px;
   width: 100%;
   display: flex;
+  padding: 8%;
   justify-content: center;
   align-items: center;
 }
@@ -846,10 +850,11 @@
   position: relative;
   display: inline-block;
   font-weight: 600;
+  text-decoration: underline;
 }
 .crab_rare_popup {
   position: absolute;
-  width: 204px;
+  min-width: 204px;
   height: 87px;
 }
 .crab_rare_popup > img {
@@ -862,6 +867,7 @@
   height: 80px;
   width: 100%;
   display: flex;
+  padding: 8%;
   justify-content: center;
   align-items: center;
 }
@@ -894,10 +900,11 @@
   position: relative;
   display: inline-block;
   font-weight: 600;
+  text-decoration: underline;
 }
 .crab_legendary_popup {
   position: absolute;
-  width: 204px;
+  min-width: 204px;
   height: 87px;
 }
 .crab_legendary_popup > img {
@@ -910,6 +917,7 @@
   height: 80px;
   width: 100%;
   display: flex;
+  padding: 8%;
   justify-content: center;
   align-items: center;
 }
@@ -1559,7 +1567,6 @@
   position: absolute;
   bottom: 0;
   z-index: 2;
-  transform: scaleX(-1);
 }
 .footer_chestImage_floor {
   position: absolute;
@@ -1568,7 +1575,6 @@
           animation: interference 1.5s infinite ease-out;
   z-index: 1;
   opacity: 0.7;
-  transform: scaleX(-1);
 }
 .footer_chestImage_light {
   pointer-events: none;
@@ -1578,9 +1584,13 @@
           animation: interference 1.5s infinite linear;
   z-index: 3;
   opacity: 0.7;
-  transform: scaleX(-1);
 }
-
+.footer_fish {
+  position: absolute;
+  right: -12%;
+  bottom: 0;
+  width: 40%;
+}
 @media only screen and (max-width: 1400px) {
   .nav_list {
     height: 55%;
