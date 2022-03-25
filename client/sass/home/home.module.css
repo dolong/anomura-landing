@@ -271,6 +271,7 @@
   font-family: Safety Goggles;
   font-size: 60px;
   margin-bottom: 4rem;
+  text-shadow: 4px 4px #00000040;
 }
 @media only screen and (max-width: 850px) {
   .comingsoon_hero_text {
