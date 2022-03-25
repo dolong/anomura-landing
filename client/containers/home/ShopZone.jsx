@@ -119,7 +119,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             className={`${s.sandBottom_leftSticker_icons_twitter}`}
                         />
                         <a
-                            href="https://discord.com/anomuragame"
+                            href="https://discord.gg/anomuragame"
                             target="_blank"
                             className={`${s.sandBottom_leftSticker_icons_discord}`}
                         />
@@ -135,7 +135,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     <div className={`${s.sandBottom_right_container}`}>
                         <a
                             className={`${s.sandBottom_right_container_discord}`}
-                            href="https://discord.com/anomuragame"
+                            href="https://discord.gg/anomuragame"
                             target="_blank"
                         >
                             Discord
@@ -164,7 +164,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     />
                 </div>
                 <div className={s.sandBottom_mobileIcons}>
-                    <a href="https://discord.com/anomuragame" target="_blank">
+                    <a href="https://discord.gg/anomuragame" target="_blank">
                         <img src="/img/home/follow_us/mobile discord.png" />
                     </a>
                     <a href="https://twitter.com/anomuragame" target="_blank">
