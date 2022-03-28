@@ -32,6 +32,11 @@ export default function Footer({ ScrollPercent, audioControl }) {
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-25);
         if (window.innerWidth <= 600) setScrollSpeed(-22);
+
+        return () => {
+            clearTimeout(timeout);
+            clearInterval(interval);
+        };
     }, []);
 
     useEffect(() => {
@@ -43,25 +48,20 @@ export default function Footer({ ScrollPercent, audioControl }) {
 
     useEffect(() => {
         changeAudioVolume();
-        if (audioControl.bubble != null && audioState == "unloaded") {
+        if (audioControl.bubble != null && bubbleRef.current && audioState == "unloaded") {
             setAudioState("loaded");
-            audioControl.bubble.playSound();
-            audioControl.bgMusic.playSound();
 
-            let volumeVal = !audioControl.isSoundOn ? 0 : 0;
+            // audioControl.bubble.playSound();
+            // audioControl.bgMusic.playSound();
+
             timeout = setTimeout(() => {
-                audioControl.fishPass.playSound(volumeVal);
+                audioControl.fishPass.playSound(0);
                 interval = setInterval(() => {
-                    audioControl.fishPass.playSound();
-                    console.log("fish here");
+                    audioControl.fishPass.playSound(0);
+                    console.log(123);
                 }, 8500);
             }, 2500);
         }
-
-        return () => {
-            clearTimeout(timeout);
-            clearInterval(interval);
-        };
     }, [audioControl]);
 
     const changeAudioVolume = () => {

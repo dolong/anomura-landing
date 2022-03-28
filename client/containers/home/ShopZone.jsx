@@ -20,16 +20,12 @@ export default function ShopZone({ audioControl, setAudioControl }) {
         e.preventDefault();
 
         if (audioControl.isSoundOn) {
-            console.log("turn off sound");
-
             setAudioControl((prevState) => ({
                 ...prevState,
                 isSoundOn: false,
             }));
             audioControl.setSound(false);
         } else {
-            console.log("turn on sound");
-
             setAudioControl((prevState) => ({
                 ...prevState,
                 isSoundOn: true,

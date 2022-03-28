@@ -64,14 +64,13 @@ export default function Home() {
     }
     const PlayBackgroundMusic = () => {
         window.removeEventListener("click", PlayBackgroundMusic);
-        console.log("play background music");
+
         if (audioControl.bgMusic.isPlaying == false) {
             if (typeof audioControl.bgMusic.playSound === "function") {
-                console.log(audioControl.isSoundOn);
                 if (audioControl.isSoundOn) {
-                    // audioControl.bgMusic.playSound();
-                    //audioControl.chestChime.playSound();
-                    // audioControl.bubble.playSound();
+                    // audioControl.chestChime.playSound();
+                    audioControl.bubble.playSound();
+                    audioControl.bgMusic.playSound();
                 }
 
                 setAudioControl((prevState) => ({
@@ -91,6 +90,7 @@ export default function Home() {
         }
 
         window.addEventListener("click", PlayBackgroundMusic);
+
         return () => {};
     }, [audioState]);
 
@@ -193,7 +193,6 @@ export default function Home() {
                 shouldPlay: true,
                 playSound: function () {
                     if (!this.shouldPlay) {
-                        console.log("chest chime should not play and return");
                         return;
                     }
                     this.source = audioContext.createBufferSource();
@@ -208,7 +207,6 @@ export default function Home() {
                     this.source.start(0);
                 },
                 stop: function () {
-                    console.log("stop chest chime");
                     this.shouldPlay = false;
                     if (this.source) {
                         this.source.stop();
