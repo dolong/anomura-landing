@@ -69,9 +69,9 @@ export default function Home() {
             if (typeof audioControl.bgMusic.playSound === "function") {
                 console.log(audioControl.isSoundOn);
                 if (audioControl.isSoundOn) {
-                    audioControl.bgMusic.playSound();
-                    audioControl.chestChime.playSound();
-                    audioControl.bubble.playSound();
+                    // audioControl.bgMusic.playSound();
+                    //audioControl.chestChime.playSound();
+                    // audioControl.bubble.playSound();
                 }
 
                 setAudioControl((prevState) => ({

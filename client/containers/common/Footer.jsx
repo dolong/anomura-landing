@@ -15,6 +15,7 @@ export default function Footer({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
     const [audioState, setAudioState] = useState("unloaded");
     const bubbleRef = React.createRef();
+    let timeout, interval;
 
     let calculatedOffsetY = useScrollValue(
         ScrollPercent,
@@ -42,10 +43,25 @@ export default function Footer({ ScrollPercent, audioControl }) {
 
     useEffect(() => {
         changeAudioVolume();
-        if (audioControl.chestChime != null && audioState == "unloaded") {
+        if (audioControl.bubble != null && audioState == "unloaded") {
             setAudioState("loaded");
+            audioControl.bubble.playSound();
+            audioControl.bgMusic.playSound();
+
+            let volumeVal = !audioControl.isSoundOn ? 0 : 0;
+            timeout = setTimeout(() => {
+                audioControl.fishPass.playSound(volumeVal);
+                interval = setInterval(() => {
+                    audioControl.fishPass.playSound();
+                    console.log("fish here");
+                }, 8500);
+            }, 2500);
         }
-        return () => {};
+
+        return () => {
+            clearTimeout(timeout);
+            clearInterval(interval);
+        };
     }, [audioControl]);
 
     const changeAudioVolume = () => {
@@ -59,6 +75,15 @@ export default function Footer({ ScrollPercent, audioControl }) {
             } else {
                 {
                     audioControl.bubble.setVolume(bubbleVolume);
+                }
+            }
+
+            let fishVolume = 1 - reference / 800;
+            if (fishVolume < 0.1 || !audioControl.isSoundOn) {
+                audioControl.fishPass.setVolume(0);
+            } else {
+                {
+                    audioControl.fishPass.setVolume(fishVolume);
                 }
             }
         }
@@ -130,6 +155,9 @@ export default function Footer({ ScrollPercent, audioControl }) {
                     </p>
                     <img className={s.footer_bubble2} src="/img/home/footer/bubbles.gif" />
                 </div>
+                <div className={s.footer_chestAndFish}>
+                    <ChestAndFish />
+                </div>
                 <div className={s.footer_policy}>
                     <span className={s.footer_policy_line}></span>
                     <div>
@@ -140,6 +168,9 @@ export default function Footer({ ScrollPercent, audioControl }) {
                 </div>
                 <div className={s.footer_chestImage}>
                     <Chest />
+                </div>
+                <div className={s.footer_fish}>
+                    <Fish />
                 </div>
             </div>
         </div>
@@ -156,12 +187,11 @@ const Chest = () => {
         return (
             <img
                 className={`${s.footer_chestImage_chest}`}
-                src="/img/home/chests/chest_opened_175f.gif"
+                src="/img/home/footer/chest_only.gif"
                 alt=""
             />
         );
     };
-
     const renderChestFloor = () => {
         return (
             <img
@@ -171,7 +201,6 @@ const Chest = () => {
             />
         );
     };
-
     const renderChestLight = () => {
         return (
             <img
@@ -188,5 +217,45 @@ const Chest = () => {
             {renderChest()}
             {renderChestLight()}
         </div>
+    );
+};
+
+const Fish = () => {
+    const renderFish = () => {
+        return (
+            <img
+                className={`${s.footer_fish_fishImage}`}
+                src="/img/home/footer/fish_only.gif"
+                alt=""
+            />
+        );
+    };
+
+    return <div className={s.footer_fish_wrapper}>{renderFish()}</div>;
+};
+
+const ChestAndFish = () => {
+    return (
+        <>
+            <div className={s.footer_chestAndFish_wrapper}>
+                <div className={`${s.footer_chestAndFish_chest}`}>
+                    <img src="/img/home/footer/chest_only.gif" alt="" />
+                    <img
+                        className={`${s.footer_chestImage_floor}`}
+                        src="/img/home/chests/chestfloor_modified.webp"
+                        alt=""
+                    />
+                    <img
+                        className={`${s.footer_chestImage_light}`}
+                        src="/img/home/chests/chest_open_lights_modified.webp"
+                        alt=""
+                    />
+                </div>
+
+                <div className={`${s.footer_chestAndFish_fishImage}`}>
+                    <img src="/img/home/footer/fish_only.gif" alt="" />
+                </div>
+            </div>
+        </>
     );
 };
