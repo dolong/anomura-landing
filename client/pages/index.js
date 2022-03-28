@@ -281,7 +281,7 @@ export default function Home() {
                     ScrollPercent={scrollPercent}
                     audioControl={audioControl}
                 ></WhenIsItOut>
-                <Footer ScrollPercent={scrollPercent}></Footer>
+                <Footer ScrollPercent={scrollPercent} audioControl={audioControl}></Footer>
             </div>
             {/* End Of Parallax Zone */}
 

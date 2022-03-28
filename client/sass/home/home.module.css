@@ -470,6 +470,7 @@
   text-decoration: none;
 }
 .sandBottom_right_container_soundOff_link {
+  width: 20%;
   height: 40%;
 }
 .sandBottom_right_container_soundOff_icon {
@@ -1561,7 +1562,6 @@
   position: absolute;
   left: 40%;
   top: 3rem;
-  /* for reading card text properly */
   width: clamp(8vw, 25%, 225px);
 }
 .footer_chestImage_chest {

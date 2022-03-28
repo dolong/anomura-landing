@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
@@ -11,8 +11,11 @@ const InitialOffset = 5600,
     SixHundredOffSet = -920,
     FourHundredOffSet = -900;
 
-export default function Footer({ ScrollPercent }) {
+export default function Footer({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
+    const [audioState, setAudioState] = useState("unloaded");
+    const bubbleRef = React.createRef();
+
     let calculatedOffsetY = useScrollValue(
         ScrollPercent,
         scrollSpeed,
@@ -30,6 +33,37 @@ export default function Footer({ ScrollPercent }) {
         if (window.innerWidth <= 600) setScrollSpeed(-22);
     }, []);
 
+    useEffect(() => {
+        window.addEventListener("scroll", changeAudioVolume);
+        return () => {
+            window.removeEventListener("scroll", changeAudioVolume);
+        };
+    }, [bubbleRef]);
+
+    useEffect(() => {
+        changeAudioVolume();
+        if (audioControl.chestChime != null && audioState == "unloaded") {
+            setAudioState("loaded");
+        }
+        return () => {};
+    }, [audioControl]);
+
+    const changeAudioVolume = () => {
+        if (bubbleRef.current && audioState == "loaded") {
+            let rect = bubbleRef.current.getBoundingClientRect();
+            let reference = Math.abs(rect.top);
+
+            let bubbleVolume = 0.5 - reference / 2200;
+            if (bubbleVolume < 0.01 || !audioControl.isSoundOn) {
+                audioControl.bubble.setVolume(0);
+            } else {
+                {
+                    audioControl.bubble.setVolume(bubbleVolume);
+                }
+            }
+        }
+    };
+
     return (
         <div className={s.footer_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.footer_container}>
@@ -38,7 +72,7 @@ export default function Footer({ ScrollPercent }) {
                     <img className={s.footer_bubble1} src="/img/home/footer/bubbles.gif" />
                 </div>
 
-                <div className={s.footer_followContainer}>
+                <div className={s.footer_followContainer} ref={bubbleRef}>
                     <p>
                         Join our community and follow us for the latest updates and upcoming events.
                     </p>

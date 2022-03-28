@@ -33,7 +33,6 @@ $mobile-text-size: 0.875rem;
 $mobile-lineHeight: 1.5rem;
 $header-space-bottom: 60px;
 
-
 /* For all heading on top of paragraph  */
 @mixin heading(){
 	font-size: 3.75rem; // based on Miro size 60px;
@@ -430,7 +429,6 @@ $header-space-bottom: 60px;
 			height: 200px;
 			left: 4%;
 			width: 79%;
-			// bottom: 30px;
 			pointer-events: auto;
 			a {
 				z-index: 2;
@@ -453,7 +451,6 @@ $header-space-bottom: 60px;
 				background: url("/img/home/bottomSand/discord.png") no-repeat;
 				background-size: contain;
 				
-				// place holder for Momo icon later
 				&:hover{
 					background: url("/img/home/bottomSand/discord_hover.png") no-repeat;
 					background-size: contain;
@@ -466,7 +463,6 @@ $header-space-bottom: 60px;
 				background: url("/img/home/bottomSand/instagram.png") no-repeat;
 				background-size: contain;
 
-				// place holder for Momo icon later
 			 	&:hover{
 			 		background: url("/img/home/bottomSand/instagram_hover.png") no-repeat;
 			 		background-size: contain;
@@ -512,17 +508,17 @@ $header-space-bottom: 60px;
 				&:hover {
 					color:  #FFCF8E!important;
 					text-decoration: none;
+			
 				}
 				&_link{
+					width: 20%;
 					height: 40%;
 				}
-
 				&_icon{
 					height: 100%;
 					margin-right:5px;
 				}
 				&_text{
-			
 					font-size: 1.25rem;
 					font-family: Safety Goggles;
 				}
@@ -1077,14 +1073,12 @@ $header-space-bottom: 60px;
 	&_presented {
 		@include paragraphContainer();
 	}
-	
 	&_mission {
 		@include paragraphContainer();
 		& > p {
 			color: #95DDC0;
 		}
 	}
-	
 	&_policy {
 		position: relative;
 		display: flex;
@@ -1108,7 +1102,6 @@ $header-space-bottom: 60px;
 			}
 		}
 	}
-
 	&_image {
 		@include m.flex-master(column, null, center);
 		position: relative;
@@ -1132,7 +1125,6 @@ $header-space-bottom: 60px;
 			position: absolute;
 			left:40%;
 			top:3rem;
-			/* for reading card text properly */
 			width: clamp(8vw, 25%, 225px);
 		}
 		&_chest {
@@ -1141,7 +1133,6 @@ $header-space-bottom: 60px;
 			z-index: 2;
 
 		}
-		
 		&_floor {
 			position: absolute;
 			bottom:0;
@@ -1234,12 +1225,10 @@ $header-space-bottom: 60px;
 		}
 	}
 	.footer {
-	
 		&_buttons {
 			font-size:$medium-text-size;
 		}
 	}
-	
 }
 
 /* ----------- General ipads ----------- */
@@ -1305,9 +1294,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	}
 }
 @media only screen and (max-width: 850px) {
-	// .shop_img {
-	// 	// width: min(55vh, 600px);
-	// }
 
 	.sandBottom {
 		&_right{
