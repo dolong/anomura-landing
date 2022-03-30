@@ -93,13 +93,13 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 </div>
                 <div className={`${s.comingsoon_zone}`}>
                     <div className={s.comingsoon_paragraphContainer}>
-                        <h1 className={s.comingsoon_hero_text}>
+                        <h1 className={s.comingsoon_hero_header}>
                             The Cove Awaits You...
                         </h1>
-                        <p>
+                        <p className={s.comingsoon_hero_text}>
                             Anomura is an addictive indie game utilizing NFTs and blockchain technology.
                         </p>
-                        <p>
+                        <p className={s.comingsoon_hero_text}>
                             Strategic gameplay, beautiful pixel art, contributions to wildlife preservation—this is a game with a greater purpose.
                         </p>
 
