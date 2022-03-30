@@ -78,7 +78,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                         <div className={`${s.when_roadmap_imgContainer}  `}>
                             <img
                                 className={`${s.when_roadmap_imgContainer_image}  `}
-                                src="/img/home/starfish01.gif"
+                                src="/img/home/whenSection/pinkCrystals.png"
                             />
                         </div>
 
