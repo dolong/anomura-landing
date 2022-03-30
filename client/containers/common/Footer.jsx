@@ -150,8 +150,7 @@ export default function Footer({ ScrollPercent, audioControl }) {
 					<p>
 						Virtually Human’s mission is to uncover what the future of entertainment can
 						do for humanity. Their flagship game ZED RUN is one of the first of its kind
-						created on the blockchain and is one of the leading NFT games built on
-						Ethereum globally.
+						created on the blockchain.
 					</p>
 					<img className={s.footer_bubble2} src="/img/home/footer/bubbles.gif" />
 				</div>
