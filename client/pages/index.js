@@ -91,7 +91,7 @@ export default function Home() {
 
         window.addEventListener("click", PlayBackgroundMusic);
 
-        return () => {};
+        return () => { };
     }, [audioState]);
 
     const onFinishedLoadingAudioSource = (bufferList) => {
@@ -257,7 +257,8 @@ export default function Home() {
     return (
         <div className={s.App}>
             <Head>
-                <title>Anomura Landing</title>
+
+                <title>Anomura</title>
                 <meta
                     name="description"
                     content="Anomura the next NFT game to take the world by storm."

@@ -45,10 +45,10 @@ export default function NFT({ ScrollPercent }) {
                         <div className={s.nft_heading}>NFT X VIDEOGAME!</div>
                         <div className={s.nft_paragraphContainer}>
                             <p>
-                                Anomuras are sworn protectors of the Earth and all realms in the
+                                The Anomuras are sworn protectors of the Earth and all realms in the
                                 Infinity Circle.
                             </p>
-                            <p>Mint original Anomuras, each with unique traits and habitats.</p>
+                            <p>Mint original Anomura, each with unique traits and habitats.</p>
                             <p>
                                 Gain exclusive access to the game using your Anomura NFT, reap
                                 rewards, participate in events, and more.
