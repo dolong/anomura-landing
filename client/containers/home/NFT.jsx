@@ -10,7 +10,7 @@ const InitialOffset = 600,
     SixHundredOffSet = 40,
     FourHundredOffSet = 10;
 
-export default function NFT({ ScrollPercent, audioControl }) {
+export default function NFT({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-6.5);
 
     let calculatedOffsetY = useScrollValue(
@@ -25,47 +25,13 @@ export default function NFT({ ScrollPercent, audioControl }) {
         FourHundredOffSet
     );
 
-    const nftRef = React.createRef();
-    const [audioState, setAudioState] = useState("unloaded");
-
     useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-4.5);
         if (window.innerWidth <= 600) setScrollSpeed(-2.5);
     });
 
-    useEffect(() => {
-        window.addEventListener("scroll", changeAudioVolume);
-        return () => {
-            window.removeEventListener("scroll", changeAudioVolume);
-        };
-    }, [nftRef]);
-
-    useEffect(() => {
-        changeAudioVolume();
-        if (audioControl.chestChime != null && audioState == "unloaded") {
-            setAudioState("loaded");
-        }
-        return () => {};
-    }, [audioControl]);
-
-    const changeAudioVolume = () => {
-        if (nftRef.current && audioState == "loaded") {
-            let rect = nftRef.current.getBoundingClientRect();
-            let reference = Math.abs(rect.top) + 200;
-
-            let bubbleVolume = 0.5 - reference / 1500;
-            if (bubbleVolume < 0.01 || !audioControl.isSoundOn) {
-                audioControl.bubble.setVolume(0);
-            } else {
-                {
-                    audioControl.bubble.setVolume(bubbleVolume);
-                }
-            }
-        }
-    };
-
     return (
-        <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }} ref={nftRef}>
+        <div className={s.nft} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.nft_container}>
                 <div className={s.nft_text}>
                     <div className={`${s.nft_star2Container}`}>

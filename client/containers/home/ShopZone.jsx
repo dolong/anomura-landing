@@ -20,16 +20,12 @@ export default function ShopZone({ audioControl, setAudioControl }) {
         e.preventDefault();
 
         if (audioControl.isSoundOn) {
-            console.log("turn off sound");
-
             setAudioControl((prevState) => ({
                 ...prevState,
                 isSoundOn: false,
             }));
             audioControl.setSound(false);
         } else {
-            console.log("turn on sound");
-
             setAudioControl((prevState) => ({
                 ...prevState,
                 isSoundOn: true,
@@ -85,8 +81,8 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                                 : "/img/home/follow_us/coming_soon_off.gif";
                     }}
                     src={`${windowSize.width > 1200
-                        ? "/img/home/follow_us/coming_soon_off.webp"
-                        : "/img/home/follow_us/coming_soon_off.gif"
+                            ? "/img/home/follow_us/coming_soon_off.webp"
+                            : "/img/home/follow_us/coming_soon_off.gif"
                         }`}
                     alt=""
                 />
@@ -138,22 +134,25 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         >
                             Discord
                         </a>
-                        <div className={`${s.sandBottom_right_container_soundOff}`}>
-                            <a href="" className={s.sandBottom_right_container_soundOff_link}>
+                        <a
+                            href=""
+                            className={`${s.sandBottom_right_container_soundOff}`}
+                            onClick={TurnOffSound}
+                        >
+                            <div className={s.sandBottom_right_container_soundOff_link}>
                                 <img
                                     className={s.sandBottom_right_container_soundOff_icon}
                                     src={`${audioControl.isSoundOn
-                                        ? "/img/home/bottomSand/volumne on.png"
-                                        : "/img/home/bottomSand/volumne off.png"
+                                            ? "/img/home/bottomSand/volumne on.png"
+                                            : "/img/home/bottomSand/volumne off.png"
                                         }`}
-                                    onClick={TurnOffSound}
                                 />
-                            </a>
+                            </div>
 
                             <span className={s.sandBottom_right_container_soundOff_text}>
                                 Music
                             </span>
-                        </div>
+                        </a>
                         <div></div>
                     </div>
                     <img

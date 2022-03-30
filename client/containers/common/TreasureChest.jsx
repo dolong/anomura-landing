@@ -91,9 +91,7 @@ export default function TreasureChest({ audioControl }) {
             }, 800);
         }
 
-        //if (audioControl.chestChime) {
         audioControl.chestChime.stop();
-        //}
 
         let volumeVal = !audioControl.isSoundOn ? 0 : 1;
 
