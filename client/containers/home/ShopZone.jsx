@@ -81,8 +81,8 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                                 : "/img/home/follow_us/coming_soon_off.gif";
                     }}
                     src={`${windowSize.width > 1200
-                            ? "/img/home/follow_us/coming_soon_off.webp"
-                            : "/img/home/follow_us/coming_soon_off.gif"
+                        ? "/img/home/follow_us/coming_soon_off.webp"
+                        : "/img/home/follow_us/coming_soon_off.gif"
                         }`}
                     alt=""
                 />
@@ -94,10 +94,13 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 <div className={`${s.comingsoon_zone}`}>
                     <div className={s.comingsoon_paragraphContainer}>
                         <h1 className={s.comingsoon_hero_text}>
-                            The Cove Awaits You
+                            The Cove Awaits You...
                         </h1>
                         <p>
-                            Become a guardian of the Universe to restore balance and harmony and reap rewards!
+                            Anomura is an addictive indie game utilizing NFTs and blockchain technology.
+                        </p>
+                        <p>
+                            Strategic gameplay, beautiful pixel art, contributions to wildlife preservation—this is a game with a greater purpose.
                         </p>
 
                     </div>
@@ -143,8 +146,8 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                                 <img
                                     className={s.sandBottom_right_container_soundOff_icon}
                                     src={`${audioControl.isSoundOn
-                                            ? "/img/home/bottomSand/volumne on.png"
-                                            : "/img/home/bottomSand/volumne off.png"
+                                        ? "/img/home/bottomSand/volumne on.png"
+                                        : "/img/home/bottomSand/volumne off.png"
                                         }`}
                                 />
                             </div>
