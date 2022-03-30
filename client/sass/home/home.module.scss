@@ -70,7 +70,7 @@ $header-space-bottom: 60px;
 	font-family: PFRondaSeven;
 	line-height: 31px;
 
-	& > p {
+	& > p:first-child {
 		margin-bottom:30px;
 	}
 	& > p:last-child {
@@ -1083,6 +1083,7 @@ $header-space-bottom: 60px;
 		position: relative;
 		display: flex;
 		justify-content: center;
+		margin-top: min(20vh, 250px);
 		&_line {
 			width: 100%;
 			border-bottom: 1px solid #F55690;

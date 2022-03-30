@@ -135,7 +135,7 @@ export default function CrabAnat({ ScrollPercent }) {
 
                 <div className={s.crab_paragraphContainer}>
                     <p>All Anomura will hold unique attributes based on their body parts. </p>
-                    <p>Each randomly generated anatomical part will have a chance of being</p>
+                    <span>Each randomly generated anatomical part will have a chance of being </span>
                     <div
                         className={s.crab_normal}
                         onMouseEnter={() =>
@@ -165,7 +165,7 @@ export default function CrabAnat({ ScrollPercent }) {
                                 </div>
                             </div>
                         )}
-                        <span className="ml-2"></span> normal
+                        normal
                     </div>
                     ,{" "}
                     <div
