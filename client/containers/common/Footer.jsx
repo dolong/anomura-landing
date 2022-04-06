@@ -50,7 +50,6 @@ export default function Footer({ ScrollPercent, audioControl }) {
 		changeAudioVolume();
 		if (audioControl.bubble != null && bubbleRef.current && audioState == "unloaded") {
 			setAudioState("loaded");
-
 			// audioControl.bubble.playSound();
 			// audioControl.bgMusic.playSound();
 
@@ -58,7 +57,6 @@ export default function Footer({ ScrollPercent, audioControl }) {
 				audioControl.fishPass.playSound(0);
 				interval = setInterval(() => {
 					audioControl.fishPass.playSound(0);
-					console.log(123);
 				}, 8500);
 			}, 2500);
 		}
