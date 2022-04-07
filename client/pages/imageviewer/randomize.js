@@ -84,20 +84,18 @@ export default function AnimateViewerRandomize() {
 	}
 }
 
-const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
+const CrabCanvas = ({ sources, data, isDrawHeadpieces, randomize }) => {
 	const [imagesSrc, setImageSrc] = React.useState({});
 	const [isLoaded, setIsLoaded] = React.useState(false);
 	const [modalOpen, setModalOpen] = React.useState(false);
-
+	const [intervalID, setInterID] = useState();
 	const canvasRef = React.createRef(null);
 	let canvas = null;
 	let context = null;
-	let canvasInterval;
 
 	const handleRandomize = () => {
-		// was not able to clear the interval
-		//clearInterval(canvasInterval);
-		window.location.reload();
+		clearInterval(intervalID);
+		randomize();
 	};
 
 	useEffect(() => {
@@ -115,7 +113,8 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
 			context = canvas?.getContext("2d");
 
 			setIsLoaded(false);
-			DrawImagesOnCanvas(imagesSrc, canvas, context);
+			let canvasInterval = DrawImagesOnCanvas(imagesSrc, canvas, context);
+			setInterID(canvasInterval);
 		}
 	}, [imagesSrc, data]);
 
@@ -124,7 +123,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
 		let height = 508;
 		let counter = 0;
 
-		canvasInterval = setInterval(() => {
+		return setInterval(() => {
 			if (counter == 24) counter = 0;
 			context.drawImage(images.background[counter], 0, 0, width, height);
 			context.drawImage(images.shadow[counter], 0, 0, width, height);
