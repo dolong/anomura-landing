@@ -9,7 +9,8 @@
             "@components/*": ["components/*"],
             "@styles/*": ["styles/*"],
             "@utils/*": ["utils/*"],
-            "@repository/*": ["repository/*"]
+            "@repository/*": ["repository/*"],
+            "@prisma/*": ["prisma/*"]
           }
     },
      "include": [
