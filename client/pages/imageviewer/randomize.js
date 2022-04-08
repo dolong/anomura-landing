@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 
-// import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "utils/crabData";
-// import { getAllCrabs, getCrabById } from "repositories/crabs";
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 const { backgrounds, bodies, claws, legs, shells, headpieces } = require("prisma/seed/crabData");
 
@@ -12,6 +10,25 @@ function randomIntFromInterval(min, max) {
 }
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
 export default function AnimateViewerRandomize() {
+	const [crabData, setCrabData] = useState([]);
+
+	useEffect(() => {
+		let test = [];
+		for (var i = 0; i < 50; i++) {
+			test.push(i);
+		}
+		setCrabData([...test]);
+	}, [crabData]);
+	return (
+		<div className="flex flex-row flex-wrap">
+			{crabData?.map((d, index) => {
+				return <CrabContainer key={index} />;
+			})}
+		</div>
+	);
+}
+
+const CrabContainer = () => {
 	const [crabData, setCrabData] = useState(null);
 	useEffect(() => {
 		if (!crabData) {
@@ -20,7 +37,6 @@ export default function AnimateViewerRandomize() {
 	}, [crabData]);
 
 	const randomize = () => {
-		console.log("randomize");
 		let background = backgrounds[randomIntFromInterval(0, backgrounds.length - 1)];
 		let body = bodies[randomIntFromInterval(0, bodies.length - 1)];
 		let claw = claws[randomIntFromInterval(0, claws.length - 1)];
@@ -82,7 +98,7 @@ export default function AnimateViewerRandomize() {
 			</div>
 		);
 	}
-}
+};
 
 const CrabCanvas = ({ sources, data, isDrawHeadpieces, randomize }) => {
 	const [imagesSrc, setImageSrc] = React.useState({});
@@ -128,8 +144,13 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces, randomize }) => {
 			context.drawImage(images.background[counter], 0, 0, width, height);
 			context.drawImage(images.shadow[counter], 0, 0, width, height);
 			context.drawImage(images.shell[counter], 0, 0, width, height);
+
+			context.globalAlpha = 0.7;
 			isDrawHeadpieces &&
 				context.drawImage(images.headpieces[counter], 0, -35, width, height);
+
+			context.globalAlpha = 1;
+
 			context.drawImage(images.legs[counter], 0, 0, width, height);
 			context.drawImage(images.body[counter], 0, 0, width, height);
 			context.drawImage(images.claws[counter], 0, 0, width, height);
@@ -209,14 +230,14 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces, randomize }) => {
                         }`}
 				</style>
 
-				<div className="flex space-x-2 justify-center mt-4">
+				{/* <div className="flex space-x-2 justify-center mt-4">
 					<button
 						className="inline-block px-6 py-2.5 bg-blue-600"
 						onClick={() => handleRandomize()}
 					>
 						Refresh
 					</button>
-				</div>
+				</div> */}
 			</div>
 		</>
 	);
