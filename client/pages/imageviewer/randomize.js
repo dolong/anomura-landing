@@ -10,18 +10,18 @@ function randomIntFromInterval(min, max) {
 }
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
 export default function AnimateViewerRandomize() {
-	const [crabData, setCrabData] = useState([]);
+	const [crabArr, setArray] = useState([]);
 
 	useEffect(() => {
 		let test = [];
 		for (var i = 0; i < 50; i++) {
 			test.push(i);
 		}
-		setCrabData([...test]);
-	}, [crabData]);
+		setArray([...test]);
+	}, []);
 	return (
 		<div className="flex flex-row flex-wrap">
-			{crabData?.map((d, index) => {
+			{crabArr?.map((d, index) => {
 				return <CrabContainer key={index} />;
 			})}
 		</div>
