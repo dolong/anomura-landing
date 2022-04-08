@@ -50,15 +50,13 @@ export default function Footer({ ScrollPercent, audioControl }) {
 		changeAudioVolume();
 		if (audioControl.bubble != null && bubbleRef.current && audioState == "unloaded") {
 			setAudioState("loaded");
-			// audioControl.bubble.playSound();
-			// audioControl.bgMusic.playSound();
 
 			timeout = setTimeout(() => {
 				audioControl.fishPass.playSound(0);
 				interval = setInterval(() => {
 					audioControl.fishPass.playSound(0);
-				}, 8500);
-			}, 2500);
+				}, 4600);
+			}, 1000);
 		}
 	}, [audioControl]);
 
@@ -66,15 +64,6 @@ export default function Footer({ ScrollPercent, audioControl }) {
 		if (bubbleRef.current && audioState == "loaded") {
 			let rect = bubbleRef.current.getBoundingClientRect();
 			let reference = Math.abs(rect.top);
-
-			let bubbleVolume = 0.5 - reference / 2200;
-			if (bubbleVolume < 0.01 || !audioControl.isSoundOn) {
-				audioControl.bubble.setVolume(0);
-			} else {
-				{
-					audioControl.bubble.setVolume(bubbleVolume);
-				}
-			}
 
 			let fishVolume = 1 - reference / 800;
 			if (fishVolume < 0.1 || !audioControl.isSoundOn) {
