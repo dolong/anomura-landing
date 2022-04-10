@@ -252,8 +252,6 @@ export default function Home() {
 					property="og:image"
 					content="https://www.anomuragame.com/WebsitePreview-06.jpg"
 				/>
-				<meta property="og:image:width" content="1200" />
-				<meta property="og:image:height" content="627" />
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
 
