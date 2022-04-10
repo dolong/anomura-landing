@@ -250,7 +250,7 @@ export default function Home() {
 				<meta property="keywords" content="Anomura, NFT, Game" />
 				<meta
 					property="og:image"
-					content="https://www.anomuragame.com/Website%20Preview-06.jpg"
+					content="https://www.anomuragame.com/WebsitePreview-06.jpg"
 				/>
 				<meta property="og:image:width" content="1200" />
 				<meta property="og:image:height" content="627" />
