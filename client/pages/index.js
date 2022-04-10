@@ -246,12 +246,9 @@ export default function Home() {
 					content="Become a guardian of the Universe to restore
 					balance, harmony and reap rewards!"
 				/>
-
+				<meta property="og:site_name" content="Anomura: The Cove Awaits You"></meta>
 				<meta property="keywords" content="Anomura, NFT, Game" />
-				<meta
-					property="og:image"
-					content="https://www.anomuragame.com/WebsitePreview-06.jpg"
-				/>
+				<meta property="og:image" content="https://www.anomuragame.com/OG_image.png" />
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
 
