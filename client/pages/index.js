@@ -239,6 +239,8 @@ export default function Home() {
 		<div className={s.App}>
 			<Head>
 				<title>Anomura: The Cove Awaits You</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<meta property="og:title" content="Anomura: The Cove Awaits You" />
 				<meta
 					property="og:description"
 					content="Become a guardian of the Universe to restore
@@ -250,9 +252,8 @@ export default function Home() {
 					property="og:image"
 					content="https://www.anomuragame.com/Website%20Preview-06.jpg"
 				/>
-				<meta property="og:image:width" content="800" />
-
-				<meta property="og:image:height" content="418" />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="627" />
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
 
