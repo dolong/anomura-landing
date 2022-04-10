@@ -238,13 +238,17 @@ export default function Home() {
 	return (
 		<div className={s.App}>
 			<Head>
-				<title>Anomura</title>
+				<title>
+					Anomura: The Cove Awaits You Become a guardian of the Universe to restore
+					balance, harmony and reap rewards!
+				</title>
 				<meta
 					name="description"
 					content="Anomura the next NFT game to take the world by storm."
 				/>
-				<meta name="author" content="Jonathan Westfall" />
+
 				<meta name="keywords" content="Anomura, NFT, Game" />
+				<meta name="image" content="/Website Preview-06.jpg" />
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
 
