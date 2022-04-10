@@ -248,7 +248,10 @@ export default function Home() {
 				/>
 				<meta property="og:site_name" content="Anomura: The Cove Awaits You"></meta>
 				<meta property="keywords" content="Anomura, NFT, Game" />
-				<meta property="og:image" content="https://www.anomuragame.com/OG_image.png" />
+				<meta
+					property="og:image"
+					content="https://www.anomuragame.com/WebsitePreview-06.png"
+				/>
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
 
