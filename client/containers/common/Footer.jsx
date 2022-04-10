@@ -56,7 +56,7 @@ export default function Footer({ ScrollPercent, audioControl }) {
 				interval = setInterval(() => {
 					audioControl.fishPass.playSound(0);
 				}, 4600);
-			}, 1000);
+			}, 2000);
 		}
 	}, [audioControl]);
 

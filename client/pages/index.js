@@ -240,7 +240,7 @@ export default function Home() {
 			<Head>
 				<title>Anomura: The Cove Awaits You</title>
 				<meta
-					property="description"
+					property="og:description"
 					content="Become a guardian of the Universe to restore
 					balance, harmony and reap rewards!"
 				/>
@@ -250,6 +250,9 @@ export default function Home() {
 					property="og:image"
 					content="https://www.anomuragame.com/Website%20Preview-06.jpg"
 				/>
+				<meta property="og:image:width" content="800" />
+
+				<meta property="og:image:height" content="418" />
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
 
