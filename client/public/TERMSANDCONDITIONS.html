@@ -9,6 +9,18 @@
 			<!--
 			/* Font Definitions */
 			@font-face {
+				src: url("/fonts/ronda_revised.ttf") format("TrueType");
+				font-family: "PFRondaSeven";
+				font-display: swap;
+			}
+
+			@font-face {
+				src: url("/fonts/Safety Goggles.ttf");
+				font-family: "Safety Goggles";
+				/* font-display: swap; */
+			}
+
+			@font-face {
 				font-family: "Cambria Math";
 				panose-1: 2 4 5 3 5 4 6 3 2 4;
 			}
@@ -19,11 +31,15 @@
 			div.MsoNormal {
 				margin: 0in;
 				line-height: 115%;
-				font-size: 11.0pt;
-				font-family: "Arial", sans-serif;
+				font-size: 11pt;
+				font-family: "PFRondaSeven", sans-serif;
 			}
 
 			body {
+				font-size: 1.5rem;
+				font-weight: 400;
+				line-height: 1.25rem;
+				font-family: "PFRondaSeven", sans-serif;
 				background-color: #00705F;
 				color: white;
 			}
@@ -64,6 +80,25 @@
 			ul {
 				margin-bottom: 0in;
 			}
+
+			.header {
+				font-size: min(2.25rem, 60px);
+				margin: 0in;
+				line-height: 72px;
+				font-family: Safety Goggles, sans-serif;
+				font-weight: 400;
+			}
+
+			.wrapper {
+				display: flex;
+				justify-content: center;
+			}
+
+			.anomura_img {
+				width: max(200px, 20vw);
+				margin-top: 7vh;
+				margin-bottom: 7vh;
+			}
 			-->
 		</style>
 
@@ -72,20 +107,23 @@
 	<body lang=EN-US
 		  style='word-wrap:break-word'>
 
+		<div class="wrapper">
+			<a href="/">
+				<img class=anomura_img
+					 src="img/anomura/invite/anomura_big.png">
+				</img>
+			</a>
+		</div>
+
 		<div class=WordSection1
 			 style='max-width:900px; margin: auto'>
 
-			<p class=MsoNormal
-			   align=center
-			   style='text-align:center'><b><span lang=EN>ANOMURA
-					</span></b></p>
-
-			<p class=MsoNormal
-			   align=center
-			   style='margin-top:12.0pt;margin-right:0in;
-margin-bottom:12.0pt;margin-left:0in;text-align:center'><b><span lang=EN>TERMS
-						AND CONDITIONS</span></b></p>
-
+			<div class="wrapper">
+				<p class=header>
+					TERMS
+					AND CONDITIONS
+				</p>
+			</div>
 			<p class=MsoNormal><span lang=EN>Virtually Human Studio Pty Ltd (ABN 90 636 113
 					409) owns and operates Anomura.</span></p>
 
