@@ -28,12 +28,14 @@ const CrabContainer = () => {
 const INITIAL = 0;
 const STEP_1 = 1;
 const STEP_2 = 2;
+const STEP_3 = 3;
 
 const CrabCanvas = ({ sources }) => {
     const [imagesSrc, setImageSrc] = React.useState({});
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [currentState, setCurrentState] = React.useState(INITIAL);
     const [showButton, setShownButton] = React.useState(true);
+    const [intervalID, setInterID] = useState();
     const canvasRef = React.createRef(null);
     let canvas = null;
     let context = null;
@@ -109,7 +111,25 @@ const CrabCanvas = ({ sources }) => {
                 setIsLoaded(true);
             });
         }
-    }, [imagesSrc]);
+
+        if (currentState === STEP_1) {
+            canvas = canvasRef?.current;
+            context = canvas?.getContext("2d");
+            audioControl.sound1.playSound(1);
+            DrawSequence1(imagesSrc, canvas, context);
+        }
+        if (currentState === STEP_2) {
+            canvas = canvasRef?.current;
+            context = canvas?.getContext("2d");
+            let canvasInterval = DrawSequence2(imagesSrc, canvas, context);
+            setInterID(canvasInterval);
+        }
+        if (currentState === STEP_3) {
+            canvas = canvasRef?.current;
+            context = canvas?.getContext("2d");
+            DrawSequence3(imagesSrc, canvas, context);
+        }
+    }, [imagesSrc, currentState]);
 
     const handleOnChange = () => {
         setShownButton(true);
@@ -118,27 +138,64 @@ const CrabCanvas = ({ sources }) => {
     const handleContinue = () => {
         setShownButton(false);
         if (currentState === INITIAL) {
-            console.log("Load image true");
-            canvas = canvasRef?.current;
-            context = canvas?.getContext("2d");
+            // console.log("Load image true");
+            // canvas = canvasRef?.current;
+            // context = canvas?.getContext("2d");
 
-            setIsLoaded(false);
-            audioControl.sound1.playSound(1);
-            DrawImagesOnCanvas(imagesSrc, canvas, context);
-            //setInterID(canvasInterval);
+            // setIsLoaded(false);
+            // audioControl.sound1.playSound(1);
+            // DrawSequence1(imagesSrc, canvas, context);
+            setCurrentState(STEP_1);
+        }
+        if (currentState === STEP_2) {
+            // console.log("Load image true");
+            // canvas = canvasRef?.current;
+            // context = canvas?.getContext("2d");
+            // DrawSequence3(imagesSrc, canvas, context);
+            clearInterval(intervalID);
+            setCurrentState(STEP_3);
         }
     };
 
-    const DrawImagesOnCanvas = (images, canvas, context) => {
+    const DrawSequence1 = (images, canvas, context) => {
         let width = 1000;
         let height = 508;
         let counter = 100;
+        let interval = setInterval(() => {
+            if (counter == 115) {
+                clearInterval(interval);
+                setCurrentState(STEP_2);
+            }
+            context.drawImage(images.sequences[counter], 0, 0, width, height);
+            counter++;
+        }, 85);
+    };
+
+    const DrawSequence2 = (images, canvas, context) => {
+        let width = 1000;
+        let height = 508;
+        let counter = 116;
         console.log(images.sequences);
+        return setInterval(() => {
+            if (counter == 130) {
+                counter = 116;
+            }
+            context.drawImage(images.sequences[counter], 0, 0, width, height);
+            counter++;
+        }, 85);
+    };
+
+    const DrawSequence3 = (images, canvas, context) => {
+        let width = 1000;
+        let height = 508;
+        let counter = 130;
+        console.log("test 3");
         let interval = setInterval(() => {
             if (counter == 135) {
                 clearInterval(interval);
                 setCurrentState(STEP_1);
             }
+            console.log("test 3");
             context.drawImage(images.sequences[counter], 0, 0, width, height);
             counter++;
         }, 85);
@@ -218,7 +275,7 @@ const CrabCanvas = ({ sources }) => {
                     </div>
                 )}
 
-                {currentState === STEP_1 && (
+                {currentState === STEP_2 && (
                     <div className="flex space-x-2 justify-center mt-4 absolute top-0 left-20">
                         <fieldset>
                             <legend>CTA TEST:</legend>
