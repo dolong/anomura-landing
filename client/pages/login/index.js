@@ -1,4 +1,4 @@
-// import Head from 'next/head';
+import Head from "next/head";
 // import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Login() {
