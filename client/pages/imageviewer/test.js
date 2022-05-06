@@ -148,10 +148,6 @@ const CrabCanvas = ({ sources }) => {
             setCurrentState(STEP_1);
         }
         if (currentState === STEP_2) {
-            // console.log("Load image true");
-            // canvas = canvasRef?.current;
-            // context = canvas?.getContext("2d");
-            // DrawSequence3(imagesSrc, canvas, context);
             clearInterval(intervalID);
             setCurrentState(STEP_3);
         }
