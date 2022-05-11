@@ -233,15 +233,17 @@ $header-space-bottom: 60px;
 
 .banner {
 	&_zone {
-		position: relative;
+		position: fixed;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
-		height:100%;
-		z-index:3;
+		height:2rem;
+		
 		width: 100%;
 		font-family: Safety Goggles;
 		font-size: 0.8rem;
+		z-index:10;
+		//transition: 2950ms ease-in-out;
 
 		@media only screen and (min-width: 500px) {
 			font-size: 1rem;
@@ -250,36 +252,41 @@ $header-space-bottom: 60px;
 			font-size: 1.125rem;
 		}
 		@media only screen and (min-width: 1200px) {
-			font-size: 1.25rem;
+			font-size: 1.55rem;
 		}
-
-	
 	}
 
 	&_wrapper{
 		@include m.flex-master(row, center, center);
 	
 		position: relative;
-		width: 80%;
 		background-color: #5EC1D3;
 		border: solid 3px #A5EBE3;
 		border-top: none;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 
 		&:hover{
 			text-decoration: none;
 		}
-		
+
 		@media only screen and (min-width: 500px) {
-			width: 65%;
+			// width: 65%;
 		}
 		@media only screen and (min-width: 636px) {
-			width: 55%;
+			// width: 55%;
 		}
 		@media only screen and (min-width: 900px) {
-			width: 40%;
+			// width: 40%;
 		}
 		@media only screen and (min-width: 1200px) {
-			width: 35%;
+			// width: 35%;
+		}
+
+		& > span {
+			@include m.flex-master(row, center, center);
+			position: relative;
+			//margin-left: -1rem;
 		}
 	}
 	&_shell1 {
@@ -303,17 +310,29 @@ $header-space-bottom: 60px;
 		}
 	}
 	&_arrow {
-		position: absolute;
-		right:0;
-		height: 65%;
+		position: relative;
+		margin-left:0.6rem;
+		height: 1rem;
+		width:auto;
+		
+		//padding-top: 1rem;
 
+		@include m.flex-master(row, center, center);
+		@media only screen and (min-width: 500px) {
+			// width: 65%;
+		}
+		@media only screen and (min-width: 636px) {
+			// width: 55%;
+		}
+		@media only screen and (min-width: 900px) {
+			// width: 40%;
+		}
+		@media only screen and (min-width: 1200px) {
+			//right:-1.25rem;
+		}
 		&_img {
-			margin-right:0.5rem;
-			height: 100%;
-
-			@media only screen and (min-width: 636px) {
-				margin-right:1rem;
-			}
+			max-width: 100%;
+			max-height: 100%;
 		}
 	}
 
@@ -327,7 +346,7 @@ $header-space-bottom: 60px;
 		flex-direction: row;
 
 		z-index:3;
-		padding-top: 2%;
+		padding-top: 3%;
 		
 	}
 

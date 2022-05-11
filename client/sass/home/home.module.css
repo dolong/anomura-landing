@@ -160,15 +160,15 @@
 }
 
 .banner_zone {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  height: 100%;
-  z-index: 3;
+  height: 2rem;
   width: 100%;
   font-family: Safety Goggles;
   font-size: 0.8rem;
+  z-index: 10;
 }
 @media only screen and (min-width: 500px) {
   .banner_zone {
@@ -182,7 +182,7 @@
 }
 @media only screen and (min-width: 1200px) {
   .banner_zone {
-    font-size: 1.25rem;
+    font-size: 1.55rem;
   }
 }
 .banner_wrapper {
@@ -191,33 +191,21 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 80%;
   background-color: #5EC1D3;
   border: solid 3px #A5EBE3;
   border-top: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .banner_wrapper:hover {
   text-decoration: none;
 }
-@media only screen and (min-width: 500px) {
-  .banner_wrapper {
-    width: 65%;
-  }
-}
-@media only screen and (min-width: 636px) {
-  .banner_wrapper {
-    width: 55%;
-  }
-}
-@media only screen and (min-width: 900px) {
-  .banner_wrapper {
-    width: 40%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .banner_wrapper {
-    width: 35%;
-  }
+.banner_wrapper > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 .banner_shell1 {
   position: absolute;
@@ -238,18 +226,18 @@
   height: 100%;
 }
 .banner_arrow {
-  position: absolute;
-  right: 0;
-  height: 65%;
+  position: relative;
+  margin-left: 0.6rem;
+  height: 1rem;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .banner_arrow_img {
-  margin-right: 0.5rem;
-  height: 100%;
-}
-@media only screen and (min-width: 636px) {
-  .banner_arrow_img {
-    margin-right: 1rem;
-  }
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .shop_zone {
@@ -258,7 +246,7 @@
   justify-content: center;
   flex-direction: row;
   z-index: 3;
-  padding-top: 2%;
+  padding-top: 3%;
 }
 .shop_fish1 {
   width: min(8vw, 131px);

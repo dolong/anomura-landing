@@ -3,7 +3,7 @@ import s from "/sass/home/home.module.css";
 
 export default function ShopZone({ audioControl, setAudioControl }) {
     const comingSoonRef = React.createRef();
-
+    const [showBanner, setShowBanner] = React.useState(false);
     const [windowSize, setWindowSize] = React.useState({ width: undefined });
 
     React.useEffect(() => {
@@ -12,9 +12,16 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 width: window.innerWidth,
             });
         }
-
-        return () => {};
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, []);
+
+    const handleScroll = () => {
+        if (showBanner) return;
+        if (window.scrollY > 250) setShowBanner(true);
+    };
 
     const TurnOffSound = (e) => {
         e.preventDefault();
@@ -42,20 +49,33 @@ export default function ShopZone({ audioControl, setAudioControl }) {
     return (
         <div>
             {/******************* Site Banner *****************/}
-            <div className={`${s.banner_zone}`}>
-                <a className={`${s.banner_wrapper}`} href="https://anomuragame.com/challenger">
-                    <div className={`${s.banner_shell1}`}>
-                        <img className={`${s.banner_shell1_img}`} src="/img/home/Logomark_3x.png" />
-                    </div>
-                    <div className={`${s.banner_shell2}`}>
-                        <img className={`${s.banner_shell2_img}`} src="/img/home/Logomark_3x.png" />
-                    </div>
-                    TRY OUR DEEPSEA CHALLENGER NOW
-                    <div className={`${s.banner_arrow}`}>
-                        <img className={`${s.banner_arrow_img}`} src="/img/home/Banner Arrow.png" />
-                    </div>
-                </a>
-            </div>
+            {showBanner && (
+                <div className={`${s.banner_zone}`}>
+                    <a className={`${s.banner_wrapper}`} href="https://anomuragame.com">
+                        <div className={`${s.banner_shell1}`}>
+                            <img
+                                className={`${s.banner_shell1_img}`}
+                                src="/img/home/Logomark_3x.png"
+                            />
+                        </div>
+                        <div className={`${s.banner_shell2}`}>
+                            <img
+                                className={`${s.banner_shell2_img}`}
+                                src="/img/home/Logomark_3x.png"
+                            />
+                        </div>
+                        <span>
+                            DIVE INTO OUR DEEPSEA CHALLENGER
+                            <div className={`${s.banner_arrow}`}>
+                                <img
+                                    className={`${s.banner_arrow_img}`}
+                                    src="/img/home/Banner Arrow.png"
+                                />
+                            </div>
+                        </span>
+                    </a>
+                </div>
+            )}
             {/******************* Shop Zone *****************/}
             <div className={`${s.shop_zone}`}>
                 <div className={s.shop_fish1}>

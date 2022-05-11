@@ -138,13 +138,6 @@ const CrabCanvas = ({ sources }) => {
     const handleContinue = () => {
         setShownButton(false);
         if (currentState === INITIAL) {
-            // console.log("Load image true");
-            // canvas = canvasRef?.current;
-            // context = canvas?.getContext("2d");
-
-            // setIsLoaded(false);
-            // audioControl.sound1.playSound(1);
-            // DrawSequence1(imagesSrc, canvas, context);
             setCurrentState(STEP_1);
         }
         if (currentState === STEP_2) {
@@ -154,8 +147,8 @@ const CrabCanvas = ({ sources }) => {
     };
 
     const DrawSequence1 = (images, canvas, context) => {
-        let width = 1000;
-        let height = 508;
+        let width = 2000;
+        let height = 1008;
         let counter = 100;
         let interval = setInterval(() => {
             if (counter == 115) {
@@ -168,8 +161,8 @@ const CrabCanvas = ({ sources }) => {
     };
 
     const DrawSequence2 = (images, canvas, context) => {
-        let width = 1000;
-        let height = 508;
+        let width = 2000;
+        let height = 1008;
         let counter = 116;
         console.log(images.sequences);
         return setInterval(() => {
@@ -182,8 +175,8 @@ const CrabCanvas = ({ sources }) => {
     };
 
     const DrawSequence3 = (images, canvas, context) => {
-        let width = 1000;
-        let height = 508;
+        let width = 2000;
+        let height = 1008;
         let counter = 130;
         console.log("test 3");
         let interval = setInterval(() => {
@@ -239,7 +232,7 @@ const CrabCanvas = ({ sources }) => {
     return (
         <>
             <div className={s.container}>
-                <canvas ref={canvasRef} width="1000" height="500" />
+                <canvas ref={canvasRef} width="4000" height="2000" />
 
                 <style>
                     {`
