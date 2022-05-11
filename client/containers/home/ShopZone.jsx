@@ -12,9 +12,9 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 width: window.innerWidth,
             });
         }
-        window.addEventListener("scroll", handleScroll);
+        // window.addEventListener("scroll", handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            // window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
@@ -49,7 +49,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
     return (
         <div>
             {/******************* Site Banner *****************/}
-            {showBanner && (
+            {/* {showBanner && (
                 <div className={`${s.banner_zone}`}>
                     <a className={`${s.banner_wrapper}`} href="https://anomuragame.com">
                         <div className={`${s.banner_shell1}`}>
@@ -75,7 +75,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         </span>
                     </a>
                 </div>
-            )}
+            )} */}
             {/******************* Shop Zone *****************/}
             <div className={`${s.shop_zone}`}>
                 <div className={s.shop_fish1}>
