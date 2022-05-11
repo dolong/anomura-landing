@@ -237,13 +237,20 @@ $header-space-bottom: 60px;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
-		height:1.5rem;
+		height:1.75rem;
 		
 		width: 100%;
 		font-family: Safety Goggles;
 		font-size: 0.8rem;
 		z-index:10;
 		//transition: 2950ms ease-in-out;
+
+		@media only screen and (min-width: 300px) {
+			font-size: 0.875rem;
+		}
+		@media only screen and (min-width: 400px) {
+			font-size: 0.9rem;
+		}
 
 		@media only screen and (min-width: 500px) {
 			font-size: 1rem;
@@ -254,6 +261,7 @@ $header-space-bottom: 60px;
 		}
 		@media only screen and (min-width: 1200px) {
 			font-size: 1.55rem;
+			height:2.5rem;
 		}
 	}
 
@@ -264,6 +272,7 @@ $header-space-bottom: 60px;
 		background-color: #5EC1D3;
 		border: solid 3px #A5EBE3;
 		border-top: none;
+
 		padding-left: 1rem;
 		padding-right: 1rem;
 
@@ -275,6 +284,7 @@ $header-space-bottom: 60px;
 			// width: 65%;
 		}
 		@media only screen and (min-width: 636px) {
+
 			padding-left: 1.5rem;
 			padding-right: 1.5rem;
 		}
