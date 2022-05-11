@@ -237,7 +237,7 @@ $header-space-bottom: 60px;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
-		height:2rem;
+		height:1.5rem;
 		
 		width: 100%;
 		font-family: Safety Goggles;
@@ -250,6 +250,7 @@ $header-space-bottom: 60px;
 		}
 		@media only screen and (min-width: 600px) {
 			font-size: 1.125rem;
+			height:2rem;
 		}
 		@media only screen and (min-width: 1200px) {
 			font-size: 1.55rem;
@@ -263,8 +264,8 @@ $header-space-bottom: 60px;
 		background-color: #5EC1D3;
 		border: solid 3px #A5EBE3;
 		border-top: none;
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
 
 		&:hover{
 			text-decoration: none;
@@ -274,7 +275,8 @@ $header-space-bottom: 60px;
 			// width: 65%;
 		}
 		@media only screen and (min-width: 636px) {
-			// width: 55%;
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
 		}
 		@media only screen and (min-width: 900px) {
 			// width: 40%;
@@ -312,7 +314,7 @@ $header-space-bottom: 60px;
 	&_arrow {
 		position: relative;
 		margin-left:0.6rem;
-		height: 1rem;
+		height: 0.6rem;
 		width:auto;
 		
 		//padding-top: 1rem;
@@ -322,7 +324,7 @@ $header-space-bottom: 60px;
 			// width: 65%;
 		}
 		@media only screen and (min-width: 636px) {
-			// width: 55%;
+			height: 1rem;
 		}
 		@media only screen and (min-width: 900px) {
 			// width: 40%;

@@ -164,7 +164,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  height: 2rem;
+  height: 1.5rem;
   width: 100%;
   font-family: Safety Goggles;
   font-size: 0.8rem;
@@ -178,6 +178,7 @@
 @media only screen and (min-width: 600px) {
   .banner_zone {
     font-size: 1.125rem;
+    height: 2rem;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -194,11 +195,17 @@
   background-color: #5EC1D3;
   border: solid 3px #A5EBE3;
   border-top: none;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .banner_wrapper:hover {
   text-decoration: none;
+}
+@media only screen and (min-width: 636px) {
+  .banner_wrapper {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 .banner_wrapper > span {
   display: flex;
@@ -228,12 +235,17 @@
 .banner_arrow {
   position: relative;
   margin-left: 0.6rem;
-  height: 1rem;
+  height: 0.6rem;
   width: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+@media only screen and (min-width: 636px) {
+  .banner_arrow {
+    height: 1rem;
+  }
 }
 .banner_arrow_img {
   max-width: 100%;
