@@ -13,7 +13,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
             });
         }
 
-        return () => { };
+        return () => {};
     }, []);
 
     const TurnOffSound = (e) => {
@@ -41,6 +41,21 @@ export default function ShopZone({ audioControl, setAudioControl }) {
     };
     return (
         <div>
+            {/******************* Site Banner *****************/}
+            <div className={`${s.banner_zone}`}>
+                <a className={`${s.banner_wrapper}`} href="https://anomuragame.com/challenger">
+                    <div className={`${s.banner_shell1}`}>
+                        <img className={`${s.banner_shell1_img}`} src="/img/home/Logomark_3x.png" />
+                    </div>
+                    <div className={`${s.banner_shell2}`}>
+                        <img className={`${s.banner_shell2_img}`} src="/img/home/Logomark_3x.png" />
+                    </div>
+                    TRY OUR DEEPSEA CHALLENGER NOW
+                    <div className={`${s.banner_arrow}`}>
+                        <img className={`${s.banner_arrow_img}`} src="/img/home/Banner Arrow.png" />
+                    </div>
+                </a>
+            </div>
             {/******************* Shop Zone *****************/}
             <div className={`${s.shop_zone}`}>
                 <div className={s.shop_fish1}>
@@ -80,10 +95,11 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                                 ? "/img/home/follow_us/coming_soon_off.webp"
                                 : "/img/home/follow_us/coming_soon_off.gif";
                     }}
-                    src={`${windowSize.width > 1200
-                        ? "/img/home/follow_us/coming_soon_off.webp"
-                        : "/img/home/follow_us/coming_soon_off.gif"
-                        }`}
+                    src={`${
+                        windowSize.width > 1200
+                            ? "/img/home/follow_us/coming_soon_off.webp"
+                            : "/img/home/follow_us/coming_soon_off.gif"
+                    }`}
                     alt=""
                 />
 
@@ -93,16 +109,15 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 </div>
                 <div className={`${s.comingsoon_zone}`}>
                     <div className={s.comingsoon_paragraphContainer}>
-                        <h1 className={s.comingsoon_hero_header}>
-                            The Cove Awaits You...
-                        </h1>
+                        <h1 className={s.comingsoon_hero_header}>The Cove Awaits You...</h1>
                         <p className={s.comingsoon_hero_text}>
-                            Anomura is an addictive indie game utilizing NFTs and blockchain technology.
+                            Anomura is an addictive indie game utilizing NFTs and blockchain
+                            technology.
                         </p>
                         <p className={s.comingsoon_hero_text}>
-                            Strategic gameplay, beautiful pixel art, contributions to wildlife preservation—this is a game with a greater purpose.
+                            Strategic gameplay, beautiful pixel art, contributions to wildlife
+                            preservation—this is a game with a greater purpose.
                         </p>
-
                     </div>
                 </div>
             </div>
@@ -145,10 +160,11 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             <div className={s.sandBottom_right_container_soundOff_link}>
                                 <img
                                     className={s.sandBottom_right_container_soundOff_icon}
-                                    src={`${audioControl.isSoundOn
-                                        ? "/img/home/bottomSand/volumne on.png"
-                                        : "/img/home/bottomSand/volumne off.png"
-                                        }`}
+                                    src={`${
+                                        audioControl.isSoundOn
+                                            ? "/img/home/bottomSand/volumne on.png"
+                                            : "/img/home/bottomSand/volumne off.png"
+                                    }`}
                                 />
                             </div>
 

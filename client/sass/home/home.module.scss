@@ -230,6 +230,95 @@ $header-space-bottom: 60px;
 		margin: 0.5vw 1vw 0 0;
 	}
 }
+
+.banner {
+	&_zone {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		height:100%;
+		z-index:3;
+		width: 100%;
+		font-family: Safety Goggles;
+		font-size: 0.8rem;
+
+		@media only screen and (min-width: 500px) {
+			font-size: 1rem;
+		}
+		@media only screen and (min-width: 600px) {
+			font-size: 1.125rem;
+		}
+		@media only screen and (min-width: 1200px) {
+			font-size: 1.25rem;
+		}
+
+	
+	}
+
+	&_wrapper{
+		@include m.flex-master(row, center, center);
+	
+		position: relative;
+		width: 80%;
+		background-color: #5EC1D3;
+		border: solid 3px #A5EBE3;
+		border-top: none;
+
+		&:hover{
+			text-decoration: none;
+		}
+		
+		@media only screen and (min-width: 500px) {
+			width: 65%;
+		}
+		@media only screen and (min-width: 636px) {
+			width: 55%;
+		}
+		@media only screen and (min-width: 900px) {
+			width: 40%;
+		}
+		@media only screen and (min-width: 1200px) {
+			width: 35%;
+		}
+	}
+	&_shell1 {
+		position: absolute;
+		left:0;
+		height: 80%;
+
+		&_img {
+			margin-left:-55%;
+			height: 100%;
+		}
+	}
+	&_shell2 {
+		position: absolute;
+		right:0;
+		height: 80%;
+
+		&_img {
+			margin-left:55%;
+			height: 100%;
+		}
+	}
+	&_arrow {
+		position: absolute;
+		right:0;
+		height: 65%;
+
+		&_img {
+			margin-right:0.5rem;
+			height: 100%;
+
+			@media only screen and (min-width: 636px) {
+				margin-right:1rem;
+			}
+		}
+	}
+
+	
+}
 .shop {
 	&_zone {
 		position: relative;
@@ -238,7 +327,8 @@ $header-space-bottom: 60px;
 		flex-direction: row;
 
 		z-index:3;
-		padding-top: 4%;
+		padding-top: 2%;
+		
 	}
 
 	&_fish1 {
@@ -269,8 +359,6 @@ $header-space-bottom: 60px;
 		width: min(70vw, 850px); 
 		z-index:2;
 	}
-	
-	
 }
 .sand {
 	&_zone {

@@ -27,44 +27,6 @@ module.exports = {
             },
         ];
     },
-    // async rewrites() {
-    //     return {
-    //         beforeFiles: [
-    //             {
-    //                 source: "/public/PrivacyPolicy.html",
-    //                 destination: "/pages/api/static/home/privacyPolicy.js",
-    //             },
-    //             {
-    //                 source: "/public/CCPANotice.html",
-    //                 destination: "/pages/api/static/home/ccpaNotice.js",
-    //             },
-    //             {
-    //                 source: "/public/TERMSANDCONDITIONS.html",
-    //                 destination: "/pages/api/static/home/termsAndConditions.js",
-    //             },
-    //             // rewrite to Deep Sea Challenger
-    //             {
-    //                 source: "/:path*",
-    //                 destination: `/:path*`,
-    //             },
-    //             {
-    //                 source: "/challenger",
-    //                 // destination: `${DEEPSEACHALLENGER_HOST}/user/quest`,
-    //                 destination: `${DEEPSEACHALLENGER_HOST}/challenger`,
-    //             },
-    //             {
-    //                 source: "/challenger/:path*",
-    //                 //destination: `${DEEPSEACHALLENGER_HOST}/:match*/`,
-    //                 destination: `${DEEPSEACHALLENGER_HOST}/:path*`,
-    //             },
-    //             {
-    //                 source: "/challenger(.*)",
-    //                 //     //destination: `${DEEPSEACHALLENGER_HOST}/:match*/`,
-    //                 destination: `${DEEPSEACHALLENGER_HOST}$1`,
-    //             },
-    //         ],
-    //     };
-    // },
     async rewrites() {
         return [
             {
@@ -86,18 +48,15 @@ module.exports = {
             },
             {
                 source: "/challenger",
-                // destination: `${DEEPSEACHALLENGER_HOST}/user/quest`,
                 destination: `${DEEPSEACHALLENGER_HOST}/challenger`,
             },
             {
                 source: "/challenger/:path*",
-                //destination: `${DEEPSEACHALLENGER_HOST}/:match*/`,
                 destination: `${DEEPSEACHALLENGER_HOST}/challenger/:path*`,
             },
             {
                 source: "/challenger(.*)",
-                //     //destination: `${DEEPSEACHALLENGER_HOST}/:match*/`,
-                destination: `${DEEPSEACHALLENGER_HOST}$1`,
+                destination: `${DEEPSEACHALLENGER_HOST}/challenger$1`,
             },
         ];
     },

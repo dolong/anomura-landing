@@ -2,6 +2,8 @@
   width: 508px;
   height: 500px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .toggleModal {
