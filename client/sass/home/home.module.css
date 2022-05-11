@@ -177,18 +177,18 @@
 }
 @media only screen and (min-width: 400px) {
   .banner_zone {
-    font-size: 0.9rem;
+    font-size: 1.125rem;
   }
 }
 @media only screen and (min-width: 500px) {
   .banner_zone {
-    font-size: 1rem;
+    font-size: 1.25rem;
+    height: 2rem;
   }
 }
 @media only screen and (min-width: 600px) {
   .banner_zone {
-    font-size: 1.125rem;
-    height: 2rem;
+    font-size: 1.25rem;
   }
 }
 @media only screen and (min-width: 1200px) {

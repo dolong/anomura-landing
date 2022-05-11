@@ -249,15 +249,16 @@ $header-space-bottom: 60px;
 			font-size: 0.875rem;
 		}
 		@media only screen and (min-width: 400px) {
-			font-size: 0.9rem;
+			font-size: 1.125rem;
 		}
 
 		@media only screen and (min-width: 500px) {
-			font-size: 1rem;
+			font-size: 1.25rem;
+			height:2rem;
 		}
 		@media only screen and (min-width: 600px) {
-			font-size: 1.125rem;
-			height:2rem;
+			font-size: 1.25rem;
+		
 		}
 		@media only screen and (min-width: 1200px) {
 			font-size: 1.55rem;
