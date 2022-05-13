@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
-const { backgrounds, bodies, claws, legs, shells, headpieces } = require("prisma/seed/crabData");
+const { backgrounds, bodies, claws, legs, shells, headpieces } = require("scripts/crabData");
 
 // min and max included
 function randomIntFromInterval(min, max) {
