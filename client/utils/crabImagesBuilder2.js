@@ -1,12 +1,3 @@
-const {
-    getBody,
-    getClaws,
-    getShell,
-    getLegs,
-    getBackground,
-    getHeadPieces,
-} = require("./crabData");
-
 const fs = require("fs");
 const path = require("path");
 const tools = require("simple-svg-tools");
@@ -14,7 +5,6 @@ const sharp = require("sharp");
 let FormData = require("form-data");
 
 let cloudinary = require("cloudinary").v2;
-//import fetch from "node-fetch";
 
 cloudinary.config({
     cloud_name: "mrleewatch",

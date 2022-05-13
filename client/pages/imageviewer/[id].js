@@ -24,7 +24,7 @@ export const getStaticProps = async (context) => {
     const id = parseInt(context.params.id);
     const data = await getCrabById(id);
     return {
-        props: { data },
+        props: { data, key: id },
         revalidate: 60,
     };
 };
@@ -50,13 +50,6 @@ export default function AnimateViewerDetails({ data }) {
         }
         const { background, body, claws, legs, shell, headpieces } = data;
 
-        // sources.background = sources.background + getBackground(background);
-        // sources.shell = sources.shell + getShell(shell);
-        // sources.legs = sources.legs + getLegs(legs);
-        // sources.body = sources.body + getBody(body);
-        // sources.claws = sources.claws + getClaws(claws);
-        // sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
-
         sources.background = sources.background + background;
         sources.shell = sources.shell + shell;
         sources.legs = sources.legs + legs;
@@ -70,6 +63,9 @@ export default function AnimateViewerDetails({ data }) {
 }
 
 const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
+    const router = useRouter();
+    const { id } = router.query;
+
     const [imagesSrc, setImageSrc] = React.useState({});
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -105,8 +101,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             context.drawImage(images.background[counter], 0, 0, width, height);
             context.drawImage(images.shadow[counter], 0, 0, width, height);
             context.drawImage(images.shell[counter], 0, 0, width, height);
-            isDrawHeadpieces &&
-                context.drawImage(images.headpieces[counter], 0, -35, width, height);
+            isDrawHeadpieces && context.drawImage(images.headpieces[counter], 0, 0, width, height);
             context.drawImage(images.legs[counter], 0, 0, width, height);
             context.drawImage(images.body[counter], 0, 0, width, height);
             context.drawImage(images.claws[counter], 0, 0, width, height);
@@ -167,9 +162,35 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
         };
     };
 
+    const goNext = () => {
+        let newId = parseInt(id) + 1;
+        router.push(`/imageviewer/${newId}`);
+    };
+
+    const goBack = () => {
+        let newId = parseInt(id) - 1;
+        router.push(`/imageviewer/${newId}`);
+    };
     return (
         <div className={s.container}>
             <canvas ref={canvasRef} width="508" height="500" />
+            <div className="flex justify-center mt-2">
+                <button
+                    disabled={id == 1}
+                    className="inline-block px-6 py-2.5 bg-blue-600"
+                    onClick={() => goBack()}
+                >
+                    Back
+                </button>
+                <button
+                    disabled={id == 1000}
+                    className="inline-block px-6 py-2.5 bg-blue-600 ml-2"
+                    onClick={() => goNext()}
+                >
+                    Next
+                </button>
+            </div>
+
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
