@@ -162,9 +162,35 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
         };
     };
 
+    const goNext = () => {
+        let newId = parseInt(id) + 1;
+        router.push(`/imageviewer/${newId}`);
+    };
+
+    const goBack = () => {
+        let newId = parseInt(id) - 1;
+        router.push(`/imageviewer/${newId}`);
+    };
     return (
         <div className={s.container}>
             <canvas ref={canvasRef} width="508" height="500" />
+            <div className="flex justify-center mt-2">
+                <button
+                    disabled={id == 1}
+                    className="inline-block px-6 py-2.5 bg-blue-600"
+                    onClick={() => goBack()}
+                >
+                    Back
+                </button>
+                <button
+                    disabled={id == 1000}
+                    className="inline-block px-6 py-2.5 bg-blue-600 ml-2"
+                    onClick={() => goNext()}
+                >
+                    Next
+                </button>
+            </div>
+
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
