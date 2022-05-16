@@ -107,7 +107,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             context.drawImage(images.claws[counter], 0, 0, width, height);
 
             counter++;
-        }, 100);
+        }, 150);
     };
 
     const LoadImages = (sources, onFinished) => {
