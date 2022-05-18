@@ -58,6 +58,14 @@ module.exports = {
                 source: "/challenger(.*)",
                 destination: `${DEEPSEACHALLENGER_HOST}/challenger$1`,
             },
+            {
+                source: "/zed",
+                destination: `${DEEPSEACHALLENGER_HOST}/challenger/zed`,
+            },
+            {
+                source: "/humanpark",
+                destination: `${DEEPSEACHALLENGER_HOST}/challenger/humanpark`,
+            },
         ];
     },
 };

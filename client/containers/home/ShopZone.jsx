@@ -49,9 +49,9 @@ export default function ShopZone({ audioControl, setAudioControl }) {
     return (
         <div>
             {/******************* Site Banner *****************/}
-            {/* {showBanner && (
+            {showBanner && (
                 <div className={`${s.banner_zone}`}>
-                    <a className={`${s.banner_wrapper}`} href="https://anomuragame.com">
+                    <a className={`${s.banner_wrapper}`} href="https://anomuragame.com/challenger">
                         <div className={`${s.banner_shell1}`}>
                             <img
                                 className={`${s.banner_shell1_img}`}
@@ -75,7 +75,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         </span>
                     </a>
                 </div>
-            )} */}
+            )}
             {/******************* Shop Zone *****************/}
             <div className={`${s.shop_zone}`}>
                 <div className={s.shop_fish1}>
