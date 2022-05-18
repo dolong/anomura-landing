@@ -12,9 +12,9 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 width: window.innerWidth,
             });
         }
-        // window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
         return () => {
-            // window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
