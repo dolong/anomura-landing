@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
-    useEffect(() => {
+    React.useEffect(() => {
         const handleRouteChange = (url) => {
             gtag.pageview(url);
         };
