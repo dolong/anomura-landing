@@ -7,9 +7,9 @@ let FormData = require("form-data");
 let cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
-    cloud_name: "mrleewatch",
-    api_key: "558526949884865",
-    api_secret: "0Yp8Ix2TWtf3x-3vRoNpXfmcHfY",
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUDNAME,
+    api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+    api_secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
 });
 
 const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
@@ -19,7 +19,7 @@ exports.CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
-    const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
+    // const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
 
     // let backgroundName = getBackground(background);
     // let shellName = getShell(shell);

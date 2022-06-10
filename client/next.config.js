@@ -58,10 +58,6 @@ module.exports = {
                 source: "/challenger(.*)",
                 destination: `${DEEPSEACHALLENGER_HOST}/challenger$1`,
             },
-            {
-                source: "/see-food-quest",
-                destination: `${DEEPSEACHALLENGER_HOST}/challenger/see-food-quest?event=851558628032905286`,
-            },
         ];
     },
 };

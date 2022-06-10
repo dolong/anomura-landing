@@ -1,6 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
-//const { faker } = require("@faker-js/faker");
+import { prisma } from "./PrismaContext";
 const { backgrounds, bodies, claws, legs, shells, headpieces } = require("./crabData");
 
 function randomIntFromInterval(min, max) {

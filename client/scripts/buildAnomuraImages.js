@@ -1,7 +1,5 @@
 const { CrabImagesBuilder } = require("../utils/crabImagesBuilder2");
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
+import { prisma } from "./PrismaContext";
 
 // const { getAllCrabs, getCrabById } = require("../../repositories/crabs");
 

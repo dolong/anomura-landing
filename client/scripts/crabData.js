@@ -141,3 +141,88 @@ exports.headpieces = [
     "starfish2",
     "starfish3",
 ];
+exports.getBackground = (backgroundSrc) => {
+    // for (const [key, value] of Object.entries(backgrounds)) {
+    //     if (backgroundSrc.includes(key)) {
+    //         return backgrounds[key];
+    //         //return await loadImage(path.resolve(`images/Backgrounds/${Background[key]}_1.svg`));
+    //     }
+    // }
+
+    for (let i = 0; i < this.backgrounds.length; i++) {
+        if (backgroundSrc.includes(this.backgrounds[i])) {
+            return this.backgrounds[i];
+        }
+    }
+    console.error(`Background ${backgroundSrc} cannot be found.`);
+};
+exports.getShell = (src) => {
+    // for (const [key, value] of Object.entries(shells)) {
+    //     if (src.includes(key)) {
+    //         return shells[key];
+    //         //return await loadImage(path.resolve(`images/Shell/${Shell[key]}_1.svg`));
+    //     }
+    // }
+
+    for (let i = 0; i < this.shells.length; i++) {
+        if (src.includes(this.shells[i])) {
+            return this.shells[i];
+        }
+    }
+    console.error(`Shell ${src} cannot be found. Or image path for src is invalid`);
+};
+exports.getClaws = (src) => {
+    // for (const [key, value] of Object.entries(claws)) {
+    //     if (src.includes(key)) {
+    //         return claws[key];
+    //         //return await loadImage(path.resolve(`images/Claws/${Claws[key]}_1.svg`));
+    //     }
+    // }
+    for (let i = 0; i < this.claws.length; i++) {
+        if (src.includes(this.claws[i])) {
+            return this.claws[i];
+        }
+    }
+    console.error(`Claws ${src} cannot be found. Or image path for src is invalid`);
+};
+exports.getLegs = (src) => {
+    // for (const [key, value] of Object.entries(legs)) {
+    //     if (src.includes(key)) {
+    //         return legs[key];
+    //         //return await loadImage(path.resolve(`images/Legs/${Legs[key]}_1.svg`));
+    //     }
+    // }
+    for (let i = 0; i < this.legs.length; i++) {
+        if (src.includes(this.legs[i])) {
+            return this.legs[i];
+        }
+    }
+    console.error(`Legs ${src} cannot be found. Or image path for src is invalid`);
+};
+exports.getBody = (src) => {
+    // for (const [key, value] of Object.entries(bodies)) {
+    //     if (src.includes(key)) {
+    //         return bodies[key];
+    //     }
+    // }
+
+    for (let i = 0; i < this.bodies.length; i++) {
+        if (src.includes(this.bodies[i])) {
+            return this.bodies[i];
+        }
+    }
+    console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
+};
+exports.getHeadPieces = (src) => {
+    // for (const [key, value] of Object.entries(headpieces)) {
+    //     if (src.includes(key)) {
+    //         return headpieces[key];
+    //     }
+    // }
+    for (let i = 0; i < this.headpieces.length; i++) {
+        if (src.includes(this.headpieces[i])) {
+            return this.headpieces[i];
+        }
+    }
+    console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
+};

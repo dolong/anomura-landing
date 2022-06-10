@@ -31,6 +31,7 @@ export const updateCrabById = async (crabData) => {
 
 export const createCrab = async (crabData) => {
     const { crabId, background, body, legs, claws, shell, image, headpieces } = crabData;
+
     return await prisma.anomuras.create({
         data: {
             crabId,
