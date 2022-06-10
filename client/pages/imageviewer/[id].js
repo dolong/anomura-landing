@@ -24,7 +24,7 @@ export const getStaticProps = async (context) => {
     const id = parseInt(context.params.id);
     const data = await getCrabById(id);
     return {
-        props: { data, key: id },
+        props: { data: JSON.parse(JSON.stringify(data)), key: id },
         revalidate: 60,
     };
 };
@@ -124,7 +124,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             headpieces: [],
             shadow: [],
         };
-        var postaction = function () {};
+        var postaction = function () { };
 
         // 24 frames per part, we have 7 parts ~ 24 * 7 = 168
         function onFinished() {
