@@ -1,10 +1,9 @@
 const { CrabImagesBuilder } = require("../utils/crabImagesBuilder2");
 import { prisma } from "./PrismaContext";
 
-// const { getAllCrabs, getCrabById } = require("../../repositories/crabs");
 
 async function main() {
-    // await prisma.whiteList.deleteMany();
+
     console.log("Modifying Anomuras image prisma db");
 
     let allCrabs = await prisma.anomuras.findMany({
@@ -42,7 +41,6 @@ async function main() {
                 image: crabImage,
             },
         });
-        // console.log({ anomura });
     }
 }
 

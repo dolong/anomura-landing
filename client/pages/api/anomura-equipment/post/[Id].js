@@ -13,10 +13,6 @@ const EquipmentImageViewerUpdate = async (req, res) => {
             `Building an anomura equipment...`
         );
         const equipmentId = parseInt(req.query.Id);
-        // const existingCrab = await getCrabById(crabId);
-
-        //// query the image from AnomuraPartImage table
-
         const anomuraPartImages = await getAllAnomuraPartImages()
         let index = anomuraPartImages.findIndex(part => name.includes(part.name))
 

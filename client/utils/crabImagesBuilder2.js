@@ -19,13 +19,7 @@ exports.CrabImagesBuilder = async (crab) => {
     const { crabId, background, body, legs, claws, shell, headpieces } = crab;
     const dirRelativeToPublicFolder = "img/imageviewer";
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
-    // const url = "https://api.cloudinary.com/v1_1/worldwatch/image/upload";
 
-    // let backgroundName = getBackground(background);
-    // let shellName = getShell(shell);
-    // let legsName = getLegs(legs);
-    // let bodyName = getBody(body);
-    // let clawsName = getClaws(claws);
     let backgroundName = background;
     let shellName = shell;
     let legsName = legs;

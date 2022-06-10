@@ -7,7 +7,7 @@ function randomIntFromInterval(min, max) {
 }
 
 async function main() {
-    // await prisma.whiteList.deleteMany();
+
     console.log("Seeding Anomuras prisma db");
 
     for (let i = 1; i <= 1000; i++) {
