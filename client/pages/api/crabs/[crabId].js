@@ -1,6 +1,6 @@
 import { getCrabById, createCrab, updateCrabById } from "repositories/crabs";
 
-const crabImageViewerHandler = (req, res) => {
+const crabImageViewerHandler = async (req, res) => {
     const { method } = req;
 
     switch (method) {
