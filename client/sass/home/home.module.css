@@ -525,14 +525,14 @@
   background: url("/img/home/bottomSand/discord_hover.png") no-repeat;
   background-size: contain;
 }
-.sandBottom_leftSticker_icons_instagram {
+.sandBottom_leftSticker_icons_medium {
   width: 29%;
   margin-top: 9.8%;
-  background: url("/img/home/bottomSand/instagram.png") no-repeat;
+  background: url("/img/home/bottomSand/medium.png") no-repeat;
   background-size: contain;
 }
-.sandBottom_leftSticker_icons_instagram:hover {
-  background: url("/img/home/bottomSand/instagram_hover.png") no-repeat;
+.sandBottom_leftSticker_icons_medium:hover {
+  background: url("/img/home/bottomSand/medium_hover.png") no-repeat;
   background-size: contain;
 }
 .sandBottom_right {

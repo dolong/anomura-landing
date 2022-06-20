@@ -156,9 +156,9 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             className={`${s.sandBottom_leftSticker_icons_discord}`}
                         />
                         <a
-                            href="https://instagram.com/anomuragame"
+                            href="https://medium.com/@anomura"
                             target="_blank"
-                            className={`${s.sandBottom_leftSticker_icons_instagram}`}
+                            className={`${s.sandBottom_leftSticker_icons_medium}`}
                         />
                     </div>
                     <img className={s.sandBottom_icons} src="/img/home/bottomSand/socials.png" />
@@ -205,6 +205,9 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                     </a>
                     <a href="https://twitter.com/anomuragame" target="_blank">
                         <img src="/img/home/follow_us/mobile twitter.png" />
+                    </a>
+                    <a href="https://medium.com/@anomura" target="_blank">
+                        <img src="/img/home/follow_us/mobile medium.png" />
                     </a>
                 </div>
             </div>

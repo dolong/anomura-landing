@@ -578,15 +578,16 @@ $header-space-bottom: 60px;
 					background-size: contain;
 				}
 			}
-			&_instagram { 
+			
+			&_medium { 
 				width:29%;
 				margin-top: 9.8%;
 	
-				background: url("/img/home/bottomSand/instagram.png") no-repeat;
+				background: url("/img/home/bottomSand/medium.png") no-repeat;
 				background-size: contain;
 
 			 	&:hover{
-			 		background: url("/img/home/bottomSand/instagram_hover.png") no-repeat;
+			 		background: url("/img/home/bottomSand/medium_hover.png") no-repeat;
 			 		background-size: contain;
 			 	}
 			}
