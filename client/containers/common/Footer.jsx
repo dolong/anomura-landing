@@ -9,7 +9,7 @@ const InitialOffset = 5600,
     OneThousandOffSet = -1250,
     EightHundredOffSet = -1050,
     SixHundredOffSet = -920,
-    FourHundredOffSet = -900;
+    FourHundredOffSet = -870;
 
 export default function Footer({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
@@ -31,7 +31,7 @@ export default function Footer({ ScrollPercent, audioControl }) {
 
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-25);
-        if (window.innerWidth <= 600) setScrollSpeed(-22);
+        if (window.innerWidth <= 600) setScrollSpeed(-20);
 
         return () => {
             clearTimeout(timeout);

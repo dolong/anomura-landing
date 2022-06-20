@@ -7,8 +7,8 @@ const InitialOffset = 600,
     TwelveHundredOffSet = 25,
     OneThousandOffSet = 50,
     EightHundredOffSet = 90,
-    SixHundredOffSet = 40,
-    FourHundredOffSet = 10;
+    SixHundredOffSet = 65,
+    FourHundredOffSet = 65;
 
 export default function NFT({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-6.5);
@@ -27,7 +27,7 @@ export default function NFT({ ScrollPercent }) {
 
     useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-4.5);
-        if (window.innerWidth <= 600) setScrollSpeed(-2.5);
+        if (window.innerWidth <= 600) setScrollSpeed(-2);
     });
 
     return (
@@ -45,8 +45,8 @@ export default function NFT({ ScrollPercent }) {
                         <div className={s.nft_heading}>NFT X VIDEOGAME!</div>
                         <div className={s.nft_paragraphContainer}>
                             <p>
-                                The Anomura are sworn protectors of the Universe and all realms in the
-                                Infinity Circle.
+                                The Anomura are sworn protectors of the Universe and all realms in
+                                the Infinity Circle.
                             </p>
                             <p>Mint original Anomura, each with unique traits and habitats.</p>
                             <p>

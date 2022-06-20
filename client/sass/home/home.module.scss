@@ -26,7 +26,7 @@ $desktop-text-size: 1.125rem;
 
 $medium-text-size: 1.3125rem;
 
-$mobile-text-section: 60%;
+$mobile-text-section: 57%;
 $mobile-text-size: 0.875rem;
 
 // $mobile-margin: 40% 10% 0 10%;
@@ -71,7 +71,11 @@ $header-space-bottom: 60px;
 	line-height: 31px;
 
 	& > p {
-		margin-bottom:30px;
+		margin-bottom: 1rem;
+		@media only screen and (min-width: 800px) {
+			margin-bottom: 30px;
+		} 
+
 	}
 	& > p:last-child {
 		margin-bottom:0px;
@@ -407,7 +411,7 @@ $header-space-bottom: 60px;
 		   background-size: 100%;
 		   position: absolute;
 		   top:-3vh;
-		   padding-bottom: 150%; // to cover white area on next section
+		   padding-bottom: 170%; // to cover white area on next section
 		   height:clamp(400px, 24vh, 2888px);
 		   object-fit: cover;
 	   }
@@ -462,7 +466,7 @@ $header-space-bottom: 60px;
 			width: $mobile-text-section;
 			flex-direction: column;
 			align-items: center;
-			margin-bottom: 30px;
+			margin-bottom: 15px;
 			z-index: 2;
 			
 			& > img:nth-child(2)  {
@@ -680,18 +684,25 @@ $header-space-bottom: 60px;
 
 	&_star1Container {
 		width:100%;
-		height: $header-space-bottom;
+	
 		align-self: start;
-		// margin-top: 60px;
 		position: relative;
+
+		@media only screen and (min-width: 800px) {
+			height: $header-space-bottom;
+		}
 	}
 
 	&_star2Container {
 		width:100%;
 		height: $header-space-bottom;
 		align-self: end;
-		margin-bottom: 60px;
+		margin-bottom: 0;
 		position: relative;
+
+		@media only screen and (min-width: 800px) {
+			margin-bottom: 60px;	
+		}
 	}
 
 	&_star {
@@ -885,7 +896,7 @@ $header-space-bottom: 60px;
 	&_zone {
 		@include m.z-layers(5, "/img/home/backgrounds/Layer5Eyes.png", 80%);
 		@include m.flex-master(column, null, center);
-		padding-bottom: 60%;
+		padding-bottom: 80%;
 	}
 	&_container {
 		width:$desktop-text-section;

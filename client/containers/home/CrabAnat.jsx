@@ -76,7 +76,7 @@ export default function CrabAnat({ ScrollPercent }) {
 
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-14);
-        if (window.innerWidth <= 600) setScrollSpeed(-9);
+        if (window.innerWidth <= 600) setScrollSpeed(-8);
     }, []);
 
     React.useEffect(() => {
@@ -135,7 +135,9 @@ export default function CrabAnat({ ScrollPercent }) {
 
                 <div className={s.crab_paragraphContainer}>
                     <p>All Anomura will hold unique attributes based on their body parts. </p>
-                    <span>Each randomly generated anatomical part will have a chance of being </span>
+                    <span>
+                        Each randomly generated anatomical part will have a chance of being{" "}
+                    </span>
                     <div
                         className={s.crab_normal}
                         onMouseEnter={() =>

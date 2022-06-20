@@ -9,7 +9,7 @@ const InitialOffset = 4200,
     OneThousandOffSet = -1100,
     EightHundredOffSet = -950,
     SixHundredOffSet = -650,
-    FourHundredOffSet = -700;
+    FourHundredOffSet = -620;
 
 export default function WhenIsItOut({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
@@ -27,7 +27,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
 
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-20);
-        if (window.innerWidth <= 600) setScrollSpeed(-18);
+        if (window.innerWidth <= 600) setScrollSpeed(-17);
     }, []);
 
     return (
