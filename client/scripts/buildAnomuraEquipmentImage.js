@@ -1,7 +1,4 @@
 
-// const { PrismaClient } = require("@prisma/client");
-// const prisma = new PrismaClient();
-
 const Prisma = require("@qhuynhvhslab/anomura-prisma-package");
 
 const fs = require("fs");

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
 import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "utils/crabData";
-import { getAllCrabs, getCrabById } from "repositories/crabs";
+import { getAllCrabs, getAnomuraById } from "repositories/crabs";
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 
 /** static props and paths should not call to api link since it is not available on build time */
@@ -22,7 +22,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = parseInt(context.params.id);
-    const data = await getCrabById(id);
+    const data = await getAnomuraById(id);
     return {
         props: { data: JSON.parse(JSON.stringify(data)), key: id },
         revalidate: 60,

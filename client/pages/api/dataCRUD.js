@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     switch (req.method) {
         case "GET":
-            console.log(svgString);
+
             return res.status(405).json({ message: "Method not allowed" });
         case "POST":
             const whiteListData = JSON.parse(req.body);

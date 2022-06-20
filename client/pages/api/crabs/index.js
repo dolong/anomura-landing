@@ -18,11 +18,10 @@ export default async function crabsQuery(req, res) {
                     ],
                 });
 
-                console.log(allCrabs.length);
                 res.status(200).json(allCrabs);
             } catch (err) {
                 console.log(err);
-                res.status(500).json({ err });
+                res.status(500).json({ message: err.message });
             }
             break;
         default:

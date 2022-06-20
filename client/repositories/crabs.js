@@ -1,10 +1,13 @@
 import { prisma } from "./PrismaContext";
 
-export const getCrabById = async (crabId) => {
-    return await prisma.anomuras.findFirst({
+export const getAnomuraById = async (crabId) => {
+    return await prisma.anomuras.findUnique({
         where: {
-            crabId,
+            crabId: parseInt(crabId),
         },
+        include: {
+            anomuraEquipments: true
+        }
     });
 };
 
@@ -13,6 +16,9 @@ export const getAllCrabs = async (crabId) => {
         where: {
             crabId,
         },
+        include: {
+            anomuraEquipments: true
+        }
     });
 };
 

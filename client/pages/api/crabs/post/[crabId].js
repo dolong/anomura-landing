@@ -1,4 +1,4 @@
-import { getCrabById, createCrab, updateCrabById } from "repositories/crabs";
+import { getAnomuraById, createCrab, updateCrabById } from "repositories/crabs";
 import { CrabImagesBuilder } from "utils/crabImagesBuilder";
 import authMiddleware from "middlewares/authMiddleware";
 
@@ -8,11 +8,12 @@ const CrabImageViewerUpdate = async (req, res) => {
         const {
             data: { background, body, legs, claws, shell, headpieces },
         } = req.body;
+
         console.log(
             `Building an anomura...`
         );
         const crabId = parseInt(req.query.crabId);
-        const existingCrab = await getCrabById(crabId);
+        const existingCrab = await getAnomuraById(crabId);
 
         let crabImage = await CrabImagesBuilder({
             crabId,
@@ -65,7 +66,7 @@ const CrabImageViewerUpdate = async (req, res) => {
     }
     catch (err) {
         console.log(err)
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ message: err.message });
     }
 }
 

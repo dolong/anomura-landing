@@ -1,4 +1,4 @@
-import { getCrabById } from "repositories/crabs";
+import { getAnomuraById } from "repositories/crabs";
 
 export default async function crabQueryHandler(req, res) {
     const { method } = req;
@@ -7,7 +7,7 @@ export default async function crabQueryHandler(req, res) {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                let crab = await getCrabById(id);
+                let crab = await getAnomuraById(id);
 
                 if (crab) {
                     res.status(200).json(crab);
@@ -23,7 +23,7 @@ export default async function crabQueryHandler(req, res) {
                 }
             } catch (err) {
                 console.log(err);
-                res.status(500).json({ err });
+                res.status(500).json({ message: err.message });
             }
 
             break;

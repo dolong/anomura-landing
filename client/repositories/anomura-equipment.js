@@ -1,9 +1,9 @@
 import { prisma, equipmentType as EquipmentType } from "./PrismaContext";
 
 export const getAnomuraEquipmentById = async (equipmentId) => {
-    return await prisma.anomuraEquipment.findFirst({
+    return await prisma.anomuraEquipment.findUnique({
         where: {
-            equipmentId,
+            equipmentId: parseInt(equipmentId),
         },
     });
 };
@@ -20,13 +20,37 @@ export const getAllAnomuraPartImages = async () => {
     return await prisma.anomuraPartImage.findMany();
 };
 
-// export const getAllCrabs = async (crabId) => {
-//     return await prisma.anomuras.findMany({
-//         where: {
-//             crabId,
-//         },
-//     });
-// };
+export const equipEquipmentToAnomura = async (equipmentId, anomuraId, blockNumber) => {
+    return await prisma.anomuraEquipment.update({
+        where: {
+            equipmentId: parseInt(equipmentId)
+        },
+        data: {
+            isEquipped: true,
+            anomura: {
+                connect: {
+                    crabId: parseInt(anomuraId)
+                }
+            },
+            lastUpdatedAtBlock: blockNumber
+        }
+    })
+}
+
+export const unEquipFromAnomura = async (equipmentId, anomuraId, blockNumber) => {
+    return await prisma.anomuraEquipment.update({
+        where: {
+            equipmentId: parseInt(equipmentId)
+        },
+        data: {
+            isEquipped: false,
+            lastUpdatedAtBlock: blockNumber,
+            anomura: {
+                disconnect: true
+            }
+        }
+    })
+}
 
 // export const updateCrabById = async (crabData) => {
 //     const { crabId, image, body, legs, claws, shell, headpieces, background } = crabData;
@@ -55,8 +79,8 @@ export const updateAnomuraEquipmentImageById = async ({ equipmentId, image }) =>
         });
 };
 
-export const createEquipment = async (equipmentData) => {
-    const { equipmentId, name, equipmentType, image } = equipmentData;
+export const createEquipment = async ({ equipmentId, name, equipmentType, image, blockNumber }) => {
+
     let type;
     switch (equipmentType) {
         case 0:
@@ -82,7 +106,8 @@ export const createEquipment = async (equipmentData) => {
             equipmentId,
             name,
             type,
-            image
+            image,
+            lastUpdatedAtBlock: blockNumber
         },
     });
 };

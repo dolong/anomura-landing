@@ -8,9 +8,9 @@ export default function ImageViewerIndex() {
     const [pageIndex, setPageIndex] = useState(0);
     const { data, error } = useSWR(`/api/crabs?page=${pageIndex}`, fetcher);
 
-    useEffect(() => {});
+    useEffect(() => { });
 
-    if (data) console.log(data);
+    // if (data) console.log(data);
     if (error) console.log(error);
     return (
         <>

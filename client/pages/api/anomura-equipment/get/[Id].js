@@ -20,7 +20,7 @@ const AnomuraEquipmentImageViewer = async (req, res) => {
                 let attributes = [];
                 attributes = [...attributes, {
                     trait_type: "Is Equipped",
-                    value: equipment.isEquipped,
+                    value: equipment.isEquipped.toString(),
                 }];
 
                 if (equipment.isEquipped) {
@@ -39,7 +39,7 @@ const AnomuraEquipmentImageViewer = async (req, res) => {
 
             } catch (err) {
                 console.log(err);
-                res.status(500).json({ err });
+                res.status(500).json({ message: err.message });
             }
 
             break;

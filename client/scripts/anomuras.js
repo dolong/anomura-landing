@@ -32,8 +32,6 @@ async function main() {
                 headpieces: headpiece,
             },
         });
-
-        console.log({ anomura });
     }
 }
 

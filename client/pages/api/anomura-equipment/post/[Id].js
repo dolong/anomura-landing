@@ -7,11 +7,11 @@ const EquipmentImageViewerUpdate = async (req, res) => {
 
     try {
         const {
-            data: { name, equipmentType },
+            data: { name, equipmentType, blockNumber },
         } = req.body;
-        console.log(
-            `Building an anomura equipment...`
-        );
+
+        console.log(`Try creating an anomura equipment...`);
+
         const equipmentId = parseInt(req.query.Id);
         const anomuraPartImages = await getAllAnomuraPartImages()
         let index = anomuraPartImages.findIndex(part => name.includes(part.name))
@@ -19,35 +19,40 @@ const EquipmentImageViewerUpdate = async (req, res) => {
         if (index === -1) {
             return res.status(200).json({ message: "cannot find image", isError: true });
         }
+
         // then use the image to save into AnomuraEquipment table
         const anomuraEquipment = await getAnomuraEquipmentById(equipmentId)
-        if (anomuraEquipment) {
-            console.log(
-                `Updating existing equipment with image...`
-            );
-            if (anomuraEquipment.image !== anomuraPartImages[index].url) {
 
+        if (anomuraEquipment && anomuraEquipment?.lastUpdatedAtBlock != null && anomuraEquipment.lastUpdatedAtBlock >= blockNumber) {
+            return res.status(200).json({ message: `No update as this block of this NEW EQUIPMENT event is less than or equal to last updated record` })
+        }
+
+        if (anomuraEquipment) {
+
+            if (anomuraEquipment.image !== anomuraPartImages[index].url) {
+                console.log(`Updating existing equipment with image`);
                 await updateAnomuraEquipmentImageById({
                     equipmentId,
                     image: anomuraPartImages[index].url
                 });
             }
-            return res.status(200).json({ message: "ok" });
+            return res.status(200).json({ message: `A new equipment ${equipmentId} is created` });
         }
         else {
             await createEquipment({
                 equipmentId,
                 name,
                 equipmentType: parseInt(equipmentType),
-                image: anomuraPartImages[index].url
+                image: anomuraPartImages[index].url,
+                blockNumber
             });
-            console.log(`A new equipment ${equipmentId} is created`);
-            return res.status(200).json({ message: "ok" });
+
+            return res.status(200).json({ message: `A new equipment ${equipmentId} is created` });
         }
     }
     catch (err) {
         console.log(err)
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ message: err.message });
     }
 }
 

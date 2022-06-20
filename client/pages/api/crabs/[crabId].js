@@ -1,4 +1,4 @@
-import { getCrabById, createCrab, updateCrabById } from "repositories/crabs";
+import { getAnomuraById, createCrab, updateCrabById } from "repositories/crabs";
 
 const crabImageViewerHandler = async (req, res) => {
     const { method } = req;
@@ -7,7 +7,7 @@ const crabImageViewerHandler = async (req, res) => {
         case "GET":
             try {
                 let id = parseInt(req.query.crabId);
-                let crab = await getCrabById(id);
+                let crab = await getAnomuraById(id);
 
                 if (crab) {
                     res.status(200).json({
@@ -50,7 +50,7 @@ const crabImageViewerHandler = async (req, res) => {
                 }
             } catch (err) {
                 console.log(err);
-                res.status(500).json({ err });
+                res.status(500).json({ message: err.message });
             }
 
             break;

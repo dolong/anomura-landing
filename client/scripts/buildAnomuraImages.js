@@ -4,8 +4,6 @@ import { prisma } from "./PrismaContext";
 
 async function main() {
 
-    console.log("Modifying Anomuras image prisma db");
-
     let allCrabs = await prisma.anomuras.findMany({
         orderBy: [
             {

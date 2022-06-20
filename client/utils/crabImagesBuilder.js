@@ -85,8 +85,6 @@ export const CrabImagesBuilder = async (crab) => {
     } catch (error) {
         console.log(error.message)
     }
-
-    // return result.secure_url;
 };
 
 const loadImage = async (pathToSvg) => {
