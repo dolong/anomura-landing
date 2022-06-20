@@ -375,8 +375,8 @@
   font-family: Safety Goggles;
   font-size: 60px;
   margin-bottom: 4rem;
-  text-shadow: 4px 4px rgba(0, 0, 0, 0.2509803922);
-  color: #187e6d;
+  text-shadow: -3px -6px #7EB877;
+  color: #246B5A;
 }
 @media only screen and (max-width: 850px) {
   .comingsoon_hero_header {
@@ -1525,6 +1525,9 @@
 }
 .footer_instagram:hover {
   color: #AA0047 !important;
+}
+.footer_medium:hover {
+  color: #35454F !important;
 }
 .footer_twitter:hover {
   color: #007DAA !important;

@@ -134,10 +134,10 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             Anomura is a play-and-earn strategy RPG game utilizing NFTs and
                             blockchain technology.
                         </p>
-                        {/* <p className={s.comingsoon_hero_text}>
+                        <p className={s.comingsoon_hero_text}>
                             Strategic gameplay, beautiful pixel art, contributions to wildlife
                             preservation—this is a game with a greater purpose.
-                        </p> */}
+                        </p>
                     </div>
                 </div>
             </div>
