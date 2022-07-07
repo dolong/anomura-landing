@@ -398,9 +398,10 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                     />
                                 </div>
                                 <div
-                                    className={`${
-                                        s.component_list_item_description
-                                    }  ${getRarityTextColor(rarity.legsR)}`}
+                                    className={`${s.component_list_item_description}  
+                                    
+                                    `}
+                                    //${getRarityTextColor(rarity.ba)}
                                 >
                                     <span className="">{getProperBackgroundName(background)}</span>
                                 </div>
