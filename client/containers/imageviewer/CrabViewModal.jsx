@@ -286,7 +286,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getHeadPiecesIcon(rarity?.headpiecesR)}
                                         onMouseEnter={ShowCard}
-                                        // onMouseLeave={hideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
