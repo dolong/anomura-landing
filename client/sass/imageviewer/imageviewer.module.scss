@@ -1,3 +1,5 @@
+@use "../mixins" as m;
+
 .container{
     width:508px;
     height: 500px;
@@ -45,81 +47,131 @@
 .component {
 	&_zone {
         pointer-events: auto;
-        width: 100%; 
-        height: 90%; 
-        margin-top:8%;
-        padding-left:5%;
-        padding-right:5%;
+        height: 80%; 
+        margin: 18% 11% 15% 11%;
         overflow:hidden;
         z-index: 2;
+        position: relative;
     }
+
     &_list {
-        margin-top:10%;
-        margin-left:15px;
-        margin-right:15px;
-        width: auto; 
         height: 100%; 
-        display: flex;
-        flex-direction: column;
+        @include m.flex-master(column, space-between, null);
 
         &_item {
-            min-height:60px;
-            display: flex;
-            flex-direction: row;
+            // min-height:60px;
+            @include m.flex-master(row, null, null);
  
             &_icon {
-                width: min(10vw, 45px);
-               
-                display: flex;
-                align-items: center;
+                width: min(10vw, 50px);
+                @include m.flex-master(row, null, center);
 
-                &_img{
-                    width: min(10vw, 45px);
-                    
-                    height: auto;
-                }
+                // &_img{
+                //     width: min(10vw, 45px);
+                //     height: auto;
+                // }
             }
 
             &_description {
-                margin-left: 2%;
+                @include m.flex-master(row, null, center);
                 flex: 1;
-                display: flex;
-                align-items: center;
+                margin-left: 2%;
                 font-size: 2.5rem;
 
-                > span{line-height: 1.7rem;
-                margin-left:5%;}
+                > span {
+                    line-height: 1.7rem;
+                    margin-left:5%;
+                }
+
+                &_normal {
+                    color: #A5EBE3;
+                }   
+                &_magic {
+                    color: #BDB9FB;
+                }
+                &_rare {
+                    color: #FFC8B3;
+                } 
+                &_legend {
+                    color: #FACD66;
+                } 
             }
-            // &_description > span{line-height: 1.7rem;}
         }
     }
 
-    &_left{
-        flex-basis:25%;
-        height:100%;   
-        z-index: 1;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-    &_right{
-        margin-left:18%;
+    &_card {
+        height:100%;
+        width: 80%;
+        top:0;
+        left:20%;
         position: absolute;
-        bottom:7%;
-        left:10%;
 
-        &_card {
-            width:270px;
+        &_wrapper {
+            width: 100%;
+            position: relative;
+        }
+        &_description {
+            position: absolute;
+            top: 0;
+            // @include m.flex-master(column, space-evenly, center);
+            // height:100%;
+             
+            width: 100%; 
+            height: 100%; 
+            padding: 10% 0;
+            @include m.flex-master(column, space-evenly, center);
+        }
 
-            &_name {
-                top:18%;
-                left:5%;
+        &_hexagon {
+            // flex:3;
+            width: 40%;
+            max-width: 40%;
+            height: 33%;
+            position: relative;
+            // @include m.flex-master(row, center, center);
+            // z-index: 1;
+            > img:nth-child(1) {
+                top:0;
                 position: absolute;
-                width: 230px;
+                width: 100%;
+                height: auto;
+                z-index: 3;
+            }
+            > img:nth-child(2) {
+                position: absolute;
+                width: 80%;
+                height: auto;
+                z-index: 2;
+                margin-top:14%;
+                margin-left:12%;
             }
         }
-    }
-   
 
+        &_name {
+            width: 70%;
+            line-height: 1.75rem;
+            font-size: 0.8em;
+            text-align: center;
+            overflow-wrap: break-word!important;
+        }
+
+        &_attributes {
+           
+        }
+
+        &_label {
+            width: 75%;
+            position: relative;
+            
+            &_text {
+                position: absolute;
+                top:0;
+                height:100%;
+                width: 100%;
+                @include m.flex-master(row, center, center);
+                color: #D18839;
+                // text-align: center;
+            }
+        }  
+    }
 }

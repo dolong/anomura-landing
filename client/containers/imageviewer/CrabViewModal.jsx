@@ -1,9 +1,26 @@
+import {
+    getShell,
+    getHeadPieces,
+    getRarity,
+    Legend,
+    Rare,
+    Magic,
+    Normal,
+    CLAWS,
+    BODY,
+    HEADPIECES,
+    SHELL,
+    LEGS,
+    getBody,
+    getClaws,
+} from "@scripts/crabData";
+
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 
 export default function CrabViewModal({ data, setModalOpen }) {
     const { background, body, claws, legs, shell, headpieces } = data;
-    const [hoverInfo, setHoverInfo] = React.useState({ name: "", src: "", color: null });
+    const [hoverInfo, setHoverInfo] = React.useState({ name: "", src: "", type: "" });
     const [rarity, setRarity] = React.useState({
         bodyR: null,
         shellR: null,
@@ -11,13 +28,14 @@ export default function CrabViewModal({ data, setModalOpen }) {
         clawsR: null,
         headpiecesR: null,
     });
-
+    // console.log(headpieces);
+    // console.log(shell);
     React.useLayoutEffect(() => {
-        let bodyR = GetCardRarity(body);
-        let shellR = GetCardRarity(shell);
-        let legsR = GetCardRarity(legs);
-        let clawsR = GetCardRarity(claws);
-        let headpiecesR = GetCardRarity(headpieces);
+        let bodyR = getRarity(body);
+        let shellR = getRarity(shell);
+        let legsR = getRarity(legs);
+        let clawsR = getRarity(claws);
+        let headpiecesR = getRarity(headpieces);
 
         setRarity((prevState) => ({
             ...prevState,
@@ -32,253 +50,390 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const ShowCard = (e) => {
         let cardRarity = null,
             cardImg = null,
-            cardName = "";
+            cardName = "",
+            cardType;
 
         switch (e.target.id) {
             case "shell":
-                cardRarity = GetCardRarity(shell);
+                cardRarity = getRarity(shell);
                 cardName = shell;
+                cardType = SHELL;
                 break;
             case "legs":
-                cardRarity = GetCardRarity(legs);
+                cardRarity = getRarity(legs);
                 cardName = legs;
+                cardType = LEGS;
                 break;
             case "body":
-                cardRarity = GetCardRarity(body);
+                cardRarity = getRarity(body);
                 cardName = body;
+                cardType = BODY;
                 break;
             case "claws":
-                cardRarity = GetCardRarity(claws);
+                cardRarity = getRarity(claws);
                 cardName = claws;
+                cardType = CLAWS;
                 break;
             case "headpieces":
-                console.log(headpieces);
-                cardRarity = GetCardRarity(headpieces);
+                // console.log(headpieces);
+                cardRarity = getRarity(headpieces);
                 cardName = headpieces;
+                cardType = HEADPIECES;
                 break;
             default:
                 throw new Error("not a valid part");
         }
 
-        cardImg = GetCardImage(cardRarity);
-
+        cardImg = getCardImage(cardRarity);
+        // console.log(cardRarity.description);
         setHoverInfo({
-            name: "place holder",
+            rarity: cardRarity.description.toUpperCase(),
+            name: cardName,
             src: cardImg,
+            type: cardType,
             nameColor: "place holder text-red-500", // for info on the card
         });
     };
-
-    const HideCard = () => {
+    // console.log(hoverInfo);
+    const hideCard = () => {
         setHoverInfo({
             name: "",
             src: "",
             nameColor: "",
         });
     };
-
-    const GetCardRarity = (name) => {
-        let containLegendAttr = legendAttrs.some((el) => name.includes(el));
-        if (containLegendAttr) {
-            return Legend;
-        }
-
-        let containRareAttr =
-            prefixAttrs.some((el) => name.includes(el)) &&
-            suffixAttrs.some((el) => name.includes(el));
-        if (containRareAttr) {
-            return Rare;
-        }
-
-        let containMagicAttr =
-            prefixAttrs.some((el) => name.includes(el)) ||
-            suffixAttrs.some((el) => name.includes(el));
-
-        if (containMagicAttr) {
-            return Magic;
-        }
-
-        return Normal;
-    };
-
-    const GetCardImage = (rarity) => {
+    const getCardImage = (rarity) => {
         switch (rarity) {
             case Legend:
-                return "/./img/imageviewer/Others/legend_clean.png";
+                return "/./img/imageviewer/Others/Card_WIP.png";
             case Rare:
-                return "/./img/imageviewer/Others/rare_all.png";
+                return "/./img/imageviewer/Others/Card_WIP.png";
             case Magic:
-                return "/./img/imageviewer/Others/magic_all.png";
+                return "/./img/imageviewer/Others/Card_WIP.png";
             case Normal:
-                return "/./img/imageviewer/Others/normal_all.png";
+                return "/./img/imageviewer/Others/Card_WIP.png";
             default:
-                throw new Error("Unsupported type of rarity");
+                return "/./img/imageviewer/Others/Card_WIP.png";
         }
     };
-
-    const GetRarityTextColor = (rarity) => {
+    const getRarityTextColor = (rarity) => {
         if (rarity == null || rarity == "") {
             return "";
         }
         switch (rarity) {
             case Legend:
-                return "text-yellow-500";
+                return s.component_list_item_description_legend;
             case Rare:
-                return "text-blue-500";
+                return s.component_list_item_description_rare;
             case Magic:
-                return "text-teal-400";
+                return s.component_list_item_description_magic;
             case Normal:
-                return "text-white";
+                return s.component_list_item_description_normal;
             default:
-                console.error(rarity);
-            //throw new Error("Unsupported type of rarity");
+                return s.component_list_item_description_normal;
         }
     };
-
-    const GetProperBackgroundName = (name) => {
+    const getProperBackgroundName = (name) => {
         let bgArray = name.split("_");
         let first = capitalizeFirstLetter(bgArray[0]);
         let last = capitalizeFirstLetter(bgArray[1]);
         return first + " " + last;
     };
-
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
+    const getHeadPiecesIcon = (rarity) => {
+        if (rarity) {
+            switch (rarity) {
+                case Legend:
+                    return "/img/imageviewer/Others/Headpiece_legendary.png";
+                case Rare:
+                    return "/img/imageviewer/Others/Headpiece_rare.png";
+                case Magic:
+                    return "/img/imageviewer/Others/Headpiece_magic.png";
+                case Normal:
+                    return "/img/imageviewer/Others/Headpiece_normal.png";
+                default:
+                    return "/img/imageviewer/Others/Headpiece_empty.png";
+            }
+        }
+        return "/img/imageviewer/Others/Headpiece_empty.png";
+    };
+    const getBodyIcon = (rarity) => {
+        if (rarity) {
+            switch (rarity) {
+                case Legend:
+                    return "/img/imageviewer/Others/Body_Legendary.png";
+                case Rare:
+                    return "/img/imageviewer/Others/Body_Rare.png";
+                case Magic:
+                    return "/img/imageviewer/Others/Body_Magic.png";
+                case Normal:
+                    return "/img/imageviewer/Others/Body_normal.png";
+                default:
+                    return "/img/imageviewer/Others/Body_normal.png";
+            }
+        }
+        return "/img/imageviewer/Others/Body_normal.png";
+    };
+    const getClawsIcon = (rarity) => {
+        if (rarity) {
+            switch (rarity) {
+                case Legend:
+                    return "/img/imageviewer/Others/Claw_Legendary.png";
+                case Rare:
+                    return "/img/imageviewer/Others/Claw_rare.png";
+                case Magic:
+                    return "/img/imageviewer/Others/Claw_magic.png";
+                case Normal:
+                    return "/img/imageviewer/Others/Claw_normal.png";
+                default:
+                    return "/img/imageviewer/Others/Claw_normal.png";
+            }
+        }
+        return "/img/imageviewer/Others/Claw_normal.png";
+    };
+    const getShellIcon = (rarity) => {
+        if (rarity) {
+            switch (rarity) {
+                case Legend:
+                    return "/img/imageviewer/Others/Shell_legendary.png";
+                case Rare:
+                    return "/img/imageviewer/Others/Shell_rare.png";
+                case Magic:
+                    return "/img/imageviewer/Others/Shell_magic.png";
+                case Normal:
+                    return "/img/imageviewer/Others/Shell_normal.png";
+                default:
+                    return "/img/imageviewer/Others/Shell_normal.png";
+            }
+        }
+        return "/img/imageviewer/Others/Shell_normal.png";
+    };
+    const getLegsIcon = (rarity) => {
+        if (rarity) {
+            switch (rarity) {
+                case Legend:
+                    return "/img/imageviewer/Others/Leg_legendary.png";
+                case Rare:
+                    return "/img/imageviewer/Others/Leg_rare.png";
+                case Magic:
+                    return "/img/imageviewer/Others/Leg_magic.png";
+                case Normal:
+                    return "/img/imageviewer/Others/Leg_normal.png";
+                default:
+                    return "/img/imageviewer/Others/Leg_normal.png";
+            }
+        }
+        return "/img/imageviewer/Others/Leg_normal.png";
+    };
+    const getBackgroundIcon = (rarity) => {
+        if (rarity) {
+            switch (rarity) {
+                case Legend:
+                    return "/img/imageviewer/Others/Land_legendary.png";
+                case Rare:
+                    return "/img/imageviewer/Others/Land_rare.png";
+                case Magic:
+                    return "/img/imageviewer/Others/Land_magic.png";
+                case Normal:
+                    return "/img/imageviewer/Others/Land_normal.png";
+                default:
+                    return "/img/imageviewer/Others/Land_normal.png";
+            }
+        }
+        return "/img/imageviewer/Others/Land_normal.png";
+    };
 
+    const getImageWithinHexagon = (hoverInfo) => {
+        console.log(hoverInfo);
+        if (hoverInfo.type) {
+            switch (hoverInfo.type) {
+                case SHELL:
+                    let shellName = getShell(hoverInfo.name);
+                    // console.log(shellName);
+                    return "/img/imageviewer/hex/starship_circle.jpg";
+                case BODY:
+                    let bodyName = getBody(hoverInfo.name);
+                    return "/img/imageviewer/hex/snowbody_starbody_circle.jpg";
+                case CLAWS:
+                    let clawName = getClaws(hoverInfo.name);
+                    return "/img/imageviewer/hex/woodclaw_pincers_circle.jpg";
+                case LEGS:
+                    return "/img/imageviewer/hex/metalleg_2_circle.jpg";
+                case HEADPIECES:
+                    let headPiecesName = getHeadPieces(hoverInfo.name);
+                    console.log(headPiecesName);
+                    return `/img/imageviewer/hex/crystal3_circle.jpg`;
+                default:
+                    return "/img/imageviewer/Others/Land_normal.png";
+            }
+        }
+        return "/img/imageviewer/hex/crystal2-2_circle.jpg";
+    };
     return (
         <>
             <div className="absolute left-0 top-0 w-full h-full flex justify-center items-center pointer-events-none">
                 <div className={s.modal_container}>
                     <div className={s.component_zone}>
+                        {/* <div className={s.component_left}> */}
                         <div className={s.component_list}>
+                            {/* Headpieces icon */}
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="headpieces"
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/headpiecesIcon.png"
+                                        src={getHeadPiecesIcon(rarity?.headpiecesR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
                                     className={`${
                                         s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.headpiecesR)} font-extrabold`}
+                                    } ${getRarityTextColor(rarity.headpiecesR)} `}
                                 >
-                                    {rarity.headpiecesR?.description !== "Normal" && (
-                                        <span className="mr-2">
-                                            {rarity.headpiecesR?.description}
-                                        </span>
+                                    {rarity.headpiecesR !== Normal && (
+                                        <span>{rarity.headpiecesR?.description} </span>
                                     )}
                                     <span>Headpiece</span>
                                 </div>
                             </div>
+                            {/* Body Icon */}
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="body"
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/bodyIcon.png"
+                                        src={getBodyIcon(rarity?.bodyR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
                                     className={`${
                                         s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.bodyR)} font-extrabold`}
+                                    } ${getRarityTextColor(rarity.bodyR)}`}
                                 >
-                                    {rarity.bodyR?.description !== "Normal" && (
-                                        <span className="mr-2">{rarity.bodyR?.description}</span>
+                                    {rarity.bodyR !== Normal && (
+                                        <span>{rarity.bodyR?.description} </span>
                                     )}
                                     <span>Body</span>
                                 </div>
                             </div>
+                            {/* Claws Icon */}
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="claws"
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/clawsIcon.png"
+                                        src={getClawsIcon(rarity?.clawsR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
                                     className={`${
                                         s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.clawsR)} font-extrabold`}
+                                    } ${getRarityTextColor(rarity.clawsR)}`}
                                 >
-                                    {rarity.clawsR?.description !== "Normal" && (
-                                        <span className="mr-2">{rarity.clawsR?.description}</span>
+                                    {rarity.clawsR !== Normal && (
+                                        <span>{rarity.clawsR?.description} </span>
                                     )}
                                     <span>Claws</span>
                                 </div>
                             </div>
+                            {/* Shells Icon */}
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="shell"
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/shellIcon.png"
+                                        src={getShellIcon(rarity?.shellR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
                                     className={`${
                                         s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.shellR)} font-extrabold`}
+                                    } ${getRarityTextColor(rarity.shellR)}`}
                                 >
-                                    {rarity.shellR?.description !== "Normal" && (
-                                        <span className="mr-2">{rarity.shellR?.description}</span>
+                                    {rarity.shellR !== "Normal" && (
+                                        <span>{rarity.shellR?.description} </span>
                                     )}
 
                                     <span>Shell</span>
                                 </div>
                             </div>
+                            {/* Legs Icon */}
                             <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="legs"
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/legsIcon.png"
+                                        src={getLegsIcon(rarity?.legsR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={HideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
                                     className={`${
                                         s.component_list_item_description
-                                    } ${GetRarityTextColor(rarity.legsR)} font-extrabold`}
+                                    } ${getRarityTextColor(rarity.legsR)}`}
                                 >
-                                    {rarity.legsR?.description !== "Normal" && (
-                                        <span className="mr-2">{rarity.legsR?.description}</span>
+                                    {rarity.legsR !== Normal && (
+                                        <span>{rarity.legsR?.description} </span>
                                     )}
                                     <span>Legs</span>
                                 </div>
                             </div>
-                            {/* background */}
+                            {/* Background Icon*/}
                             <div id="background" className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         className={s.component_list_item_icon_img}
-                                        src="/img/imageviewer/Others/backgroundIcon.png"
+                                        src={getBackgroundIcon()}
                                     />
                                 </div>
                                 <div
-                                    className={`${s.component_list_item_description} font-extrabold text-white`}
+                                    className={`${
+                                        s.component_list_item_description
+                                    }  ${getRarityTextColor(rarity.legsR)}`}
                                 >
-                                    <span className="">{GetProperBackgroundName(background)}</span>
+                                    <span className="">{getProperBackgroundName(background)}</span>
                                 </div>
                             </div>
-                            {/*   card    */}
-                            <div className={s.component_right}>
-                                <img className={s.component_right_card} src={hoverInfo.src} />
-                            </div>
                         </div>
+                        {/* </div> */}
+                        {/* Card */}
+                        {hoverInfo.src !== "" && (
+                            <div className={s.component_card}>
+                                <div className={s.component_card_wrapper}>
+                                    <img src={hoverInfo.src} />
+                                    <div className={s.component_card_description}>
+                                        <div className={s.component_card_hexagon}>
+                                            <img src="/img/imageviewer/Others/Hex border.png" />
+                                            <img
+                                                // className={s.component_right_card_zone_hexagon}
+                                                // src="/img/imageviewer/hex/baseshell_2_circle.jpg"
+                                                src={getImageWithinHexagon(hoverInfo)} //
+                                            />
+                                        </div>
+                                        <div className={s.component_card_name}>
+                                            {hoverInfo.name}
+                                        </div>
+                                        <div className={s.component_card_label}>
+                                            <img src="/img/imageviewer/Others/card_label_legend.png" />
+                                            <div className={s.component_card_label_text}>
+                                                {hoverInfo.rarity}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className={s.modal_overlay} onClick={() => setModalOpen(false)} />
@@ -286,29 +441,3 @@ export default function CrabViewModal({ data, setModalOpen }) {
         </>
     );
 }
-
-/** rarity enum **/
-const Legend = Symbol("Legend");
-const Rare = Symbol("Rare");
-const Magic = Symbol("Magic");
-const Normal = Symbol("Normal");
-
-const prefixAttrs = ["Indestructible", "Reinforced", "Graceful", "Majestic"];
-
-const suffixAttrs = ["of Gaia", "of Peace", "of Doom", "of Doom", "of Doom", "of the Unworldly"];
-
-const legendAttrs = [
-    "The Minotaur",
-    "The Atlantean",
-    "Djinn's",
-    "Undying",
-    "Spirit's",
-    "Coldsteel",
-    "The Leviathan",
-    "Serpent's Eye",
-    "The Bone Breaker",
-    "Guardian's",
-    "Sanctuary",
-];
-
-const bgPrefixAttrs = ["Secret", "Isolated", "Bountiful", "Treasured"];

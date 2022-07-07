@@ -226,3 +226,68 @@ exports.getHeadPieces = (src) => {
     }
     console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
 };
+
+
+const prefixAttrs = ["Indestructible", "Reinforced", "Graceful", "Majestic"];
+
+const suffixAttrs = ["of Gaia", "of Peace", "of Doom", "of Doom", "of Doom", "of the Unworldly"];
+
+const legendAttrs = [
+    "The Minotaur",
+    "The Atlantean",
+    "Djinn's",
+    "Undying",
+    "Spirit's",
+    "Coldsteel",
+    "The Leviathan",
+    "Serpent's Eye",
+    "The Bone Breaker",
+    "Guardian's",
+    "Sanctuary",
+];
+
+const bgPrefixAttrs = ["Secret", "Isolated", "Bountiful", "Treasured"];
+/** rarity enum **/
+const Legend = Symbol("Legend");
+const Rare = Symbol("Rare");
+const Magic = Symbol("Magic");
+const Normal = Symbol("Normal");
+
+exports.Legend = Legend;
+exports.Rare = Rare;
+exports.Magic = Magic;
+exports.Normal = Normal;
+
+const CLAWS = Symbol("CLAWS");
+const BODY = Symbol("BODY");
+const SHELL = Symbol("SHELL");
+const LEGS = Symbol("LEGS");
+const HEADPIECES = Symbol("HEADPIECES");
+exports.CLAWS = CLAWS;
+exports.BODY = BODY;
+exports.SHELL = SHELL;
+exports.LEGS = LEGS;
+exports.HEADPIECES = HEADPIECES;
+
+exports.getRarity = (name) => {
+    let containLegendAttr = legendAttrs.some((el) => name.includes(el));
+    if (containLegendAttr) {
+        return Legend;
+    }
+
+    let containRareAttr =
+        prefixAttrs.some((el) => name.includes(el)) &&
+        suffixAttrs.some((el) => name.includes(el));
+    if (containRareAttr) {
+        return Rare;
+    }
+
+    let containMagicAttr =
+        prefixAttrs.some((el) => name.includes(el)) ||
+        suffixAttrs.some((el) => name.includes(el));
+    if (containMagicAttr) {
+        return Magic;
+    }
+
+    return Normal;
+};

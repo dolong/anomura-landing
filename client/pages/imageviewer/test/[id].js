@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
-import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "utils/crabData";
 import { getAllCrabs, getAnomuraById } from "repositories/crabs";
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 
