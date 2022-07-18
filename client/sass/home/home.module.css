@@ -1392,7 +1392,7 @@
 @media (min-width: 75em) {
   .when_roadmap_timeline:after {
     top: 5rem;
-    height: 93%;
+    height: 92%;
   }
 }
 @media (min-width: 90em) {
@@ -1403,8 +1403,8 @@
 }
 @media (min-width: 1600px) {
   .when_roadmap_timeline:after {
-    top: 6.3rem;
-    height: 92%;
+    top: 8.25rem;
+    height: 91%;
   }
 }
 @media (min-width: 123.75em) {
