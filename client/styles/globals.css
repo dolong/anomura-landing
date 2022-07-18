@@ -15,10 +15,8 @@
 	font-display: swap;
 }
 
-
-
 @font-face {
-	src: url("/fonts/Safety Goggles.ttf");
+	src: url("/fonts/SafetyGoggles-Regular.otf");
 	font-family: "Safety Goggles";
 	/* font-display: swap; */
 }

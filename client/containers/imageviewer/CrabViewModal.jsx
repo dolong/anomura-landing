@@ -51,7 +51,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
         let cardRarity = null,
             cardImg = null,
             cardName = "",
-            cardType;
+            cardType,
+            cardLabel;
 
         switch (e.target.id) {
             case "shell":
@@ -85,13 +86,16 @@ export default function CrabViewModal({ data, setModalOpen }) {
         }
 
         cardImg = getCardImage(cardRarity);
-        // console.log(cardRarity.description);
+        cardLabel = getCardLabel(cardRarity);
+        let labelColor = getRarityLabelColor(cardRarity);
+
         setHoverInfo({
             rarity: cardRarity.description.toUpperCase(),
             name: cardName,
             src: cardImg,
+            label: cardLabel,
+            labelColor,
             type: cardType,
-            nameColor: "place holder text-red-500", // for info on the card
         });
     };
     // console.log(hoverInfo);
@@ -105,15 +109,15 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const getCardImage = (rarity) => {
         switch (rarity) {
             case Legend:
-                return "/./img/imageviewer/Others/Card_WIP.png";
+                return "/./img/imageviewer/Others/Card_Legendary.png";
             case Rare:
-                return "/./img/imageviewer/Others/Card_WIP.png";
+                return "/./img/imageviewer/Others/Card_Rare.png";
             case Magic:
-                return "/./img/imageviewer/Others/Card_WIP.png";
+                return "/./img/imageviewer/Others/Card_Magic.png";
             case Normal:
-                return "/./img/imageviewer/Others/Card_WIP.png";
+                return "/./img/imageviewer/Others/Card_Normal.png";
             default:
-                return "/./img/imageviewer/Others/Card_WIP.png";
+                return "/./img/imageviewer/Others/Card_Normal.png";
         }
     };
     const getRarityTextColor = (rarity) => {
@@ -244,9 +248,22 @@ export default function CrabViewModal({ data, setModalOpen }) {
         }
         return "/img/imageviewer/Others/Land_normal.png";
     };
+    const getCardLabel = (rarity) => {
+        switch (rarity) {
+            case Legend:
+                return "/./img/imageviewer/Others/Rarity Label_Legendary.png";
+            case Rare:
+                return "/./img/imageviewer/Others/Rarity Label_Rare.png";
+            case Magic:
+                return "/./img/imageviewer/Others/Rarity Label_Magic.png";
+            case Normal:
+                return "/./img/imageviewer/Others/Rarity Label_Normal.png";
+            default:
+                return "/./img/imageviewer/Others/Rarity Label_Normal.png";
+        }
+    };
 
     const getImageWithinHexagon = (hoverInfo) => {
-        console.log(hoverInfo);
         if (hoverInfo.type) {
             switch (hoverInfo.type) {
                 case SHELL:
@@ -258,7 +275,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                     return "/img/imageviewer/hex/snowbody_starbody_circle.jpg";
                 case CLAWS:
                     let clawName = getClaws(hoverInfo.name);
-                    return "/img/imageviewer/hex/woodclaw_pincers_circle.jpg";
+                    return "/img/imageviewer/Claws/snowclaw_1_hex.png";
                 case LEGS:
                     return "/img/imageviewer/hex/metalleg_2_circle.jpg";
                 case HEADPIECES:
@@ -271,6 +288,22 @@ export default function CrabViewModal({ data, setModalOpen }) {
         }
         return "/img/imageviewer/hex/crystal2-2_circle.jpg";
     };
+
+    const getRarityLabelColor = (rarity) => {
+        console.log(rarity);
+        switch (rarity) {
+            case Legend:
+                return s.component_card_label_legend;
+            case Rare:
+                return s.component_card_label_rare;
+            case Magic:
+                return s.component_card_label_magic;
+            case Normal:
+                return s.component_card_label_normal;
+            default:
+                return "";
+        }
+    }; // s.component_card_label_text
     return (
         <>
             <div className="absolute left-0 top-0 w-full h-full flex justify-center items-center pointer-events-none">
@@ -330,7 +363,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getClawsIcon(rarity?.clawsR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -352,7 +385,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getShellIcon(rarity?.shellR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -412,13 +445,16 @@ export default function CrabViewModal({ data, setModalOpen }) {
                         {hoverInfo.src !== "" && (
                             <div className={s.component_card}>
                                 <div className={s.component_card_wrapper}>
+                                    {/* card image */}
                                     <img src={hoverInfo.src} />
                                     <div className={s.component_card_description}>
                                         <div className={s.component_card_hexagon}>
-                                            <img src="/img/imageviewer/Others/Hex border.png" />
                                             <img
-                                                // className={s.component_right_card_zone_hexagon}
-                                                // src="/img/imageviewer/hex/baseshell_2_circle.jpg"
+                                                className={s.component_card_hexagon_background}
+                                                src="/img/imageviewer/Others/Grey background.png"
+                                            />
+                                            <img
+                                                className={s.component_card_hexagon_claws}
                                                 src={getImageWithinHexagon(hoverInfo)} //
                                             />
                                         </div>
@@ -426,8 +462,10 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                             {hoverInfo.name}
                                         </div>
                                         <div className={s.component_card_label}>
-                                            <img src="/img/imageviewer/Others/card_label_legend.png" />
-                                            <div className={s.component_card_label_text}>
+                                            <img src={hoverInfo.label} />
+                                            <div
+                                                className={`${s.component_card_label_text} ${hoverInfo.labelColor}`}
+                                            >
                                                 {hoverInfo.rarity}
                                             </div>
                                         </div>

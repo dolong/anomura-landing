@@ -2,12 +2,12 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
-const InitialOffset = 600,
+const InitialOffset = 590,
     SixteenHundredOffset = 25,
     TwelveHundredOffSet = 25,
     OneThousandOffSet = 50,
     EightHundredOffSet = 90,
-    SixHundredOffSet = 65,
+    SixHundredOffSet = 100,
     FourHundredOffSet = 65;
 
 export default function NFT({ ScrollPercent }) {

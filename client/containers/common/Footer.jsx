@@ -3,13 +3,13 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
-const InitialOffset = 5600,
-    SixteenHundredOffset = -700,
+const InitialOffset = 8100,
+    SixteenHundredOffset = -900,
     TwelveHundredOffSet = -1000,
-    OneThousandOffSet = -1250,
-    EightHundredOffSet = -1050,
-    SixHundredOffSet = -920,
-    FourHundredOffSet = -870;
+    OneThousandOffSet = -1300,
+    EightHundredOffSet = 1200,
+    SixHundredOffSet = 700,
+    FourHundredOffSet = 300;
 
 export default function Footer({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);

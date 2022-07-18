@@ -115,20 +115,28 @@
   height: 33%;
   position: relative;
 }
-.component_card_hexagon > img:nth-child(1) {
-  top: 0;
+.component_card_hexagon_background {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 80%;
+  z-index: -2;
+}
+.component_card_hexagon_headpiece {
   position: absolute;
   width: 100%;
   height: auto;
-  z-index: 3;
-}
-.component_card_hexagon > img:nth-child(2) {
-  position: absolute;
-  width: 80%;
-  height: auto;
-  z-index: 2;
+  z-index: -1;
   margin-top: 14%;
   margin-left: 12%;
+}
+.component_card_hexagon_claws {
+  position: absolute;
+  width: 77%;
+  height: auto;
+  z-index: -1;
+  margin-top: 14%;
+  margin-left: 32%;
 }
 .component_card_name {
   width: 70%;
@@ -142,13 +150,24 @@
   position: relative;
 }
 .component_card_label_text {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: #D18839;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.component_card_label_legend {
+  color: #D1873A;
+}
+.component_card_label_rare {
+  color: #E06655;
+}
+.component_card_label_magic {
+  color: #7967DE;
+}
+.component_card_label_normal {
+  color: #2483B2;
 }/*# sourceMappingURL=imageviewer.module.css.map */
