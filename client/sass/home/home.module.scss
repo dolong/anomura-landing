@@ -929,7 +929,7 @@ $header-space-bottom: 60px;
 }
 .when {
 	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5.png", 90%);
+		@include m.z-layers(5, "/img/home/backgrounds/Layer5_Long.png", 90%);
 		@include m.flex-master(column, null, center);
 		padding-bottom: 150%;
 		@media (min-width: $bp-large) {  
@@ -991,7 +991,7 @@ $header-space-bottom: 60px;
 				}
 				@media (min-width: $bp-large) {  
 					top: 4rem;
-					height: 92%;
+					height: 92.3%;
 				}
 				@media (min-width: $bp-large-2) {  
 					top: 5rem;
@@ -1002,7 +1002,7 @@ $header-space-bottom: 60px;
 					height: 92%;
 				}
 				@media (min-width: 1600px) {  
-					top: 8.25rem;
+					top: 8.6rem;
 					height: 91%;
 				}
 				@media (min-width: $bp-xl-2) {  
@@ -1097,6 +1097,9 @@ $header-space-bottom: 60px;
 					color: white;
 					font-weight: 500;
 					font-family: Safety Goggles;
+					padding-right:0.5rem; 
+					line-height:2rem;
+
 					@media (min-width: $bp-med) {  
 						font-size: 2rem;
 					}
@@ -1110,10 +1113,10 @@ $header-space-bottom: 60px;
 						font-size: 1.7rem;
 					}
 					@media (min-width: $bp-xl) {  
-						font-size: 2rem;
+						font-size: 2.25rem;
 					}
 					@media (min-width: $bp-xl-2) {  
-						font-size: 2rem;
+						font-size: 2.25rem;
 					}
 					@media (min-width: $bp-xl-3) {  
 						font-size: 2.25rem;
@@ -1154,6 +1157,15 @@ $header-space-bottom: 60px;
 							z-index: 1;
 							content: url('/img/home/whenSection/Roadmap Hexagon.svg');
 							
+						}
+					}
+				}
+				@media (min-width: $bp-large) {	
+					> span {
+						&:before {
+							width: 32px;
+							height: 32px;
+							transform: translate(-3.5rem, 0);			
 						}
 					}
 				}
@@ -1208,6 +1220,15 @@ $header-space-bottom: 60px;
 							z-index: 1;
 							content: url('/img/home/whenSection/Roadmap Hexagon.svg');
 						 }
+					}
+				}
+				@media (min-width: $bp-large) {	
+					> span {
+						&:after {
+							width: 32px;
+							height: 32px;
+							transform: translate(2rem, 0);		
+						}
 					}
 				}
 				@media (min-width: $bp-large-2) {	

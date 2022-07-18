@@ -1223,7 +1223,7 @@
 
 .when_zone {
   width: 100%;
-  background-image: url("/img/home/backgrounds/Layer5.png");
+  background-image: url("/img/home/backgrounds/Layer5_Long.png");
   background-size: cover;
   position: absolute;
   z-index: 5;
@@ -1391,7 +1391,7 @@
 @media (min-width: 54.5em) {
   .when_roadmap_timeline:after {
     top: 4rem;
-    height: 92%;
+    height: 92.3%;
   }
 }
 @media (min-width: 75em) {
@@ -1408,7 +1408,7 @@
 }
 @media (min-width: 1600px) {
   .when_roadmap_timeline:after {
-    top: 8.25rem;
+    top: 8.6rem;
     height: 91%;
   }
 }
@@ -1506,6 +1506,8 @@
   color: white;
   font-weight: 500;
   font-family: Safety Goggles;
+  padding-right: 0.5rem;
+  line-height: 2rem;
 }
 @media (min-width: 46.8em) {
   .when_roadmap_item_labels_title {
@@ -1529,12 +1531,12 @@
 }
 @media (min-width: 90em) {
   .when_roadmap_item_labels_title {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 }
 @media (min-width: 123.75em) {
   .when_roadmap_item_labels_title {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 }
 @media (min-width: 160em) {
@@ -1693,6 +1695,13 @@
     content: url("/img/home/whenSection/Roadmap Hexagon.svg");
   }
 }
+@media (min-width: 54.5em) {
+  .when_roadmap_item:nth-child(odd) > div:nth-child(2) > span:before {
+    width: 32px;
+    height: 32px;
+    transform: translate(-3.5rem, 0);
+  }
+}
 @media (min-width: 75em) {
   .when_roadmap_item:nth-child(odd) > div:nth-child(2) > span:before {
     width: 37px;
@@ -1734,6 +1743,13 @@
     border-radius: 50%;
     z-index: 1;
     content: url("/img/home/whenSection/Roadmap Hexagon.svg");
+  }
+}
+@media (min-width: 54.5em) {
+  .when_roadmap_item:nth-child(even) > div:nth-child(2) > span:after {
+    width: 32px;
+    height: 32px;
+    transform: translate(2rem, 0);
   }
 }
 @media (min-width: 75em) {

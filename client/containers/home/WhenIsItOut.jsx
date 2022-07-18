@@ -348,7 +348,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                             }`}
                                             ref={gameDemoRef}
                                         >
-                                            Launch F2P Game Demo
+                                            Launch F2P Game Concept Demo
                                         </span>
                                         <div className={s.when_roadmap_item_labels_target}>
                                             Target date: Aug 2022
@@ -407,7 +407,8 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                             Target date: Aug 2022
                                         </div>
                                         <div className={s.when_roadmap_item_labels_description}>
-                                            Release of Founder's Edition Mystery Bowl (10k supply)
+                                            Release of limited supply Founder’s Edition Mystery
+                                            Bowls
                                         </div>
                                     </div>
                                 </div>
@@ -433,7 +434,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         </span>
 
                                         <div className={s.when_roadmap_item_labels_description}>
-                                            Generative Anomura will hatch and reveal rarity.
+                                            Generative Anomura will hatch and reveal rarity
                                         </div>
                                     </div>
                                 </div>
@@ -457,7 +458,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         </span>
 
                                         <div className={s.when_roadmap_item_labels_description}>
-                                            Play Anomura on all compatible web browsers.
+                                            Play Anomura on all compatible web browsers
                                         </div>
                                     </div>
                                 </div>
@@ -483,7 +484,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         </span>
 
                                         <div className={s.when_roadmap_item_labels_description}>
-                                            Collect & level up your Anomura.
+                                            Collect & level up your Anomura
                                         </div>
                                     </div>
                                 </div>
@@ -507,7 +508,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         </span>
 
                                         <div className={s.when_roadmap_item_labels_description}>
-                                            Equip and view your Anomura NFT on our dApp.
+                                            Equip and view your Anomura NFT on our dApp
                                         </div>
                                     </div>
                                 </div>
@@ -530,7 +531,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         </span>
 
                                         <div className={s.when_roadmap_item_labels_description}>
-                                            Play Anomura wherever you go.
+                                            Play Anomura wherever you go
                                         </div>
                                     </div>
                                 </div>
