@@ -395,7 +395,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .comingsoon_paragraphContainer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -762,7 +762,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .nft_paragraphContainer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -942,7 +942,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .crab_paragraphContainer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -1262,6 +1262,11 @@
     margin-top: 40%;
   }
 }
+@media (min-width: 123.75em) {
+  .when_container {
+    margin-top: 33%;
+  }
+}
 .when_text {
   position: relative;
   text-align: center;
@@ -1356,7 +1361,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .when_paragraphContainer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -1409,14 +1414,14 @@
 }
 @media (min-width: 123.75em) {
   .when_roadmap_timeline:after {
-    top: 6rem;
-    height: 92%;
+    top: 9.5rem;
+    height: 90%;
   }
 }
 @media (min-width: 160em) {
   .when_roadmap_timeline:after {
-    top: 6.5rem;
-    height: 92%;
+    top: 11rem;
+    height: 90.5%;
   }
 }
 .when_roadmap_wrapper {
@@ -1447,7 +1452,12 @@
 }
 @media (min-width: 123.75em) {
   .when_roadmap_item {
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+@media (min-width: 160em) {
+  .when_roadmap_item {
+    margin-bottom: 0rem;
   }
 }
 .when_roadmap_item_img {
@@ -1593,7 +1603,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .when_roadmap_item_labels_target {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -1658,7 +1668,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .when_roadmap_item_labels_description {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -1685,9 +1695,23 @@
 }
 @media (min-width: 75em) {
   .when_roadmap_item:nth-child(odd) > div:nth-child(2) > span:before {
-    width: 28px;
-    height: 28px;
-    transform: translate(-3.4rem, 0);
+    width: 37px;
+    height: 37px;
+    transform: translate(-3.65rem, 0);
+  }
+}
+@media (min-width: 123.75em) {
+  .when_roadmap_item:nth-child(odd) > div:nth-child(2) > span:before {
+    width: 37px;
+    height: 37px;
+    transform: translate(-3.65rem, 0);
+  }
+}
+@media (min-width: 160em) {
+  .when_roadmap_item:nth-child(odd) > div:nth-child(2) > span:before {
+    width: 45px;
+    height: 45px;
+    transform: translate(-3.9rem, 0);
   }
 }
 @media (min-width: 50em) {
@@ -1714,9 +1738,23 @@
 }
 @media (min-width: 75em) {
   .when_roadmap_item:nth-child(even) > div:nth-child(2) > span:after {
-    width: 28px;
-    height: 28px;
-    transform: translate(1.85rem, 0);
+    width: 37px;
+    height: 37px;
+    transform: translate(2.15rem, 0);
+  }
+}
+@media (min-width: 123.75em) {
+  .when_roadmap_item:nth-child(even) > div:nth-child(2) > span:after {
+    width: 37px;
+    height: 37px;
+    transform: translate(2.15rem, 0);
+  }
+}
+@media (min-width: 160em) {
+  .when_roadmap_item:nth-child(even) > div:nth-child(2) > span:after {
+    width: 45px;
+    height: 45px;
+    transform: translate(2.45rem, 0);
   }
 }
 .when_roadmap_purpleLeft {
@@ -1861,7 +1899,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .footer_followContainer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -2030,7 +2068,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .footer_presented {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }
@@ -2092,7 +2130,7 @@
 }
 @media only screen and (min-width: 2560px) {
   .footer_mission {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 31px;
   }
 }

@@ -3,7 +3,7 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
-const InitialOffset = 8400,
+const InitialOffset = 8200,
     SixteenHundredOffset = -1200,
     TwelveHundredOffSet = -1350,
     OneThousandOffSet = -1600,
@@ -12,7 +12,7 @@ const InitialOffset = 8400,
     FourHundredOffSet = 300;
 
 export default function Footer({ ScrollPercent, audioControl }) {
-    const [scrollSpeed, setScrollSpeed] = React.useState(-55);
+    const [scrollSpeed, setScrollSpeed] = React.useState(-45);
     const [audioState, setAudioState] = useState("unloaded");
     const bubbleRef = React.createRef();
     let timeout, interval;
@@ -30,6 +30,7 @@ export default function Footer({ ScrollPercent, audioControl }) {
     );
 
     React.useLayoutEffect(() => {
+        if (window.innerWidth <= 1750 && window.innerWidth >= 1600) setScrollSpeed(-55);
         if (window.innerWidth <= 1200) setScrollSpeed(-25);
         if (window.innerWidth <= 600) setScrollSpeed(-20);
 
