@@ -145,6 +145,14 @@
                 margin-top:14%;
                 margin-left:12%;
             }
+            &_body {
+                position: absolute;
+                width: 31%;
+                height: auto;
+                z-index: -1;
+                margin-top: 23%; 
+                margin-left: 35%;
+            }
             &_claws {
                 position: absolute;
                 width: 77%;
@@ -189,6 +197,9 @@
             }
             &_normal {
                 color: #2483B2;
+            }
+            &_nothing {
+                color:#607E82;
             }
         }  
     }

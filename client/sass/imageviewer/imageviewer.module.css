@@ -130,6 +130,14 @@
   margin-top: 14%;
   margin-left: 12%;
 }
+.component_card_hexagon_body {
+  position: absolute;
+  width: 31%;
+  height: auto;
+  z-index: -1;
+  margin-top: 23%;
+  margin-left: 35%;
+}
 .component_card_hexagon_claws {
   position: absolute;
   width: 77%;
@@ -170,4 +178,7 @@
 }
 .component_card_label_normal {
   color: #2483B2;
+}
+.component_card_label_nothing {
+  color: #607E82;
 }/*# sourceMappingURL=imageviewer.module.css.map */

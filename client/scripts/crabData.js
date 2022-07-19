@@ -142,13 +142,6 @@ exports.headpieces = [
     "starfish3",
 ];
 exports.getBackground = (backgroundSrc) => {
-    // for (const [key, value] of Object.entries(backgrounds)) {
-    //     if (backgroundSrc.includes(key)) {
-    //         return backgrounds[key];
-    //         //return await loadImage(path.resolve(`images/Backgrounds/${Background[key]}_1.svg`));
-    //     }
-    // }
-
     for (let i = 0; i < this.backgrounds.length; i++) {
         if (backgroundSrc.includes(this.backgrounds[i])) {
             return this.backgrounds[i];
@@ -157,13 +150,6 @@ exports.getBackground = (backgroundSrc) => {
     console.error(`Background ${backgroundSrc} cannot be found.`);
 };
 exports.getShell = (src) => {
-    // for (const [key, value] of Object.entries(shells)) {
-    //     if (src.includes(key)) {
-    //         return shells[key];
-    //         //return await loadImage(path.resolve(`images/Shell/${Shell[key]}_1.svg`));
-    //     }
-    // }
-
     for (let i = 0; i < this.shells.length; i++) {
         if (src.includes(this.shells[i])) {
             return this.shells[i];
@@ -172,12 +158,6 @@ exports.getShell = (src) => {
     console.error(`Shell ${src} cannot be found. Or image path for src is invalid`);
 };
 exports.getClaws = (src) => {
-    // for (const [key, value] of Object.entries(claws)) {
-    //     if (src.includes(key)) {
-    //         return claws[key];
-    //         //return await loadImage(path.resolve(`images/Claws/${Claws[key]}_1.svg`));
-    //     }
-    // }
     for (let i = 0; i < this.claws.length; i++) {
         if (src.includes(this.claws[i])) {
             return this.claws[i];
@@ -186,12 +166,6 @@ exports.getClaws = (src) => {
     console.error(`Claws ${src} cannot be found. Or image path for src is invalid`);
 };
 exports.getLegs = (src) => {
-    // for (const [key, value] of Object.entries(legs)) {
-    //     if (src.includes(key)) {
-    //         return legs[key];
-    //         //return await loadImage(path.resolve(`images/Legs/${Legs[key]}_1.svg`));
-    //     }
-    // }
     for (let i = 0; i < this.legs.length; i++) {
         if (src.includes(this.legs[i])) {
             return this.legs[i];
@@ -200,12 +174,6 @@ exports.getLegs = (src) => {
     console.error(`Legs ${src} cannot be found. Or image path for src is invalid`);
 };
 exports.getBody = (src) => {
-    // for (const [key, value] of Object.entries(bodies)) {
-    //     if (src.includes(key)) {
-    //         return bodies[key];
-    //     }
-    // }
-
     for (let i = 0; i < this.bodies.length; i++) {
         if (src.includes(this.bodies[i])) {
             return this.bodies[i];
@@ -214,11 +182,6 @@ exports.getBody = (src) => {
     console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
 };
 exports.getHeadPieces = (src) => {
-    // for (const [key, value] of Object.entries(headpieces)) {
-    //     if (src.includes(key)) {
-    //         return headpieces[key];
-    //     }
-    // }
     for (let i = 0; i < this.headpieces.length; i++) {
         if (src.includes(this.headpieces[i])) {
             return this.headpieces[i];
@@ -252,11 +215,13 @@ const Legend = Symbol("Legend");
 const Rare = Symbol("Rare");
 const Magic = Symbol("Magic");
 const Normal = Symbol("Normal");
+const Nothing = Symbol("Nothing");
 
 exports.Legend = Legend;
 exports.Rare = Rare;
 exports.Magic = Magic;
 exports.Normal = Normal;
+exports.Nothing = Nothing;
 
 const CLAWS = Symbol("CLAWS");
 const BODY = Symbol("BODY");
@@ -270,6 +235,8 @@ exports.LEGS = LEGS;
 exports.HEADPIECES = HEADPIECES;
 
 exports.getRarity = (name) => {
+
+    if (name.trim() == "" || name === undefined) return Nothing;
     let containLegendAttr = legendAttrs.some((el) => name.includes(el));
     if (containLegendAttr) {
         return Legend;

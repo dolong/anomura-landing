@@ -6,6 +6,7 @@ import {
     Rare,
     Magic,
     Normal,
+    Nothing,
     CLAWS,
     BODY,
     HEADPIECES,
@@ -28,7 +29,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         clawsR: null,
         headpiecesR: null,
     });
-    // console.log(headpieces);
+    console.log(headpieces);
     // console.log(shell);
     React.useLayoutEffect(() => {
         let bodyR = getRarity(body);
@@ -78,12 +79,18 @@ export default function CrabViewModal({ data, setModalOpen }) {
             case "headpieces":
                 // console.log(headpieces);
                 cardRarity = getRarity(headpieces);
-                cardName = headpieces;
+                if (headpieces != " ") {
+                    cardName = headpieces;
+                } else {
+                    cardName = "YOU HAVE NO HEADPIECE";
+                }
                 cardType = HEADPIECES;
                 break;
             default:
                 throw new Error("not a valid part");
         }
+
+        console.log(cardName);
 
         cardImg = getCardImage(cardRarity);
         cardLabel = getCardLabel(cardRarity);
@@ -98,7 +105,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
             type: cardType,
         });
     };
-    // console.log(hoverInfo);
+    console.log(hoverInfo);
     const hideCard = () => {
         setHoverInfo({
             name: "",
@@ -116,8 +123,10 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return "/./img/imageviewer/Others/Card_Magic.png";
             case Normal:
                 return "/./img/imageviewer/Others/Card_Normal.png";
+            case Nothing:
+                return "/./img/imageviewer/Others/Card_Empty.png";
             default:
-                return "/./img/imageviewer/Others/Card_Normal.png";
+                return "/./img/imageviewer/Others/Card_Empty.png";
         }
     };
     const getRarityTextColor = (rarity) => {
@@ -133,6 +142,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return s.component_list_item_description_magic;
             case Normal:
                 return s.component_list_item_description_normal;
+            // case Normal:
+            //         return s.component_list_item_description_normal;
             default:
                 return s.component_list_item_description_normal;
         }
@@ -147,21 +158,18 @@ export default function CrabViewModal({ data, setModalOpen }) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
     const getHeadPiecesIcon = (rarity) => {
-        if (rarity) {
-            switch (rarity) {
-                case Legend:
-                    return "/img/imageviewer/Others/Headpiece_legendary.png";
-                case Rare:
-                    return "/img/imageviewer/Others/Headpiece_rare.png";
-                case Magic:
-                    return "/img/imageviewer/Others/Headpiece_magic.png";
-                case Normal:
-                    return "/img/imageviewer/Others/Headpiece_normal.png";
-                default:
-                    return "/img/imageviewer/Others/Headpiece_empty.png";
-            }
+        switch (rarity) {
+            case Legend:
+                return "/img/imageviewer/Others/Headpiece_legendary.png";
+            case Rare:
+                return "/img/imageviewer/Others/Headpiece_rare.png";
+            case Magic:
+                return "/img/imageviewer/Others/Headpiece_magic.png";
+            case Normal:
+                return "/img/imageviewer/Others/Headpiece_normal.png";
+            default:
+                return "/img/imageviewer/Others/Headpiece_empty.png";
         }
-        return "/img/imageviewer/Others/Headpiece_empty.png";
     };
     const getBodyIcon = (rarity) => {
         if (rarity) {
@@ -258,39 +266,14 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return "/./img/imageviewer/Others/Rarity Label_Magic.png";
             case Normal:
                 return "/./img/imageviewer/Others/Rarity Label_Normal.png";
+            case Nothing:
+                return "/./img/imageviewer/Others/Rarity Label_Nothing.png";
             default:
-                return "/./img/imageviewer/Others/Rarity Label_Normal.png";
+                return "/./img/imageviewer/Others/Rarity Label_Nothing.png";
         }
-    };
-
-    const getImageWithinHexagon = (hoverInfo) => {
-        if (hoverInfo.type) {
-            switch (hoverInfo.type) {
-                case SHELL:
-                    let shellName = getShell(hoverInfo.name);
-                    // console.log(shellName);
-                    return "/img/imageviewer/hex/starship_circle.jpg";
-                case BODY:
-                    let bodyName = getBody(hoverInfo.name);
-                    return "/img/imageviewer/hex/snowbody_starbody_circle.jpg";
-                case CLAWS:
-                    let clawName = getClaws(hoverInfo.name);
-                    return "/img/imageviewer/Claws/snowclaw_1_hex.png";
-                case LEGS:
-                    return "/img/imageviewer/hex/metalleg_2_circle.jpg";
-                case HEADPIECES:
-                    let headPiecesName = getHeadPieces(hoverInfo.name);
-                    console.log(headPiecesName);
-                    return `/img/imageviewer/hex/crystal3_circle.jpg`;
-                default:
-                    return "/img/imageviewer/Others/Land_normal.png";
-            }
-        }
-        return "/img/imageviewer/hex/crystal2-2_circle.jpg";
     };
 
     const getRarityLabelColor = (rarity) => {
-        console.log(rarity);
         switch (rarity) {
             case Legend:
                 return s.component_card_label_legend;
@@ -300,10 +283,79 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return s.component_card_label_magic;
             case Normal:
                 return s.component_card_label_normal;
+            case Nothing:
+                return s.component_card_label_nothing;
             default:
-                return "";
+                return s.component_card_label_nothing;
         }
-    }; // s.component_card_label_text
+    };
+
+    const renderCard = (hoverInfo) => {
+        let imageStyle, imageSource;
+        switch (hoverInfo.type) {
+            case SHELL:
+                let shellName = getShell(hoverInfo.name);
+                // console.log(shellName);
+                imageSource = "/img/imageviewer/hex/starship_circle.jpg";
+                // imageStyle =
+                break;
+            case BODY:
+                let bodyName = getBody(hoverInfo.name);
+                imageSource = `/img/imageviewer/Body/${bodyName}_hex.png`;
+                imageStyle = s.component_card_hexagon_body;
+                break;
+            case CLAWS:
+                let clawName = getClaws(hoverInfo.name);
+                imageSource = `/img/imageviewer/Claws/${clawName}_hex.png`;
+                imageStyle = s.component_card_hexagon_claws;
+                break;
+            case LEGS:
+                imageSource = "/img/imageviewer/hex/metalleg_2_circle.jpg";
+                break;
+            case HEADPIECES:
+                let headPiecesName = getHeadPieces(hoverInfo.name);
+                console.log(headPiecesName);
+                if (headPiecesName == undefined) {
+                    imageSource = "";
+                } else imageSource = `/img/imageviewer/hex/crystal3_circle.jpg`;
+                break;
+            default:
+                imageSource = "/img/imageviewer/Others/Land_normal.png";
+                break;
+        }
+        return (
+            <div className={s.component_card}>
+                <div className={s.component_card_wrapper}>
+                    {/* card image */}
+                    <img src={hoverInfo.src} />
+                    <div className={s.component_card_description}>
+                        <div className={s.component_card_hexagon}>
+                            {hoverInfo.name !== "YOU HAVE NO HEADPIECE" && (
+                                <img
+                                    className={s.component_card_hexagon_background}
+                                    src="/img/imageviewer/Others/Grey background.png"
+                                />
+                            )}
+                            <img
+                                className={imageStyle}
+                                src={imageSource} //
+                            />
+                        </div>
+                        <div className={s.component_card_name}>{hoverInfo.name}</div>
+                        <div className={s.component_card_label}>
+                            <img src={hoverInfo.label} />
+                            <div
+                                className={`${s.component_card_label_text} ${hoverInfo.labelColor}`}
+                            >
+                                {hoverInfo.rarity}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
     return (
         <>
             <div className="absolute left-0 top-0 w-full h-full flex justify-center items-center pointer-events-none">
@@ -319,7 +371,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getHeadPiecesIcon(rarity?.headpiecesR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -327,10 +379,14 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.headpiecesR)} `}
                                 >
-                                    {rarity.headpiecesR !== Normal && (
-                                        <span>{rarity.headpiecesR?.description} </span>
-                                    )}
-                                    <span>Headpiece</span>
+                                    {rarity.headpiecesR !== Normal &&
+                                        rarity.headpiecesR !== Nothing && (
+                                            <span>{rarity.headpiecesR?.description} </span>
+                                        )}
+                                    <span>
+                                        {rarity.headpiecesR === Nothing ? "No " : ""}
+                                        Headpiece
+                                    </span>
                                 </div>
                             </div>
                             {/* Body Icon */}
@@ -341,7 +397,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getBodyIcon(rarity?.bodyR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -363,7 +419,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getClawsIcon(rarity?.clawsR)}
                                         onMouseEnter={ShowCard}
-                                        // onMouseLeave={hideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -385,7 +441,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getShellIcon(rarity?.shellR)}
                                         onMouseEnter={ShowCard}
-                                        // onMouseLeave={hideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -442,37 +498,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                         </div>
                         {/* </div> */}
                         {/* Card */}
-                        {hoverInfo.src !== "" && (
-                            <div className={s.component_card}>
-                                <div className={s.component_card_wrapper}>
-                                    {/* card image */}
-                                    <img src={hoverInfo.src} />
-                                    <div className={s.component_card_description}>
-                                        <div className={s.component_card_hexagon}>
-                                            <img
-                                                className={s.component_card_hexagon_background}
-                                                src="/img/imageviewer/Others/Grey background.png"
-                                            />
-                                            <img
-                                                className={s.component_card_hexagon_claws}
-                                                src={getImageWithinHexagon(hoverInfo)} //
-                                            />
-                                        </div>
-                                        <div className={s.component_card_name}>
-                                            {hoverInfo.name}
-                                        </div>
-                                        <div className={s.component_card_label}>
-                                            <img src={hoverInfo.label} />
-                                            <div
-                                                className={`${s.component_card_label_text} ${hoverInfo.labelColor}`}
-                                            >
-                                                {hoverInfo.rarity}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                        {hoverInfo.src !== "" && <>{renderCard(hoverInfo)}</>}
                     </div>
                 </div>
                 <div className={s.modal_overlay} onClick={() => setModalOpen(false)} />
