@@ -4,9 +4,9 @@ import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
 const InitialOffset = 8650,
-    TwentyEightHundredOffset = -850,
+    TwentyEightHundredOffset = -600,
     TwentyFiveHundredOffset = -850,
-    NineteenHundredOffset = -1550,
+    NineteenHundredOffset = -1400,
     SixteenHundredOffset = -2150,
     TwelveHundredOffSet = -1800,
     OneThousandOffSet = -2200,
