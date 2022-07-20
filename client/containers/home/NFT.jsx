@@ -3,6 +3,9 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
 const InitialOffset = 590,
+    TwentyEightHundredOffset = 25,
+    TwentyFiveHundredOffset = 25,
+    NineteenHundredOffset = 25,
     SixteenHundredOffset = 25,
     TwelveHundredOffSet = 25,
     OneThousandOffSet = 50,
@@ -17,6 +20,9 @@ export default function NFT({ ScrollPercent }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        TwentyEightHundredOffset,
+        TwentyFiveHundredOffset,
+        NineteenHundredOffset,
         SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,

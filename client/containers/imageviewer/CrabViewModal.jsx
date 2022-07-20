@@ -16,6 +16,8 @@ import {
     getLegs,
     getHeadPieces,
     getRarity,
+    getBackground,
+    getBackgroundRarity,
 } from "@scripts/crabData";
 
 import React, { useEffect } from "react";
@@ -30,6 +32,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         legsR: null,
         clawsR: null,
         headpiecesR: null,
+        backgroundR: null,
     });
     console.log(headpieces);
     // console.log(shell);
@@ -39,6 +42,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         let legsR = getRarity(legs);
         let clawsR = getRarity(claws);
         let headpiecesR = getRarity(headpieces);
+        let backgroundR = getBackgroundRarity(background);
 
         setRarity((prevState) => ({
             ...prevState,
@@ -47,10 +51,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
             legsR,
             clawsR,
             headpiecesR,
+            backgroundR,
         }));
     }, []);
 
     const ShowCard = (e) => {
+        console.log(e.target.id);
         let cardRarity = null,
             cardImg = null,
             cardName = "",
@@ -79,7 +85,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 cardType = CLAWS;
                 break;
             case "headpieces":
-                // console.log(headpieces);
                 cardRarity = getRarity(headpieces);
                 if (headpieces != " ") {
                     cardName = headpieces;
@@ -88,8 +93,14 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 }
                 cardType = HEADPIECES;
                 break;
+            case "background":
+                cardRarity = getBackgroundRarity(background);
+                cardName = background;
+                cardType = BACKGROUND;
+                break;
             default:
-                throw new Error("not a valid part");
+                console.log("not a valid part");
+                break;
         }
 
         console.log(cardName);
@@ -297,8 +308,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         switch (hoverInfo.type) {
             case SHELL:
                 let shellName = getShell(hoverInfo.name);
-                // console.log(shellName);
-                imageSource = "/img/imageviewer/Shell/architect_hex.png";
+                imageSource = `/img/imageviewer/Shell/${shellName}_hex.png`;
                 imageStyle = s.component_card_hexagon_shell;
                 break;
             case BODY:
@@ -324,6 +334,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                     imageSource = `/img/imageviewer/HeadPieces/${headPiecesName}_hex.png`;
                 }
                 imageStyle = s.component_card_hexagon_headpieces;
+                break;
+            case BACKGROUND:
+                let backgroundName = getBackground(hoverInfo.name);
+                imageSource = `/img/imageviewer/Background/${backgroundName}_1.png`;
+                imageStyle = s.component_card_hexagon_background;
                 break;
             default:
                 imageSource = "/img/imageviewer/Others/Land_normal.png";
@@ -377,7 +392,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getHeadPiecesIcon(rarity?.headpiecesR)}
                                         onMouseEnter={ShowCard}
-                                        // onMouseLeave={hideCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -485,24 +500,25 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 </div>
                             </div>
                             {/* Background Icon*/}
-                            <div id="background" className={s.component_list_item}>
+                            <div className={s.component_list_item}>
                                 <div className={s.component_list_item_icon}>
                                     <img
+                                        id="background"
                                         className={s.component_list_item_icon_img}
-                                        src={getBackgroundIcon()}
+                                        src={getBackgroundIcon(rarity?.backgroundR)}
+                                        onMouseEnter={ShowCard}
+                                        onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
                                     className={`${s.component_list_item_description}  
-                                    
+                                    ${getRarityTextColor(rarity.backgroundR)}
                                     `}
-                                    //${getRarityTextColor(rarity.ba)}
                                 >
                                     <span className="">{getProperBackgroundName(background)}</span>
                                 </div>
                             </div>
                         </div>
-                        {/* </div> */}
                         {/* Card */}
                         {hoverInfo.src !== "" && <>{renderCard(hoverInfo)}</>}
                     </div>

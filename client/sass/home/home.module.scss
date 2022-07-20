@@ -1339,6 +1339,7 @@ $header-space-bottom: 60px;
 		pointer-events:auto;
 		@include m.z-layers(999, "/img/home/backgrounds/Layer6.png", 3%);
 		@include m.flex-master(column, null, center);
+		padding-bottom: 7%;
 	}
 	&_container {
 		margin-top: 38.5%;
@@ -1937,7 +1938,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	}
 	.footer{
 		&_zone{		
-			padding-bottom: 15%;
+			padding-bottom: 25%;
 		}
 		&_container {
 			margin-top: 100%;

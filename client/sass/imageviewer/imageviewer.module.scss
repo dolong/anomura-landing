@@ -150,7 +150,7 @@
                 width: 31%;
                 height: auto;
                 z-index: -1;
-                margin-top: 23%; 
+                margin-top: 18%; 
                 margin-left: 35%;
             }
             &_claws {
@@ -174,8 +174,16 @@
                 width: 38%;
                 height: auto;
                 z-index: -1;
-                margin-top: 23%; // -14
+                margin-top: 24%; // -14
                 margin-left: 33%; // 20
+            }
+            &_background {
+                position: absolute;
+                width: 67%;
+                height: auto;
+                z-index: -1;
+                margin-top: 2%; // -14
+                margin-left: 13%; // 20
             }
         }
 

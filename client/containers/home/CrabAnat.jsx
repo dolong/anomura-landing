@@ -3,9 +3,12 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import { randomIntFromInterval } from "../../utils/utils";
 
-const InitialOffset = 1950,
+const InitialOffset = 1980,
+    TwentyEightHundredOffset = -220,
+    TwentyFiveHundredOffset = -220,
+    NineteenHundredOffset = -220,
     SixteenHundredOffset = -220,
-    TwelveHundredOffSet = -100,
+    TwelveHundredOffSet = -150,
     OneThousandOffSet = -250,
     EightHundredOffSet = -250,
     SixHundredOffSet = -190,
@@ -66,6 +69,9 @@ export default function CrabAnat({ ScrollPercent }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        TwentyEightHundredOffset,
+        TwentyFiveHundredOffset,
+        NineteenHundredOffset,
         SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,

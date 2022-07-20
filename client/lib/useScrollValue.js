@@ -7,12 +7,18 @@
  * @param {This is value added when reaching the one thousand width.} OneThousandOffSet
  * @param {This is value added when reaching the eight hundred width.} EightHundredOffSet
  * @param {This is value added when reaching the six hundred width.} SixHundredOffSet
+ * * @param {This is value added when reaching the six hundred width.} NineteenHundredOffset
+ * * @param {This is value added when reaching the six hundred width.} TwentyFiveHundredOffset
+ * * @param {This is value added when reaching the six hundred width.} TwentyEightHundredOffset
  * @returns {Returns a number that is adding to the top css value of a transform}
  */
 export function useScrollValue(
     ScrollPercent,
     ScrollSpeed,
     InitialOffset,
+    TwentyEightHundredOffset = 0,
+    TwentyFiveHundredOffset = 0,
+    NineteenHundredOffset = 0,
     SixteenHundredOffset = 0,
     TwelveHundredOffSet = 0,
     OneThousandOffSet = 0,
@@ -58,6 +64,27 @@ export function useScrollValue(
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + SixteenHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
+        );
+        return calculatedOffsetY;
+    }
+    else if (window.innerWidth <= 1980) {
+        scrollMultiplier = 5;
+        calculatedOffsetY = Math.floor(
+            InitialOffset + NineteenHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
+        );
+        return calculatedOffsetY;
+    }
+    else if (window.innerWidth <= 2560) {
+        scrollMultiplier = 5;
+        calculatedOffsetY = Math.floor(
+            InitialOffset + TwentyFiveHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
+        );
+        return calculatedOffsetY;
+    }
+    else if (window.innerWidth <= 2880) {
+        scrollMultiplier = 5;
+        calculatedOffsetY = Math.floor(
+            InitialOffset + TwentyEightHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
     }

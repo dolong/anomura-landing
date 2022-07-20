@@ -135,7 +135,7 @@
   width: 31%;
   height: auto;
   z-index: -1;
-  margin-top: 23%;
+  margin-top: 18%;
   margin-left: 35%;
 }
 .component_card_hexagon_claws {
@@ -159,8 +159,16 @@
   width: 38%;
   height: auto;
   z-index: -1;
-  margin-top: 23%;
+  margin-top: 24%;
   margin-left: 33%;
+}
+.component_card_hexagon_background {
+  position: absolute;
+  width: 67%;
+  height: auto;
+  z-index: -1;
+  margin-top: 2%;
+  margin-left: 13%;
 }
 .component_card_name {
   width: 70%;

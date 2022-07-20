@@ -237,6 +237,15 @@ exports.LEGS = LEGS;
 exports.HEADPIECES = HEADPIECES;
 exports.BACKGROUND = BACKGROUND;
 
+exports.getBackgroundRarity = (name) => {
+
+    if (name.trim() == "" || name === undefined) return Nothing;
+    let containLegendAttr = bgPrefixAttrs.some((el) => name.includes(el));
+    if (containLegendAttr) {
+        return Rare;
+    }
+    return Normal;
+};
 exports.getRarity = (name) => {
 
     if (name.trim() == "" || name === undefined) return Nothing;

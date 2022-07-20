@@ -3,13 +3,16 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
-const InitialOffset = 8150,
-    SixteenHundredOffset = -1550,
-    TwelveHundredOffSet = -1350,
-    OneThousandOffSet = -1700,
-    EightHundredOffSet = 1050,
-    SixHundredOffSet = 250, // 700
-    FourHundredOffSet = -100;
+const InitialOffset = 8650,
+    TwentyEightHundredOffset = -850,
+    TwentyFiveHundredOffset = -850,
+    NineteenHundredOffset = -1550,
+    SixteenHundredOffset = -2150,
+    TwelveHundredOffSet = -1800,
+    OneThousandOffSet = -2200,
+    EightHundredOffSet = 750,
+    SixHundredOffSet = -400, // 700
+    FourHundredOffSet = -650;
 
 export default function Footer({ ScrollPercent, audioControl }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-45);
@@ -21,6 +24,9 @@ export default function Footer({ ScrollPercent, audioControl }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        TwentyEightHundredOffset,
+        TwentyFiveHundredOffset,
+        NineteenHundredOffset,
         SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,
@@ -31,7 +37,7 @@ export default function Footer({ ScrollPercent, audioControl }) {
 
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1750 && window.innerWidth >= 1600) setScrollSpeed(-55);
-        if (window.innerWidth <= 1200) setScrollSpeed(-25);
+        if (window.innerWidth <= 1200) setScrollSpeed(-27);
         if (window.innerWidth <= 600) setScrollSpeed(-20);
 
         return () => {

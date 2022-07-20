@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 
-const InitialOffset = 4300,
+const InitialOffset = 4200,
+    TwentyEightHundredOffset = -500,
+    TwentyFiveHundredOffset = -500,
+    NineteenHundredOffset = -500,
     SixteenHundredOffset = -500,
     TwelveHundredOffSet = -800,
     OneThousandOffSet = -1100,
@@ -16,6 +19,9 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        TwentyEightHundredOffset,
+        TwentyFiveHundredOffset,
+        NineteenHundredOffset,
         SixteenHundredOffset,
         TwelveHundredOffSet,
         OneThousandOffSet,
@@ -61,7 +67,6 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
         };
     }, [sustainRef]);
 
-    // console.log(isInView.build);
     const checkScroll = () => {
         if (sustainRef.current && buildRef.current) {
             let buildRect = buildRef.current.getBoundingClientRect().top;

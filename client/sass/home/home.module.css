@@ -1859,6 +1859,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 7%;
 }
 .footer_container {
   margin-top: 38.5%;
@@ -2571,7 +2572,7 @@
   }
 
   .footer_zone {
-    padding-bottom: 15%;
+    padding-bottom: 25%;
   }
   .footer_container {
     margin-top: 100%;
