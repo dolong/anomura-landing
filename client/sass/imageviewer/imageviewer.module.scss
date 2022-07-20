@@ -130,7 +130,7 @@
             position: relative;
             // @include m.flex-master(row, center, center);
             // z-index: 1;
-            &_background {
+            &_greyLayer {
                 position: absolute;
                 top:5%;
                 left:5%;
@@ -179,11 +179,11 @@
             }
             &_background {
                 position: absolute;
-                width: 67%;
+                width: 70%;
                 height: auto;
                 z-index: -1;
-                margin-top: 2%; // -14
-                margin-left: 13%; // 20
+                margin-top: 7%; // -14
+                margin-left: 12%; // 20
             }
         }
 

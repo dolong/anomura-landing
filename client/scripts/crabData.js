@@ -187,7 +187,7 @@ exports.getHeadPieces = (src) => {
             return this.headpieces[i];
         }
     }
-    console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
+    //console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
 };
 
 

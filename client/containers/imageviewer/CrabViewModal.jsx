@@ -34,8 +34,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         headpiecesR: null,
         backgroundR: null,
     });
-    console.log(headpieces);
-    // console.log(shell);
+
     React.useLayoutEffect(() => {
         let bodyR = getRarity(body);
         let shellR = getRarity(shell);
@@ -56,7 +55,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
     }, []);
 
     const ShowCard = (e) => {
-        console.log(e.target.id);
         let cardRarity = null,
             cardImg = null,
             cardName = "",
@@ -86,10 +84,10 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 break;
             case "headpieces":
                 cardRarity = getRarity(headpieces);
-                if (headpieces != " ") {
-                    cardName = headpieces;
-                } else {
+                if (headpieces === " " || headpieces === null || headpieces === undefined) {
                     cardName = "YOU HAVE NO HEADPIECE";
+                } else {
+                    cardName = headpieces;
                 }
                 cardType = HEADPIECES;
                 break;
@@ -99,12 +97,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 cardType = BACKGROUND;
                 break;
             default:
-                console.log("not a valid part");
-                break;
+                throw new Error("not a valid part");
         }
-
-        console.log(cardName);
-
         cardImg = getCardImage(cardRarity);
         cardLabel = getCardLabel(cardRarity);
         let labelColor = getRarityLabelColor(cardRarity);
@@ -118,7 +112,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
             type: cardType,
         });
     };
-    console.log(hoverInfo);
+
     const hideCard = () => {
         setHoverInfo({
             name: "",
@@ -327,10 +321,10 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 imageStyle = s.component_card_hexagon_legs;
                 break;
             case HEADPIECES:
-                let headPiecesName = getHeadPieces(hoverInfo.name);
-                if (headPiecesName == undefined) {
+                if (hoverInfo.name === "YOU HAVE NO HEADPIECE") {
                     imageSource = "";
                 } else {
+                    let headPiecesName = getHeadPieces(hoverInfo.name);
                     imageSource = `/img/imageviewer/HeadPieces/${headPiecesName}_hex.png`;
                 }
                 imageStyle = s.component_card_hexagon_headpieces;
@@ -353,7 +347,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                         <div className={s.component_card_hexagon}>
                             {hoverInfo.name !== "YOU HAVE NO HEADPIECE" && (
                                 <img
-                                    className={s.component_card_hexagon_background}
+                                    className={s.component_card_hexagon_greyLayer}
                                     src="/img/imageviewer/Others/Grey background.png"
                                 />
                             )}
@@ -507,7 +501,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getBackgroundIcon(rarity?.backgroundR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div

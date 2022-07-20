@@ -139,7 +139,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
         }
         for (var src in sources) {
             if (src == "headpieces" && isDrawHeadpieces === false) {
-                console.log("no headpiece to draw");
+
                 continue;
             }
             for (let index = 0; index <= 23; index++) {
