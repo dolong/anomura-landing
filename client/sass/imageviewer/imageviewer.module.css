@@ -122,13 +122,13 @@
   width: 80%;
   z-index: -2;
 }
-.component_card_hexagon_headpiece {
+.component_card_hexagon_headpieces {
   position: absolute;
-  width: 100%;
+  width: 18%;
   height: auto;
   z-index: -1;
-  margin-top: 14%;
-  margin-left: 12%;
+  margin-top: 15%;
+  margin-left: 40%;
 }
 .component_card_hexagon_body {
   position: absolute;
@@ -143,8 +143,24 @@
   width: 77%;
   height: auto;
   z-index: -1;
-  margin-top: 14%;
+  margin-top: 16%;
   margin-left: 32%;
+}
+.component_card_hexagon_legs {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  z-index: -1;
+  margin-top: 16%;
+  margin-left: 38%;
+}
+.component_card_hexagon_shell {
+  position: absolute;
+  width: 38%;
+  height: auto;
+  z-index: -1;
+  margin-top: 23%;
+  margin-left: 33%;
 }
 .component_card_name {
   width: 70%;

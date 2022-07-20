@@ -1,12 +1,10 @@
 import {
-    getShell,
-    getHeadPieces,
-    getRarity,
     Legend,
     Rare,
     Magic,
     Normal,
     Nothing,
+    BACKGROUND,
     CLAWS,
     BODY,
     HEADPIECES,
@@ -14,6 +12,10 @@ import {
     LEGS,
     getBody,
     getClaws,
+    getShell,
+    getLegs,
+    getHeadPieces,
+    getRarity,
 } from "@scripts/crabData";
 
 import React, { useEffect } from "react";
@@ -296,8 +298,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
             case SHELL:
                 let shellName = getShell(hoverInfo.name);
                 // console.log(shellName);
-                imageSource = "/img/imageviewer/hex/starship_circle.jpg";
-                // imageStyle =
+                imageSource = "/img/imageviewer/Shell/architect_hex.png";
+                imageStyle = s.component_card_hexagon_shell;
                 break;
             case BODY:
                 let bodyName = getBody(hoverInfo.name);
@@ -310,14 +312,18 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 imageStyle = s.component_card_hexagon_claws;
                 break;
             case LEGS:
-                imageSource = "/img/imageviewer/hex/metalleg_2_circle.jpg";
+                let legsName = getLegs(hoverInfo.name);
+                imageSource = `/img/imageviewer/Legs/${legsName}_hex.png`;
+                imageStyle = s.component_card_hexagon_legs;
                 break;
             case HEADPIECES:
                 let headPiecesName = getHeadPieces(hoverInfo.name);
-                console.log(headPiecesName);
                 if (headPiecesName == undefined) {
                     imageSource = "";
-                } else imageSource = `/img/imageviewer/hex/crystal3_circle.jpg`;
+                } else {
+                    imageSource = `/img/imageviewer/HeadPieces/${headPiecesName}_hex.png`;
+                }
+                imageStyle = s.component_card_hexagon_headpieces;
                 break;
             default:
                 imageSource = "/img/imageviewer/Others/Land_normal.png";
@@ -371,7 +377,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getHeadPiecesIcon(rarity?.headpiecesR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div
@@ -441,7 +447,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getShellIcon(rarity?.shellR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div

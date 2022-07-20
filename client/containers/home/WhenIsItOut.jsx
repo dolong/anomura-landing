@@ -272,7 +272,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
         <div className={s.when_zone} style={{ top: `calc(${calculatedOffsetY}px)` }}>
             <div className={s.when_container}>
                 <div className={s.when_text}>
-                    <div className={s.when_heading}>LAUNCH ROADMAP</div>
+                    <div className={s.when_heading}>ROADMAP</div>
                 </div>
                 <div className={s.when_roadmap}>
                     <div className={s.when_roadmap_wrapper}>

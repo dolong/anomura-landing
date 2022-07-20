@@ -938,15 +938,22 @@ $header-space-bottom: 60px;
 	}
 	&_container {
 		width: $mobile-text-section;
-		margin-top: 95%;
+		margin-top: 65%;
 
-		@media (min-width: $bp-small-3) {  
-			margin-top: 75%;
-		}
-		@media (min-width: $bp-med-2) {  
+		@media (min-width: $bp-small) {  
 			margin-top: 55%;
 		}
-		@media (min-width: $bp-large) {  
+		@media (min-width: $bp-small-2) {  
+			margin-top: 55%;
+		}
+		@media (min-width: $bp-small-3) {  
+			margin-top: 50%;
+		}
+		@media (min-width: $bp-med-2) {  
+			margin-top: 45%;
+		}
+		@media (min-width: $bp-large) { 
+			margin-top: 50%; 
 			width:$desktop-text-section;
 		}
 		@media (min-width: $bp-large-2) {  

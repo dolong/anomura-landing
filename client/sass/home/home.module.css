@@ -1240,20 +1240,31 @@
 }
 .when_container {
   width: 57%;
-  margin-top: 95%;
+  margin-top: 65%;
 }
-@media (min-width: 39.8em) {
-  .when_container {
-    margin-top: 75%;
-  }
-}
-@media (min-width: 50em) {
+@media (min-width: 24em) {
   .when_container {
     margin-top: 55%;
   }
 }
+@media (min-width: 31.25em) {
+  .when_container {
+    margin-top: 55%;
+  }
+}
+@media (min-width: 39.8em) {
+  .when_container {
+    margin-top: 50%;
+  }
+}
+@media (min-width: 50em) {
+  .when_container {
+    margin-top: 45%;
+  }
+}
 @media (min-width: 54.5em) {
   .when_container {
+    margin-top: 50%;
     width: 50%;
   }
 }

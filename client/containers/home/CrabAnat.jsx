@@ -231,9 +231,9 @@ export default function CrabAnat({ ScrollPercent }) {
                                 </div>
                             </div>
                         )}
-                        rare
-                    </div>
-                    , or{" "}
+                        rare,
+                    </div>{" "}
+                    or{" "}
                     <div
                         className={s.crab_legendary}
                         onMouseEnter={() =>

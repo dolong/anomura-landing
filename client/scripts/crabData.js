@@ -228,11 +228,14 @@ const BODY = Symbol("BODY");
 const SHELL = Symbol("SHELL");
 const LEGS = Symbol("LEGS");
 const HEADPIECES = Symbol("HEADPIECES");
+const BACKGROUND = Symbol("BACKGROUND");
+
 exports.CLAWS = CLAWS;
 exports.BODY = BODY;
 exports.SHELL = SHELL;
 exports.LEGS = LEGS;
 exports.HEADPIECES = HEADPIECES;
+exports.BACKGROUND = BACKGROUND;
 
 exports.getRarity = (name) => {
 
