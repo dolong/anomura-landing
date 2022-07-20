@@ -80,7 +80,7 @@ export default function AnimateViewerDetails({ data }) {
             // check if we should render the body equipped instead of of anomura original body
             let bodyEquipmentIndex = anomuraEquipments.findIndex(eq => eq.type === Enums.BODY)
             if (bodyEquipmentIndex != -1) {
-                sources.body = sources.body + getClaws(anomuraEquipments[bodyEquipmentIndex].name);
+                sources.body = sources.body + getBody(anomuraEquipments[bodyEquipmentIndex].name);
             }
             else {
                 sources.body = sources.body + getBody(body);

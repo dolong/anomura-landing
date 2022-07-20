@@ -1,35 +1,13 @@
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
-import { getAllCrabs, getAnomuraById } from "repositories/crabs";
+import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "scripts/crabData";
+import useSWR from "swr";
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 
-/** static props and paths should not call to api link since it is not available on build time */
-export const getStaticPaths = async () => {
-    let allCrabs = await getAllCrabs();
-    const paths = allCrabs.map((p) => {
-        return {
-            params: { id: p.crabId.toString() },
-        };
-    });
-
-    return {
-        paths,
-        fallback: true,
-    };
-};
-
-export const getStaticProps = async (context) => {
-    const id = parseInt(context.params.id);
-    const data = await getAnomuraById(id);
-    return {
-        props: { data: JSON.parse(JSON.stringify(data)), key: id },
-        revalidate: 60,
-    };
-};
-
+const fetcher = (url) => fetch(url).then((r) => r.json());
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
-export default function AnimateViewerDetails({ data }) {
+export default function AnimateViewerDetails() {
     const router = useRouter();
     let sources = {
         background: "/./img/imageviewer/Background/",
@@ -40,6 +18,17 @@ export default function AnimateViewerDetails({ data }) {
         headpieces: "/./img/imageviewer/HeadPieces/",
         shadow: "/./img/imageviewer/Services/shadow",
     };
+    const { id } = router.query;
+    const { data, mutate, isValidating, error } = useSWR(
+        id
+            ? `/api/crabs/getAnomuraById?id=${id}`
+            : null,
+        fetcher
+    );
+
+    useEffect(() => {
+
+    }, [])
 
     if (router.isFallback) {
         return <div>Loading...</div>;
@@ -47,14 +36,15 @@ export default function AnimateViewerDetails({ data }) {
         if (!data) {
             return <div>Failed to load this anomuras</div>;
         }
+        console.log(data)
         const { background, body, claws, legs, shell, headpieces } = data;
 
-        sources.background = sources.background + background;
-        sources.shell = sources.shell + shell;
-        sources.legs = sources.legs + legs;
-        sources.body = sources.body + body;
-        sources.claws = sources.claws + claws;
-        sources.headpieces = sources.headpieces + headpieces;
+        sources.background = sources.background + getBackground(background);
+        sources.shell = sources.shell + getShell(shell);
+        sources.legs = sources.legs + getLegs(legs);
+        sources.body = sources.body + getBody(body);
+        sources.claws = sources.claws + getClaws(claws);
+        sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
 
         let isDrawHeadpieces = headpieces.toString().trim() !== "";
         return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
@@ -163,12 +153,12 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
 
     const goNext = () => {
         let newId = parseInt(id) + 1;
-        router.push(`/imageviewer/${newId}`);
+        router.push(`/imageviewer/test/${newId}`);
     };
 
     const goBack = () => {
         let newId = parseInt(id) - 1;
-        router.push(`/imageviewer/${newId}`);
+        router.push(`/imageviewer/test/${newId}`);
     };
     return (
         <div className={s.container}>
