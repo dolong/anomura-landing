@@ -302,7 +302,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         switch (hoverInfo.type) {
             case SHELL:
                 let shellName = getShell(hoverInfo.name);
-                imageSource = `/img/imageviewer/Shell/${shellName}_hex.png`;
+                imageSource = `/img/imageviewer/Shell/woodshell_1_hex.png`;
                 imageStyle = s.component_card_hexagon_shell;
                 break;
             case BODY:
@@ -456,7 +456,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         className={s.component_list_item_icon_img}
                                         src={getShellIcon(rarity?.shellR)}
                                         onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
+                                        // onMouseLeave={hideCard}
                                     />
                                 </div>
                                 <div

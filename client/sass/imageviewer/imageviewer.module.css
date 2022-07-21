@@ -171,11 +171,11 @@
 }
 .component_card_hexagon_shell {
   position: absolute;
-  width: 38%;
+  width: 61%;
   height: auto;
   z-index: -1;
-  margin-top: 24%;
-  margin-left: 33%;
+  margin-top: 11%;
+  margin-left: 21%;
 }
 .component_card_hexagon_background {
   position: absolute;
