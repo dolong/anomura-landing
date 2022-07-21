@@ -12,7 +12,7 @@
 @font-face {
 	src: url("/fonts/ronda_revised.ttf") format("TrueType");
 	font-family: "PFRondaSeven";
-	font-display: swap;
+	/* font-display: swap; */
 }
 
 @font-face {

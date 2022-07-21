@@ -60,8 +60,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
             cardName = "",
             cardType,
             cardLabel;
-
-        switch (e.target.id) {
+        // console.log(e.target.id);
+        switch (e) {
             case "shell":
                 cardRarity = getRarity(shell);
                 cardName = shell;
@@ -97,7 +97,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 cardType = BACKGROUND;
                 break;
             default:
-                throw new Error("not a valid part");
+                // throw new Error("not a valid part");
+                break;
         }
         cardImg = getCardImage(cardRarity);
         cardLabel = getCardLabel(cardRarity);
@@ -383,11 +384,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="headpieces"
-                                        className={s.component_list_item_icon_img}
                                         src={getHeadPiecesIcon(rarity?.headpiecesR)}
                                         onMouseEnter={ShowCard}
                                         onMouseLeave={hideCard}
                                     />
+                                    <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
                                     className={`${
@@ -409,11 +410,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="body"
-                                        className={s.component_list_item_icon_img}
                                         src={getBodyIcon(rarity?.bodyR)}
                                         onMouseEnter={ShowCard}
                                         onMouseLeave={hideCard}
                                     />
+                                    <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
                                     className={`${
@@ -431,11 +432,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="claws"
-                                        className={s.component_list_item_icon_img}
                                         src={getClawsIcon(rarity?.clawsR)}
                                         onMouseEnter={ShowCard}
                                         onMouseLeave={hideCard}
                                     />
+                                    <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
                                     className={`${
@@ -450,14 +451,18 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             </div>
                             {/* Shells Icon */}
                             <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
+                                <div
+                                    className={s.component_list_item_icon}
+                                    id="shell"
+                                    onMouseEnter={() => ShowCard("shell")}
+                                    onMouseLeave={hideCard}
+                                >
                                     <img
-                                        id="shell"
-                                        className={s.component_list_item_icon_img}
                                         src={getShellIcon(rarity?.shellR)}
-                                        onMouseEnter={ShowCard}
+                                        // onMouseEnter={ShowCard}
                                         // onMouseLeave={hideCard}
                                     />
+                                    <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
                                     className={`${
@@ -476,11 +481,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="legs"
-                                        className={s.component_list_item_icon_img}
                                         src={getLegsIcon(rarity?.legsR)}
                                         onMouseEnter={ShowCard}
                                         onMouseLeave={hideCard}
                                     />
+                                    <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
                                     className={`${
@@ -498,11 +503,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div className={s.component_list_item_icon}>
                                     <img
                                         id="background"
-                                        className={s.component_list_item_icon_img}
                                         src={getBackgroundIcon(rarity?.backgroundR)}
                                         onMouseEnter={ShowCard}
                                         onMouseLeave={hideCard}
                                     />
+                                    <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
                                     className={`${s.component_list_item_description}  

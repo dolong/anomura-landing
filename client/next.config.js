@@ -41,10 +41,10 @@ module.exports = {
                 source: "/public/TERMSANDCONDITIONS.html",
                 destination: "/pages/api/static/home/termsAndConditions.js",
             },
-            {
-                source: "/public/mediakit.html",
-                destination: "/pages/api/static/home/mediakit.js",
-            },
+            // {
+            //     source: "/public/mediakit.html",
+            //     destination: "/pages/api/static/home/mediakit.js",
+            // },
             // rewrite to Deep Sea Challenger
             {
                 source: "/:path*",
@@ -61,6 +61,15 @@ module.exports = {
             {
                 source: "/challenger(.*)",
                 destination: `${DEEPSEACHALLENGER_HOST}/challenger$1`,
+            },
+        ];
+    }, async redirects() {
+        return [
+            {
+                // do not include basePath in redirect here
+                source: "/mediakit",
+                destination: "https://ordinary-marimba-a0f.notion.site/Anomura-Media-Kit-8b28620e0c90401f97035a5cca07b7ed",
+                permanent: false,
             },
         ];
     },

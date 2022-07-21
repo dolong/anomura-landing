@@ -89,25 +89,36 @@ $bp-xl-3: 160em;            // 2560
             &_icon {
                 width: min(10vw, 50px);
                 @include m.flex-master(row, null, center);
+                position: relative;
 
+                > img:nth-child(2) {
+                    position: absolute;
+                    top:0;
+                    display:none;
+                    z-index: 1;
+                }
                 // &_img{
                 //     width: min(10vw, 45px);
                 //     height: auto;
                 // }
                 &:hover {
-                    border: white 1px solid;
-                    border-radius: 10px;
+                    > img:nth-child(2) {
+                        display: block;
+                        // background-image: url("/img/imageviewer/Others/Icon Outline.png");
+                    }
+                    
                 }
             }
 
             &_description {
                 @include m.flex-master(row, null, center);
-                flex: 1;
+                flex: 0.75rem;
                 margin-left: 2%;
-                font-size: 1.5rem;
+                font-size: 1rem;
+                font-family: PFRondaSeven;
 
                 @media (min-width: $bp-small-2) {  
-                    font-size: 2.25rem;
+                    font-size: 1.15rem;
                 }
 
                 > span {
