@@ -75,7 +75,12 @@
   align-items: center;
   flex: 1;
   margin-left: 2%;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 31.25em) {
+  .component_list_item_description {
+    font-size: 2.25rem;
+  }
 }
 .component_list_item_description > span {
   line-height: 1.7rem;

@@ -1,5 +1,16 @@
 @use "../mixins" as m;
 
+$bp-small: 24em;            // 384
+$bp-small-2: 31.25em;       // 500
+$bp-small-3: 39.8em;        // 636
+$bp-med: 46.8em;            // 748
+$bp-med-2: 50em;            // 800
+$bp-large: 54.5em;          // 872
+$bp-large-2: 75em;          // 1200
+$bp-xl: 90em;               // 1440
+$bp-xl-2: 123.75em;         // 1980
+$bp-xl-3: 160em;            // 2560
+
 // .container{
 //     width:508px;
 //     height: 500px;
@@ -89,7 +100,11 @@
                 @include m.flex-master(row, null, center);
                 flex: 1;
                 margin-left: 2%;
-                font-size: 2.5rem;
+                font-size: 1.5rem;
+
+                @media (min-width: $bp-small-2) {  
+                    font-size: 2.25rem;
+                }
 
                 > span {
                     line-height: 1.7rem;
