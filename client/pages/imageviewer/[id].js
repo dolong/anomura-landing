@@ -249,7 +249,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
 
     return (
         <div className={s.container}>
-            <canvas ref={canvasRef} width="508" height="500" />
+            <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
             <img
                 onClick={() => setModalOpen(!modalOpen)}
                 className={s.toggleModal}
