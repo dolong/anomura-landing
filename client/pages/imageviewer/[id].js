@@ -158,7 +158,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             console.log(error);
         }
     }, []);
-
+    console.log(canvasSize.width)
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
