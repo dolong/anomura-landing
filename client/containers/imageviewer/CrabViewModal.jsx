@@ -302,7 +302,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         switch (hoverInfo.type) {
             case SHELL:
                 let shellName = getShell(hoverInfo.name);
-                imageSource = `/img/imageviewer/Shell/woodshell_1_hex.png`;
+                imageSource = `/img/imageviewer/Shell/${shellName}_hex.png`;
                 imageStyle = s.component_card_hexagon_shell;
                 break;
             case BODY:
