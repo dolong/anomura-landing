@@ -130,7 +130,7 @@
   position: absolute;
   top: 5%;
   left: 5%;
-  width: 80%;
+  width: 85%;
   z-index: -2;
 }
 .component_card_hexagon_headpieces {
@@ -154,7 +154,7 @@
   width: 77%;
   height: auto;
   z-index: -1;
-  margin-top: 16%;
+  margin-top: 21%;
   margin-left: 32%;
 }
 .component_card_hexagon_legs {
@@ -184,9 +184,14 @@
 .component_card_name {
   width: 70%;
   line-height: 1.75rem;
-  font-size: 0.8em;
+  font-size: 0.65em;
   text-align: center;
   overflow-wrap: break-word !important;
+}
+@media (min-width: 31.25em) {
+  .component_card_name {
+    font-size: 0.8em;
+  }
 }
 .component_card_label {
   width: 75%;
@@ -201,6 +206,12 @@
   top: 0;
   height: 100%;
   width: 100%;
+  font-size: 1.75rem;
+}
+@media (min-width: 31.25em) {
+  .component_card_label_text {
+    font-size: 2rem;
+  }
 }
 .component_card_label_legend {
   color: #D1873A;
