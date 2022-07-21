@@ -248,7 +248,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     };
 
     return (
-        <div className={s.container}>
+        <div className={s.container} style={{ width: canvasSize.width, height: canvasSize.height }}>
             <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
             <img
                 onClick={() => setModalOpen(!modalOpen)}
