@@ -36,7 +36,7 @@ export default function AnimateViewerDetails() {
         if (!data) {
             return <div>Failed to load this anomuras</div>;
         }
-        console.log(data)
+
         const { background, body, claws, legs, shell, headpieces } = data;
 
         sources.background = sources.background + getBackground(background);

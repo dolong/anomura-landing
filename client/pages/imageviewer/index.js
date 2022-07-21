@@ -2,8 +2,6 @@ import useSWR from "swr";
 import React, { useState, useEffect, useLayoutEffect } from "react";
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
-console.log(process.env.NEXT_PUBLIC_WEBSITE_HOST);
-
 export default function ImageViewerIndex() {
     const [pageIndex, setPageIndex] = useState(0);
     const { data, error } = useSWR(`/api/crabs?page=${pageIndex}`, fetcher);

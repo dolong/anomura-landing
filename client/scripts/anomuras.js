@@ -8,8 +8,6 @@ function randomIntFromInterval(min, max) {
 
 async function main() {
 
-    console.log("Seeding Anomuras prisma db");
-
     for (let i = 1; i <= 1000; i++) {
         const background = backgrounds[randomIntFromInterval(0, backgrounds.length - 1)];
         const body = bodies[randomIntFromInterval(0, bodies.length - 1)];

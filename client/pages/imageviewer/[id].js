@@ -42,7 +42,7 @@ export default function AnimateViewerDetails({ data }) {
         headpieces: "/./img/imageviewer/HeadPieces/",
         shadow: "/./img/imageviewer/Services/shadow",
     };
-    // console.log(data)
+
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {
@@ -158,7 +158,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             console.log(error);
         }
     }, []);
-    console.log(canvasSize.width)
+
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {

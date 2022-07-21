@@ -9,9 +9,7 @@ const CrabImageViewerUpdate = async (req, res) => {
             data: { background, body, legs, claws, shell, headpieces },
         } = req.body;
 
-        console.log(
-            `Building an anomura...`
-        );
+        console.log(`Building an anomura...`);
         const crabId = parseInt(req.query.crabId);
         const existingCrab = await getAnomuraById(crabId);
 
@@ -26,9 +24,7 @@ const CrabImageViewerUpdate = async (req, res) => {
         })
 
         if (existingCrab) {
-            console.log(
-                `Found existing crab ${crabId} with id: ${existingCrab.id}, image: ${existingCrab.image} updating...`
-            );
+            console.log(`Found existing crab ${crabId}, image: ${existingCrab.image} `);
             if (existingCrab.image != crabImage) {
                 let crabId = existingCrab.id;
                 const updatedCrab = await updateCrabById({

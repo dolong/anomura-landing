@@ -4,11 +4,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prepare": "npx prisma generate",
     "prisma:generate": "prisma generate",
     "migrate:postgres": "dotenv -e .env.development -- npx prisma migrate dev --name postgres-init"
   },
   "dependencies": {
-    "@qhuynhvhslab/anomura-prisma-package": "^1.0.55",
+    "@prisma/client": "^3.13.0",
     "axios": "^0.26.1",
     "cloudinary": "^1.28.1",
     "ethers": "^5.5.2",

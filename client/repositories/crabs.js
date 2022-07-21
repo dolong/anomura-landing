@@ -24,7 +24,7 @@ export const getAllCrabs = async (crabId) => {
 
 export const updateCrabById = async (crabData) => {
     const { crabId, image, body, legs, claws, shell, headpieces, background } = crabData;
-    console.log("*****prisma update anomura image by id");
+
     return await prisma.anomuras.update({
         where: {
             id: crabId,

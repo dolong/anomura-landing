@@ -85,7 +85,7 @@ export default function Home() {
 		} else {
 			PlayBackgroundMusic();
 		}
-		return () => {};
+		return () => { };
 	}, [audioState]);
 
 	const onFinishedLoadingAudioSource = (bufferList) => {
@@ -232,7 +232,7 @@ export default function Home() {
 		}));
 
 		setAudioState("loaded");
-		console.log("Audio loaded");
+
 	};
 
 	return (

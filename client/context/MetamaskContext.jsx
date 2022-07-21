@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 export const MetamaskContext = React.createContext();
 
 const { ethereum } = window;
 
-
 export default function MetamaskProvider({ children }) {
     const [currentAccount, setCurrentAccount] = useState("");
     const handleChange = (e, name) => {
         setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
-    }
+    };
 
     //#region Arrow Functions for wallet connection and checking.
     const checkIfWalletIsConnected = async () => {
@@ -23,16 +22,12 @@ export default function MetamaskProvider({ children }) {
             const accounts = await ethereum.request({ method: "eth_accounts" });
             if (accounts.length) {
                 setCurrentAccount(accounts[0]);
+            } else {
             }
-            else {
-                console.log("No accounts found");
-            }
-            console.log(accounts);
         } catch (error) {
-            console.log(error);
             throw new error("No ethereum object from Metamask");
         }
-    }
+    };
 
     const connectWallet = async () => {
         try {
@@ -44,10 +39,9 @@ export default function MetamaskProvider({ children }) {
             const accounts = await ethereum.request({ method: "eth_requestAccounts" });
             setCurrentAccount(accounts[0]);
         } catch (error) {
-            console.log(error);
             throw new error("No ethereum object from Metamask");
         }
-    }
+    };
 
     //#endregion
     useEffect(() => {
@@ -59,5 +53,5 @@ export default function MetamaskProvider({ children }) {
         <MetamaskContext.Provider value={{ connectWallet, currentAccount, handleChange }}>
             {children}
         </MetamaskContext.Provider>
-    )
+    );
 }
