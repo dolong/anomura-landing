@@ -150,7 +150,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
                     setCanvasSize((prevState) => ({
                         ...prevState,
                         width: 508,
-                        height: 508,
+                        height: 500,
                     }));
                 }
             }
