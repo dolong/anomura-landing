@@ -33,11 +33,38 @@ $bp-xl-3: 160em;            // 2560
 }
 
 .toggleModal {
-    position: absolute;
-    top: 3%;
-    left: 3%;
-    width: 12%;
-    height: auto;
+   
+
+    &_wrapper {
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        width: 12%;
+        height: auto;
+    }
+    &_container {
+        width: 63px;
+        @include m.flex-master(row, null, center);
+        position: relative;
+
+        > img:nth-child(1){
+            margin-top: 3px;
+            margin-left: 3px;
+            width: 57px;
+        }
+        > img:nth-child(2) {
+            position: absolute;
+            top:0;
+            display:none;
+            z-index: 1;
+            width: 63px;
+        }
+        &:hover {
+            > img:nth-child(2) {
+                display: block;
+            }
+        }
+    }
 }
 
 .modal{
@@ -80,27 +107,33 @@ $bp-xl-3: 160em;            // 2560
 
     &_list {
         height: 100%; 
-        @include m.flex-master(column, space-between, null);
+        @include m.flex-master(column, space-evenly, null);
 
         &_item {
             // min-height:60px;
             @include m.flex-master(row, null, null);
  
             &_icon {
-                width: min(10vw, 50px);
+                // width: min(10vw, 50px);
+                width: 54px;
                 @include m.flex-master(row, null, center);
                 position: relative;
 
+                > img:nth-child(1){
+                    // width: 93%;
+                    // height: 91%;
+                    margin-top: 3px;
+                    margin-left: 3px;
+                    width: 48px;
+                 }
                 > img:nth-child(2) {
                     position: absolute;
                     top:0;
                     display:none;
                     z-index: 1;
+                    width: 54px;
                 }
-                // &_img{
-                //     width: min(10vw, 45px);
-                //     height: auto;
-                // }
+                
                 &:hover {
                     > img:nth-child(2) {
                         display: block;
@@ -148,7 +181,8 @@ $bp-xl-3: 160em;            // 2560
         top:0;
         left:20%;
         position: absolute;
-
+        z-index: 2; // to have this layer cover the card text behind
+        
         &_wrapper {
             width: 100%;
             position: relative;
@@ -163,8 +197,9 @@ $bp-xl-3: 160em;            // 2560
         }
 
         &_hexagon {
-            width: 40%;
-            max-width: 40%;
+            margin-top:9%;
+            width: 46%; // 40
+            max-width: 46%;
             height: 33%;
             position: relative;
            
@@ -177,27 +212,27 @@ $bp-xl-3: 160em;            // 2560
             }
             &_headpieces {
                 position: absolute;
-                width: 18%;
+                width: 48%;
                 height: auto;
                 z-index: -1;
-                margin-top: 15%;
-                margin-left:40%;
+                margin-top: 10%;
+                margin-left: 25%;
             }
             &_body {
                 position: absolute;
-                width: 31%;
+                width: 79%;
                 height: auto;
                 z-index: -1;
-                margin-top: 18%; 
-                margin-left: 35%;
+                margin-top: 1%; 
+                margin-left: 10%;
             }
             &_claws {
                 position: absolute;
                 width: 77%;
                 height: auto;
                 z-index: -1;
-                margin-top: 21%; // -14
-                margin-left: 32%; // 20
+                margin-top: -1%; // -14
+                margin-left: 29%; // 20
             }
             &_legs {
                 position: absolute;
@@ -209,19 +244,19 @@ $bp-xl-3: 160em;            // 2560
             }
             &_shell {
                 position: absolute;
-                width: 61%;
+                width: 100%; //61
                 height: auto;
                 z-index: -1;
-                margin-top: 11%; // 24
-                margin-left: 21%; // 33
+                margin-top: -7%; // 24 -23
+               // margin-left: 21%; // 33
             }
             &_background {
                 position: absolute;
-                width: 70%;
+                width: 62%;
                 height: auto;
                 z-index: -1;
-                margin-top: 7%; // -14
-                margin-left: 12%; // 20
+                margin-top: 8%; // -14
+                margin-left: 17%; // 20
             }
         }
 
@@ -231,6 +266,11 @@ $bp-xl-3: 160em;            // 2560
             font-size: 0.65em;
             text-align: center;
             overflow-wrap: break-word!important;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             @media (min-width: $bp-small-2) {  
                 font-size: 0.8em;
             }
@@ -243,6 +283,7 @@ $bp-xl-3: 160em;            // 2560
         &_label {
             width: 75%;
             position: relative;
+            margin-top: auto;
             
             &_text {
                 @include m.flex-master(row, center, center);

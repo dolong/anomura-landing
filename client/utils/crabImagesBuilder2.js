@@ -3,8 +3,9 @@ const path = require("path");
 const tools = require("simple-svg-tools");
 const sharp = require("sharp");
 let FormData = require("form-data");
-
 let cloudinary = require("cloudinary").v2;
+
+const { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } = require("../scripts/crabData")
 
 cloudinary.config({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUDNAME,
@@ -20,13 +21,19 @@ exports.CrabImagesBuilder = async (crab) => {
     const dirRelativeToPublicFolder = "img/imageviewer";
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
 
-    let backgroundName = background;
-    let shellName = shell;
-    let legsName = legs;
-    let bodyName = body;
-    let clawsName = claws;
+    let backgroundName = getBackground(background);
+    let shellName = getShell(shell);
+    let legsName = getLegs(legs);
+    let bodyName = getBody(body);
+    let clawsName = getClaws(claws);
     let headpiecesName = " ";
-    if (headpieces !== " ") headpiecesName = headpieces;
+    if (headpieces !== " ") headpiecesName = getHeadPieces(headpieces);
+
+    console.log(backgroundName)
+    console.log(shellName)
+    console.log(legsName)
+    console.log(bodyName)
+    console.log(clawsName)
 
     let backgroundLayer = await loadImage(
         path.resolve(`${imageDir}/Background/${backgroundName}_1.svg`)

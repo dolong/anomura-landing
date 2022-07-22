@@ -41,10 +41,6 @@ module.exports = {
                 source: "/public/TERMSANDCONDITIONS.html",
                 destination: "/pages/api/static/home/termsAndConditions.js",
             },
-            // {
-            //     source: "/public/mediakit.html",
-            //     destination: "/pages/api/static/home/mediakit.js",
-            // },
             // rewrite to Deep Sea Challenger
             {
                 source: "/:path*",

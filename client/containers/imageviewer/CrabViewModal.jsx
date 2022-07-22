@@ -377,17 +377,15 @@ export default function CrabViewModal({ data, setModalOpen }) {
             <div className="absolute left-0 top-0 w-full h-full flex justify-center items-center pointer-events-none">
                 <div className={s.modal_container}>
                     <div className={s.component_zone}>
-                        {/* <div className={s.component_left}> */}
                         <div className={s.component_list}>
                             {/* Headpieces icon */}
                             <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="headpieces"
-                                        src={getHeadPiecesIcon(rarity?.headpiecesR)}
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
-                                    />
+                                <div
+                                    className={s.component_list_item_icon}
+                                    onMouseEnter={() => ShowCard("headpieces")}
+                                    onMouseLeave={hideCard}
+                                >
+                                    <img src={getHeadPiecesIcon(rarity?.headpiecesR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
@@ -407,13 +405,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             </div>
                             {/* Body Icon */}
                             <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="body"
-                                        src={getBodyIcon(rarity?.bodyR)}
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
-                                    />
+                                <div
+                                    className={s.component_list_item_icon}
+                                    onMouseEnter={() => ShowCard("body")}
+                                    onMouseLeave={hideCard}
+                                >
+                                    <img src={getBodyIcon(rarity?.bodyR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
@@ -429,13 +426,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             </div>
                             {/* Claws Icon */}
                             <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="claws"
-                                        src={getClawsIcon(rarity?.clawsR)}
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
-                                    />
+                                <div
+                                    className={s.component_list_item_icon}
+                                    onMouseEnter={() => ShowCard("claws")}
+                                    onMouseLeave={hideCard}
+                                >
+                                    <img src={getClawsIcon(rarity?.clawsR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
@@ -453,15 +449,10 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             <div className={s.component_list_item}>
                                 <div
                                     className={s.component_list_item_icon}
-                                    id="shell"
                                     onMouseEnter={() => ShowCard("shell")}
                                     onMouseLeave={hideCard}
                                 >
-                                    <img
-                                        src={getShellIcon(rarity?.shellR)}
-                                        // onMouseEnter={ShowCard}
-                                        // onMouseLeave={hideCard}
-                                    />
+                                    <img src={getShellIcon(rarity?.shellR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
@@ -478,13 +469,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             </div>
                             {/* Legs Icon */}
                             <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="legs"
-                                        src={getLegsIcon(rarity?.legsR)}
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
-                                    />
+                                <div
+                                    className={s.component_list_item_icon}
+                                    onMouseEnter={() => ShowCard("legs")}
+                                    onMouseLeave={hideCard}
+                                >
+                                    <img src={getLegsIcon(rarity?.legsR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div
@@ -500,13 +490,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                             </div>
                             {/* Background Icon*/}
                             <div className={s.component_list_item}>
-                                <div className={s.component_list_item_icon}>
-                                    <img
-                                        id="background"
-                                        src={getBackgroundIcon(rarity?.backgroundR)}
-                                        onMouseEnter={ShowCard}
-                                        onMouseLeave={hideCard}
-                                    />
+                                <div
+                                    className={s.component_list_item_icon}
+                                    onMouseEnter={() => ShowCard("background")}
+                                    onMouseLeave={hideCard}
+                                >
+                                    <img src={getBackgroundIcon(rarity?.backgroundR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
                                 </div>
                                 <div

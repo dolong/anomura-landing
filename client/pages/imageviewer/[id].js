@@ -142,9 +142,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
                         width: window?.innerWidth,
                         height: window?.innerWidth,
                     }));
-                    // let calculateMargin =
-                    //     (window?.innerHeight * (2560 / 1440) - window?.innerWidth) / 2;
-                    // setMobileMargin(calculateMargin);
+
                 } else {
                     // setIsMobile(false);
                     setCanvasSize((prevState) => ({
@@ -250,11 +248,14 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     return (
         <div className={s.container} style={{ width: canvasSize.width, height: canvasSize.height }}>
             <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
-            <img
+            <div
+                className={s.toggleModal_wrapper}
                 onClick={() => setModalOpen(!modalOpen)}
-                className={s.toggleModal}
-                src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png"
-            />
+            >
+                <div className={s.toggleModal_container}>
+                    <img src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png" />
+                    <img src={"/img/imageviewer/Others/Inventory Button Outline.png"} />
+                </div></div>
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>
                 {`

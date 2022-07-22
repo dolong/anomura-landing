@@ -1,9 +1,8 @@
 const { CrabImagesBuilder } = require("../utils/crabImagesBuilder2");
-import { prisma } from "./PrismaContext";
-
+const { PrismaClient, EquipmentType } = require('@prisma/client')
 
 async function main() {
-
+    let prisma = new PrismaClient({})
     let allCrabs = await prisma.anomuras.findMany({
         orderBy: [
             {

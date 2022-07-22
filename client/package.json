@@ -1,5 +1,6 @@
 {
   "private": true,
+ 
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -29,6 +30,7 @@
     "prisma": "^3.9.1",
     "simple-svg-tools": "^1.1.12",
     "swr": "^1.2.1",
-    "tailwindcss": "^3.0.10"
+    "tailwindcss": "^3.0.10",
+    "dotenv-cli": "^4.0.0"
   }
 }
