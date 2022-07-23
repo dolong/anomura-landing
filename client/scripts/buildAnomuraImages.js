@@ -4,6 +4,11 @@ const { PrismaClient, EquipmentType } = require('@prisma/client')
 async function main() {
     let prisma = new PrismaClient({})
     let allCrabs = await prisma.anomuras.findMany({
+        where: {
+            crabId: {
+                lt: 100
+            }
+        },
         orderBy: [
             {
                 crabId: "asc",
