@@ -45,6 +45,7 @@ $bp-xl-3: 160em;            // 2560
         margin-top: 2rem;
         max-width:33%;
         margin-bottom: 2rem;
+        cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
     }
     &_title {
         font-size: 2rem;
@@ -70,6 +71,36 @@ $bp-xl-3: 160em;            // 2560
        
         & > img {
             width: 22%;
+            &:hover {
+                cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+            }
+        }
+
+        &_icon {
+            width: 63px;
+            @include m.flex-master(row, null, center);
+            position: relative;
+
+            > img:nth-child(1){
+                margin-top: 6px;
+                margin-left: 4px;
+                width: 57px;
+             }
+            > img:nth-child(2) {
+                position: absolute;
+                top:0;
+                display:none;
+                z-index: 1;
+                width: 63px;
+            }
+            
+            &:hover {
+                > img:nth-child(2) {
+                    display: block;
+                    // background-image: url("/img/imageviewer/Others/Icon Outline.png");
+                }
+                
+            }
         }
     }
 
@@ -80,6 +111,20 @@ $bp-xl-3: 160em;            // 2560
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
+
+    &_image {
+        border: solid 5px #A5EBE3;
+        border-radius: 10px;
+
+        &_loading {
+            @include m.flex-master(column, center, center);
+            height: auto;
+            > img {
+                // width: 25%;
+            }
+           
+        }
+    }
 }
 
 
@@ -89,7 +134,8 @@ $bp-xl-3: 160em;            // 2560
     &_wrapper {
         width: 33%;
         @include m.flex-master(row, space-between, center);
-        padding-left: 0.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         & > img {
             width: 15%;
         }
