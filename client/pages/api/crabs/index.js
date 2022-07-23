@@ -9,8 +9,8 @@ export default async function crabsQuery(req, res) {
                 const currentPage = req.query.page;
 
                 let allCrabs = await prisma.anomuras.findMany({
-                    skip: currentPage * 100,
-                    take: 100,
+                    skip: currentPage * 9,
+                    take: 9,
                     orderBy: [
                         {
                             crabId: "asc",
