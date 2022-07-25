@@ -178,6 +178,9 @@ $bp-xl-3: 160em;            // 2560
             border: solid 8px #A5EBE3;
             border-radius: 10px;
         }
+        @media (min-width: $bp-xl-3) {  
+           width: 500px
+        }
     }
 }
 
