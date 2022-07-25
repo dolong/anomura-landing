@@ -345,12 +345,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                     <img src={hoverInfo.src} />
                     <div className={s.component_card_description}>
                         <div className={s.component_card_hexagon}>
-                            {hoverInfo.name !== "YOU HAVE NO HEADPIECE" && (
-                                <img
-                                    className={s.component_card_hexagon_greyLayer}
-                                    src="/img/imageviewer/Others/Grey background.png"
-                                />
-                            )}
+                            {/* {hoverInfo.name !== "YOU HAVE NO HEADPIECE" && ( */}
+                            <img
+                                className={s.component_card_hexagon_greyLayer}
+                                src="/img/imageviewer/Others/Grey background.png"
+                            />
+                            {/* )} */}
                             <img
                                 className={imageStyle}
                                 src={imageSource} //
