@@ -84,8 +84,16 @@ export default function GalleryViewerIndex() {
             </div>
             <div className={s.arrows}>
                 <div className={s.arrows_wrapper}>
-                    <img onClick={() => setPageIndex(pageIndex - 1)} src={pageIndex === 0 ? `/img/gallery/Arrow Left_Gray.png` : `/img/gallery/Arrow Left_Blue.png`} />
-                    <img onClick={() => setPageIndex(pageIndex + 1)} src={pageIndex === 10 ? `/img/gallery/Arrow Right_Gray.png` : `/img/gallery/Arrow Right_Blue.png`} />
+                    <img onClick={() => {
+                        if (pageIndex == 0) return;
+                        setPageIndex(pageIndex - 1)
+                    }}
+                        src={pageIndex === 0 ? `/img/gallery/Arrow Left_Gray.png` : `/img/gallery/Arrow Left_Blue.png`} />
+                    <img onClick={() => {
+                        if (pageIndex == 10) return;
+                        setPageIndex(pageIndex + 1)
+                    }}
+                        src={pageIndex === 10 ? `/img/gallery/Arrow Right_Gray.png` : `/img/gallery/Arrow Right_Blue.png`} />
 
                 </div>
             </div>
@@ -93,18 +101,3 @@ export default function GalleryViewerIndex() {
         </div >
     );
 }
-
-
-{/* <div className="text-lg font-bold">Anomura: {anomura.crabId}</div>
-                                <div className="text-lg break-words">
-                                    Background: {anomura.background}
-                                </div>
-                                <div className="text-lg break-words">Body: {anomura.body}</div>
-                                <div className="text-lg break-words">Claws: {anomura.claws}</div>
-                                <div className="text-lg break-words">Legs: {anomura.legs}</div>
-                                <div className="text-lg break-words">Shells: {anomura.shell}</div>
-                                {anomura.headpieces != " " && (
-                                    <div className="text-lg break-words">
-                                        Headpiece: {anomura.headpieces}
-                                    </div>
-                                )} */}

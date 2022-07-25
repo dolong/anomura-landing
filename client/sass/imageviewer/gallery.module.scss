@@ -24,13 +24,13 @@ $bp-xl-3: 160em;            // 2560
     display:flex;
     flex-direction: column;
     position: relative;
-    background: url("/img/gallery/Gallery Background.png") no-repeat;
+    background-image: url("/img/gallery/Gallery Background.png");
 	background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
     background-attachment: fixed;
 
-    @include m.flex-master(null, null, center);
+    @include m.flex-master(null, center, center);
+    height: 100%;
 }
 .wrapper{
     width:50%;
@@ -174,12 +174,13 @@ $bp-xl-3: 160em;            // 2560
     @include m.flex-master(column, center, center);
     width:50%;
     &_wrapper {
-        width: 33%;
         @include m.flex-master(row, space-between, center);
+        width: 100%;
         padding-left: 1rem;
         padding-right: 1rem;
 
-        @media (min-width: $bp-xl) {  
+        @media (min-width: $bp-small-3) {  
+            width: 33%;
             padding-left: 2rem;
             padding-right: 2rem;
         }
