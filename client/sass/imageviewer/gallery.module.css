@@ -107,6 +107,11 @@
     width: 33%;
   }
 }
+@media (min-width: 160em) {
+  .socials_wrapper {
+    width: 27%;
+  }
+}
 .socials_wrapper_icon {
   display: flex;
   flex-direction: row;
@@ -143,11 +148,6 @@
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
-  }
-}
-@media (min-width: 160em) {
-  .grid {
-    width: 37%;
   }
 }
 .grid_image {
@@ -205,4 +205,9 @@
 }
 .arrows_wrapper > img {
   width: 15%;
+}
+@media (min-width: 160em) {
+  .arrows {
+    margin: 4rem 0rem 4rem 0rem;
+  }
 }/*# sourceMappingURL=gallery.module.css.map */

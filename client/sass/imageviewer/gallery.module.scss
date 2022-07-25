@@ -104,6 +104,9 @@ $bp-xl-3: 160em;            // 2560
         @media (min-width: $bp-small-3) {  
             width: 33%;
         }
+        @media (min-width: $bp-xl-3) {  
+            width: 27%;
+        }
         // & > img {
         //     width: 22%;
         //     &:hover {
@@ -154,9 +157,9 @@ $bp-xl-3: 160em;            // 2560
         grid-template-columns: 1fr 1fr 1fr;
         gap: 24px;
     }
-    @media (min-width: $bp-xl-3) {  
-        width: 37%;
-    }
+    // @media (min-width: $bp-xl-3) {  
+    //     width: 37%;
+    // }
 
     &_image {
         border: solid 5px #A5EBE3;
@@ -201,4 +204,7 @@ $bp-xl-3: 160em;            // 2560
         }
     }
     margin: 2rem 0rem 2rem 0rem;
+    @media (min-width: $bp-xl-3) {  
+        margin: 4rem 0rem 4rem 0rem;
+    }
 }
