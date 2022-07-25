@@ -178,6 +178,11 @@
     width: 500px;
   }
 }
+@media (min-width: 240em) {
+  .grid_image {
+    width: 600px;
+  }
+}
 
 .arrows {
   display: flex;

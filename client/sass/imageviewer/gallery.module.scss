@@ -11,6 +11,7 @@ $bp-large-2: 75em;          // 1200
 $bp-xl: 90em;               // 1440
 $bp-xl-2: 123.75em;         // 1980
 $bp-xl-3: 160em;            // 2560
+$bp-xl-4: 240em;            // 3840
 
 // .container{
 //     width:508px;
@@ -180,6 +181,9 @@ $bp-xl-3: 160em;            // 2560
         }
         @media (min-width: $bp-xl-3) {  
            width: 500px
+        }
+        @media (min-width: $bp-xl-4) {  
+            width: 600px
         }
     }
 }

@@ -10,7 +10,7 @@ $bp-large-2: 75em;          // 1200
 $bp-xl: 90em;               // 1440
 $bp-xl-2: 123.75em;         // 1980
 $bp-xl-3: 160em;            // 2560
-
+$bp-xl-4: 230em;            // 3840
 // .container{
 //     width:508px;
 //     height: 500px;
@@ -115,32 +115,41 @@ $bp-xl-3: 160em;            // 2560
  
             &_icon {
                 // width: min(10vw, 50px);
-                width: 54px;
+                width: 39px;
                 @include m.flex-master(row, null, center);
                 position: relative;
 
+                @media (min-width: $bp-small-2) {  
+                    width: 54px;
+                }
+
                 > img:nth-child(1){
-                    // width: 93%;
-                    // height: 91%;
-                    margin-top: 3px;
-                    margin-left: 3px;
-                    width: 48px;
-                 }
+                    margin-top: 2px;
+                    margin-left: 2px;
+                    width: 36px;
+                    @media (min-width: $bp-small-2) {  
+                        margin-top: 3px;
+                        margin-left: 3px;
+                        width: 48px;
+                    }
+                }
                 > img:nth-child(2) {
                     position: absolute;
                     top:0;
                     display:none;
                     z-index: 1;
-                    width: 54px;
+                    width: 39px;
+                    @media (min-width: $bp-small-2) {  
+                        width: 54px;
+                    }
                 }
                 
                 &:hover {
                     > img:nth-child(2) {
                         display: block;
-                        // background-image: url("/img/imageviewer/Others/Icon Outline.png");
-                    }
-                    
+                   }  
                 }
+
             }
 
             &_description {
