@@ -154,6 +154,13 @@
   align-items: center;
   height: auto;
 }
+@media (min-width: 39.8em) {
+  .grid_image {
+    border: solid 8px #A5EBE3;
+    border-radius: 10px;
+  }
+}
+
 .arrows {
   display: flex;
   flex-direction: column;

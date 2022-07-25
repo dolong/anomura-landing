@@ -161,10 +161,11 @@ $bp-xl-3: 160em;            // 2560
         &_loading {
             @include m.flex-master(column, center, center);
             height: auto;
-            > img {
-                // width: 25%;
-            }
-           
+        }
+
+        @media (min-width: $bp-small-3) {  
+            border: solid 8px #A5EBE3;
+            border-radius: 10px;
         }
     }
 }
