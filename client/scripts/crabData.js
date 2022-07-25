@@ -92,6 +92,7 @@ exports.legs = [
     "woodleg_3",
 ];
 exports.shells = [
+    "starship",
     "Holy Temple",
     //done
     "baseshell_1",
