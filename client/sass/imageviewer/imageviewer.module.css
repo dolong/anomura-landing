@@ -84,6 +84,7 @@
 .component_list_item {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .component_list_item_icon {
   width: 39px;
@@ -129,18 +130,18 @@
   flex-direction: row;
   align-items: center;
   flex: 0.75rem;
-  margin-left: 2%;
+  margin-left: 4%;
   font-size: 1rem;
   font-family: PFRondaSeven;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden !important;
 }
 @media (min-width: 31.25em) {
   .component_list_item_description {
     font-size: 1.15rem;
   }
-}
-.component_list_item_description > span {
-  line-height: 1.7rem;
-  margin-left: 5%;
 }
 .component_list_item_description_normal {
   color: #A5EBE3;

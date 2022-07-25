@@ -86,10 +86,10 @@ export default function GalleryViewerIndex() {
                     }}
                         src={pageIndex === 0 ? `/img/gallery/Arrow Left_Gray.png` : `/img/gallery/Arrow Left_Blue.png`} />
                     <img onClick={() => {
-                        if (pageIndex == 10) return;
+                        if (pageIndex == 4) return;
                         setPageIndex(pageIndex + 1)
                     }}
-                        src={pageIndex === 10 ? `/img/gallery/Arrow Right_Gray.png` : `/img/gallery/Arrow Right_Blue.png`} />
+                        src={pageIndex === 4 ? `/img/gallery/Arrow Right_Gray.png` : `/img/gallery/Arrow Right_Blue.png`} />
 
                 </div>
             </div>

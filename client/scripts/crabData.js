@@ -1,4 +1,5 @@
 exports.backgrounds = [
+    "Nature Sea",
     // done
     "earth_crystalcaveazure",
     "earth_crystalcaverainbow",
@@ -27,6 +28,7 @@ exports.backgrounds = [
     "extras_zed_run",
 ];
 exports.bodies = [
+    "Base Body",
     // done
     "basebody_1",
     "basebody_2",
@@ -52,6 +54,7 @@ exports.bodies = [
     "extras_diamond",
 ];
 exports.claws = [
+    "Sky Claw",
     // done
     "baseclaw_1",
     "baseclaw_2",
@@ -70,6 +73,7 @@ exports.claws = [
     "woodclaw_spikeytendrils",
 ];
 exports.legs = [
+    "Base Leg",
     //done
     "baseleg_1",
     "baseleg_2",
@@ -88,6 +92,7 @@ exports.legs = [
     "woodleg_3",
 ];
 exports.shells = [
+    "Holy Temple",
     //done
     "baseshell_1",
     "baseshell_2",
@@ -95,7 +100,7 @@ exports.shells = [
 
     "alembic",
     "chimney",
-    "starship",
+    "Starship",
 
     "ice cube",
     "iceshell",
@@ -191,7 +196,7 @@ exports.getHeadPieces = (src) => {
 };
 
 
-const prefixAttrs = ["Indestructible", "Reinforced", "Graceful", "Majestic"];
+const prefixAttrs = ["Indestructible", "Reinforced", "Graceful", "Majestic", "Tempestuous"];
 
 const suffixAttrs = ["of Gaia", "of Peace", "of Doom", "of Doom", "of Doom", "of the Unworldly"];
 
@@ -207,9 +212,10 @@ const legendAttrs = [
     "The Bone Breaker",
     "Guardian's",
     "Sanctuary",
+    "Wit of Lu Dongbin"
 ];
 
-const bgPrefixAttrs = ["Secret", "Isolated", "Bountiful", "Treasured"];
+const bgPrefixAttrs = ["Secret", "Isolated", "Bountiful", "Treasured", "Reborn"];
 /** rarity enum **/
 const Legend = Symbol("Legend");
 const Rare = Symbol("Rare");

@@ -280,7 +280,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return "/./img/imageviewer/Others/Rarity Label_Nothing.png";
         }
     };
-
     const getRarityLabelColor = (rarity) => {
         switch (rarity) {
             case Legend:
@@ -418,10 +417,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.bodyR)}`}
                                 >
-                                    {rarity.bodyR !== Normal && (
+                                    {/* {rarity.bodyR !== Normal && (
                                         <span>{rarity.bodyR?.description} </span>
                                     )}
-                                    <span>Body</span>
+                                    <span>Body</span> */}
+                                    {body}
                                 </div>
                             </div>
                             {/* Claws Icon */}
@@ -439,10 +439,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.clawsR)}`}
                                 >
-                                    {rarity.clawsR !== Normal && (
+                                    {/* {rarity.clawsR !== Normal && (
                                         <span>{rarity.clawsR?.description} </span>
-                                    )}
-                                    <span>Claws</span>
+                                    )} */}
+                                    {/* <span></span> */}
+                                    {claws}
                                 </div>
                             </div>
                             {/* Shells Icon */}
@@ -460,11 +461,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.shellR)}`}
                                 >
-                                    {rarity.shellR !== "Normal" && (
+                                    {/* {rarity.shellR !== "Normal" && (
                                         <span>{rarity.shellR?.description} </span>
                                     )}
-
-                                    <span>Shell</span>
+                                    <span>Shell</span> */}
+                                    {shell}
                                 </div>
                             </div>
                             {/* Legs Icon */}
@@ -482,10 +483,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.legsR)}`}
                                 >
-                                    {rarity.legsR !== Normal && (
+                                    {/* {rarity.legsR !== Normal && (
                                         <span>{rarity.legsR?.description} </span>
                                     )}
-                                    <span>Legs</span>
+                                    <span>Legs</span> */}
+                                    {legs}
                                 </div>
                             </div>
                             {/* Background Icon*/}
@@ -503,7 +505,8 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                     ${getRarityTextColor(rarity.backgroundR)}
                                     `}
                                 >
-                                    <span className="">{getProperBackgroundName(background)}</span>
+                                    {/* <span className="">{getProperBackgroundName(background)}</span> */}
+                                    {background}
                                 </div>
                             </div>
                         </div>

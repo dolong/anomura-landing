@@ -111,7 +111,7 @@ $bp-xl-4: 230em;            // 3840
 
         &_item {
             // min-height:60px;
-            @include m.flex-master(row, null, null);
+            @include m.flex-master(row, null, center);
  
             &_icon {
                 // width: min(10vw, 50px);
@@ -155,18 +155,27 @@ $bp-xl-4: 230em;            // 3840
             &_description {
                 @include m.flex-master(row, null, center);
                 flex: 0.75rem;
-                margin-left: 2%;
+                margin-left: 4%;
                 font-size: 1rem;
                 font-family: PFRondaSeven;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-block;
+                overflow: hidden !important;
 
                 @media (min-width: $bp-small-2) {  
                     font-size: 1.15rem;
                 }
 
-                > span {
-                    line-height: 1.7rem;
-                    margin-left:5%;
-                }
+                // > span {
+                //     // max-width: 85%;
+                //     text-overflow: ellipsis;
+                //     white-space: nowrap;
+                //     display: inline-block;
+                //     overflow: hidden !important;
+                //     line-height: 1.7rem;
+                //     // margin-left:5%;
+                // }
 
                 &_normal {
                     color: #A5EBE3;
