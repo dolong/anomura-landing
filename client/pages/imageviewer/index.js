@@ -20,13 +20,9 @@ export default function GalleryViewerIndex() {
                 </div>
                 <div className={s.content_title}>The Cove Awaits You...</div>
                 <div className={s.content_paragraph}>
-                    Play as an Anomura, guardian of all creatures, and battle aenemies who threaten the realms:
-                    Ocean, Earth, Sky, and Science. Utilize the Infinity Circle to your advantage by
-                    unlocking cards, gearing up, and finding loot!
+                    Strategic gameplay, beautiful pixel art and contributions to wildlife initiatives—Anomura is a game with a greater purpose. Uncover the secrets of the Universe and restore balance to the four Realms.
                 </div>
                 <div className={s.content_paragraph}>Follow us for the latest updates in the Cove.</div>
-
-                <div className={s.content_paragraph}>Uncover the secrets of the Universe and restore balance to the four Realms.</div>
 
             </div>
             <div className={s.socials}>

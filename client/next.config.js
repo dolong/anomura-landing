@@ -58,6 +58,10 @@ module.exports = {
                 source: "/challenger(.*)",
                 destination: `${DEEPSEACHALLENGER_HOST}/challenger$1`,
             },
+            {
+                source: "/gallery",
+                destination: `/imageviewer`,
+            },
         ];
     }, async redirects() {
         return [
