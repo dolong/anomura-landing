@@ -107,10 +107,10 @@ $bp-xl-4: 230em;            // 3840
 
     &_list {
         height: 100%; 
-        @include m.flex-master(column, space-evenly, null);
+        @include m.flex-master(column, space-between, null);
+        // @include m.flex-master(column, space-evenly, null);
 
         &_item {
-            // min-height:60px;
             @include m.flex-master(row, null, center);
  
             &_icon {
@@ -119,6 +119,9 @@ $bp-xl-4: 230em;            // 3840
                 @include m.flex-master(row, null, center);
                 position: relative;
 
+                @media (min-width: $bp-small) {  
+                    width: 42px;
+                }
                 @media (min-width: $bp-small-2) {  
                     width: 54px;
                 }
@@ -127,6 +130,11 @@ $bp-xl-4: 230em;            // 3840
                     margin-top: 2px;
                     margin-left: 2px;
                     width: 36px;
+                    @media (min-width: $bp-small) {  
+                        margin-top: 2px;
+                        margin-left: 2px;
+                        width: 39px;
+                    }
                     @media (min-width: $bp-small-2) {  
                         margin-top: 3px;
                         margin-left: 3px;
@@ -139,6 +147,9 @@ $bp-xl-4: 230em;            // 3840
                     display:none;
                     z-index: 1;
                     width: 39px;
+                    @media (min-width: $bp-small) {  
+                        width: 42px;
+                    }
                     @media (min-width: $bp-small-2) {  
                         width: 54px;
                     }
@@ -167,16 +178,6 @@ $bp-xl-4: 230em;            // 3840
                     font-size: 1.15rem;
                 }
 
-                // > span {
-                //     // max-width: 85%;
-                //     text-overflow: ellipsis;
-                //     white-space: nowrap;
-                //     display: inline-block;
-                //     overflow: hidden !important;
-                //     line-height: 1.7rem;
-                //     // margin-left:5%;
-                // }
-
                 &_normal {
                     color: #A5EBE3;
                 }   
@@ -197,13 +198,24 @@ $bp-xl-4: 230em;            // 3840
         height:100%;
         width: 80%;
         top:0;
-        left:20%;
+        left:16%;
         position: absolute;
         z-index: 2; // to have this layer cover the card text behind
         
+        @media (min-width: $bp-small) {  
+            left:20%;
+        }
+        @media (min-width: $bp-small-2) {  
+            left:20%;
+        }
         &_wrapper {
             width: 100%;
+            height: 100%;
             position: relative;
+
+            & > img {
+                height: 100%;
+            }
         }
         &_description {
             position: absolute;
@@ -280,17 +292,16 @@ $bp-xl-4: 230em;            // 3840
 
         &_name {
             width: 70%;
-            line-height: 1.75rem;
-            font-size: 0.65em;
+            font-family: PFRondaSeven;
+            line-height: 1.25rem;
+            font-size: 0.9rem;
             text-align: center;
             overflow-wrap: break-word!important;
             flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include m.flex-master(row, center, center);
 
             @media (min-width: $bp-small-2) {  
-                font-size: 0.8em;
+                font-size: 1rem;
             }
         }
 
