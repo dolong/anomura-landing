@@ -218,13 +218,13 @@ const legendAttrs = [
 
 const bgPrefixAttrs = ["Secret", "Isolated", "Bountiful", "Treasured", "Reborn"];
 /** rarity enum **/
-const Legend = Symbol("Legend");
+const Legendary = Symbol("Legendary");
 const Rare = Symbol("Rare");
 const Magic = Symbol("Magic");
 const Normal = Symbol("Normal");
 const Nothing = Symbol("Nothing");
 
-exports.Legend = Legend;
+exports.Legendary = Legendary;
 exports.Rare = Rare;
 exports.Magic = Magic;
 exports.Normal = Normal;
@@ -258,7 +258,7 @@ exports.getRarity = (name) => {
     if (name.trim() == "" || name === undefined) return Nothing;
     let containLegendAttr = legendAttrs.some((el) => name.includes(el));
     if (containLegendAttr) {
-        return Legend;
+        return Legendary;
     }
 
     let containRareAttr =

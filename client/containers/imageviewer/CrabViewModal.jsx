@@ -1,5 +1,5 @@
 import {
-    Legend,
+    Legendary,
     Rare,
     Magic,
     Normal,
@@ -123,7 +123,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     };
     const getCardImage = (rarity) => {
         switch (rarity) {
-            case Legend:
+            case Legendary:
                 return "/./img/imageviewer/Others/Card_Legendary.png";
             case Rare:
                 return "/./img/imageviewer/Others/Card_Rare.png";
@@ -142,7 +142,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
             return "";
         }
         switch (rarity) {
-            case Legend:
+            case Legendary:
                 return s.component_list_item_description_legend;
             case Rare:
                 return s.component_list_item_description_rare;
@@ -167,7 +167,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     };
     const getHeadPiecesIcon = (rarity) => {
         switch (rarity) {
-            case Legend:
+            case Legendary:
                 return "/img/imageviewer/Others/Headpiece_legendary.png";
             case Rare:
                 return "/img/imageviewer/Others/Headpiece_rare.png";
@@ -182,7 +182,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const getBodyIcon = (rarity) => {
         if (rarity) {
             switch (rarity) {
-                case Legend:
+                case Legendary:
                     return "/img/imageviewer/Others/Body_Legendary.png";
                 case Rare:
                     return "/img/imageviewer/Others/Body_Rare.png";
@@ -199,7 +199,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const getClawsIcon = (rarity) => {
         if (rarity) {
             switch (rarity) {
-                case Legend:
+                case Legendary:
                     return "/img/imageviewer/Others/Claw_Legendary.png";
                 case Rare:
                     return "/img/imageviewer/Others/Claw_rare.png";
@@ -216,7 +216,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const getShellIcon = (rarity) => {
         if (rarity) {
             switch (rarity) {
-                case Legend:
+                case Legendary:
                     return "/img/imageviewer/Others/Shell_legendary.png";
                 case Rare:
                     return "/img/imageviewer/Others/Shell_rare.png";
@@ -233,7 +233,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const getLegsIcon = (rarity) => {
         if (rarity) {
             switch (rarity) {
-                case Legend:
+                case Legendary:
                     return "/img/imageviewer/Others/Leg_legendary.png";
                 case Rare:
                     return "/img/imageviewer/Others/Leg_rare.png";
@@ -250,7 +250,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     const getBackgroundIcon = (rarity) => {
         if (rarity) {
             switch (rarity) {
-                case Legend:
+                case Legendary:
                     return "/img/imageviewer/Others/Land_legendary.png";
                 case Rare:
                     return "/img/imageviewer/Others/Land_rare.png";
@@ -266,7 +266,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     };
     const getCardLabel = (rarity) => {
         switch (rarity) {
-            case Legend:
+            case Legendary:
                 return "/./img/imageviewer/Others/Rarity Label_Legendary.png";
             case Rare:
                 return "/./img/imageviewer/Others/Rarity Label_Rare.png";
@@ -282,7 +282,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
     };
     const getRarityLabelColor = (rarity) => {
         switch (rarity) {
-            case Legend:
+            case Legendary:
                 return s.component_card_label_legend;
             case Rare:
                 return s.component_card_label_rare;
