@@ -429,7 +429,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 <div
                                     className={s.component_list_item_icon}
                                     onMouseEnter={() => ShowCard("claws")}
-                                    // onMouseLeave={hideCard}
+                                    onMouseLeave={hideCard}
                                 >
                                     <img src={getClawsIcon(rarity?.clawsR)} />
                                     <img src={"/img/imageviewer/Others/Icon Outline.png"} />
