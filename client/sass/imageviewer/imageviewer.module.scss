@@ -109,6 +109,7 @@ $bp-xl-4: 230em;            // 3840
         height: 100%; 
         @include m.flex-master(column, space-between, null);
         // @include m.flex-master(column, space-evenly, null);
+        padding-bottom: 3px;
 
         &_item {
             @include m.flex-master(row, null, center);
@@ -201,6 +202,7 @@ $bp-xl-4: 230em;            // 3840
         left:16%;
         position: absolute;
         z-index: 2; // to have this layer cover the card text behind
+        padding-bottom: 3px;
         
         @media (min-width: $bp-small) {  
             left:20%;
