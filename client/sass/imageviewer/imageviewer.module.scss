@@ -222,15 +222,15 @@ $bp-xl-4: 230em;            // 3840
             top: 0; 
             width: 100%; 
             height: 100%; 
-            padding: 10% 0;
+            padding: 17% 0; //10% 0;
             @include m.flex-master(column, space-evenly, center);
         }
 
         &_hexagon {
-            margin-top:9%;
+            // margin-top:9%;
             width: 46%; // 40
             max-width: 46%;
-            height: 33%;
+            height: 40%; //33%; 
             position: relative;
            
             &_greyLayer {
@@ -245,7 +245,7 @@ $bp-xl-4: 230em;            // 3840
                 width: 48%;
                 height: auto;
                 z-index: -1;
-                margin-top: 10%;
+                margin-top: 14%; // 10%
                 margin-left: 25%;
             }
             &_body {
@@ -253,7 +253,7 @@ $bp-xl-4: 230em;            // 3840
                 width: 79%;
                 height: auto;
                 z-index: -1;
-                margin-top: 1%; 
+                margin-top: 3%; //1%; 
                 margin-left: 10%;
             }
             &_claws {
@@ -261,7 +261,7 @@ $bp-xl-4: 230em;            // 3840
                 width: 77%;
                 height: auto;
                 z-index: -1;
-                margin-top: -1%; // -14
+                margin-top: 2%; // -1%
                 margin-left: 29%; // 20
             }
             &_legs {
@@ -293,7 +293,7 @@ $bp-xl-4: 230em;            // 3840
         &_name {
             width: 70%;
             font-family: PFRondaSeven;
-            line-height: 1.25rem;
+            line-height: 1.35rem;
             font-size: 0.9rem;
             text-align: center;
             overflow-wrap: break-word!important;
