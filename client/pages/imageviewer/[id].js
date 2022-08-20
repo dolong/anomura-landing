@@ -43,6 +43,8 @@ export default function AnimateViewerDetails({ data }) {
         shadow: "/./img/imageviewer/Services/shadow",
     };
 
+    console.log(data)
+
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {

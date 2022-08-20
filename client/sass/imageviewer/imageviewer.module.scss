@@ -33,8 +33,6 @@ $bp-xl-4: 230em;            // 3840
 }
 
 .toggleModal {
-   
-
     &_wrapper {
         position: absolute;
         top: 3%;
@@ -203,7 +201,7 @@ $bp-xl-4: 230em;            // 3840
         position: absolute;
         z-index: 2; // to have this layer cover the card text behind
         padding-bottom: 3px;
-        
+
         @media (min-width: $bp-small) {  
             left:20%;
         }

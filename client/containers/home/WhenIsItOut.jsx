@@ -335,35 +335,6 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                     </div>
                                 </div>
 
-                                {/******************* GAME DEMO  *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
-                                        <img
-                                            src="/img/home/whenSection/Launch F2P Demo.gif"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div className={s.when_roadmap_item_labels}>
-                                        <div className={s.when_roadmap_item_labels_progress}>
-                                            IN PROGRESS
-                                        </div>
-                                        <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.gameDemo ? s.when_roadmap_purpleLeft : ""
-                                            }`}
-                                            ref={gameDemoRef}
-                                        >
-                                            Launch F2P Game Concept Demo
-                                        </span>
-                                        <div className={s.when_roadmap_item_labels_target}>
-                                            Target date: Aug 2022
-                                        </div>
-                                        <div className={s.when_roadmap_item_labels_description}>
-                                            Discover the world of Anomura -- without a wallet!
-                                        </div>
-                                    </div>
-                                </div>
-
                                 {/******************* SHELL Redemption  *****************/}
                                 <div className={s.when_roadmap_item}>
                                     <div className={s.when_roadmap_item_img}>
@@ -373,17 +344,22 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         />
                                     </div>
                                     <div className={s.when_roadmap_item_labels}>
+                                        <div className={s.when_roadmap_item_labels_progress}>
+                                            IN PROGRESS
+                                        </div>
                                         <span
                                             className={`${s.when_roadmap_item_labels_title} ${
                                                 isInView.shellRedemption
-                                                    ? s.when_roadmap_purpleRight
+                                                    ? s.when_roadmap_purpleLeft
                                                     : ""
                                             }`}
                                             ref={redemptionRef}
                                         >
                                             $SHELL Redemption
                                         </span>
-
+                                        <div className={s.when_roadmap_item_labels_target}>
+                                            Live: Aug 29-30
+                                        </div>
                                         <div className={s.when_roadmap_item_labels_description}>
                                             Spend your hard-earned $SHELL on different types of
                                             rewards
@@ -400,16 +376,19 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         />
                                     </div>
                                     <div className={s.when_roadmap_item_labels}>
+                                        <div className={s.when_roadmap_item_labels_progress}>
+                                            IN PROGRESS
+                                        </div>
                                         <span
                                             className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.bowlMint ? s.when_roadmap_purpleLeft : ""
+                                                isInView.bowlMint ? s.when_roadmap_purpleRight : ""
                                             }`}
                                             ref={mintRef}
                                         >
                                             Mystery Bowl Mint
                                         </span>
                                         <div className={s.when_roadmap_item_labels_target}>
-                                            Target date: Aug 2022
+                                            Live: Sept 6
                                         </div>
                                         <div className={s.when_roadmap_item_labels_description}>
                                             Release of limited supply Founder’s Edition Mystery
@@ -430,7 +409,7 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         <span
                                             className={`${s.when_roadmap_item_labels_title} ${
                                                 isInView.anomuraHatching
-                                                    ? s.when_roadmap_purpleRight
+                                                    ? s.when_roadmap_purpleLeft
                                                     : ""
                                             }`}
                                             ref={anomuraHatchRef}
@@ -440,6 +419,35 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
 
                                         <div className={s.when_roadmap_item_labels_description}>
                                             Generative Anomura will hatch and reveal rarity
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/******************* GAME DEMO  *****************/}
+                                <div className={s.when_roadmap_item}>
+                                    <div className={s.when_roadmap_item_img}>
+                                        <img
+                                            src="/img/home/whenSection/Launch F2P Demo.gif"
+                                            alt=""
+                                        />
+                                    </div>
+                                    <div className={s.when_roadmap_item_labels}>
+                                        <div className={s.when_roadmap_item_labels_progress}>
+                                            IN PROGRESS
+                                        </div>
+                                        <span
+                                            className={`${s.when_roadmap_item_labels_title} ${
+                                                isInView.gameDemo ? s.when_roadmap_purpleRight : ""
+                                            }`}
+                                            ref={gameDemoRef}
+                                        >
+                                            Launch F2P Game Concept Demo
+                                        </span>
+                                        <div className={s.when_roadmap_item_labels_target}>
+                                            Target date: Q4 2022
+                                        </div>
+                                        <div className={s.when_roadmap_item_labels_description}>
+                                            Discover the world of Anomura -- without a wallet!
                                         </div>
                                     </div>
                                 </div>
