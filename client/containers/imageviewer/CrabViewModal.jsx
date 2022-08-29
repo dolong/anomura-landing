@@ -20,6 +20,16 @@ import {
     getBackgroundRarity,
 } from "@scripts/crabData";
 
+import {
+    bodyPartsData,
+    habitatPartsData,
+    clawsPartsData,
+    shellPartsData,
+    servicePartsData,
+    headpiecesPartsData,
+    legsPartsData,
+} from "utils/";
+
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 
@@ -298,26 +308,27 @@ export default function CrabViewModal({ data, setModalOpen }) {
     };
 
     const renderCard = (hoverInfo) => {
+        //imageSource = `/img/imageviewer/Shell/${shellName}_hex.png`;
         let imageStyle, imageSource;
         switch (hoverInfo.type) {
             case SHELL:
                 let shellName = getShell(hoverInfo.name);
-                imageSource = `/img/imageviewer/Shell/${shellName}_hex.png`;
+                imageSource = shellPartsData[shellName][24];
                 imageStyle = s.component_card_hexagon_shell;
                 break;
             case BODY:
                 let bodyName = getBody(hoverInfo.name);
-                imageSource = `/img/imageviewer/Body/${bodyName}_hex.png`;
+                imageSource = bodyPartsData[bodyName][24];
                 imageStyle = s.component_card_hexagon_body;
                 break;
             case CLAWS:
                 let clawName = getClaws(hoverInfo.name);
-                imageSource = `/img/imageviewer/Claws/${clawName}_hex.png`;
+                imageSource = clawsPartsData[clawName][24];
                 imageStyle = s.component_card_hexagon_claws;
                 break;
             case LEGS:
                 let legsName = getLegs(hoverInfo.name);
-                imageSource = `/img/imageviewer/Legs/${legsName}_hex.png`;
+                imageSource = legsPartsData[legsName][24];
                 imageStyle = s.component_card_hexagon_legs;
                 break;
             case HEADPIECES:
@@ -325,13 +336,13 @@ export default function CrabViewModal({ data, setModalOpen }) {
                     imageSource = "";
                 } else {
                     let headPiecesName = getHeadPieces(hoverInfo.name);
-                    imageSource = `/img/imageviewer/HeadPieces/${headPiecesName}_hex.png`;
+                    imageSource = headpiecesPartsData[headPiecesName][24];
                 }
                 imageStyle = s.component_card_hexagon_headpieces;
                 break;
             case BACKGROUND:
                 let backgroundName = getBackground(hoverInfo.name);
-                imageSource = `/img/imageviewer/Background/${backgroundName}_1.png`;
+                imageSource = habitatPartsData[backgroundName][23];
                 imageStyle = s.component_card_hexagon_background;
                 break;
             default:
@@ -351,10 +362,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                 src="/img/imageviewer/Others/Grey background.png"
                             />
                             {/* )} */}
-                            <img
-                                className={imageStyle}
-                                src={imageSource} //
-                            />
+                            <img className={imageStyle} src={imageSource} />
                         </div>
                         <div className={s.component_card_name}>{hoverInfo.name}</div>
                         <div className={s.component_card_label}>

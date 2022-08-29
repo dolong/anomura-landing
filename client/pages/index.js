@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 import { BufferLoader } from "utils/buffer-loader";
+import { Navbar } from "@components/home/ComponentIndex";
 
 const { NFT, CrabAnat, WhenIsItOut, Footer } = {
 	NFT: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.NFT), {
@@ -265,6 +266,7 @@ export default function Home() {
 
 			{/* Parallax Zone */}
 			<div className={s.parallax_group}>
+				{/* <Navbar /> */}
 				<ShopZone audioControl={audioControl} setAudioControl={setAudioControl} />
 
 				<NFT ScrollPercent={scrollPercent} audioControl={audioControl}></NFT>

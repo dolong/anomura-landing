@@ -9,6 +9,7 @@ let Background = {
 
     extras_autofarm: "extras_autofarm",
     extras_vietnam: "extras_vietnam",
+    "African Savannah": "African Savannah",
 
     ocean_abysbioluminescence: "ocean_abysbioluminescence",
     ocean_beach: "ocean_beach",
@@ -22,7 +23,7 @@ let Background = {
     sky_happysnowfield: "sky_happysnowfield",
     sky_nightMountain: "sky_nightMountain",
     sky_star: "sky_star",
-    sky_sunsetCliffs: "sky_sunsetCliffs",
+    "Sunset Cliffs": "Sunset Cliffs",
 };
 exports.getBackground = (backgroundSrc) => {
     for (const [key, value] of Object.entries(Background)) {

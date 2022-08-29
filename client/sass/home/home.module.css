@@ -2318,11 +2318,9 @@
   .nav_item {
     font-size: 2.5rem;
   }
-
   .treasure_zone {
     padding-bottom: 35%;
   }
-
   .crab_text {
     margin-top: 30%;
     font-weight: 600;
@@ -2335,15 +2333,12 @@
   .nav_item {
     font-size: 2rem;
   }
-
   .shop_img {
     width: max(65vw, 600px);
   }
-
   .nft_text {
     margin-top: 70%;
   }
-
   .crab_container {
     margin-top: 35%;
   }
@@ -2354,11 +2349,9 @@
   .crab_rarityContainer {
     margin-top: 4%;
   }
-
   .treasure_image {
     margin-top: 10%;
   }
-
   .footer_buttons {
     font-size: 1.3125rem;
   }
@@ -2368,15 +2361,12 @@
   .App {
     background-size: 100% 33%;
   }
-
   .shop_zone {
     padding-top: 15%;
   }
-
   .comingsoon_img {
     padding-top: 2%;
   }
-
   .crab_text {
     margin-top: 40%;
     font-size: 1.2rem;
@@ -2391,11 +2381,9 @@
   .nav_item {
     font-size: 1.5rem;
   }
-
   .crab_text {
     width: 80%;
   }
-
   .policy > div {
     font-size: 1.125rem;
   }
@@ -2408,11 +2396,9 @@
     font-size: 1rem;
     font-family: Safety Goggles;
   }
-
   .crab_container {
     width: 57%;
   }
-
   .nft {
     padding-bottom: 80%;
   }
@@ -2432,7 +2418,6 @@
     height: 58px;
     transform: skew(0deg, 0deg);
   }
-
   .footer_zone {
     padding-bottom: 5%;
   }
@@ -2457,11 +2442,9 @@
   .nav_list {
     display: none;
   }
-
   .shop_img {
     width: 80vw;
   }
-
   .crab_anat {
     padding-bottom: 115%;
   }
@@ -2482,12 +2465,10 @@
   .crab_rarityBlock div:nth-child(2) {
     text-align: right;
   }
-
   .treasure_zone {
     margin-top: 5%;
     padding-bottom: 60%;
   }
-
   .footer_container {
     margin-top: 55%;
   }
@@ -2518,7 +2499,6 @@
   .crab_text {
     font-weight: 500;
   }
-
   .treasure_chestContainer {
     margin-top: 10%;
     margin-bottom: 75%;
@@ -2532,11 +2512,9 @@
     width: 100vw;
     z-index: 2;
   }
-
   .comingsoon_zone {
     width: 57%;
   }
-
   .sandBottom_zone {
     display: flex;
     flex-direction: column;
@@ -2561,16 +2539,13 @@
     height: 50px;
     margin-bottom: 10px;
   }
-
   .treasure_image {
     left: -5vw;
     margin-top: 5vh;
   }
-
   .crab_container {
     margin-top: 55%;
   }
-
   .footer_zone {
     padding-bottom: 25%;
   }
@@ -2627,7 +2602,6 @@
   .sandBottom_image {
     width: min(15vw, 150px);
   }
-
   .follow_img {
     margin-top: 1vh;
   }
@@ -2638,16 +2612,13 @@
     font-size: 0.95rem;
     padding-bottom: 3%;
   }
-
   .nft_text {
     font-size: 0.95rem;
   }
-
   .crab_text {
     padding-top: 15%;
     font-size: 1rem;
   }
-
   .footer_container {
     margin-top: 100%;
   }

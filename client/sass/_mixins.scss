@@ -1,6 +1,18 @@
 // http://sassdoc.com/annotations/#parameter for annotations.
 // http://sassdoc.com/ for comment systems with mixins using Sass Doc.
 
+$bp-small: 384px;            // 384   24em
+$bp-small-2: 500px;       // 500   31.25em
+$bp-small-3: 636px;        // 636   39.8em
+$bp-med: 748px;            // 748   46.8em
+$bp-med-2: 800px;            // 800   50em
+$bp-large: 872px;          // 872   54.5em
+$bp-large-2: 1200px;          // 1200  75em
+$bp-xl: 1440px;               // 1440  90em 
+$bp-xl-2: 1980px;         // 1980  123.75em
+$bp-xl-3: 2560px;            // 2560  160em
+$bp-xl-4: 3840px;            // 2560  160em
+
 /// Mixin for quick parallax layers
 /// @param {z-index} $z-index
 /// @param {background-image} $background-image
@@ -22,4 +34,158 @@
 	flex-direction: $direction;
 	justify-content: $justify-content;
 	align-items: $align-items;
+}
+
+@mixin medium_button() {
+    position:relative;
+	width: auto;
+	display:flex;
+	justify-content: center;
+    padding: 0;
+    color: #FFFFFF;
+
+	& > div {
+		position:absolute;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		height: 90%;
+
+		& > span { 
+            width: 100%;
+            font-size: 2.7vh;
+	        font-family: Safety Goggles;
+            font-weight: 400;
+	        text-align: center;
+
+            line-height: 1.05rem;
+            @media (min-width: $bp-small) {  
+                font-size: 0.95rem;
+            }
+            @media (min-width: $bp-small-2) {  
+                font-size: 1rem;
+            }
+	        @media (min-width: $bp-small-3) {  
+                font-size: 1.25rem;
+                line-height: 1.35rem;
+            }
+            @media (min-width: $bp-med-2) {  
+                font-size: 1.5rem;
+            }
+            @media (min-width: $bp-xl) {  
+                font-size: 2rem;
+            }
+            @media (min-width: $bp-xl-2) {  
+                font-size: 2.25rem;
+            }
+            @media (min-width: $bp-xl-3) {  
+                font-size: 2.75rem;
+            }
+		}
+        & > img { 
+            margin-left: 0.3rem;
+            max-height: 50%;
+            width: auto!important;
+
+            @media (min-width: $bp-small-3) {  
+                max-height: 75%;
+            }
+            @media (min-width: $bp-med-2) {  
+                max-height: 75%;
+            }
+
+            @media (min-width: $bp-large-2) {  
+                max-height: 75%;
+            }
+		}
+        & > img:nth-child(2) { 
+           margin-left: 0.25rem;
+		}
+    }
+    &:disabled {
+        cursor: not-allowed!important;
+        color: #A2B7B6;
+        &:hover {
+            color: #A2B7B6;
+        }
+    }
+}
+
+@mixin large_button() {
+    position:relative;
+	width: auto;
+	display:flex;
+	justify-content: center;
+    padding: 0;
+    color: #FFFFFF;
+	// z-index: 10;
+
+    // @media (min-width: $bp-small) {  
+    //     width: 55%;
+    // }
+    // @media (min-width: $bp-small-2) {  
+    //     width: 50%;
+    // }
+    // @media (min-width: $bp-med-2) {  
+    //     width: 75%;
+    // }
+
+	& > div {
+		position:absolute;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		height: 90%;
+
+		& > span { 
+            width: 100%;
+            font-size: 2.75vh;
+	        font-family: Safety Goggles;
+            font-weight: 400;
+	        text-align: center;
+            line-height: 1.05rem;
+            @media (min-width: $bp-small) {  
+                font-size: 1rem;
+            }
+            @media (min-width: $bp-small-2) {  
+                font-size: 1.15rem;
+            }
+	        @media (min-width: $bp-small-3) {  
+                font-size: 1.5rem;
+                line-height: 1.35rem;
+            }
+            @media (min-width: $bp-med-2) {  
+                font-size: 1.65rem;
+            }
+            @media (min-width: $bp-xl) {  
+                font-size: 2rem;
+            }
+		}
+        & > img { 
+            margin-left: 0.3rem;
+            max-height: 50%;
+            width: auto!important;
+
+            @media (min-width: $bp-small-3) {  
+                max-height: 75%;
+            }
+            @media (min-width: $bp-med-2) {  
+                max-height: 75%;
+            }
+
+            @media (min-width: $bp-large-2) {  
+                max-height: 75%;
+            }
+		}
+        & > img:nth-child(2) { 
+           margin-left: 0.25rem;
+		}
+    }
+    &:disabled {
+        cursor: not-allowed!important;
+        color: #A2B7B6;
+        &:hover {
+            color: #A2B7B6;
+        }
+    }
 }

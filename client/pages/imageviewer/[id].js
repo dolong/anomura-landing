@@ -1,50 +1,83 @@
 import React, { useEffect, useState } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
-import { getBody, getClaws, getShell, getLegs, getBackground, getHeadPieces } from "scripts/crabData";
-import { getAllCrabs, getAnomuraById } from "repositories/crabs";
+import {
+    getBody,
+    getClaws,
+    getShell,
+    getLegs,
+    getBackground,
+    getHeadPieces,
+} from "scripts/crabData";
+
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 import Enums from "enums";
+import useSWR from "swr";
+
+import {
+    bodyPartsData,
+    habitatPartsData,
+    clawsPartsData,
+    shellPartsData,
+    servicePartsData,
+    headpiecesPartsData,
+    legsPartsData
+} from "utils/";
 
 /** static props and paths should not call to api link since it is not available on build time */
-export const getStaticPaths = async () => {
-    let allCrabs = await getAllCrabs();
-    const paths = allCrabs.map((p) => {
-        return {
-            params: { id: p.crabId.toString() },
-        };
-    });
+// export const getStaticPaths = async () => {
+//     let allCrabs = await getAllCrabs();
+//     const paths = allCrabs.map((p) => {
+//         return {
+//             params: { id: p.crabId.toString() },
+//         };
+//     });
 
-    return {
-        paths,
-        fallback: true,
-    };
-};
+//     return {
+//         paths,
+//         fallback: true,
+//     };
+// };
 
-export const getStaticProps = async (context) => {
-    const id = parseInt(context.params.id);
-    const data = await getAnomuraById(id);
-    return {
-        props: { data: JSON.parse(JSON.stringify(data)), key: id },
-        revalidate: 60,
-    };
+// export const getStaticProps = async (context) => {
+//     const id = parseInt(context.params.id);
+//     const data = await getAnomuraById(id);
+//     return {
+//         props: { data: JSON.parse(JSON.stringify(data)), key: id },
+//         revalidate: 60,
+//     };
+// };
+
+const buildArrayImages = (name, source) => {
+    let images = [];
+
+    for (let i = 0; i <= 23; i++) {
+        let imagePart = source[name][i];
+        images.push(imagePart);
+    }
+    return images;
 };
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
-export default function AnimateViewerDetails({ data }) {
+export default function AnimateViewerDetails() {
     const router = useRouter();
     let sources = {
-        background: "/./img/imageviewer/Background/",
-        shell: "/./img/imageviewer/Shell/",
-        legs: "/./img/imageviewer/Legs/",
-        body: "/./img/imageviewer/Body/",
-        claws: "/./img/imageviewer/Claws/",
-        headpieces: "/./img/imageviewer/HeadPieces/",
-        shadow: "/./img/imageviewer/Services/shadow",
+        background: {},
+        shell: {},
+        legs: {},
+        body: {},
+        claws: {},
+        headpieces: {},
+        shadow: {},
     };
 
-    console.log(data)
-
+    const { id } = router.query;
+    const { data, mutate, isValidating, error } = useSWR(
+        id ? `/api/crabs/getAnomuraById?id=${id}` : null,
+        fetcher
+    );
+    // console.log(bodyPartsData)
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {
@@ -52,71 +85,77 @@ export default function AnimateViewerDetails({ data }) {
             return <div>Failed to load this anomuras</div>;
         }
         const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
-        let isDrawHeadpieces
+        let isDrawHeadpieces;
 
         if (anomuraEquipments.length > 0) {
             // check if we should render the claws equipped instead of of anomura original claw
-            let clawsEquipmentIndex = anomuraEquipments.findIndex(eq => eq.type === Enums.CLAWS)
+            let clawsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.CLAWS);
             if (clawsEquipmentIndex != -1) {
-                sources.claws = sources.claws + getClaws(anomuraEquipments[clawsEquipmentIndex].name);
-            }
-            else {
+                sources.claws =
+                    sources.claws + getClaws(anomuraEquipments[clawsEquipmentIndex].name);
+            } else {
                 sources.claws = sources.claws + getClaws(claws);
             }
             // check if we should render the legs equipped instead of of anomura original legs
-            let legsEquipmentIndex = anomuraEquipments.findIndex(eq => eq.type === Enums.LEGS)
+            let legsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.LEGS);
             if (legsEquipmentIndex != -1) {
                 sources.legs = sources.legs + getLegs(anomuraEquipments[legsEquipmentIndex].name);
-            }
-            else {
+            } else {
                 sources.legs = sources.legs + getLegs(legs);
             }
             // check if we should render the shell equipped instead of of anomura original shell
-            let shellEquipmentIndex = anomuraEquipments.findIndex(eq => eq.type === Enums.SHELL)
+            let shellEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.SHELL);
             if (shellEquipmentIndex != -1) {
-                sources.shell = sources.claws + getShell(anomuraEquipments[shellEquipmentIndex].name);
-            }
-            else {
+                sources.shell =
+                    sources.claws + getShell(anomuraEquipments[shellEquipmentIndex].name);
+            } else {
                 sources.shell = sources.shell + getShell(shell);
             }
             // check if we should render the body equipped instead of of anomura original body
-            let bodyEquipmentIndex = anomuraEquipments.findIndex(eq => eq.type === Enums.BODY)
+            let bodyEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.BODY);
             if (bodyEquipmentIndex != -1) {
                 sources.body = sources.body + getBody(anomuraEquipments[bodyEquipmentIndex].name);
-            }
-            else {
+            } else {
                 sources.body = sources.body + getBody(body);
             }
             // check if we should render the body equipped instead of of anomura original body
-            let headpiecesEquipmentIndex = anomuraEquipments.findIndex(eq => eq.type === Enums.HEADPIECES)
+            let headpiecesEquipmentIndex = anomuraEquipments.findIndex(
+                (eq) => eq.type === Enums.HEADPIECES
+            );
             if (headpiecesEquipmentIndex != -1) {
-                sources.headpieces = sources.headpieces + getHeadPieces(anomuraEquipments[headpiecesEquipmentIndex].name);
-                isDrawHeadpieces = true
-            }
-            else {
+                sources.headpieces =
+                    sources.headpieces +
+                    getHeadPieces(anomuraEquipments[headpiecesEquipmentIndex].name);
+                isDrawHeadpieces = true;
+            } else {
                 sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
                 isDrawHeadpieces = headpieces.toString().trim() !== "";
             }
         }
         //no equipment
         else {
-            sources.claws = sources.claws + getClaws(claws);
-            sources.legs = sources.legs + getLegs(legs);
-            sources.shell = sources.shell + getShell(shell);
-            sources.body = sources.body + getBody(body);
-
-            sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
             isDrawHeadpieces = headpieces.toString().trim() !== "";
+            // sources.claws = sources.claws + getClaws(claws);
+            // sources.legs = sources.legs + getLegs(legs);
+            // sources.shell = sources.shell + getShell(shell);
+            // sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
+            if (isDrawHeadpieces) {
+                sources.headpieces = buildArrayImages(getHeadPieces(headpieces), headpiecesPartsData);
+            }
+            sources.claws = buildArrayImages(getClaws(claws), clawsPartsData);
+            sources.body = buildArrayImages(getBody(body), bodyPartsData);
+            sources.shell = buildArrayImages(getShell(shell), shellPartsData);
+            sources.legs = buildArrayImages(getLegs(legs), legsPartsData);
+            sources.shadow = buildArrayImages("shadow", servicePartsData);
         }
-        sources.background = sources.background + getBackground(background);
+        // sources.background = sources.background + getBackground(background);
+        sources.background = buildArrayImages(getBackground(background), habitatPartsData);
 
         return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
     }
 }
 
 const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
-    const router = useRouter();
-
     const [imagesSrc, setImageSrc] = React.useState({});
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -129,7 +168,6 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     useEffect(() => {
         try {
             if (typeof window !== "undefined") {
-
                 if (
                     /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(
                         navigator.userAgent
@@ -144,7 +182,6 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
                         width: window?.innerWidth,
                         height: window?.innerWidth,
                     }));
-
                 } else {
                     // setIsMobile(false);
                     setCanvasSize((prevState) => ({
@@ -162,6 +199,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
+
                 setImageSrc(images);
                 setIsLoaded(true);
             });
@@ -177,8 +215,8 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     const DrawImagesOnCanvas = (images) => {
         canvas = canvasRef?.current;
         context = canvas?.getContext("2d");
-        let width = canvasSize.width;// 508
-        let height = canvasSize.height;// 508
+        let width = canvasSize.width; // 508
+        let height = canvasSize.height; // 508
         let counter = 0;
 
         setInterval(() => {
@@ -225,9 +263,9 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
         }
         for (var src in sources) {
             if (src == "headpieces" && isDrawHeadpieces === false) {
-
                 continue;
             }
+
             for (let index = 0; index <= 23; index++) {
                 images[src][index] = new Image();
                 images[src][index].onload = function () {
@@ -235,8 +273,8 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
                         onFinished(images);
                     }
                 };
-                let counter = index + 1;
-                images[src][index].src = sources[src] + "_" + counter + ".png";
+
+                images[src][index].src = sources[src][index];
             }
         }
 
@@ -250,14 +288,12 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     return (
         <div className={s.container} style={{ width: canvasSize.width, height: canvasSize.height }}>
             <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
-            <div
-                className={s.toggleModal_wrapper}
-                onClick={() => setModalOpen(!modalOpen)}
-            >
+            <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
                 <div className={s.toggleModal_container}>
                     <img src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png" />
                     <img src={"/img/imageviewer/Others/Inventory Button Outline.png"} />
-                </div></div>
+                </div>
+            </div>
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
             <style>
                 {`

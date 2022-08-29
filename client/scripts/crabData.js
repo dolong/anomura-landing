@@ -1,151 +1,170 @@
+// done
 exports.backgrounds = [
-    "Nature Sea",
-    // done
-    "earth_crystalcaveazure",
-    "earth_crystalcaverainbow",
-    "earth_emeraldforest",
-    "earth_gardenOfEden",
-    "earth_goldenGlade",
+    "Crystal Cave",
+    "Crystal Cave Rainbow",
+    "Emerald Forest",
+    "Garden of Eden",
+    "Golden Glade",
 
-    "ocean_abysbioluminescence",
-    "ocean_beach",
-    "ocean_magicDeepSea",
-    "ocean_natureSea",
+    "Bioluminescent Abyss",
+    "Beach",
+    "Magical Deep Sea",
+    "Natural Sea",
 
-    "science_furnacePlain",
-    "science_lab",
-    "science_starship",
-    "science_steamApparat",
+    "Blazing Furnace",
+    "Science Lab",
+    "Starship Throne",
+    "Steam Apparatus",
 
-    "sky_happysnowfield",
-    "sky_nightMountain",
-    "sky_star",
-    "sky_sunsetCliffs",
+    "Happy Snowfield",
+    "Midnight Mountain",
+    "Cosmic Star",
+    "Sunset Cliffs",
 
-    "extras_africa",
-    "extras_autofarm",
-    "extras_vietnam",
-    "extras_zed_run",
+    "African Savannah",
+    "Space Nebula",
+    "Plains of Vietnam",
+    "ZED Run",
+
+    "Adventure Space",
+    "Asteroid Space",
+    "Pong Space",
 ];
+// done
 exports.bodies = [
-    "Base Body",
-    // done
-    "basebody_1",
-    "basebody_2",
-    "basebody_3",
-    "basebody_4",
+    "Premier Body",
+    "Unhinged Body",
+    "Mesmerizing Body",
+    "Rave Body",
 
-    "metalbody_fire1",
-    "metalbody_fire3",
-    "metalbody_flame face red",
-    "metalbody_laser eye",
+    "Combustion Body",
+    "Radiating Eye",
+    "Charring Body",
+    "Inferno Body",
 
-    "snowbody_1",
-    "snowbody_3",
-    "snowbody_4",
-    "snowbody_starbody",
+    "Siberian Body",
+    "Glacial Body",
+    "Antarctic Body",
+    "Amethyst Body",
 
-    "woodbody_1",
-    "woodbody_2",
-    "woodbody_3",
-    "woodbody_beastman",
+    "Beast",
+    "Panga Panga",
+    "Ceylon Ebony",
+    "Katalox",
 
-    "extras_golden",
-    "extras_diamond",
+    "Diamond",
+    "Golden",
+
+    "Adventure Body",
+    "Asteroid Body",
+    "Pong Body"
 ];
+// done
 exports.claws = [
+    "Natural Claw",
+    "Coral Claw",
+    "Titian Claw",
+
+    "Pliers",
+    "Scissorhands",
+    "Laser Gun",
+
+    "Snow Claw",
     "Sky Claw",
-    // done
-    "baseclaw_1",
-    "baseclaw_2",
-    "baseclaw_3",
+    "Icicle Claw",
 
-    "metalclaw_lasergun",
-    "metalclaw_pliers",
-    "metalclaw_scissor",
+    "Pincers",
+    "Carnivora Claw",
+    "Hammer Logs",
 
-    "snowclaw_1",
-    "snowclaw_icycle",
-    "snowclaw_skyclaw",
-
-    "woodclaw_hammerlogs",
-    "woodclaw_pincers",
-    "woodclaw_spikeytendrils",
+    "Adventure Claw",
+    "Asteroid Lasergun",
+    "Pong Claw"
 ];
+//done
 exports.legs = [
-    "Base Leg",
-    //done
-    "baseleg_1",
-    "baseleg_2",
-    "baseleg_3",
+    "Argent Leg",
+    "Sunlit Leg",
+    "Auroral Leg",
 
-    "metalleg_1",
-    "metalleg_2",
-    "metalleg_3",
+    "Steel Leg",
+    "Tungsten Leg",
+    "Titanium Leg",
 
-    "snowleg_1",
-    "snowleg_2",
-    "snowleg_3",
+    "Crystal Leg",
+    "Empyrean Leg",
+    "Azure Leg",
 
-    "woodleg_1",
-    "woodleg_2",
-    "woodleg_3",
+    "Bamboo Leg",
+    "Walmara Leg",
+    "Pintobortri Leg",
+
+    "Adventure Leg",
+    "Asteroid Leg",
+    "Pong Leg",
 ];
+//done
 exports.shells = [
-    "starship",
-    "Holy Temple",
-    //done
-    "baseshell_1",
-    "baseshell_2",
-    "baseshell_3",
+    "Auger Shell",
+    "Seasnail Shell",
+    "Miter Shell",
 
-    "alembic",
-    "chimney",
+    "Alembic",
+    "Chimney",
     "Starship",
 
-    "ice cube",
-    "iceshell",
-    "snowman",
+    "Ice Cube",
+    "Ice Shell",
+    "Frosty",
 
-    "woodshell_1",
-    "carnivora",
-    "runestone",
+    "Mora",
+    "Carnivora",
+    "Pure Runes",
 
-    "architect",
-    "bee hive",
-    "coral",
-    "crystal",
-    "diamond",
-    "ethereum",
-    "golden skull",
+    "Architect",
+    "Bee Hive",
+    "Coral",
+    "Crystal",
+    "Diamond",
+    "Ethereum",
+    "Golden Skull",
 
-    "japan temple",
-    "planter",
-    "snail",
-    "tentacles",
-    "tesla coil",
-    "tree cherry blossom",
-    "tree green",
-    "volcano",
+    "Japan Temple",
+    "Planter",
+    "Snail",
+    "Tentacles",
+    "Tesla Coil",
+    "Cherry Blossom",
+    "Maple Green",
+    "Volcano",
+    "Holy Temple",
+
+    "Adventure Shell",
+    "Asteroid Shell",
+    "Pong Shell",
 ];
 exports.headpieces = [
-    "crystal1",
-    "crystal2",
-    "crystal2-1",
-    "crystal2-2",
-    "crystal2-3",
-    "crystal3",
-    "crystal3-1",
-    "crystal3-2",
-    "crystal3-3",
+    "Sapphire",
+    "Emerald",
+    "Kunzite",
 
-    "fire1",
-    "fire2",
-    "fire3",
+    "Rhodonite",
+    "Aventurine",
+    "Peridot",
 
-    "starfish1",
-    "starfish2",
-    "starfish3",
+    "Moldavite",
+    "Jasper",
+    "Alexandrite",
+
+    "Copper Fire",
+    "Chemical Fire",
+    "Carmine Fire",
+
+    "Morning Sun Starfish",
+    "Granulated Starfish",
+    "Royal Starfish",
+
+    "Adventure Key",
 ];
 exports.getBackground = (backgroundSrc) => {
     for (let i = 0; i < this.backgrounds.length; i++) {
@@ -196,27 +215,26 @@ exports.getHeadPieces = (src) => {
     //console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
 };
 
-
-const prefixAttrs = ["Indestructible", "Reinforced", "Graceful", "Majestic", "Tempestuous"];
-
-const suffixAttrs = ["of Gaia", "of Peace", "of Doom", "of Doom", "of Doom", "of the Unworldly"];
-
+const prefixAttrs = [
+    "Briny", "Tempestuous", "Limpid", "Pacific", "Atlantic", "Abysmal", "Profound",
+    "Misty", "Solar", "Empyrean", "Sideral", "Astral", "Ethereal", "Crystal",
+    "Quantum", "Empiric", "Alchemic", "Crash Test", "Nuclear", "Syntethic", "Tempered",
+    "Fossil", "Craggy", "Gemmed", "Verdant", "Lymphatic", "Gnarled", "Lithic",
+];
+const suffixAttrs = [
+    "of the Coast", "of Maelstrom", "of Depths", "of Eternity", "of Peace", "of Equilibrium",
+    "of the Universe", "of the Galaxy", "of Absolute Zero", "of Constellations", "of the Moon", "of Lightspeed",
+    "of Evidence", "of Relativity", "of Evolution", "of Consumption", "of Progress", "of Damascus",
+    "of Gaia", "of The Wild", "of Overgrowth", "of Rebirth", "of World Roots", "of Stability",
+];
 const legendAttrs = [
-    "The Minotaur",
-    "The Atlantean",
-    "Djinn's",
-    "Undying",
-    "Spirit's",
-    "Coldsteel",
-    "The Leviathan",
-    "Serpent's Eye",
-    "The Bone Breaker",
-    "Guardian's",
-    "Sanctuary",
-    "Wit of Lu Dongbin"
+    "The Leviathan", "Will of Oceanus", "Suijin's Touch", "Tiamat Kiss", "Poseidon Vow", "Long bao",
+    "Uranus Wish", "Aim of Indra", "Cry of Yuki Onna", "Sirius", "Vega", "Altair",
+    "Ephestos Skill", "Gift of Prometheus", "Pandora's", "Wit of Lu Dongbin", "Thoth's Trick", "Cyclopes Plan",
+    "Root of Dimu", "Bhumi's Throne", "Rive of Daphne", "The Minotaur", "Call of Cernunnos", "Graze of Terra",
 ];
 
-const bgPrefixAttrs = ["Secret", "Isolated", "Bountiful", "Treasured", "Reborn"];
+const bgPrefixAttrs = ["Bountiful", "Isolated", "Mechanical", "Reborn"];
 /** rarity enum **/
 const Legendary = Symbol("Legendary");
 const Rare = Symbol("Rare");
