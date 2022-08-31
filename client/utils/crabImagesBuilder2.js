@@ -60,7 +60,7 @@ exports.CrabImagesBuilder = async (crab) => {
     let base64png = `data:image/png;base64,` + Buffer.from(pngBuffer).toString("base64");
     const fileName = `Anomura_${crabId}`;
 
-    let res = await cloudinary.uploader.upload(base64png, { public_id: fileName });
+    let res = await cloudinary.uploader.upload(base64png, { public_id: fileName, upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_PRESET });
     return res.secure_url;
 };
 
