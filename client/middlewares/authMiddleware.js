@@ -4,7 +4,7 @@ const authMiddleware = (handler) => {
 
         if (!secret || secret !== process.env.WEBSITE_SECRET) {
             return res.status(200).json({
-                message: "Non authenticated request",
+                message: "Non authenticated api request",
                 isError: true,
             });
         }

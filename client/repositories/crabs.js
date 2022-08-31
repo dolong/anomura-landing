@@ -35,13 +35,13 @@ export const updateCrabById = async (crabData) => {
     });
 };
 
-export const createCrab = async (crabData) => {
-    const { crabId, background, body, legs, claws, shell, image, headpieces } = crabData;
+export const createAnomura = async (crabData) => {
+    const { crabId, background, body, legs, claws, shell, image, headpieces, name, description } = crabData;
 
     return await prisma.anomuras.create({
         data: {
             crabId,
-            owner: "0x123456",
+            owner: "",
             background,
             legs,
             shell,
@@ -49,6 +49,8 @@ export const createCrab = async (crabData) => {
             body,
             image,
             headpieces,
+            name,
+            description
         },
     });
 };

@@ -3,6 +3,17 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import { randomIntFromInterval } from "../../utils/utils";
 
+// const InitialOffset = 2180,
+//     TwentyEightHundredOffset = -120,
+//     TwentyFiveHundredOffset = 150,
+//     NineteenHundredOffset = -120,
+//     SixteenHundredOffset = -220,
+//     TwelveHundredOffSet = -150,
+//     OneThousandOffSet = -250,
+//     EightHundredOffSet = -250,
+//     SixHundredOffSet = -190,
+//     FourHundredOffSet = -250;
+
 const InitialOffset = 1980,
     TwentyEightHundredOffset = -220,
     TwentyFiveHundredOffset = -220,

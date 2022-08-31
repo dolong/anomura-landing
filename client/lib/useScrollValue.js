@@ -30,58 +30,58 @@ export function useScrollValue(
     //Four seems to be the magic number for not stretching the scroll bar
     let scrollMultiplier = 4;
 
-    if (window.innerWidth <= 400) {
+    if (window?.innerWidth <= 400) {
         scrollMultiplier = 2;
         calculatedOffsetY = Math.floor(
             InitialOffset + FourHundredOffSet + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
-    } else if (window.innerWidth <= 600) {
+    } else if (window?.innerWidth <= 600) {
         scrollMultiplier = 2;
         calculatedOffsetY = Math.floor(
             InitialOffset + SixHundredOffSet + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
-    } else if (window.innerWidth <= 800) {
+    } else if (window?.innerWidth <= 800) {
         scrollMultiplier = 3;
         calculatedOffsetY = Math.floor(
             InitialOffset + EightHundredOffSet + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
-    } else if (window.innerWidth <= 1000) {
+    } else if (window?.innerWidth <= 1000) {
         scrollMultiplier = 3;
         calculatedOffsetY = Math.floor(
             InitialOffset + OneThousandOffSet + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
-    } else if (window.innerWidth <= 1200) {
+    } else if (window?.innerWidth <= 1200) {
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + TwelveHundredOffSet + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
-    } else if (window.innerWidth <= 1600) {
+    } else if (window?.innerWidth <= 1600) {
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + SixteenHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
     }
-    else if (window.innerWidth <= 1980) {
+    else if (window?.innerWidth <= 1980) {
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + NineteenHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
     }
-    else if (window.innerWidth <= 2560) {
+    else if (window?.innerWidth <= 2560) {
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + TwentyFiveHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
     }
-    else if (window.innerWidth <= 2880) {
+    else if (window?.innerWidth <= 2880) {
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + TwentyEightHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier

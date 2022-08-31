@@ -51,10 +51,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
             {/******************* Site Banner *****************/}
             {showBanner && (
                 <div className={`${s.banner_zone}`}>
-                    <a
-                        className={`${s.banner_wrapper}`}
-                        href="https://anomuragame.com/challenger/shell-redemption"
-                    >
+                    <a className={`${s.banner_wrapper}`} href="https://anomuragame.com/challenger">
                         <div className={`${s.banner_shell1}`}>
                             <img
                                 className={`${s.banner_shell1_img}`}
@@ -68,7 +65,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                             />
                         </div>
                         <span>
-                            SPEND YOUR $SHELL AT OUR REDEMPTION EVENT
+                            DIVE INTO OUR DEEPSEA CHALLENGER
                             <div className={`${s.banner_arrow}`}>
                                 <img
                                     className={`${s.banner_arrow_img}`}

@@ -9,16 +9,24 @@ import React, { useEffect, useState } from "react";
 import { BufferLoader } from "utils/buffer-loader";
 import { Navbar } from "@components/home/ComponentIndex";
 
-const { NFT, CrabAnat, WhenIsItOut, Footer } = {
-	NFT: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.NFT), {
+const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut, NFT } = {
+	EnterInfinity: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.EnterInfinity), {
 		ssr: false,
 	}),
-	CrabAnat: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.CrabAnat),
+	NFT: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.NFT),
 		{ ssr: false }
 	),
 	WhenIsItOut: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.WhenIsItOut),
+		{ ssr: false }
+	),
+	CrabAnat: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.CrabAnat),
+		{ ssr: false }
+	),
+	MeetTheTeam: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.MeetTheTeam),
 		{ ssr: false }
 	),
 	Footer: dynamic(
@@ -249,7 +257,7 @@ export default function Home() {
 				/>
 				<meta
 					property="og:image"
-					content="https://www.anomuragame.com/WebsitePreview-06.png"
+					content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
 				/>
 				<meta property="og:site_name" content="Anomura: The Cove Awaits You"></meta>
 				<meta property="keywords" content="Anomura, NFT, Game" />
@@ -257,7 +265,7 @@ export default function Home() {
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
 					property="twitter:image"
-					content="https://www.anomuragame.com/WebsitePreview-06.png"
+					content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
 				/>
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
 			</Head>
@@ -268,14 +276,17 @@ export default function Home() {
 			<div className={s.parallax_group}>
 				{/* <Navbar /> */}
 				<ShopZone audioControl={audioControl} setAudioControl={setAudioControl} />
-
 				<NFT ScrollPercent={scrollPercent} audioControl={audioControl}></NFT>
+				<CrabAnat ScrollPercent={scrollPercent} />
+				{/* <EnterInfinity ScrollPercent={scrollPercent} ></EnterInfinity> */}
 				<CrabAnat ScrollPercent={scrollPercent}></CrabAnat>
 				<WhenIsItOut
 					ScrollPercent={scrollPercent}
 					audioControl={audioControl}
-				></WhenIsItOut>
-				<Footer ScrollPercent={scrollPercent} audioControl={audioControl}></Footer>
+
+				/>
+				{/* <MeetTheTeam ScrollPercent={scrollPercent} /> */}
+				<Footer ScrollPercent={scrollPercent} audioControl={audioControl} />
 			</div>
 			{/* End Of Parallax Zone */}
 

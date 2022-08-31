@@ -29,12 +29,6 @@ exports.CrabImagesBuilder = async (crab) => {
     let headpiecesName = " ";
     if (headpieces !== " ") headpiecesName = getHeadPieces(headpieces);
 
-    console.log(backgroundName)
-    console.log(shellName)
-    console.log(legsName)
-    console.log(bodyName)
-    console.log(clawsName)
-
     let backgroundLayer = await loadImage(
         path.resolve(`${imageDir}/Background/${backgroundName}_1.svg`)
     );

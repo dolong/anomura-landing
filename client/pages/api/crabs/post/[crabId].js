@@ -1,6 +1,8 @@
-import { getAnomuraById, createCrab, updateCrabById } from "repositories/crabs";
-import { CrabImagesBuilder } from "utils/crabImagesBuilder";
+import { getAnomuraById, createAnomura, updateCrabById } from "repositories/crabs";
+import { CrabImagesBuilder } from "utils/crabImagesBuilder2";
 import authMiddleware from "middlewares/authMiddleware";
+import { getAnomuraName } from "@utils/getAnomuraName";
+import { getAnomuraDescription } from "@utils/getAnomuraDescription";
 
 const CrabImageViewerUpdate = async (req, res) => {
 
@@ -23,8 +25,10 @@ const CrabImageViewerUpdate = async (req, res) => {
             headpieces,
         })
 
+        let anomuraName = getAnomuraName();
+        let anomuraDescription = getAnomuraDescription();
         if (existingCrab) {
-            console.log(`Found existing crab ${crabId}, image: ${existingCrab.image} `);
+            console.log(`Found existing anomura ${crabId}, image: ${existingCrab.image} `);
             if (existingCrab.image != crabImage) {
                 let crabId = existingCrab.id;
                 const updatedCrab = await updateCrabById({
@@ -41,12 +45,12 @@ const CrabImageViewerUpdate = async (req, res) => {
                 res.status(200).json({ data: "Updated anomura attrs successfully" });
                 return;
             }
-            console.log(`No need to update crab Image`);
-            return res.status(200).json({ data: {}, message: "No need to update crab Image" });
+            console.log(`No need to update anomura Image`);
+            return res.status(200).json({ data: {}, message: "No need to update anomura Image" });
 
         }
         else {
-            let newCrab = await createCrab({
+            let newCrab = await createAnomura({
                 crabId,
                 background,
                 body,
@@ -55,8 +59,10 @@ const CrabImageViewerUpdate = async (req, res) => {
                 shell,
                 image: crabImage,
                 headpieces,
+                name: anomuraName,
+                description: anomuraDescription
             });
-            console.log(`A new crab ${crabId} is created`);
+            console.log(`A new anomura ${crabId} is created`);
             res.status(200).json({ data: newCrab });
         }
     }

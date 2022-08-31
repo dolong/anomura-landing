@@ -1,5 +1,6 @@
 import s from "/sass/home/nav.module.css";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 /**
  * The main navbar for the website.
  * @returns
@@ -7,6 +8,7 @@ import React, { useState } from "react";
 // export default function Navbar({ isMobile }) {
 export default function Navbar() {
     const [openMenu, setOpenMenu] = useState(false);
+    let router = useRouter();
     let isMobile = false;
     if (isMobile) {
         return (
@@ -215,48 +217,94 @@ export default function Navbar() {
         );
     } else {
         return (
-            <div className={s.nav_menu}>
-                <div className={s.nav_stage}>
-                    <div className={s.nav_stage_logo}>
-                        <img src="/img/mint/board/Logomark.png" />
-                    </div>
-                    <div className={s.nav_stage_text}>
-                        <div>Minting Now</div>
-                        <div>Mint List Holders</div>
-                    </div>
-                </div>
+            <div className={s.nav}>
+                <div className={s.nav_menu}>
+                    {/* <div className={s.nav_stage}>
+                      
+                        <div className={s.nav_stage_text}>
+                            <div>Minting Now</div>
+                            <div>Mint List Holders</div>
+                        </div>
+                        <div className={s.nav_stage_logo}>
+                            <img src="/img/mint/board/Logomark.png" />
+                        </div>
+                    </div> */}
 
-                <div className={s.nav_list}>
-                    <a
-                        className={s.nav_list_item}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open(`https://anomuragame.com`, "_blank");
-                        }}
-                    >
-                        Home
-                    </a>
-                    <a
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open(`https://anomuragame.com`, "_blank");
-                        }}
-                        className={s.nav_list_item}
-                    >
-                        Litepaper
-                    </a>
-                    <a
-                        onClick={(e) => {
-                            e.preventDefault();
-                            window.open(`https://anomuragame.com`, "_blank");
-                        }}
-                        className={s.nav_list_item}
-                    >
-                        Team
-                    </a>
-                </div>
+                    <div className={s.nav_list}>
+                        <div className={s.nav_list_first}>
+                            <a
+                                className={s.nav_list_item}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/");
+                                }}
+                            >
+                                Home
+                            </a>
+                            <a
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open(`https://anomuragame.com/litepaper`, "_blank");
+                                }}
+                                className={s.nav_list_item}
+                            >
+                                Litepaper
+                            </a>
+                            <a
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    // window.open(`https://anomuragame.com/roadmap`, "_blank");
+                                    router.push("/roadmap");
+                                }}
+                                className={s.nav_list_item}
+                            >
+                                Roadmap
+                            </a>
+                        </div>
+                        <div className={s.nav_list_mid}>
+                            <div className={s.nav_list_mid_wrapper}>
+                                <img src="/img/home/footer/logo-pink.png" />
+                            </div>
+                        </div>
+                        <div className={s.nav_list_last}>
+                            <a
+                                className={s.nav_list_item}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/about");
+                                }}
+                            >
+                                About
+                            </a>
+                            <a
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open(`https://anomuragame.com/challenger`, "_blank");
+                                }}
+                                className={s.nav_list_item}
+                            >
+                                Challenger
+                            </a>
 
-                <div className={s.nav_button}></div>
+                            <div className={s.nav_button}>
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        window.open(`https://anomuragame.com`, "_blank");
+                                    }}
+                                    className={s.nav_button_pink}
+                                >
+                                    <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
+                                    <div>
+                                        <span>MINT NOW</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* <div className={s.nav_button}></div>  */}
+                </div>
             </div>
         );
     }
