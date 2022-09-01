@@ -405,8 +405,9 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                             <span>{rarity.headpiecesR?.description} </span>
                                         )}
                                     <span>
-                                        {rarity.headpiecesR === Nothing ? "No " : ""}
-                                        Headpiece
+                                        {rarity.headpiecesR === Nothing
+                                            ? "No Headpiece"
+                                            : headpieces}
                                     </span>
                                 </div>
                             </div>

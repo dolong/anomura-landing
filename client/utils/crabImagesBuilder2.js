@@ -52,6 +52,7 @@ exports.CrabImagesBuilder = async (crab) => {
 
     let anomuraSvg = await prisma.anomuraPartSVG.findMany();
 
+
     let backgroundLayerIndex = anomuraSvg.findIndex(
         (el) => el.part === "Background" && el.attribute === backgroundName
     );
@@ -110,7 +111,7 @@ exports.CrabImagesBuilder = async (crab) => {
         upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_PRESET,
     });
     await prisma.$disconnect();
-    console.log(res.secure_url)
+
     return res.secure_url;
 };
 
