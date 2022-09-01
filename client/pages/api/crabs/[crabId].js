@@ -11,8 +11,8 @@ const crabImageViewerHandler = async (req, res) => {
 
                 if (crab) {
                     res.status(200).json({
-                        name: `Anomura ${crab.crabId}`,
-                        description: "Anomura game NFT Viewer",
+                        name: crab.name,
+                        description: crab.description,
                         animation_url: `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/${crab.crabId}`,
                         image: crab.image,
                         attributes: [
@@ -37,7 +37,7 @@ const crabImageViewerHandler = async (req, res) => {
                                 value: crab.shell,
                             },
                             {
-                                trait_type: "Head Pieces",
+                                trait_type: "HeadPieces",
                                 value: crab.headpieces,
                             },
                         ],
