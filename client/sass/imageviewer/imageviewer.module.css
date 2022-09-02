@@ -67,6 +67,14 @@
   pointer-events: auto;
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: PFRondaSeven;
+}
+
 .component_zone {
   pointer-events: auto;
   height: 80%;

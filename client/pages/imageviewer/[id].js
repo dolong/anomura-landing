@@ -82,7 +82,7 @@ export default function AnimateViewerDetails() {
         return <div>Loading...</div>;
     } else {
         if (!data) {
-            return <div>Failed to load this anomuras</div>;
+            return <div className={s.loading}>Loading this anomura</div>;
         }
         const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
         let isDrawHeadpieces;

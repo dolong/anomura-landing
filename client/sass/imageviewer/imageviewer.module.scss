@@ -92,6 +92,10 @@ $bp-xl-4: 230em;            // 3840
         pointer-events: auto;
     }
 }
+.loading {
+    @include m.flex-master(column, center, center);
+    font-family: PFRondaSeven;
+}
 
 .component {
 	&_zone {
