@@ -1,4 +1,4 @@
-const { DEEPSEACHALLENGER_HOST } = process.env;
+const { DEEPSEACHALLENGER_HOST, MINT_BOWL_HOST } = process.env;
 module.exports = {
     webpack: (config) => {
         config.experiments = config.experiments || {};
@@ -61,6 +61,18 @@ module.exports = {
             {
                 source: "/gallery",
                 destination: `/imageviewer`,
+            },
+            {
+                source: "/mint",
+                destination: `${MINT_BOWL_HOST}/mint`,
+            },
+            {
+                source: "/mint/:path*",
+                destination: `${MINT_BOWL_HOST}/mint/:path*`,
+            },
+            {
+                source: "/mint(.*)",
+                destination: `${MINT_BOWL_HOST}/mint$1`,
             },
         ];
     }, async redirects() {
