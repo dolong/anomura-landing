@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
-import s from "/sass/home/home.module.css";
+import s from "/sass/home/meetTheTeam/index.module.css";
 
-const InitialOffset = 4200,
-    TwentyEightHundredOffset = -500,
-    TwentyFiveHundredOffset = -500,
-    NineteenHundredOffset = -500,
-    SixteenHundredOffset = -500,
-    TwelveHundredOffSet = -100,
-    OneThousandOffSet = -700,
-    EightHundredOffSet = -550,
-    SixHundredOffSet = -650,
-    FourHundredOffSet = -220;
+const InitialOffset = 3700,
+    ThirtyEightHundredOffset = 3000,
+    TwentyEightHundredOffset = 2250,
+    TwentyFiveHundredOffset = 2100,
+    NineteenHundredOffset = 700,
+    SixteenHundredOffset = 600,
+    TwelveHundredOffSet = 700,
+    OneThousandOffSet = 700,
+    EightHundredOffSet = 650,
+    SixHundredOffSet = -60,
+    FourHundredOffSet = -150;
 
 export default function MeetTheTeam({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
@@ -19,6 +20,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        ThirtyEightHundredOffset,
         TwentyEightHundredOffset,
         TwentyFiveHundredOffset,
         NineteenHundredOffset,
@@ -32,7 +34,8 @@ export default function MeetTheTeam({ ScrollPercent }) {
 
     React.useEffect(() => {
         if (window?.innerWidth <= 1200) setScrollSpeed(-28);
-        if (window?.innerWidth <= 600) setScrollSpeed(-22);
+        if (window?.innerWidth <= 600) setScrollSpeed(-12);
+        if (window?.innerWidth <= 375) setScrollSpeed(-12);
     }, []);
 
     return (
@@ -52,11 +55,11 @@ export default function MeetTheTeam({ ScrollPercent }) {
                 <div className={s.meetTheTeam_members}>
                     <div className={s.meetTheTeam_members_wrapper}>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice.png" />
+                                        <img src="/img/home/team/Long 5x.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -70,11 +73,11 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             </div>
                         </div>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice.png" />
+                                        <img src="/img/home/team/Daniele 5x.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -88,11 +91,11 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             </div>
                         </div>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice.png" />
+                                        <img src="/img/home/team/Bernice 5x.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -106,11 +109,11 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             </div>
                         </div>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice.png" />
+                                        <img src="/img/home/team/Momo 5x.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -124,7 +127,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             </div>
                         </div>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
@@ -142,11 +145,11 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             </div>
                         </div>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice.png" />
+                                        <img src="/img/home/team/Laura5x.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -160,11 +163,11 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             </div>
                         </div>
                         <div className={s.meetTheTeam_members_card}>
-                            <img src="/img/home/team/card.png" />
+                            <img src="/img/home/team/team_background.svg" />
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice.png" />
+                                        <img src="/img/home/team/Isaac 5x.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>

@@ -3,27 +3,28 @@ import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import { randomIntFromInterval } from "../../utils/utils";
 
-// const InitialOffset = 2180,
-//     TwentyEightHundredOffset = -120,
-//     TwentyFiveHundredOffset = 150,
-//     NineteenHundredOffset = -120,
+const InitialOffset = 2050,
+    ThirtyEightHundredOffset = 1655,
+    TwentyEightHundredOffset = 975,
+    TwentyFiveHundredOffset = 860,
+    NineteenHundredOffset = 220,
+    SixteenHundredOffset = 50,
+    TwelveHundredOffSet = 350,
+    OneThousandOffSet = 250,
+    EightHundredOffSet = 300,
+    SixHundredOffSet = -50,
+    FourHundredOffSet = -70;
+
+// const InitialOffset = 1980,
+//     TwentyEightHundredOffset = -220,
+//     TwentyFiveHundredOffset = -220,
+//     NineteenHundredOffset = -220,
 //     SixteenHundredOffset = -220,
 //     TwelveHundredOffSet = -150,
 //     OneThousandOffSet = -250,
 //     EightHundredOffSet = -250,
 //     SixHundredOffSet = -190,
 //     FourHundredOffSet = -250;
-
-const InitialOffset = 1980,
-    TwentyEightHundredOffset = -220,
-    TwentyFiveHundredOffset = -220,
-    NineteenHundredOffset = -220,
-    SixteenHundredOffset = -220,
-    TwelveHundredOffSet = -150,
-    OneThousandOffSet = -250,
-    EightHundredOffSet = -250,
-    SixHundredOffSet = -190,
-    FourHundredOffSet = -250;
 
 const anomuras = [
     "/img/home/anatomy/01.webp",
@@ -80,6 +81,7 @@ export default function CrabAnat({ ScrollPercent }) {
         ScrollPercent,
         scrollSpeed,
         InitialOffset,
+        ThirtyEightHundredOffset,
         TwentyEightHundredOffset,
         TwentyFiveHundredOffset,
         NineteenHundredOffset,
@@ -93,7 +95,8 @@ export default function CrabAnat({ ScrollPercent }) {
 
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1200) setScrollSpeed(-14);
-        if (window.innerWidth <= 600) setScrollSpeed(-8);
+        if (window.innerWidth <= 600) setScrollSpeed(-5.8);
+        if (window.innerWidth <= 375) setScrollSpeed(-7.5);
     }, []);
 
     React.useEffect(() => {

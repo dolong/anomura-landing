@@ -8,6 +8,7 @@ import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 import { BufferLoader } from "utils/buffer-loader";
 import { Navbar } from "@components/home/ComponentIndex";
+import useDeviceDetect from "lib/useDeviceDetect";
 
 const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut, NFT } = {
 	EnterInfinity: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.EnterInfinity), {
@@ -37,6 +38,7 @@ const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut, NFT } = {
 
 export default function Home() {
 	const setOffsetY = useScrollEvent();
+	const { isMobile } = useDeviceDetect();
 	const scrollPercent = useRecoilValue(ScrollValue);
 	let bufferLoader, audioContext;
 	const [audioState, setAudioState] = useState("unloaded");
@@ -52,6 +54,10 @@ export default function Home() {
 		chestOpen: {},
 		fishPass: {},
 	});
+
+	useEffect(() => {
+
+	}, [isMobile]);
 
 	function LoadAudios() {
 		const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -94,7 +100,13 @@ export default function Home() {
 		} else {
 			PlayBackgroundMusic();
 		}
-		return () => { };
+
+		return () => {
+			if (audioState != "unloaded") {
+				audioControl.bgMusic.stop()
+			}
+		};
+
 	}, [audioState]);
 
 	const onFinishedLoadingAudioSource = (bufferList) => {
@@ -109,7 +121,6 @@ export default function Home() {
 					this.bgMusic.playSound(0.5);
 				}
 			},
-
 			bufferList,
 			bgMusic: {
 				source: audioContext.createBufferSource(),
@@ -125,8 +136,9 @@ export default function Home() {
 					this.source.loop = true;
 					this.source.start(0);
 					this.gainNode.gain.value = 0.5;
+					this.isPlaying = true;
 				},
-				isPlaying: false,
+
 				setVolume: function (val) {
 					if (val === 0) {
 						let counter = 0;
@@ -148,6 +160,12 @@ export default function Home() {
 							}
 						}, 100);
 					}
+				},
+				stop: function () {
+					if (this.source && this.isPlaying) {
+						this.source.stop();
+					}
+					this.isPlaying = false;
 				},
 			},
 			chestOpen: {
@@ -272,28 +290,28 @@ export default function Home() {
 
 			<img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
 
-			{/* Parallax Zone */}
+
 			<div className={s.parallax_group}>
-				{/* <Navbar /> */}
+				<Navbar isMobile={isMobile} />
 				<ShopZone audioControl={audioControl} setAudioControl={setAudioControl} />
-				<NFT ScrollPercent={scrollPercent} audioControl={audioControl}></NFT>
+				<EnterInfinity ScrollPercent={scrollPercent} ></EnterInfinity>
+				{/* <NFT ScrollPercent={scrollPercent} audioControl={audioControl} /> */}
 				<CrabAnat ScrollPercent={scrollPercent} />
-				{/* <EnterInfinity ScrollPercent={scrollPercent} ></EnterInfinity> */}
-				<CrabAnat ScrollPercent={scrollPercent}></CrabAnat>
-				<WhenIsItOut
+
+				{/* <WhenIsItOut
 					ScrollPercent={scrollPercent}
 					audioControl={audioControl}
 
-				/>
-				{/* <MeetTheTeam ScrollPercent={scrollPercent} /> */}
+				/> */}
+				<MeetTheTeam ScrollPercent={scrollPercent} />
 				<Footer ScrollPercent={scrollPercent} audioControl={audioControl} />
 			</div>
-			{/* End Of Parallax Zone */}
+
 
 			{/* Css modules cant have a none pure style in 
        /  it like body so making a JSS style here 
        /  and applying it globally */}
-			<style>{`
+			{/* <style>{`
         body {
           overflow-x:hidden;
           font-size: clamp(18px,2vw,28px);
@@ -301,7 +319,7 @@ export default function Home() {
           color: #fff;
           line-height: 1.5;
         }
-      `}</style>
+      `}</style> */}
 		</div>
 	);
 }

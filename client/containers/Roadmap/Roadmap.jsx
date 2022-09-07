@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import s from "/sass/home/home.module.css";
+import s from "/sass/home/roadmap/index.module.css";
 
-export default function Roadmap({ ScrollPercent, isParalax }) {
+export default function Roadmap() {
     const [isInView, setIsInView] = useState({
         build: false,
         sustainability: false,
@@ -241,61 +241,61 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
     };
 
     return (
-        <div className={s.when_zoneNoParalax}>
-            <div className={s.when_containerNoParalax}>
-                <div className={s.when_text}>
-                    <div className={s.when_heading}>ROADMAP</div>
+        <div className={s.roadmap_wrapper}>
+            <div className={s.roadmap_container}>
+                <div className={s.roadmap_text}>
+                    <div className={s.roadmap_heading}>ROADMAP</div>
                 </div>
-                <div className={s.when_roadmap}>
-                    <div className={s.when_roadmap_wrapper}>
-                        <div className={s.when_roadmap_container}>
-                            <div className={s.when_roadmap_timeline}>
+                <div className={s.roadmap_divider}>
+                    <div className={s.roadmap_divider_wrapper}>
+                        <div className={s.roadmap_divider_container}>
+                            <div className={s.roadmap_divider_timeline}>
                                 {/******************* BUIDL  *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img src="/img/home/whenSection/BUIDL.gif" alt="" />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
-                                        <div className={s.when_roadmap_item_labels_progress}>
+                                    <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
                                             COMPLETED
                                         </div>
                                         <span
                                             ref={buildRef}
-                                            className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.build ? s.when_roadmap_purpleLeft : ""
+                                            className={`${s.roadmap_divider_item_labels_title} ${
+                                                isInView.build ? s.roadmap_divider_purpleLeft : ""
                                             }`}
                                         >
                                             BUIDL!
                                         </span>
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Release The Cove's DeepSea Challenger
                                         </div>
                                     </div>
                                 </div>
 
                                 {/******************* SUSTAINABILITY  *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Sustainability.png"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
-                                        <div className={s.when_roadmap_item_labels_progress}>
+                                    <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
                                             COMPLETED
                                         </div>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
+                                            className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.sustainability
-                                                    ? s.when_roadmap_purpleRight
+                                                    ? s.roadmap_divider_purpleRight
                                                     : ""
                                             }`}
                                             ref={sustainRef}
                                         >
                                             Sustainability
                                         </span>
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Partner with Aerial to become world's first Ocean
                                             Positive P&E game
                                         </div>
@@ -303,31 +303,31 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
                                 </div>
 
                                 {/******************* SHELL Redemption  *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Shell Redemption.gif"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
-                                        <div className={s.when_roadmap_item_labels_progress}>
+                                    <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
                                             IN PROGRESS
                                         </div>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
+                                            className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.shellRedemption
-                                                    ? s.when_roadmap_purpleLeft
+                                                    ? s.roadmap_divider_purpleLeft
                                                     : ""
                                             }`}
                                             ref={redemptionRef}
                                         >
                                             $SHELL Redemption
                                         </span>
-                                        <div className={s.when_roadmap_item_labels_target}>
+                                        <div className={s.roadmap_divider_item_labels_target}>
                                             Live: Aug 29-30
                                         </div>
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Spend your hard-earned $SHELL on different types of
                                             rewards
                                         </div>
@@ -335,29 +335,31 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
                                 </div>
 
                                 {/******************* Mystery Bowl Mint *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Mystery Bowl Mint.gif"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
-                                        <div className={s.when_roadmap_item_labels_progress}>
+                                    <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
                                             IN PROGRESS
                                         </div>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.bowlMint ? s.when_roadmap_purpleRight : ""
+                                            className={`${s.roadmap_divider_item_labels_title} ${
+                                                isInView.bowlMint
+                                                    ? s.roadmap_divider_purpleRight
+                                                    : ""
                                             }`}
                                             ref={mintRef}
                                         >
                                             Mystery Bowl Mint
                                         </span>
-                                        <div className={s.when_roadmap_item_labels_target}>
+                                        <div className={s.roadmap_divider_item_labels_target}>
                                             Live: Sept 6
                                         </div>
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Release of limited supply Founder’s Edition Mystery
                                             Bowls
                                         </div>
@@ -365,18 +367,18 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
                                 </div>
 
                                 {/******************* Anomura Hatching *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Anomura-Hatching.gif"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
+                                    <div className={s.roadmap_divider_item_labels}>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
+                                            className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.anomuraHatching
-                                                    ? s.when_roadmap_purpleLeft
+                                                    ? s.roadmap_divider_purpleLeft
                                                     : ""
                                             }`}
                                             ref={anomuraHatchRef}
@@ -384,78 +386,80 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
                                             Anomura Hatching
                                         </span>
 
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Generative Anomura will hatch and reveal rarity
                                         </div>
                                     </div>
                                 </div>
 
                                 {/******************* GAME DEMO  *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Launch F2P Demo.gif"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
-                                        <div className={s.when_roadmap_item_labels_progress}>
+                                    <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
                                             IN PROGRESS
                                         </div>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.gameDemo ? s.when_roadmap_purpleRight : ""
+                                            className={`${s.roadmap_divider_item_labels_title} ${
+                                                isInView.gameDemo
+                                                    ? s.roadmap_divider_purpleRight
+                                                    : ""
                                             }`}
                                             ref={gameDemoRef}
                                         >
                                             Launch F2P Game Concept Demo
                                         </span>
-                                        <div className={s.when_roadmap_item_labels_target}>
+                                        <div className={s.roadmap_divider_item_labels_target}>
                                             Target date: Q4 2022
                                         </div>
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Discover the world of Anomura -- without a wallet!
                                         </div>
                                     </div>
                                 </div>
 
                                 {/******************* Web first game experience *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Web First Game.gif"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
+                                    <div className={s.roadmap_divider_item_labels}>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.webGame ? s.when_roadmap_purpleLeft : ""
+                                            className={`${s.roadmap_divider_item_labels_title} ${
+                                                isInView.webGame ? s.roadmap_divider_purpleLeft : ""
                                             }`}
                                             ref={webGameRef}
                                         >
                                             Launch Web-based Game Experience
                                         </span>
 
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Play Anomura on all compatible web browsers
                                         </div>
                                     </div>
                                 </div>
 
                                 {/******************* Earn equipment NFTs *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Earn Equipment NFTs.png"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
+                                    <div className={s.roadmap_divider_item_labels}>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
+                                            className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.equipmentNFT
-                                                    ? s.when_roadmap_purpleRight
+                                                    ? s.roadmap_divider_purpleRight
                                                     : ""
                                             }`}
                                             ref={equipmentRef}
@@ -463,46 +467,48 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
                                             Earn Equipment NFTs
                                         </span>
 
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Collect & level up your Anomura
                                         </div>
                                     </div>
                                 </div>
 
                                 {/******************* Launch Inventory System *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img
                                             src="/img/home/whenSection/Launch Inventory System.gif"
                                             alt=""
                                         />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
+                                    <div className={s.roadmap_divider_item_labels}>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
-                                                isInView.inventory ? s.when_roadmap_purpleLeft : ""
+                                            className={`${s.roadmap_divider_item_labels_title} ${
+                                                isInView.inventory
+                                                    ? s.roadmap_divider_purpleLeft
+                                                    : ""
                                             }`}
                                             ref={inventoryRef}
                                         >
                                             Launch Inventory System
                                         </span>
 
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Equip and view your Anomura NFT on our dApp
                                         </div>
                                     </div>
                                 </div>
 
                                 {/******************* Launch Mobile Game App *****************/}
-                                <div className={s.when_roadmap_item}>
-                                    <div className={s.when_roadmap_item_img}>
+                                <div className={s.roadmap_divider_item}>
+                                    <div className={s.roadmap_divider_item_img}>
                                         <img src="/img/home/whenSection/Mobile app.gif" alt="" />
                                     </div>
-                                    <div className={s.when_roadmap_item_labels}>
+                                    <div className={s.roadmap_divider_item_labels}>
                                         <span
-                                            className={`${s.when_roadmap_item_labels_title} ${
+                                            className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.mobileGame
-                                                    ? s.when_roadmap_purpleRight
+                                                    ? s.roadmap_divider_purpleRight
                                                     : ""
                                             }`}
                                             ref={mobileGameRef}
@@ -510,7 +516,7 @@ export default function Roadmap({ ScrollPercent, isParalax }) {
                                             Launch Mobile Game App
                                         </span>
 
-                                        <div className={s.when_roadmap_item_labels_description}>
+                                        <div className={s.roadmap_divider_item_labels_description}>
                                             Play Anomura wherever you go
                                         </div>
                                     </div>

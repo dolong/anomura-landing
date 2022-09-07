@@ -20,7 +20,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
 
     const handleScroll = () => {
         if (showBanner) return;
-        if (window.scrollY > 250) setShowBanner(true);
+        // if (window.scrollY > 250) setShowBanner(true);
     };
 
     const TurnOffSound = (e) => {

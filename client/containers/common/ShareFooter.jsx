@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useScrollValue } from "/lib/useScrollValue";
-import s from "/sass/home/home.module.css";
+import s from "/sass/home/shareFooter/index.module.css";
 import Link from "next/link";
 
 export default function ShareFooter({ audioControl }) {

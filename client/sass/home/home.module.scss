@@ -45,87 +45,6 @@ $mobile-text-size: 0.875rem;
 $mobile-lineHeight: 1.5rem;
 $header-space-bottom: 60px;
 
-/* For all heading on top of paragraph  */
-@mixin heading(){
-	font-size: 3.75rem; // based on Miro size 60px;
-	line-height: 2.6rem; // to not have space below this font-family;
-	font-family: Safety Goggles;
-	margin-bottom: $header-space-bottom;
-	text-align: center;
-
-	@media only screen and (min-width: 2560px) {
-		font-size: 6.67rem;
-		line-height: 31px;
-	} 
-
-	@media only screen and (min-width: 1440px) {
-		font-size: 5.15rem;
-		line-height: 31px;
-	} 
-
-	@media only screen and (max-width: 850px) {
-		font-size: 3.1875rem;
-		line-height: 2.4rem;
-	} 
-
-	@media only screen and (max-width: 600px) {
-		font-size: 2.1875rem;
-	} 
-}
-
-@mixin paragraphContainer(){
-	font-size: 0.8rem;
-	font-weight: 400;
-	font-style: normal;
-	text-align: center;
-	position: relative;
-	font-family: PFRondaSeven;
-	line-height: 31px;
-
-	& > p {
-		margin-bottom: 1rem;
-		@media only screen and (min-width: 800px) {
-			margin-bottom: 30px;
-		} 
-	}
-	& > p:last-child {
-		margin-bottom:0px;
-	}
-	margin-bottom: 60px;
-
-	@media only screen and (min-width: 400px) {
-		font-size: 0.875rem;
-	} 
-	@media only screen and (min-width: 600px) {
-		font-size: 0.875rem;
-		line-height: 23px;
-	}
-	@media only screen and (min-width: 768px) {
-		font-size: 1rem;
-		line-height: 28px;
-	} 
-	@media only screen and (min-width: 800px) {
-		font-size: 0.9rem;
-	}
-	@media only screen and (min-width: 1000px) {
-		font-size: 1rem;
-	
-	} 
-	@media only screen and (min-width: 1440px) {
-		// font-size: 1.546rem;
-		font-size: 1.25rem;
-		line-height: 31px;
-	} 
-	@media (min-width: $bp-xl-3) {  
-		font-size: 1.5rem;
-		line-height: 2.5rem;
-	}
-	@media (min-width: $bp-xl-4) {  
-		
-		
-	}
-	
-}
 @mixin rarityHover () {
 	position:relative; 
 	display: inline-block;
@@ -173,12 +92,12 @@ $header-space-bottom: 60px;
 	background-size: 100% 25%;
  	padding-bottom: 60%;
 
-	@media only screen and (max-width: 3800px) {
-		background-size: 100% 25%;
+	@media only screen and (max-width: 3840px) {
+		background-size: 100% 31%;
 	}  
 
 	@media only screen and (max-width: 2560px) {
-		background-size: 100% 25%;
+		background-size: 100% 29%;
 	} 
 
 	@media only screen and (max-width: 1600px) {
@@ -254,7 +173,6 @@ $header-space-bottom: 60px;
 		margin: 0.5vw 1vw 0 0;
 	}
 }
-
 .banner {
 	&_zone {
 		position: fixed;
@@ -379,12 +297,9 @@ $header-space-bottom: 60px;
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
-
 		z-index:3;
-		padding-top: 4.5%;
-		
+		padding-top: 6.5%;
 	}
-
 	&_fish1 {
 		width: min(8vw, 131px);
 		position: relative;
@@ -412,6 +327,13 @@ $header-space-bottom: 60px;
 	&_img {
 		width: min(70vw, 850px); 
 		z-index:2;
+
+		@media (min-width: $bp-xl-3) {  
+			width: min(70vw, 1250px); 
+		}
+		@media (min-width: $bp-xl-4) {  
+			width: min(70vw, 1700px); 
+		}
 	}
 }
 .sand {
@@ -442,7 +364,7 @@ $header-space-bottom: 60px;
 		z-index: 2;
 	}
 	&_paragraphContainer {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 		color: #064F43;
 		font-weight: 600;
 		text-align: center;
@@ -450,26 +372,40 @@ $header-space-bottom: 60px;
 	&_hero{
 		&_header{
 			font-family: Safety Goggles;
-			font-size: 60px;
+			font-size: 1.65rem;
 			margin-bottom: 4rem;
-			text-shadow: -3px -6px #7EB877;
+			text-shadow: -2px -5px #7EB877;
 			color: #246B5A;
+			@media only screen and (max-width: 3840px) {
+				font-size: 4.5rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
+			@media only screen and (max-width: 2560px) {
+				font-size: 4.25rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
+			@media only screen and (max-width: 1980px) {
+				font-size: 3.75rem;
+				line-height: 2.25rem;
+				margin-bottom: 2rem;
+			}
 			@media only screen and (max-width: 1440px) {
 				font-size: 3.1875rem;
 				line-height: 2.25rem;
-				margin-bottom: 1rem;
+				margin-bottom: 2rem;
 			}
 			@media only screen and (max-width: 850px) {
-				font-size: 3.1875rem;
+				font-size: 2.25rem;
 				line-height: 2.25rem;
 				margin-bottom: 1rem;
 			} 
 			@media only screen and (max-width: 600px) {
-				font-size: 2.175rem;
+				font-size: 1.9rem;
 			} 
 			@media only screen and (max-width: 400px) {
-				font-size: 1.75rem;
-				margin-bottom: 0rem;
+				font-size: 1.65rem;
 			}
 		}
 		&_text{
@@ -479,14 +415,13 @@ $header-space-bottom: 60px;
 	&_img {
 		width: min(60vw, 850px);
 		position: relative;
-		margin-bottom: 40px;
+		margin-bottom: 30px;
 		@media only screen and (max-width: 600px) {
 			display: none;
 		}
 	}
 
 	&_imgMobile {
-		
 		display: none;
 		@media only screen and (max-width: 600px) {
 			display: flex;
@@ -524,7 +459,7 @@ $header-space-bottom: 60px;
 		}
 		&_twitter{
 			// padding percentage is always calculated based on the element's width
-			width:26%;
+			width: 26%;
 			height:0;
 			padding-bottom: 21%;
 
@@ -713,12 +648,12 @@ $header-space-bottom: 60px;
 		text-align: center;
 	}
 	&_heading {
-		@include heading();	
+		@include m.heading();	
 		text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
 		margin-bottom: $header-space-bottom;
 	}
 	&_paragraphContainer {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 	}
 
 	&_star1Container {
@@ -773,216 +708,11 @@ $header-space-bottom: 60px;
 		}
 	}
 }
-.enterInifinity {
-	pointer-events: none;
-	@include m.z-layers(3, "/img/home/backgrounds/Layer3.png", 65%);
-	@include m.flex-master(null, center, null);
-	shape-outside: url("/img/home/backgrounds/Layer3.png");
-
-	&_container {
-		width: $desktop-text-section;
-	}
-	&_text {
-		@include m.flex-master(column, null, center);
-		margin-top: 70%;
-		position: relative;
-		text-align: center;
-	}
-	&_heading {
-		@include heading();	
-		text-shadow: 2px 5px rgba(0, 0, 0, 0.25);
-		margin-bottom: $header-space-bottom;
-	}
-	&_paragraphContainer {
-		@include paragraphContainer();
-	}
-
-	&_content {
-        @include m.flex-master(column, null, center);
-        width: 100%;
-        height: 100%;
-        margin-top: 10%;
-        gap: 0.5rem;
-    
-        @media (min-width: $bp-med-2) {  
-            @include m.flex-master(row, center, center);
-            margin-top: 7%;
-        }
-
-        &_picture {
-            height: auto;
-            width: 100%;
-            @include m.flex-master(column, null, center);
-
-            @media (min-width: $bp-med-2) {  
-                flex: 55%;
-                height: 100%;
-            }
-            
-            &_canvas {
-                width: 60%;
-                box-sizing: content-box;
-
-                @media (min-width: $bp-med-2) {  
-                    width: 85%;
-                }
-                & > div {
-                    width: 100%;
-                    & > canvas {
-                        border: solid 5px #617E82;
-                        border-radius: 12px;
-
-                        @media (min-width: $bp-med-2) {  
-                            border: solid 5px #617E82;
-                        }
-                    }
-                }
-            }
-            &_buttons {
-                @include m.flex-master(row, space-between, null);
-                width: 60%;
-                margin-top: 0.5rem;
-                gap: 1rem;
-
-                @media (min-width: $bp-med-2) { 
-                    margin-top: 2rem; 
-                    width: 85%;
-                }
-                @media (min-width: $bp-xl-2) { 
-                    margin-top: 2.5rem; 
-                }
-                & > button {
-                    @include m.medium_button();
-                    &:hover {
-                        color: #CE3C85;
-                    }
-            
-                    &:disabled {
-                        cursor: not-allowed!important;
-                        color: #fff!important;
-                        &:hover {
-                            color: #A2B7B6!important;
-                        }
-                    }
-                }
-
-                &_amount {
-                    @include m.flex-master(row, center, null);
-                    min-width: 45%;
-                    width: 45%;
-                    position:relative;
-	                // width: auto;
-                    padding: 0;
-                    color: #FF5FB7;
-	    
-                    // width: min(50%, 120px);
-	                & > div {
-	                	position:absolute;
-                        @include m.flex-master(row, space-evenly, center);
-	                	text-align: center;
-	                	height: 90%;
-                        width: 100%;
-
-                        & > button {
-                            font-size: 2.5vh;
-                            color: #A3B7B6;
-                            font-weight: bold;
-                            font-family: Safety Goggles;
-                            @media (min-width: $bp-small-2) {  
-                                font-size: 2.5vh;
-                            }
-                            @media (min-width: $bp-med-2) {  
-                                font-size: 2.5vh;
-                            }
-                            @media (min-width: $bp-large-2) {  
-                                font-size: 2.5vh;
-                            }
-                            @media (min-width: $bp-xl) {  
-                                font-size: 3rem;
-                            }
-                            @media (min-width: $bp-xl-2) {  
-                                font-size: 3rem;
-                            }
-                            @media (min-width: $bp-xl-3) {  
-                                font-size: 3.25rem;
-                            }
-
-                            &:disabled {
-                                cursor: not-allowed!important;
-                                // &:hover {
-                                //     color: #A2B7B6!important;
-                                // }
-                            }
-                        }
-                    
-	                	& > span { 
-                            font-size: 3vh;
-	                        font-family: Safety Goggles;
-	                        text-align: center;
-                            line-height: 1.05rem;
-
-                            @media (min-width: $bp-small) {  
-                                font-size: 1rem;
-                            }
-                            @media (min-width: $bp-small-2) {  
-                                font-size: 1.15rem;
-                            }
-	                        @media (min-width: $bp-small-3) {  
-                                font-size: 1.55rem;
-                                line-height: 1.35rem;
-                            }
-                            @media (min-width: $bp-med-2) {  
-                                font-size: 1.85rem;
-                            }
-                            @media (min-width: $bp-xl) {  
-                                font-size: 2.75rem;
-                            }
-                            @media (min-width: $bp-xl-2) {  
-                                font-size: 3.25rem;
-                            }
-	                	}
-                        & > img { 
-                            margin-left: 0.3rem;
-                            max-height: 50%;
-                            width: auto!important;
-                        
-                            @media (min-width: $bp-small-3) {  
-                                max-height: 75%;
-                            }
-                            @media (min-width: $bp-med-2) {  
-                                max-height: 75%;
-                            }
-                        
-                            @media (min-width: $bp-large-2) {  
-                                max-height: 75%;
-                            }
-	                	}
-                    }
-                }
-            }
-        }
-    
-        &_paragraph {
-            // flex: 50%;
-            // height: 100%;
-            @include m.flex-master(column, null, null);
-
-            @media (min-width: $bp-med-2) { 
-                @include m.flex-master(column, null, null);
-                flex: 50%;
-                height: 100%;
-            }
-
-            @include paragraphContainer();
-			text-align: left;
-        } 
-    }
-	
-}
 .crab {
 	&_anat {
 		@include m.z-layers(4, "/img/home/backgrounds/Layer4.png", 60%);
 		@include m.flex-master(null, center, null);
+		// pointer-events: none;
 	}
 	
 	&_container {
@@ -994,7 +724,7 @@ $header-space-bottom: 60px;
 		align-items:center;
 	}
 	&_heading {
-		@include heading();	
+		@include m.heading();	
 		text-shadow: 1px 4px #004D41;
 		word-spacing: 0rem;
 		letter-spacing: 0rem;
@@ -1007,7 +737,7 @@ $header-space-bottom: 60px;
 		}
 	}
 	&_paragraphContainer {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 		margin-bottom: $header-space-bottom;
 		position:relative; 
 	}
@@ -1020,8 +750,13 @@ $header-space-bottom: 60px;
 		& > a {
 			position:relative;
 			width: 202px;
-			height:90px;
+			height: 90px;
 			color: #FFFFFF!important;
+
+			@media (min-width: $bp-xl-3) {  
+				width: 404px;
+				height: 280px;
+			}
 
 			& > div {
 				position:absolute;
@@ -1034,6 +769,13 @@ $header-space-bottom: 60px;
 				align-items: center;
 				font-family: Safety Goggles;
 				font-size:2.1875rem;
+
+				@media (min-width: $bp-xl-3) {  
+					width: 250px;
+					height: 140px;
+
+					font-size: 4rem;
+				}
 			}
 			&:hover {
 				color: #38796D!important;
@@ -1093,13 +835,17 @@ $header-space-bottom: 60px;
 		width: min(60vw, 500px);
 		height:auto;
 		position:relative;
+
+		@media (min-width: $bp-xl-3) {  
+			width: min(60vw, 800px);
+		}
 		
 		&_image {
 			position:absolute;
 			width: 87%;
 			height: auto;
 			left: 1.8rem;
-			top:7.5%;
+			top: 7.5%;
 			z-index: -1;
 
 			& > img {
@@ -1191,18 +937,18 @@ $header-space-bottom: 60px;
 		line-height: $mobile-lineHeight;
 	}
 	&_heading {
-		@include heading();	
+		@include m.heading();	
 		font-weight: 400;
 	}
 	&_paragraphContainer {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 	}
 	&_roadmap {
 		/* The actual timeline (the vertical ruler) */
 		&_timeline {
 			display:block;
 			position: relative;
-			max-width: 1200px;
+			max-width: 1800px;
 			margin: 0 auto;
 
 			/* The actual timeline (the vertical ruler) */
@@ -1269,11 +1015,11 @@ $header-space-bottom: 60px;
 				margin-bottom: 2.5rem;
 			}
 			@media (min-width: $bp-xl-2) {  
-				margin-bottom: 0.5rem;
+				margin-bottom: 2.5rem;
 			}
-			 @media (min-width: $bp-xl-3) {  
-			 	margin-bottom: 0rem;
-			 }
+			@media (min-width: $bp-xl-3) {  
+				margin-bottom: 3rem;
+			}
 			&_img {
 				position: relative;
 				width:100%;
@@ -1295,6 +1041,17 @@ $header-space-bottom: 60px;
 				@include m.flex-master(column, center, null);
 				width:100%;
 				gap:0.25rem;
+
+				@media (min-width: $bp-large-2) {  
+					gap:0.5rem;
+				}
+
+				@media (min-width: $bp-xl-2) {  
+					gap:0.75rem;
+				}
+				@media (min-width: $bp-xl-4) {  
+					gap:1.75rem;
+				}
 
 				&_progress {
 					font-size: 0.6rem;
@@ -1321,7 +1078,14 @@ $header-space-bottom: 60px;
 						font-size: 0.7rem;
 					}	
 					@media (min-width: $bp-xl) {  
-						// font-size: 2rem;
+						font-size: 0.9rem;
+					}
+					@media (min-width: $bp-xl-3) {  
+						font-size: 1.25rem;
+						
+					}
+					@media (min-width: $bp-xl-4) {  
+						font-size: 1.5rem;
 					}
 				}
 				&_title {
@@ -1352,17 +1116,21 @@ $header-space-bottom: 60px;
 						font-size: 2.25rem;
 					}
 					@media (min-width: $bp-xl-3) {  
-						font-size: 2.25rem;
+						font-size: 3.5rem;
+						line-height: 3.75rem;
+					}
+					@media (min-width: $bp-xl-4) {  
+						font-size: 4rem;
 					}
 				}
 				&_target {
-					@include paragraphContainer();
+					@include m.paragraphContainer();
 					color: #FF5FB7;
 					text-align: left;
 					margin-bottom: 0px;
 				}
 				&_description {
-					@include paragraphContainer();
+					@include m.paragraphContainer();
 					color: #487BFF;
 					text-align: left;
 					margin-bottom: 0px;
@@ -1514,184 +1282,6 @@ $header-space-bottom: 60px;
 		}
 	}
 }
-.meetTheTeam {
-	&_zone {
-		@include m.z-layers(5, "/img/home/backgrounds/Layer5_Long.png", 90%);
-		@include m.flex-master(column, null, center);
-		padding-bottom: 80%;
-		@media (min-width: $bp-large) {  
-			padding-bottom: 40%;
-		}
-	}
-	
-	&_container {
-		width: $mobile-text-section;
-		margin-top: 65%;
-
-		@media (min-width: $bp-small) {  
-			margin-top: 55%;
-		}
-		@media (min-width: $bp-small-2) {  
-			margin-top: 55%;
-		}
-		@media (min-width: $bp-small-3) {  
-			margin-top: 50%;
-		}
-		@media (min-width: $bp-med-2) {  
-			margin-top: 45%;
-		}
-		@media (min-width: $bp-large) { 
-			margin-top: 42%; 
-			width:$desktop-text-section;
-		}
-		@media (min-width: $bp-large-2) {  
-			margin-top: 40%;
-		}
-		@media (min-width: $bp-xl-2) {  
-			margin-top: 33%;
-		}
-	}
-	&_text {
-		position: relative;
-		text-align: center;
-		line-height: $mobile-lineHeight;
-	}
-	&_heading {
-		@include heading();	
-		font-weight: 400;
-	}
-	&_paragraphContainer {
-		@include paragraphContainer();
-		& > p {
-			// width: 70%;
-		}
-		@include m.flex-master(row, center, center);
-		margin-bottom: 15%;
-	}
-
-	&_members{ 
-		&_wrapper {
-			@include m.flex-master(row, center, center);
-			flex-wrap: wrap;
-			gap: 3rem;
-
-			@media (min-width: $bp-xl-2) {  
-				gap: 4rem;
-			}
-		}
-		&_card {
-			width: 185px;
-			min-width: 20%;
-			margin-top: 2rem;
-			position: relative;
-			
-			@media (min-width: $bp-large-2) {  
-				font-size: 0.7rem;
-			}
-			@media (min-width: $bp-xl) {  
-		
-			}
-			@media (min-width: $bp-xl-2) {  
-				width: 20%;
-				min-width: 20%;
-			}
-			
-		
-			& > img {
-				position: relative;
-			}
-			&_container {
-				@include m.flex-master(column, center, center);
-				position: absolute;
-				top: 0;
-				height: 100%;
-				width: 100%;
-			}
-			&_top {
-				flex: 1;
-				position: relative;
-				@include m.flex-master(column, center, center);
-				&_avatar {
-					width: 75%;
-					margin-top: -15%;
-				}
-			}
-			&_bottom {
-				flex: 1;
-				padding-left: 2rem;
-				padding-right: 2rem;
-				font-family: PFRondaSeven;
-				// text-align: center;
-				@include m.flex-master(column, space-evenly, center);
-
-				&_name {
-					font-size: 0.85rem;
-					margin-top: 0.5rem;
-
-					@media (min-width: $bp-small-2) {  
-						font-size: 0.75rem;
-					}
-					@media (min-width: $bp-small-3) {  
-						font-size: 0.85rem;
-						line-height: 1.35rem;
-					}
-					@media (min-width: $bp-med) {  
-						font-size: 1.15rem;
-					}
-					@media (min-width: $bp-large-2) {  
-						font-size: 1.15rem;
-						line-height: 1.75rem;
-					}
-					@media (min-width: $bp-xl) {  
-						font-size: 1.15rem;
-					}
-					@media (min-width: $bp-xl-2) {  
-						// font-size: $heading-font-size-med;
-					}
-					@media (min-width: $bp-xl-3) {  
-						font-size: 1.45rem;
-						line-height: 2.25rem;
-					}
-				}
-				&_position {
-					color: #95DDC0;
-					font-size: 0.75rem;
-					text-align: center;
-
-					@media (min-width: $bp-small) {  
-						font-size: 0.65rem;
-					}
-					@media (min-width: $bp-small-2) {  
-						font-size: 0.75rem;
-					}
-					@media (min-width: $bp-small-3) {  
-						font-size: 0.8rem;
-						line-height: 1.35rem;
-					}
-					@media (min-width: $bp-med) {  
-						font-size: 1rem;
-					}
-					@media (min-width: $bp-large-2) {  
-						font-size: 1rem;
-						line-height: 1.75rem;
-					}
-					@media (min-width: $bp-xl) {  
-						font-size: 1.1rem;
-					}
-					@media (min-width: $bp-xl-2) {  
-						// font-size: $heading-font-size-med;
-					}
-					@media (min-width: $bp-xl-3) {  
-						font-size: 1.35rem;
-						line-height: 2.25rem;
-					}
-				}
-			}
-			
-		}
-	}
-}
-
 .treasure {
 	&_zone {
 		width: 100%;
@@ -1746,7 +1336,7 @@ $header-space-bottom: 60px;
 	}
 	&_zoneNoParalax {
 		pointer-events:auto;
-		@include m.z-layers(999, "/img/home/backgrounds/Layer6.png", 3%);
+		@include m.z-layers(11, "/img/home/backgrounds/Layer6.png", 3%);
 		@include m.flex-master(column, null, center);
 		position: relative;
 		// padding-bottom: 7%;
@@ -1760,7 +1350,7 @@ $header-space-bottom: 60px;
 		position: relative;
 	}
 	&_followContainer {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 	}
 	&_bubble1 {
 		position: absolute;
@@ -1862,10 +1452,10 @@ $header-space-bottom: 60px;
 		}
 	}
 	&_presented {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 	}
 	&_mission {
-		@include paragraphContainer();
+		@include m.paragraphContainer();
 		& > p {
 			color: #95DDC0;
 		}
@@ -1875,267 +1465,6 @@ $header-space-bottom: 60px;
 		display: flex;
 		justify-content: center;
 		margin-top: min(20vh, 250px);
-		&_line {
-			width: 100%;
-			border-bottom: 1px solid #F55690;
-			position: absolute;
-		}
-		& > div {
-			margin-top: 2rem;
-			
-			font-size:1.25rem; //
-			width: 80%;
-			display: flex;
-			flex-direction: row;
-			justify-content:space-around;
-			& > a {
-				color: #F55690!important;
-				font-family: PFRondaSeven;
-				text-decoration: none;
-				margin-bottom: 0.8rem;
-			}
-		}
-	}
-	&_chestImage{
-		position:absolute;
-		left: -12%;
-		bottom:0;
-		width:40%;
-
-		@media only screen and (max-width: 800px) {
-			display: none;
-		}
-		&_wrapper{
-			position: relative;
-			width:100%;
-			height:500px;
-		}
-		&_card {
-			position: absolute;
-			left:40%;
-			top:3rem;
-			width: clamp(8vw, 25%, 225px);
-		}
-		&_chest {
-			position: absolute;
-			bottom:0;
-			z-index: 2;
-		}
-		&_floor {
-			position: absolute;
-			bottom:0;
-			animation: interference 1.5s infinite ease-out;
-			z-index: 1;
-			opacity: 0.7;
-		}
-		&_light {
-			pointer-events: none;
-			position: absolute;
-			bottom: 0.5rem;
-			animation: interference 1.5s infinite linear;
-			z-index: 3;
-			opacity: 0.7;
-		}
-	}
-	&_fish {
-		position:absolute;
-		right: 0;
-		bottom:0;
-		width:30%;
-
-		@media only screen and (max-width: 800px) {
-			display: none;
-		}
-
-		&_wrapper{
-			position: relative;
-			width:100%;
-			height:500px;
-		}
-
-		&_fishImage {
-			position: absolute;
-			bottom:20%;
-			z-index: 2;
-		}
-	}
-	&_chestAndFish{
-		@media only screen and (min-width: 800px) {
-			display: none;
-		}
-	 	
-	 	position:relative;
-		width: 100vw;
-		margin-left: -40%;
-
-	 	&_wrapper{
-	 		position: relative;
-	 		width:100%;
-			display: flex;
-	 	}
-	 	&_chest {
-	 		//position: absolute;
-			position: relative;
-			top:0;
-			flex:65%;
-	 		z-index: 2;
-			& > :nth-child(2) {
-				position: absolute;
-	 	 		bottom:0;
-	 	 		animation: interference 1.5s infinite ease-out;
-	 	 		z-index: 1;
-	 	 		opacity: 0.7;
-			}
-	 	}
-		&_fishImage {
-		 	position: relative;
-	
-			flex:35%;
-		 	z-index: 2;
-			 & > img {
-				position: absolute;
-				left: -35%;
-			}
-		}
-	 	 &_floor {
-	 	 	position: absolute;
-	 	 	bottom:0;
-	 	 	animation: interference 1.5s infinite ease-out;
-	 	 	z-index: 1;
-	 	 	opacity: 0.7;
-	 	 }
-	 	 &_light {
-	 	 	pointer-events: none;
-	 	 	position: absolute;
-	 	 	bottom: 0.5rem;
-	 	 	animation: interference 1.5s infinite linear;
-	 	 	z-index: 3;
-	 	 	opacity: 0.7;
-	 	 }
-	}
-}
-.shareFooter {
-	&_zone {
-		pointer-events:auto;
-		width: 100%;
-		background-color: #1B0528;
-		// @include m.z-layers(999, "/img/home/backgrounds/Layer6.png", 3%);
-		@include m.flex-master(column, null, center);
-		padding-bottom: 7%;
-		z-index: 999;
-	}
-	&_icon {
-		width: 100%;
-		position: relative;
-		@include m.flex-master(row, center, center);
-		&_wrapper {
-			position: absolute;
-			@include m.flex-master(row, center, center);
-
-			> img:nth-child(1){
-				width: 100%; //57px
-			}
-			> img:nth-child(2) {
-				position: absolute;
-				top:0;
-				z-index: 1;
-				width: 100%;
-			}
-		}
-	}
-	&_container {
-		margin-top: 8.5%;
-		width: $desktop-text-section;
-	}
-	&_follow {
-		margin-bottom: $header-space-bottom;
-		position: relative;
-	}
-	&_followContainer {
-		@include paragraphContainer();
-	}
-	&_bubble1 {
-		position: absolute;
-		height: auto;
-		right: 24%;
-		top: -8rem;
-		width: 40px;
-		@media only screen and (max-width: 1200px) {
-			width: 32px;
-		}
-		@media only screen and (max-width: 800px) {
-			width: 22px;
-		}
-		@media only screen and (max-width: 400px) {
-			width: 15px;
-		}
-	}
-	&_bubble2 {
-		position: absolute;
-		height: auto;
-		right: -18%;
-		top: -6rem;
-		width: 40px;
-		@media only screen and (max-width: 1200px) {
-			width: 32px;
-		}
-		@media only screen and (max-width: 800px) {
-			width: 22px;
-		}
-		@media only screen and (max-width: 400px) {
-			width: 15px;
-		}
-	}
-	&_socials {
-        @include m.flex-master(row, center, center);
-        width:100%;
-      
-        &_wrapper {
-            @include m.flex-master(row, space-evenly, center);
-            gap: 2rem;
-            width: 35%;
-
-            @media (min-width: $bp-small-3) {  
-                // width: 33%;
-            }
-            @media (min-width: $bp-xl-3) {  
-                // width: 27%;
-            }
-
-            &_icon {
-                @include m.flex-master(row, null, center);
-                width: 22%; //63px 22%
-                position: relative;
-    
-                > img:nth-child(1){
-                    margin-top: 4.5%;
-                    margin-left: 4.75%;
-                    width: 91%; //57px
-                }
-                > img:nth-child(2) {
-                    position: absolute;
-                    top:0;
-                    display:none;
-                    z-index: 1;
-                    width: 100%;
-                }
-                
-                &:hover {
-                    > img:nth-child(2) {
-                        display: block;
-                        // background-image: url("/img/imageviewer/Others/Icon Outline.png");
-                    }
-                }
-            }
-        }
-    
-        margin: 1rem 0rem 2rem 0rem;
-    }
-	&_policy {
-		position: relative;
-		display: flex;
-		justify-content: center;
-		margin-top: min(20vh, 125px);
 		&_line {
 			width: 100%;
 			border-bottom: 1px solid #F55690;
@@ -2550,7 +1879,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 	.shop {
 		&_zone {
-			padding-top: 14%;
+			padding-top: 20.5%;
 		}
 		&_img {
 			width: 100vw; 

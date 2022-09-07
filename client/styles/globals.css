@@ -28,7 +28,9 @@
 }
 html,
 body {
+	color: #fff;
 	width: 100%;
+	/* overflow: hidden; */
 }
 
 

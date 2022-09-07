@@ -16,6 +16,7 @@ export function useScrollValue(
     ScrollPercent,
     ScrollSpeed,
     InitialOffset,
+    ThirtyEightHundredOffset = 0,
     TwentyEightHundredOffset = 0,
     TwentyFiveHundredOffset = 0,
     NineteenHundredOffset = 0,
@@ -85,6 +86,13 @@ export function useScrollValue(
         scrollMultiplier = 5;
         calculatedOffsetY = Math.floor(
             InitialOffset + TwentyEightHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
+        );
+        return calculatedOffsetY;
+    }
+    else if (window?.innerWidth <= 3840) {
+        scrollMultiplier = 5;
+        calculatedOffsetY = Math.floor(
+            InitialOffset + ThirtyEightHundredOffset + (ScrollPercent * ScrollSpeed) / scrollMultiplier
         );
         return calculatedOffsetY;
     }

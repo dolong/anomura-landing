@@ -14,24 +14,26 @@ $bp-xl-3: 2560px;            // 2560  160em
 $bp-xl-4: 3840px;            // 2560  160em
 
 .nav {
-    position: fixed;
-    @include m.flex-master(row, center, center);
-	height: 10%;
-	width: 100%;
-    // padding: 0.75rem;
-    z-index: 12;
+    &_wrapper {
+        position: fixed;
+        @include m.flex-master(row, center, center);
+        height: 10%;
+        width: 100%;
+        z-index: 12;
+        margin-top: 0.5rem;
+    }
 
 	&_menu {
 		@include m.flex-master(row, space-between, center);
 		position: relative;
         z-index: 2;
-        width: 80%;
-        background-color: green;
-        border: solid 0.3em green;
-        border-bottom-color: #3581fc;
+        width: 87%;
+        background-color: #5EC1D3;
+ 
         border-radius: 8px;
-        margin: 1.5rem;
-        padding: 0.5rem;
+        margin: 1rem;
+        padding: 1rem;
+        box-shadow: 0px 8px #2483B2;
  
         @media (min-width: $bp-small) {  
             // padding: 0.85rem;
@@ -40,12 +42,28 @@ $bp-xl-4: 3840px;            // 2560  160em
             // padding: 1.25rem;
         }
         @media (min-width: $bp-xl-2) {  
-            // padding: 1.5rem;
+            box-shadow: 0px 12px #2483B2;
         }
         @media (min-width: $bp-xl-3) {  
-            // padding: 2.5rem;
+            box-shadow: 0px 20px #2483B2;
+            border-radius: 12px;
         }
 	}
+    &_bar {
+		@include m.flex-master(row, flex-end, center);
+		position: absolute;
+        z-index: 12;
+        width: 100%;
+        right: 0.5rem;
+        top: 0.5rem;
+    
+	}
+    &_stage {
+        @include m.flex-master(row, flex-start, center);
+        flex: 25%;
+        height: 100%;
+        color: white; 
+    }
    
 	&_list {
 		@include m.flex-master(row, space-evenly, null);
@@ -53,60 +71,93 @@ $bp-xl-4: 3840px;            // 2560  160em
 
         &_first {
             @include m.flex-master(row, space-evenly, center);
-            width: 33%;
+            width: 40%;
         }
         &_mid {
             @include m.flex-master(row, center, null);
-            width: 33%;
+            flex: 1;
             position: relative;
            
             &_wrapper {
                 position: absolute;
-                top: -1rem;
-                width: 50%;
+                top: -0.5rem;
+                width: 100%;
 
+                @media (min-width: $bp-large-2) {  
+                    width: 90%;
+                    // top: -1rem;
+                }
             }
-            // & > img {
-            //    width: 75%;
-            // }
         }
         &_last {
             @include m.flex-master(row, space-evenly, center);
-            width: 33%;
+            width: 40%;
         }
 
         &_item {
-            font-size: 1.5rem;
+            font-size: 0.75rem;
             margin-bottom: 1%;
             font-family: Safety Goggles;
-            color: #fff!important;
-            opacity: 0.75;
+            color: #085D84!important;
+            opacity: 1;
 
-            @media (min-width: $bp-xl-3) {  
+            @media (min-width: $bp-med) {  
+                font-size: 1.1rem;
+            }
+            @media (min-width: $bp-med-2) {  
+                font-size: 1.15rem;
+            }
+            @media (min-width: $bp-large) {  
+                font-size: 1.25rem;
+            }
+            @media (min-width: $bp-xl) {  
                 font-size: 2rem;
             }
+            @media (min-width: $bp-xl-2) {  
+                font-size: 2.25rem;
+            }
+            @media (min-width: $bp-xl-3) {  
+                font-size: 3.25rem;
+            }
+            @media (min-width: $bp-xl-4) {  
+                font-size: 3.5rem;
+            }
+            &_white {
+                color: #fff!important;
+            }
         }
+
 	}
     &_button {
         @include m.flex-master(null, flex-end, center);
         & > div:nth-child(1) {
             font-size: 1.5rem;
         }
-        width: 33%;
+        width: 36%;
+
+        @media (min-width: $bp-xl-3) {  
+            width: 33%;
+        }
 
         &_pink { // 526 x 129
             @include m.large_button();
             width: min(50%, 120px);
 
             @media (min-width: $bp-med) {  
-                width: auto;
-                max-width: 200px;
-            }
-            @media (min-width: $bp-xl) {  
+                width: 250px;
                 max-width: 250px;
             }
+            @media (min-width: $bp-xl) {  
+                width: 275px;
+                max-width: 275px;
+            }
             @media (min-width: $bp-xl-2) {  
+                width: 300px;
                 max-width: 300px;
+            }
+            @media (min-width: $bp-xl-3) {  
+                width: 350px;
+                max-width: 350px;
             }
             &:hover {
                 color: #CE3C85;
@@ -122,14 +173,14 @@ $bp-xl-4: 3840px;            // 2560  160em
         }
 	}
     &_mobile {
-        background: #4383AE;
+        background: #5EC1D3;
         height: 100vh;
         width: 100vw;
         position: absolute;
         top: 0;
         left: 0;
         transition: transform 0.3s ease-in-out;
-        z-index: 10;
+        z-index: 13;
 
         &_wrapper {
             // @include m.flex-master(column, center, center);
@@ -141,6 +192,7 @@ $bp-xl-4: 3840px;            // 2560  160em
             right: 0;
             padding-right: 1rem;
             height: auto;
+            font-size: 2rem;
         }
         &_content {
             @include m.flex-master(column, space-around, center);
@@ -152,78 +204,29 @@ $bp-xl-4: 3840px;            // 2560  160em
             &_list {
                 @include m.flex-master(column, center, center);
                 width: 100%;
-        
+                height: 100%;
+                
                 &_item {
                     font-size: 3rem;
                     margin-bottom: 1%;
                     font-family: Safety Goggles;
-                    opacity: 0.75;
+                    color: #085D84!important;
+                   
+                    @media (min-width: $bp-small-2) {  
+                        font-size: 3.25rem;
+                    }
+                    @media (min-width: $bp-small-3) {  
+                        font-size: 4.25rem;
+                    }
                 }
-                
-            }
-
-            &_footer {
-                @include m.flex-master(column, flex-end, center);
-                width:60%;
-                gap: 1rem;
 
                 &_button {
-                    @include m.flex-master(null, flex-end, center);
-
-                    &_balance {
-                        color: white;
-                        font-family: PFRondaSeven;
-                        font-size: 1rem;
-                        flex: 45%;
-
-                        @media (min-width: $bp-small-2) {  
-                            font-size: 1.25rem;
-                        }
-                        @media (min-width: $bp-med-2) {  
-                            // width: 27%;
-                        }
-                     
-                    }
-            
-                    &_pink {
-                        @include m.large_button();
-                        &:hover {
-                            color: #CE3C85;
-                        }
-                
-                        &:disabled {
-                            cursor: not-allowed!important;
-                            color: #A2B7B6!important;
-                            &:hover {
-                                color: #A2B7B6!important;
-                            }
-                        }
+                    @include m.medium_button();
+                    &:hover {
+                        color: #CE3C85;
                     }
                 }
-
-                &_socials {        
-                    @include m.flex-master(row, space-evenly, center);
-                    gap: 1rem;
-                    width: 100%;
-                    @media (min-width: $bp-small-3) {  
-                        // width: 33%;
-                    }
-                    @media (min-width: $bp-xl-3) {  
-                        // width: 27%;
-                    }
-             
-                    &_icon {
-                        @include m.flex-master(row, null, center);
-                        width: 20%; 
-                        position: relative;
-                    
-                        > img:nth-child(1){
-                            margin-top: 4.5%;
-                            margin-left: 4.75%;
-                            width: 91%; 
-                        }
-                    }
-                }   
+                
             }
         }
     }
