@@ -33,43 +33,6 @@ $header-space-bottom: 60px;
 .parallax_group {
 	position: relative;
 }
-/* Nav Bar Area */
-.nav {
-	&_menu {
-		display: flex;
-		background: url("/img/home/menu.png") no-repeat;
-		background-size: contain;
-		width: max(750px, 85%);
-		height: max(110px, 6vw);
-		padding: 0 2vw 0 4vw;
-		margin-left: auto;
-		margin-right: auto;
-		z-index: 2;
-		//Had to make this a relative because static doesn't work with z-index.
-		//This needs to be z index 2 so the ray of light comes behind the nav menu.
-		position: relative;
-	}
-	&_list {
-		margin-left: 4rem;
-		height: 65%;
-		width: 100%;
-		@include m.flex-master(null, space-between, center);
-	}
-	&_item {
-		font-size: 3rem;
-		margin-bottom: 1%;
-	}
-	&_logo {
-		width: 80%;
-		margin-top: calc(50% - 55px + (90% / 1669) * 55);
-	}
-	&_icons {
-		display: flex;
-		align-items: flex-start;
-		gap: 35px;
-		margin: 0.5vw 1vw 0 0;
-	}
-}
 .roadmap {
 	&_wrapper {
 		background-color: #03114A;
@@ -100,8 +63,8 @@ $header-space-bottom: 60px;
 		@media (min-width: $bp-large-2) {  
 			margin-top: 30%;
 		}
-		@media (min-width: $bp-xl-2) {  
-			margin-top: 33%;
+		@media (min-width: $bp-xl) {  
+			margin-top: 12%;
 		}
 	}
 	&_text {

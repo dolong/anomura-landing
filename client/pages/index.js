@@ -65,11 +65,11 @@ export default function Home() {
 		bufferLoader = new BufferLoader(
 			audioContext,
 			[
-				"/audio/Underwater DEEP Fixed.wav",
-				"/audio/Chest Open.wav",
-				"/audio/Fish Pass by 1.wav",
-				"/audio/chest chime.wav",
-				"/audio/Constant Bubble Loop.wav",
+				"/audio/Underwater DEEP Fixed.mp3",
+				"/audio/Chest Open.mp3",
+				"/audio/Fish Pass by 1.mp3",
+				"/audio/chest chime.mp3",
+				"/audio/Constant Bubble Loop.mp3",
 			],
 			onFinishedLoadingAudioSource
 		);

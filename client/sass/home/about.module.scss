@@ -84,8 +84,8 @@ $header-space-bottom: 60px;
 		@media (min-width: $bp-large-2) {  
 			margin-top: 25%;
 		}
-		@media (min-width: $bp-xl-2) {  
-			margin-top: 33%;
+		@media (min-width: $bp-xl) {  
+			margin-top: 12%;
 		}
 	}
 	&_text {

@@ -113,9 +113,9 @@
     margin-top: 25%;
   }
 }
-@media (min-width: 1980px) {
+@media (min-width: 1440px) {
   .about_container {
-    margin-top: 33%;
+    margin-top: 12%;
   }
 }
 .about_text {
