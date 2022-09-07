@@ -8,17 +8,16 @@ import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 import { BufferLoader } from "utils/buffer-loader";
 import { Navbar } from "@components/home/ComponentIndex";
-import Roadmap from "containers/roadmap/Roadmap";
-import ShareFooter from "containers/common/ShareFooter";
 import useDeviceDetect from "lib/useDeviceDetect";
 
-const { WhenIsItOut, Footer } = {
-	WhenIsItOut: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.WhenIsItOut),
+const { Roadmap } = {
+
+	Roadmap: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
 		{ ssr: false }
 	),
-	Footer: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.Footer),
+	ShareFooter: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
 		{ ssr: false }
 	),
 };
