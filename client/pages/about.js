@@ -7,7 +7,6 @@ import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
-import Roadmap from "containers/roadmap/Roadmap";
 import ShareFooter from "containers/common/ShareFooter";
 import About from "containers/about/About";
 import useDeviceDetect from "lib/useDeviceDetect";
