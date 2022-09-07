@@ -9,18 +9,21 @@ import React, { useEffect, useState } from "react";
 import { BufferLoader } from "utils/buffer-loader";
 import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
+import Roadmap from "/containers/roadmap/Roadmap";
+import ShareFooter from "/containers/common/ShareFooter";
 
-const { Roadmap, ShareFooter } = {
 
-	Roadmap: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
-		{ ssr: false }
-	),
-	ShareFooter: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
-		{ ssr: false }
-	),
-};
+// const { Roadmap, ShareFooter } = {
+
+// 	Roadmap: dynamic(
+// 		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
+// 		{ ssr: false }
+// 	),
+// 	ShareFooter: dynamic(
+// 		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
+// 		{ ssr: false }
+// 	),
+// };
 
 export default function RoadMapMain() {
 	const { isMobile } = useDeviceDetect();
