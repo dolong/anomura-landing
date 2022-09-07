@@ -7,21 +7,21 @@ import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
-import ShareFooter from "containers/common/ShareFooter";
-import About from "containers/about/About";
+
+
 import useDeviceDetect from "lib/useDeviceDetect";
 
-// const { Roadmap, Footer } = {
-// 	Roadmap: dynamic(
-// 		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
-// 		{ ssr: false }
-// 	),
-// 	Footer: dynamic(
-// 		() => import("/containers/home/ContainerIndex").then((module) => module.Footer),
-// 		{ ssr: false }
-// 	),
-// };
+const { About, ShareFooter } = {
 
+	About: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.About),
+		{ ssr: false }
+	),
+	ShareFooter: dynamic(
+		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
+		{ ssr: false }
+	),
+};
 export default function AboutMain() {
 	const { isMobile } = useDeviceDetect();
 	useEffect(() => {

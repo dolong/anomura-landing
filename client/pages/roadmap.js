@@ -10,7 +10,7 @@ import { BufferLoader } from "utils/buffer-loader";
 import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
 
-const { Roadmap } = {
+const { Roadmap, ShareFooter } = {
 
 	Roadmap: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
