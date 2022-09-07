@@ -32,12 +32,8 @@ export default function RoadMapMain() {
 
 			<div className={s.parallax_group}>
 				<Navbar isMobile={isMobile} />
-
 				<Roadmap />
-				<ShareFooter
-					isParalax={false}
-
-				/>
+				<ShareFooter isParalax={false} />
 			</div>
 
 
