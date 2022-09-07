@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { BufferLoader } from "utils/buffer-loader";
 import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
-import Roadmap from "/containers/home/ContainerIndex";
+import Roadmap from "/containers/home/Roadmap";
 import ShareFooter from "/containers/common/ShareFooter";
 
 
