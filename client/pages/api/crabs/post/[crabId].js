@@ -15,15 +15,17 @@ const CrabImageViewerUpdate = async (req, res) => {
         const crabId = parseInt(req.query.crabId);
         const existingCrab = await getAnomuraById(crabId);
 
-        let crabImage = await CrabImagesBuilder({
-            crabId,
-            background,
-            body,
-            legs,
-            claws,
-            shell,
-            headpieces,
-        })
+        // let crabImage = await CrabImagesBuilder({
+        //     crabId,
+        //     background,
+        //     body,
+        //     legs,
+        //     claws,
+        //     shell,
+        //     headpieces,
+        // })
+
+        let crabImage = "https://res.cloudinary.com/mrleewatch/image/upload/v1662142333/Anomura-Staging/Anomura_17.png"
 
         let anomuraName = getAnomuraName();
         let anomuraDescription = getAnomuraDescription();
