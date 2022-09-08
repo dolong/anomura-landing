@@ -59,7 +59,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Long 5x.png" />
+                                        <img src="/img/home/team/Long_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -77,7 +77,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Daniele 5x.png" />
+                                        <img src="/img/home/team/Daniele_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -95,7 +95,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Bernice 5x.png" />
+                                        <img src="/img/home/team/Bernice_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -113,7 +113,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Momo 5x.png" />
+                                        <img src="/img/home/team/Momo_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -131,7 +131,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        {/* <img src="/img/home/team/Bernice.png" /> */}
+                                        <img src="/img/home/team/Quan_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -149,7 +149,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Laura5x.png" />
+                                        <img src="/img/home/team/Laura_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
@@ -167,7 +167,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                             <div className={s.meetTheTeam_members_card_container}>
                                 <div className={s.meetTheTeam_members_card_top}>
                                     <div className={s.meetTheTeam_members_card_top_avatar}>
-                                        <img src="/img/home/team/Isaac 5x.png" />
+                                        <img src="/img/home/team/Isaac_x5_01.png" />
                                     </div>
                                 </div>
                                 <div className={s.meetTheTeam_members_card_bottom}>
