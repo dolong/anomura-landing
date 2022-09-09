@@ -55,7 +55,7 @@ export default function ShareFooter({ audioControl }) {
         <div className={s.shareFooter_zone}>
             <div className={s.shareFooter_icon}>
                 <div className={s.shareFooter_icon_wrapper}>
-                    <img src="/img/home/footer/Logomark.png" />
+                    <img src="/img/home/footer/logo-pink.png" />
                     <img src="/img/home/footer/Social_Hexagon Outline.png" />
                 </div>
             </div>

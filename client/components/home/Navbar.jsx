@@ -164,8 +164,14 @@ export default function Navbar({ isMobile }) {
                             </a>
                         </div>
                         <div className={s.nav_list_mid}>
-                            <div className={s.nav_list_mid_wrapper}>
-                                <img src="/img/home/footer/logo-pink.png" />
+                            <div
+                                className={s.nav_list_mid_wrapper}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push("/");
+                                }}
+                            >
+                                <img src="/img/home/footer/logo-pink-no-padding.png" />
                             </div>
                         </div>
                         <div className={s.nav_list_last}>
@@ -194,8 +200,9 @@ export default function Navbar({ isMobile }) {
                                 <button
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        window.open(`https://anomuragame.com`, "_blank");
+                                        window.open(`https://anomuragame.com/mint`, "_blank");
                                     }}
+                                    disabled={true}
                                     className={s.nav_button_pink}
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />

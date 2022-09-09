@@ -12,12 +12,17 @@
   z-index: 999;
 }
 .shareFooter_icon {
-  width: 100%;
+  width: 70%;
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+@media (min-width: 1200px) {
+  .shareFooter_icon {
+    width: 25%;
+  }
 }
 .shareFooter_icon_wrapper {
   position: absolute;

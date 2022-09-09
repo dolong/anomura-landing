@@ -79,13 +79,10 @@
 }
 .nav_list_mid_wrapper {
   position: absolute;
-  top: -0.5rem;
-  width: 100%;
+  height: 100%;
 }
-@media (min-width: 1200px) {
-  .nav_list_mid_wrapper {
-    width: 90%;
-  }
+.nav_list_mid_wrapper > img {
+  height: 100%;
 }
 .nav_list_last {
   display: flex;

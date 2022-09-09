@@ -4,10 +4,10 @@ import s from "/sass/home/home.module.css";
 import Link from "next/link";
 
 const InitialOffset = 6000,
-    ThirtyEightHundredOffset = 3000,
+    ThirtyEightHundredOffset = 2850,
     TwentyEightHundredOffset = 1700,
-    TwentyFiveHundredOffset = 1350,
-    NineteenHundredOffset = -200,
+    TwentyFiveHundredOffset = 1450,
+    NineteenHundredOffset = -400,
     SixteenHundredOffset = -350,
     TwelveHundredOffSet = 200,
     OneThousandOffSet = 20,
@@ -16,7 +16,7 @@ const InitialOffset = 6000,
     FourHundredOffSet = 0;
 
 export default function Footer({ ScrollPercent, audioControl }) {
-    const [scrollSpeed, setScrollSpeed] = React.useState(-45);
+    const [scrollSpeed, setScrollSpeed] = React.useState(-48);
     const [audioState, setAudioState] = useState("unloaded");
     const bubbleRef = React.createRef();
     let timeout, interval;

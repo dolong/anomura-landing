@@ -1330,13 +1330,13 @@ $header-space-bottom: 60px;
 .footer {
 	&_zone {
 		pointer-events:auto;
-		@include m.z-layers(999, "/img/home/backgrounds/Layer6.png", 3%);
+		@include m.z-layers(10, "/img/home/backgrounds/Layer6.png", 3%);
 		@include m.flex-master(column, null, center);
 		padding-bottom: 7%;
 	}
 	&_zoneNoParalax {
 		pointer-events:auto;
-		@include m.z-layers(11, "/img/home/backgrounds/Layer6.png", 3%);
+		@include m.z-layers(10, "/img/home/backgrounds/Layer6.png", 3%);
 		@include m.flex-master(column, null, center);
 		position: relative;
 		// padding-bottom: 7%;

@@ -80,12 +80,16 @@ $bp-xl-4: 3840px;            // 2560  160em
            
             &_wrapper {
                 position: absolute;
-                top: -0.5rem;
-                width: 100%;
+                // top: -0.5rem;
+                height: 100%;
 
                 @media (min-width: $bp-large-2) {  
-                    width: 90%;
+                    // width: 90%;
                     // top: -1rem;
+                }
+
+                > img {
+                    height: 100%;
                 }
             }
         }
