@@ -147,7 +147,7 @@ export default function Navbar({ isMobile }) {
                             >
                                 Home
                             </a>
-                            <a
+                            {/* <a
                                 onClick={(e) => {
                                     e.preventDefault();
                                     window.open(`https://anomuragame.com/litepaper`, "_blank");
@@ -155,7 +155,7 @@ export default function Navbar({ isMobile }) {
                                 className={s.nav_list_item}
                             >
                                 Litepaper
-                            </a>
+                            </a> */}
                             <a
                                 onClick={(e) => {
                                     e.preventDefault();
