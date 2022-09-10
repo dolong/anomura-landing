@@ -154,7 +154,7 @@ export default function CrabAnat({ ScrollPercent }) {
                 <div className={s.crab_heading}>ANOMURA ANATOMY</div>
 
                 <div className={s.crab_paragraphContainer}>
-                    <p>All Anomura will hold unique attributes based on their body parts. </p>
+                    <p>All Anomura hold unique attributes based on their body parts. </p>
                     <span>
                         Each randomly generated anatomical part will have a chance of being{" "}
                     </span>

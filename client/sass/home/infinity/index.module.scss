@@ -26,7 +26,7 @@ $desktop-text-size: 1.125rem;
 
 $medium-text-size: 1.3125rem;
 
-$mobile-text-section: 57%;
+$mobile-text-section: 67%;
 $mobile-text-size: 0.875rem;
 
 $mobile-lineHeight: 1.5rem;
@@ -48,7 +48,12 @@ $header-space-bottom: 60px;
 	z-index: 3;
 
 	&_container {
-		width: $desktop-text-section;
+		width: $mobile-text-section;
+
+		@media (min-width: $bp-med-2) {  
+            @include m.flex-master(row, center, center);
+			width: $desktop-text-section;
+        }
 	}
 	&_text {
 		@include m.flex-master(column, null, center);
@@ -87,6 +92,7 @@ $header-space-bottom: 60px;
 			@media (min-width: $bp-large-2) {  
 				@include m.flex-master(column, center, center);
 				width: 50%; 
+				margin-bottom: auto;
 			}
             &_canvas {
                 flex: 3;
@@ -171,6 +177,7 @@ $header-space-bottom: 60px;
 
 			@media (min-width: $bp-large-2) {   
 				width: 50%; 
+				margin-bottom: auto;
 			}
 
 			&_wrapper {

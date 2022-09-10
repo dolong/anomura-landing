@@ -274,7 +274,28 @@
 .nav_button_pink:disabled:hover {
   color: #A2B7B6 !important;
 }
-.nav_mobile {
+.nav_mobile_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 12;
+  width: 100%;
+  background: #5EC1D3;
+  box-shadow: 0px 4px #2483B2;
+  height: 8%;
+}
+.nav_mobile_bar_logo {
+  width: 33%;
+}
+.nav_mobile_bar_hamburger {
+  position: absolute;
+  width: 2rem;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+.nav_mobile_wrapper {
   background: #5EC1D3;
   height: 100vh;
   width: 100vw;
@@ -284,7 +305,7 @@
   transition: transform 0.3s ease-in-out;
   z-index: 13;
 }
-.nav_mobile_wrapper {
+.nav_mobile_container {
   height: 100%;
 }
 .nav_mobile_close {
@@ -293,7 +314,7 @@
   right: 0;
   padding-right: 1rem;
   height: auto;
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 .nav_mobile_content {
   display: flex;
@@ -420,4 +441,4 @@
 }
 .nav_mobile_content_list_button:hover {
   color: #CE3C85;
-}/*# sourceMappingURL=nav.module.css.map */
+}/*# sourceMappingURL=index.module.css.map */

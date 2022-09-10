@@ -5,6 +5,7 @@ import s from "/sass/home/roadmap/index.module.css";
 import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
+import FloatingBottom from "containers/common/FloatingBottom";
 
 const { Roadmap, ShareFooter } = {
 
@@ -30,7 +31,9 @@ export default function RoadMapMain() {
 				<Navbar isMobile={isMobile} />
 				<Roadmap />
 				<ShareFooter isParalax={false} />
+
 			</div>
+			<FloatingBottom />
 
 			{/* Css modules cant have a none pure style in 
       		 /  it like body so making a JSS style here 

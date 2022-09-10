@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from "/sass/home/about.module.css";
+import s from "/sass/home/about/index.module.css";
 
 export default function About() {
     return (
@@ -29,8 +29,15 @@ export default function About() {
                                         Our Story
                                     </span>
                                     <div className={s.about_divider_item_labels_description}>
-                                        Anomura was born in the deep, dark depths of King Crab Long
-                                        Do's mind and began from a love of strategic video games and
+                                        Anomura was born in the deep, dark depths of King Crab{" "}
+                                        <a
+                                            style={{ display: "contents" }}
+                                            href={`https://twitter.com/Whale_Drop`}
+                                            target={`_blank`}
+                                        >
+                                            Long Do's
+                                        </a>{" "}
+                                        mind and began from a love of strategic video games and
                                         marine wildlife. Wanting to re-create the fun games from his
                                         childhood, he assembled a team of talented crabs, and they
                                         all descended the web3 rabbit hole together.

@@ -42,11 +42,16 @@
 }
 .shareFooter_container {
   margin-top: 40.5%;
-  width: 50%;
+  width: 67%;
 }
 @media (min-width: 748px) {
   .shareFooter_container {
     margin-top: 20%;
+  }
+}
+@media (min-width: 800px) {
+  .shareFooter_container {
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -296,7 +301,7 @@
 .shareFooter_chestAndFish {
   position: relative;
   width: 100vw;
-  margin-left: -50%;
+  margin-left: -25%;
 }
 @media only screen and (min-width: 800px) {
   .shareFooter_chestAndFish {

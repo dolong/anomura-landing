@@ -1,5 +1,5 @@
-@use "../mixins" as m;
-@use "../colors" as c;
+@use "../../mixins" as m;
+@use "../../colors" as c;
 
 $bp-small: 384px;            // 384   24em
 $bp-small-2: 500px;       // 500   31.25em
@@ -13,32 +13,14 @@ $bp-xl-2: 1980px;         // 1980  123.75em
 $bp-xl-3: 2560px;            // 2560  160em
 $bp-xl-4: 3840px;            // 2560  160em
 
-@mixin highlightText($bgColor, $fontColor: c.$primary-font-color) {
-	background-color: $bgColor;
-	color: $fontColor;
-	padding: 3px 10px 3px 10px;
-	min-width: 130px;
-	font-weight: 600;
-}
 
-@keyframes interference  {
-	10% {filter: opacity(0.94);}
-	20% {filter: opacity(1) ;}
-	30% {filter: opacity(0.8);}
-	41% {filter: opacity(1) ;}
-	50% {filter: opacity(0.98);}
-	60% {filter: opacity(0.78) ;}
-	70% {filter: opacity(0.78) ;}
-	80% {filter: opacity(0.64) ;}
-	90% {filter: opacity(1) ;}
-}
 
 $desktop-text-section: 50%;
 $desktop-text-size: 1.125rem;
 
 $medium-text-size: 1.3125rem;
 
-$mobile-text-section: 57%;
+$mobile-text-section: 67%;
 $mobile-text-size: 0.875rem;
 
 $mobile-lineHeight: 1.5rem;
@@ -76,13 +58,14 @@ $header-space-bottom: 60px;
 		}
 		@media (min-width: $bp-med-2) {  
 			margin-top: 25%;
+			width: $desktop-text-section;
 		}
 		@media (min-width: $bp-large) { 
 			margin-top: 25%; 
-			width: $desktop-text-section;
+			
 		}
 		@media (min-width: $bp-large-2) {  
-			margin-top: 25%;
+			margin-top: 18%;
 		}
 		@media (min-width: $bp-xl) {  
 			margin-top: 12%;
@@ -103,7 +86,7 @@ $header-space-bottom: 60px;
 	&_banner {
 		@include m.flex-master(column, center, center);
 		width: 100vw;
-		margin-left: -38%;
+		margin-left: -25%;
 		position: relative;
 
 		@media (min-width: $bp-large) {  
@@ -129,7 +112,7 @@ $header-space-bottom: 60px;
 				> div {
 					@include m.flex-master(column, center, center);
 					@include m.paragraphContainer();
-					width: 80%;
+					width: 67%;
 					height: 100%;
 					margin-bottom:0;
 				}
@@ -228,6 +211,14 @@ $header-space-bottom: 60px;
 			> div > div:nth-child(2) {
 				@include m.flex-master(column, center, center);
 				margin-top: 2.5rem;
+
+				> a {
+					color: #A5EBE3;
+					&:hover {
+						color: #A5EBE3;
+						text-decoration: none;
+					}
+				}
 				
 			}
 			@media (min-width: $bp-large) {  

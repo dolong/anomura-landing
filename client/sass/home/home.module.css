@@ -63,17 +63,17 @@
   width: 100%;
   position: relative;
   background: url("/img/home/backgrounds/Sky.png") no-repeat;
-  background-size: 100% 25%;
+  background-size: 100% 43%;
   padding-bottom: 60%;
 }
 @media only screen and (max-width: 3840px) {
   .App {
-    background-size: 100% 31%;
+    background-size: 100% 34%;
   }
 }
 @media only screen and (max-width: 2560px) {
   .App {
-    background-size: 100% 29%;
+    background-size: 100% 34%;
   }
 }
 @media only screen and (max-width: 1600px) {
@@ -83,7 +83,7 @@
 }
 @media only screen and (max-width: 1600px) {
   .App {
-    background-size: 100% 32%;
+    background-size: 100% 40%;
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -104,7 +104,7 @@
 }
 @media only screen and (max-width: 400px) {
   .App {
-    background-size: 100% 35%;
+    background-size: 100% 42%;
     padding-bottom: 25%;
   }
 }
@@ -268,7 +268,7 @@
   justify-content: center;
   flex-direction: row;
   z-index: 3;
-  padding-top: 6.5%;
+  padding-top: 9%;
 }
 .shop_fish1 {
   width: min(8vw, 131px);
@@ -420,6 +420,7 @@
 .comingsoon_hero_header {
   font-family: Safety Goggles;
   font-size: 1.65rem;
+  margin-top: 2rem;
   margin-bottom: 4rem;
   text-shadow: -2px -5px #7EB877;
   color: #246B5A;
@@ -488,7 +489,7 @@
 @media only screen and (max-width: 600px) {
   .comingsoon_imgMobile {
     display: flex;
-    width: 57%;
+    width: 67%;
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
@@ -1409,7 +1410,7 @@
   z-index: 5;
 }
 .when_container {
-  width: 57%;
+  width: 67%;
   margin-top: 65%;
 }
 @media (min-width: 384px) {
@@ -1449,7 +1450,7 @@
   }
 }
 .when_containerNoParalax {
-  width: 57%;
+  width: 67%;
   margin-top: 12%;
 }
 .when_text {
@@ -2724,13 +2725,13 @@
     font-family: Safety Goggles;
   }
   .crab_container {
-    width: 57%;
+    width: 67%;
   }
   .nft {
     padding-bottom: 80%;
   }
   .nft_container {
-    width: 57%;
+    width: 67%;
   }
   .nft_text {
     margin-top: 68%;
@@ -2750,7 +2751,7 @@
   }
   .footer_container {
     margin-top: 38.5%;
-    width: 57%;
+    width: 67%;
   }
   .footer_policy > div {
     font-size: 1.25rem;
@@ -2840,7 +2841,7 @@
     z-index: 2;
   }
   .comingsoon_zone {
-    width: 57%;
+    width: 67%;
   }
   .sandBottom_zone {
     display: flex;
@@ -2855,15 +2856,15 @@
   .sandBottom_mobileIcons {
     pointer-events: auto;
     align-self: flex-start;
-    width: 20%;
+    width: 16%;
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 7px;
     padding-bottom: 60px;
   }
   .sandBottom_mobileIcons > a {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 10px;
   }
   .treasure_image {

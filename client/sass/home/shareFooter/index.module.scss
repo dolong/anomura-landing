@@ -18,7 +18,7 @@ $desktop-text-size: 1.125rem;
 
 $medium-text-size: 1.3125rem;
 
-$mobile-text-section: 57%;
+$mobile-text-section: 67%;
 $mobile-text-size: 0.875rem;
 
 $mobile-lineHeight: 1.5rem;
@@ -58,10 +58,12 @@ $header-space-bottom: 60px;
 	}
 	&_container {
 		margin-top: 40.5%;
-		width: $desktop-text-section;
-
+		width: $mobile-text-section;
 		@media (min-width: $bp-med) {  
 			margin-top: 20%;
+		}
+		@media (min-width: $bp-med-2) {  
+			width: $desktop-text-section;
 		}
 
 		@media (min-width: $bp-large-2) {  
@@ -230,7 +232,9 @@ $header-space-bottom: 60px;
 	 	
 	 	position:relative;
 		width: 100vw;
-		margin-left: -50%;
+		// margin-left: -50%;
+
+		margin-left: -25%;
 
 	 	&_wrapper{
 	 		position: relative;

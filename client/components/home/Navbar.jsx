@@ -1,4 +1,4 @@
-import s from "/sass/home/nav.module.css";
+import s from "/sass/home/nav/index.module.css";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 /**
@@ -14,27 +14,30 @@ export default function Navbar({ isMobile }) {
     if (isMobile) {
         return (
             <>
-                <div className={s.nav_bar}>
-                    <div className={s.nav_button}>
+                <div className={s.nav_mobile_bar}>
+                    <div
+                        className={s.nav_mobile_bar_logo}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            router.push("/");
+                        }}
+                    >
+                        <img src="/img/home/footer/logo-pink-no-padding.png" />
+                    </div>
+                    <div className={s.nav_mobile_bar_hamburger}>
                         <button
                             onClick={() => {
-                                // document.body.style.overflowY = "hidden";
                                 document.body.style.position = "fixed";
                                 setOpenMenu(!openMenu);
                             }}
-                            className={s.nav_button_pink}
-                            style={{ marginLeft: "1rem" }}
                         >
-                            <img src={`img/home/Button_M_Pink.png`} alt="Menu" />
-                            <div>
-                                <span>MENU</span>
-                            </div>
+                            <img src={`img/home/Button_Mobile Menu.png`} alt="Menu" />
                         </button>
                     </div>
                 </div>
                 {openMenu && (
-                    <div className={s.nav_mobile}>
-                        <div className={s.nav_mobile_wrapper}>
+                    <div className={s.nav_mobile_wrapper}>
+                        <div className={s.nav_mobile_container}>
                             <button
                                 onClick={() => {
                                     // document.body.style.overflowY = "visible";
@@ -57,7 +60,7 @@ export default function Navbar({ isMobile }) {
                                     >
                                         Home
                                     </a>
-                                    <a
+                                    {/* <a
                                         className={s.nav_mobile_content_list_item}
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -68,7 +71,7 @@ export default function Navbar({ isMobile }) {
                                         }}
                                     >
                                         Litepaper
-                                    </a>
+                                    </a> */}
                                     <a
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -112,6 +115,8 @@ export default function Navbar({ isMobile }) {
                                             e.preventDefault();
                                             window.open(`https://anomuragame.com`, "_blank");
                                         }}
+                                        style={{ width: "55%" }}
+                                        disabled={true}
                                     >
                                         <img src={`/img/home/Button_M_Pink.png`} alt="name" />
                                         <div>

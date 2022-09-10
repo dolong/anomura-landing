@@ -2,7 +2,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { ShopZone } from "/containers/home/ContainerIndex";
 import { useScrollEvent } from "/hooks/useScrollEvent";
-import s from "/sass/home/about.module.css";
+import s from "/sass/home/about/index.module.css";
 import { useRecoilValue } from "recoil";
 import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
@@ -10,6 +10,7 @@ import { Navbar } from "@components/home/ComponentIndex";
 
 
 import useDeviceDetect from "lib/useDeviceDetect";
+import FloatingBottom from "containers/common/FloatingBottom";
 
 const { About, ShareFooter } = {
 
@@ -34,6 +35,7 @@ export default function AboutMain() {
 				<About />
 				<ShareFooter isParalax={false} />
 			</div>
+			<FloatingBottom />
 		</div>
 	);
 }

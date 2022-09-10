@@ -1,64 +1,6 @@
 /*Main Site colors*/
 /*Font colors*/
 /*Span bg colors */
-@-webkit-keyframes interference {
-  10% {
-    filter: opacity(0.94);
-  }
-  20% {
-    filter: opacity(1);
-  }
-  30% {
-    filter: opacity(0.8);
-  }
-  41% {
-    filter: opacity(1);
-  }
-  50% {
-    filter: opacity(0.98);
-  }
-  60% {
-    filter: opacity(0.78);
-  }
-  70% {
-    filter: opacity(0.78);
-  }
-  80% {
-    filter: opacity(0.64);
-  }
-  90% {
-    filter: opacity(1);
-  }
-}
-@keyframes interference {
-  10% {
-    filter: opacity(0.94);
-  }
-  20% {
-    filter: opacity(1);
-  }
-  30% {
-    filter: opacity(0.8);
-  }
-  41% {
-    filter: opacity(1);
-  }
-  50% {
-    filter: opacity(0.98);
-  }
-  60% {
-    filter: opacity(0.78);
-  }
-  70% {
-    filter: opacity(0.78);
-  }
-  80% {
-    filter: opacity(0.64);
-  }
-  90% {
-    filter: opacity(1);
-  }
-}
 .app {
   width: 100%;
   position: relative;
@@ -79,7 +21,7 @@
   width: 100%;
 }
 .about_container {
-  width: 57%;
+  width: 67%;
   margin-top: 25%;
 }
 @media (min-width: 384px) {
@@ -100,17 +42,17 @@
 @media (min-width: 800px) {
   .about_container {
     margin-top: 25%;
+    width: 50%;
   }
 }
 @media (min-width: 872px) {
   .about_container {
     margin-top: 25%;
-    width: 50%;
   }
 }
 @media (min-width: 1200px) {
   .about_container {
-    margin-top: 25%;
+    margin-top: 18%;
   }
 }
 @media (min-width: 1440px) {
@@ -275,7 +217,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  margin-left: -38%;
+  margin-left: -25%;
   position: relative;
   margin-bottom: 2.5rem;
 }
@@ -313,7 +255,7 @@
   font-family: PFRondaSeven;
   line-height: 1.4rem;
   margin-bottom: 60px;
-  width: 80%;
+  width: 67%;
   height: 100%;
   margin-bottom: 0;
 }
@@ -590,6 +532,13 @@
   align-items: center;
   margin-top: 2.5rem;
 }
+.about_divider_item:first-child > div > div:nth-child(2) > a {
+  color: #A5EBE3;
+}
+.about_divider_item:first-child > div > div:nth-child(2) > a:hover {
+  color: #A5EBE3;
+  text-decoration: none;
+}
 @media (min-width: 872px) {
   .about_divider_item:first-child {
     display: flex;
@@ -611,4 +560,4 @@
     display: flex;
     flex-direction: row-reverse;
   }
-}/*# sourceMappingURL=about.module.css.map */
+}/*# sourceMappingURL=index.module.css.map */

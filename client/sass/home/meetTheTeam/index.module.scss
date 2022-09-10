@@ -18,10 +18,9 @@ $desktop-text-size: 1.125rem;
 
 $medium-text-size: 1.3125rem;
 
-$mobile-text-section: 57%;
+$mobile-text-section: 67%;
 $mobile-text-size: 0.875rem;
 
-// $mobile-margin: 40% 10% 0 10%;
 $mobile-lineHeight: 1.5rem;
 $header-space-bottom: 60px;
 
@@ -31,7 +30,7 @@ $header-space-bottom: 60px;
 		@include m.flex-master(column, null, center);
 		padding-bottom: 100%;
 		@media (min-width: $bp-large) {  
-			padding-bottom: 40%;
+			padding-bottom: 50%;
 		}
 	}
 	
@@ -50,10 +49,11 @@ $header-space-bottom: 60px;
 		}
 		@media (min-width: $bp-med-2) {  
 			margin-top: 45%;
+			width: $desktop-text-section;
 		}
 		@media (min-width: $bp-large) { 
 			margin-top: 42%; 
-			width:$desktop-text-section;
+			
 		}
 		@media (min-width: $bp-large-2) {  
 			margin-top: 40%;
@@ -120,7 +120,8 @@ $header-space-bottom: 60px;
 				width: 100%;
 			}
 			&_top {
-				flex: 1;
+				// flex: 1;
+				height: 50%;
 				position: relative;
 				@include m.flex-master(column, center, center);
 
@@ -132,14 +133,17 @@ $header-space-bottom: 60px;
 				}
 				&_avatar {
 					width: 105%;
-					margin-top: -35%;
+					margin-top: -20%;
 					@include m.flex-master(column, center, center);
 
+					@media (min-width: $bp-med-2) {  
+						margin-top: -25%;
+					}
 					@media (min-width: $bp-xl) {  
-						margin-top: -45%;
+						margin-top: -35%;
 					}
 					@media (min-width: $bp-xl-3) {  
-						margin-top: -55%;
+						margin-top: -40%;
 					}
 
 					> img {
@@ -148,33 +152,36 @@ $header-space-bottom: 60px;
 				}
 			}
 			&_bottom {
-				flex: 1;
-				padding-left: 2rem;
-				padding-right: 2rem;
+				// flex: 1;
+				height: 50%;
+				padding-left: 1rem;
+				padding-right: 1rem;
 				font-family: PFRondaSeven;
 				// text-align: center;
 				@include m.flex-master(column, space-evenly, center);
 
 				&_name {
-					font-size: 0.85rem;
-					margin-top: 0.5rem;
+					font-size: 1rem;
 
-					@media (min-width: $bp-small-2) {  
-						font-size: 0.75rem;
+					@media (min-width: $bp-small) {  
+						font-size: 1.15rem;
 					}
+					// @media (min-width: $bp-small-2) {  
+					// 	font-size: 0.75rem;
+					// }
 					@media (min-width: $bp-small-3) {  
-						font-size: 0.85rem;
+						font-size: 1.2rem;
 						line-height: 1.35rem;
 					}
 					@media (min-width: $bp-med) {  
-						font-size: 1.15rem;
+						font-size: 1.45rem;
 					}
 					@media (min-width: $bp-large-2) {  
-						font-size: 1.15rem;
+						font-size: 1.45rem;
 						line-height: 1.75rem;
 					}
 					@media (min-width: $bp-xl) {  
-						font-size: 1.15rem;
+						font-size: 1.45rem;
 					}
 					@media (min-width: $bp-xl-2) {  
 						font-size: 1.5rem;
@@ -190,24 +197,24 @@ $header-space-bottom: 60px;
 				}
 				&_position {
 					color: #95DDC0;
-					font-size: 0.75rem;
+					font-size: 0.85rem;
 					text-align: center;
 
 					@media (min-width: $bp-small) {  
-						font-size: 0.65rem;
+						font-size: 0.85rem;
 					}
 					@media (min-width: $bp-small-2) {  
-						font-size: 0.75rem;
+						font-size: 0.95rem;
 					}
 					@media (min-width: $bp-small-3) {  
-						font-size: 0.8rem;
+						font-size: 1rem;
 						line-height: 1.35rem;
 					}
 					@media (min-width: $bp-med) {  
 						font-size: 1rem;
 					}
 					@media (min-width: $bp-large-2) {  
-						font-size: 1rem;
+						font-size: 1.1rem;
 						line-height: 1.75rem;
 					}
 					@media (min-width: $bp-xl) {  

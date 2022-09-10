@@ -15,11 +15,11 @@
 }
 @media (min-width: 872px) {
   .meetTheTeam_zone {
-    padding-bottom: 40%;
+    padding-bottom: 50%;
   }
 }
 .meetTheTeam_container {
-  width: 57%;
+  width: 67%;
   margin-top: 40%;
 }
 @media (min-width: 384px) {
@@ -40,12 +40,12 @@
 @media (min-width: 800px) {
   .meetTheTeam_container {
     margin-top: 45%;
+    width: 50%;
   }
 }
 @media (min-width: 872px) {
   .meetTheTeam_container {
     margin-top: 42%;
-    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -264,7 +264,7 @@
   width: 100%;
 }
 .meetTheTeam_members_card_top {
-  flex: 1;
+  height: 50%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -283,29 +283,34 @@
 }
 .meetTheTeam_members_card_top_avatar {
   width: 105%;
-  margin-top: -35%;
+  margin-top: -20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 800px) {
+  .meetTheTeam_members_card_top_avatar {
+    margin-top: -25%;
+  }
+}
 @media (min-width: 1440px) {
   .meetTheTeam_members_card_top_avatar {
-    margin-top: -45%;
+    margin-top: -35%;
   }
 }
 @media (min-width: 2560px) {
   .meetTheTeam_members_card_top_avatar {
-    margin-top: -55%;
+    margin-top: -40%;
   }
 }
 .meetTheTeam_members_card_top_avatar > img {
   width: 100%;
 }
 .meetTheTeam_members_card_bottom {
-  flex: 1;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  height: 50%;
+  padding-left: 1rem;
+  padding-right: 1rem;
   font-family: PFRondaSeven;
   display: flex;
   flex-direction: column;
@@ -313,34 +318,33 @@
   align-items: center;
 }
 .meetTheTeam_members_card_bottom_name {
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
+  font-size: 1rem;
 }
-@media (min-width: 500px) {
+@media (min-width: 384px) {
   .meetTheTeam_members_card_bottom_name {
-    font-size: 0.75rem;
+    font-size: 1.15rem;
   }
 }
 @media (min-width: 636px) {
   .meetTheTeam_members_card_bottom_name {
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     line-height: 1.35rem;
   }
 }
 @media (min-width: 748px) {
   .meetTheTeam_members_card_bottom_name {
-    font-size: 1.15rem;
+    font-size: 1.45rem;
   }
 }
 @media (min-width: 1200px) {
   .meetTheTeam_members_card_bottom_name {
-    font-size: 1.15rem;
+    font-size: 1.45rem;
     line-height: 1.75rem;
   }
 }
 @media (min-width: 1440px) {
   .meetTheTeam_members_card_bottom_name {
-    font-size: 1.15rem;
+    font-size: 1.45rem;
   }
 }
 @media (min-width: 1980px) {
@@ -362,22 +366,22 @@
 }
 .meetTheTeam_members_card_bottom_position {
   color: #95DDC0;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   text-align: center;
 }
 @media (min-width: 384px) {
   .meetTheTeam_members_card_bottom_position {
-    font-size: 0.65rem;
+    font-size: 0.85rem;
   }
 }
 @media (min-width: 500px) {
   .meetTheTeam_members_card_bottom_position {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
   }
 }
 @media (min-width: 636px) {
   .meetTheTeam_members_card_bottom_position {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.35rem;
   }
 }
@@ -388,7 +392,7 @@
 }
 @media (min-width: 1200px) {
   .meetTheTeam_members_card_bottom_position {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.75rem;
   }
 }

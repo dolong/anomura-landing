@@ -33,8 +33,12 @@ export default function EnterInfinity({ ScrollPercent }) {
         FourHundredOffSet
     );
     const [carouselItems, setCarouselItems] = useState([
+        "/img/home/infinityCircle/Loop.gif",
+        "/img/home/infinityCircle/battles_01.png",
         "/img/home/infinityCircle/Carousel_1.png",
+        "/img/home/infinityCircle/battles_02.png",
         "/img/home/infinityCircle/Carousel_2.png",
+        "/img/home/infinityCircle/battles_03.png",
     ]);
     const [currentViewItem, setCurrentViewItem] = useState(0);
 
@@ -127,8 +131,10 @@ export default function EnterInfinity({ ScrollPercent }) {
                                     An ever-evolving Universe outside the vacuum of space and time.
                                 </p>
                                 <p>
-                                    Play as an Anomura and journey to one of the five Realms: Ocean,
-                                    Earth, Science, or Sky.
+                                    Play as an Anomura and journey to one of the four Realms: Ocean,
+                                    Earth, Science, or Sky. Prepare to battle powerful aenemies &
+                                    bosses and utilize the Infinity Circle to unlock cards, find
+                                    treasure, and gain XP.
                                 </p>
                                 <p>
                                     Battle aenemies & bosses who threaten your Realm. Utilize the
@@ -137,7 +143,7 @@ export default function EnterInfinity({ ScrollPercent }) {
                                 </p>
                                 <p>
                                     Uncover the secrets of the Universe and restore balance to the
-                                    four Realms before it’s too late!
+                                    four Realms!
                                 </p>
                             </div>
                         </div>

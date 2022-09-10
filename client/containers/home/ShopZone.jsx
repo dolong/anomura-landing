@@ -99,7 +99,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
             {/******************* Sand Zone and Coming Soon *****************/}
             <div className={s.sand_zone}>
                 <div className={s.sand_zone_sand} />
-                <img
+                {/* <img
                     ref={comingSoonRef}
                     className={`${s.comingsoon_img} `}
                     onClick={() => ComingSoonScrollAction()}
@@ -126,17 +126,21 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 <div className={`${s.comingsoon_imgMobile} `}>
                     <img src="/img/home/follow_us/coming.gif" alt="" />
                     <img src="/img/home/follow_us/soon.gif" alt="" />
-                </div>
+                </div> */}
                 <div className={`${s.comingsoon_zone}`}>
                     <div className={s.comingsoon_paragraphContainer}>
                         <h1 className={s.comingsoon_hero_header}>The Cove Awaits You...</h1>
-                        <p className={s.comingsoon_hero_text}>
+                        {/* <p className={s.comingsoon_hero_text}>
                             Anomura is a play-and-earn strategy RPG game utilizing NFTs and
                             blockchain technology.
                         </p>
                         <p className={s.comingsoon_hero_text}>
                             Strategic gameplay, beautiful pixel art, contributions to wildlife
                             preservation—this is a game with a greater purpose.
+                        </p> */}
+                        <p>
+                            Battle for survival of the Universe in Anomura, a fast-paced NFT
+                            strategy RPG inspired by old classics.
                         </p>
                     </div>
                 </div>

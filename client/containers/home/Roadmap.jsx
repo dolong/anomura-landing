@@ -312,7 +312,7 @@ export default function Roadmap() {
                                     </div>
                                     <div className={s.roadmap_divider_item_labels}>
                                         <div className={s.roadmap_divider_item_labels_progress}>
-                                            IN PROGRESS
+                                            COMPLETED
                                         </div>
                                         <span
                                             className={`${s.roadmap_divider_item_labels_title} ${
@@ -325,7 +325,7 @@ export default function Roadmap() {
                                             $SHELL Redemption
                                         </span>
                                         <div className={s.roadmap_divider_item_labels_target}>
-                                            Live: Aug 29-30
+                                            Aug 29-30
                                         </div>
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Spend your hard-earned $SHELL on different types of
@@ -357,7 +357,7 @@ export default function Roadmap() {
                                             Mystery Bowl Mint
                                         </span>
                                         <div className={s.roadmap_divider_item_labels_target}>
-                                            Live: Sept 6
+                                            Live: Sept 13
                                         </div>
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Release of limited supply Founder’s Edition Mystery
@@ -383,11 +383,11 @@ export default function Roadmap() {
                                             }`}
                                             ref={anomuraHatchRef}
                                         >
-                                            Anomura Hatching
+                                            Summoning
                                         </span>
 
                                         <div className={s.roadmap_divider_item_labels_description}>
-                                            Generative Anomura will hatch and reveal rarity
+                                            Generative Anomura will be summoned and reveal rarity
                                         </div>
                                     </div>
                                 </div>
