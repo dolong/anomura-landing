@@ -207,12 +207,15 @@ exports.getBody = (src) => {
     console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
 };
 exports.getHeadPieces = (src) => {
+    if (src == "" || src == null) {
+        return "";
+    }
     for (let i = 0; i < this.headpieces.length; i++) {
         if (src.includes(this.headpieces[i])) {
             return this.headpieces[i];
         }
     }
-    return "";
+
     //console.error(`HeadPieces ${src} cannot be found. Or image path for src is invalid`);
 };
 
@@ -274,7 +277,7 @@ exports.getBackgroundRarity = (name) => {
 };
 exports.getRarity = (name) => {
 
-    if (name.trim() == "" || name === undefined) return Nothing;
+    if (name == null || name?.trim() == "" || name === undefined) return Nothing;
     let containLegendAttr = legendAttrs.some((el) => name.includes(el));
     if (containLegendAttr) {
         return Legendary;

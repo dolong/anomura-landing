@@ -85,7 +85,7 @@ export default function AnimateViewerDetails() {
             return <div className={s.loading}>Loading this anomura</div>;
         }
         const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
-        let isDrawHeadpieces;
+        let isDrawHeadpieces = false;
 
         if (anomuraEquipments.length > 0) {
             // check if we should render the claws equipped instead of of anomura original claw
@@ -134,7 +134,9 @@ export default function AnimateViewerDetails() {
         }
         //no equipment
         else {
-            isDrawHeadpieces = headpieces.toString().trim() !== "";
+            console.log(headpieces)
+            if (headpieces && headpieces?.toString().trim() !== "")
+                isDrawHeadpieces = true;
             // sources.claws = sources.claws + getClaws(claws);
             // sources.legs = sources.legs + getLegs(legs);
             // sources.shell = sources.shell + getShell(shell);
@@ -248,10 +250,10 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             shadow: [],
         };
         var postaction = function () { };
-
+        console.log(isDrawHeadpieces)
         // 24 frames per part, we have 7 parts ~ 24 * 7 = 168
         function onFinished() {
-            if (imageLoaded == 144 && isDrawHeadpieces === false) {
+            if (imageLoaded == 144 && isDrawHeadpieces == false) {
                 postaction(images);
             }
             if (imageLoaded == 168) {
