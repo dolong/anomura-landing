@@ -15,40 +15,42 @@ const CrabImageViewerUpdate = async (req, res) => {
         const crabId = parseInt(req.query.crabId);
         const existingCrab = await getAnomuraById(crabId);
 
-        // let crabImage = await CrabImagesBuilder({
-        //     crabId,
-        //     background,
-        //     body,
-        //     legs,
-        //     claws,
-        //     shell,
-        //     headpieces,
-        // })
+        let crabImage = await CrabImagesBuilder({
+            crabId,
+            background,
+            body,
+            legs,
+            claws,
+            shell,
+            headpieces,
+        })
 
-        let crabImage = "https://res.cloudinary.com/mrleewatch/image/upload/v1662142333/Anomura-Staging/Anomura_17.png"
+        //let crabImage = "https://res.cloudinary.com/mrleewatch/image/upload/v1662142333/Anomura-Staging/Anomura_17.png"
 
         let anomuraName = getAnomuraName();
         let anomuraDescription = getAnomuraDescription();
         if (existingCrab) {
-            console.log(`Found existing anomura ${crabId}, image: ${existingCrab.image} `);
-            if (existingCrab.image != crabImage) {
-                let crabId = existingCrab.id;
-                const updatedCrab = await updateCrabById({
-                    crabId,
-                    image: crabImage,
-                    background,
-                    body,
-                    legs,
-                    claws,
-                    shell,
-                    headpieces,
-                });
-                console.log(`Updated anomura attrs successfully`);
-                res.status(200).json({ data: "Updated anomura attrs successfully" });
-                return;
-            }
+            // console.log(`Found existing anomura ${crabId}, image: ${existingCrab.image} `);
+            // if (existingCrab.image != crabImage) {
+            //     let crabId = existingCrab.id;
+            //     const updatedCrab = await updateCrabById({
+            //         crabId,
+            //         image: crabImage,
+            //         background,
+            //         body,
+            //         legs,
+            //         claws,
+            //         shell,
+            //         headpieces,
+            //     });
+            //     console.log(`Updated anomura attrs successfully`);
+            //     res.status(200).json({ data: "Updated anomura attrs successfully" });
+            //     return;
+            // }
             console.log(`No need to update anomura Image`);
-            return res.status(200).json({ data: {}, message: "No need to update anomura Image" });
+
+            // currently not allowed to update
+            return res.status(200).json({ data: {}, message: "found existing anomura" });
 
         }
         else {

@@ -37,8 +37,8 @@ exports.CrabImagesBuilder = async (crab) => {
     let legsName = getLegs(legs);
     let bodyName = getBody(body);
     let clawsName = getClaws(claws);
-    let headpiecesName = " ";
-    if (headpieces !== " ") headpiecesName = getHeadPieces(headpieces);
+    let headpiecesName = "";
+    if (headpieces.trim() !== "") headpiecesName = getHeadPieces(headpieces);
 
     let prisma = new PrismaClient({});
     // let backgroundLayer = await loadImage(
@@ -84,7 +84,7 @@ exports.CrabImagesBuilder = async (crab) => {
     let shadowLayer = anomuraSvg[shadowLayerIndex].svg;
 
     let headpiecesLayer = " ";
-    if (headpiecesName !== " ") {
+    if (headpiecesName.trim() !== "") {
         let headpiecesLayerIndex = anomuraSvg.findIndex(
             (el) => el.part === "HeadPieces" && el.attribute === headpiecesName
         );
