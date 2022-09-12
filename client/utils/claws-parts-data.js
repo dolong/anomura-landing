@@ -348,6 +348,7 @@ exports.clawsPartsData = {
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622562/Anomura-Claws-Parts/Adventure%20Claw_22.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622562/Anomura-Claws-Parts/Adventure%20Claw_23.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622563/Anomura-Claws-Parts/Adventure%20Claw_24.png",
+        "https://res.cloudinary.com/mrleewatch/image/upload/v1663002487/Anomura-Claws-Parts/Adventure%20Claw_hex.png"
     ],
     "Asteroid Lasergun": [
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622631/Anomura-Claws-Parts/Asteroid%20Lasergun_1.png",
