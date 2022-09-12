@@ -223,17 +223,16 @@ $bp-xl-4: 3840px;            // 2560  160em
 	} 
 	@media only screen and (min-width: 2560px) {
 		font-size: 6.67rem;
-		line-height: 31px;
+		line-height: 3rem;
 	} 
 	@media only screen and (min-width: 3840px) {
 		font-size: 6.67rem;
-		line-height: 31px;
+		line-height: 3.5rem;
 	} 
 	@media only screen and (max-width: 850px) {
 		font-size: 3.1875rem;
 		line-height: 2.4rem;
 	} 
-
 	@media only screen and (max-width: 600px) {
 		font-size: 2.1875rem;
 	} 
@@ -352,7 +351,7 @@ $bp-xl-4: 3840px;            // 2560  160em
 	}
 	@media (min-width: $bp-xl-3) {  
 		font-size: 2.15rem;
-		line-height: 3rem;
+		line-height: 3.25rem;
 	}
 	@media (min-width: $bp-xl-4) {  
 		font-size: 2.35rem;

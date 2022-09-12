@@ -117,12 +117,12 @@ $header-space-bottom: 60px;
 	}
 
 	@media only screen and (max-width: 600px) {
-		background-size: 100% 38%;
+		background-size: 100% 45%;
 		padding-bottom: 25%;
 	}
 
 	@media only screen and (max-width: 400px) {
-		background-size: 100% 42%;
+		background-size: 100% 52%;
 		padding-bottom: 25%;
 	}
 }
@@ -1557,7 +1557,7 @@ $header-space-bottom: 60px;
 	 	
 	 	position:relative;
 		width: 100vw;
-		margin-left: -40%;
+		margin-left: -25%;
 
 	 	&_wrapper{
 	 		position: relative;
@@ -1678,7 +1678,7 @@ and (max-device-width: 1024px)
 and (-webkit-min-device-pixel-ratio: 1) 
 and (-webkit-min-device-pixel-ratio: 2) {
 	.App {
-		background-size: 100% 33%;
+		background-size: 100% 43%;
 	}
 	.shop {
 		&_zone{
@@ -1880,7 +1880,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 	.shop {
 		&_zone {
-			padding-top: 20.5%;
+			padding-top: 28.5%;
 		}
 		&_img {
 			width: 100vw; 

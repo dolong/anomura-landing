@@ -25,14 +25,16 @@ export default function Navbar({ isMobile }) {
                         <img src="/img/home/footer/logo-pink-no-padding.png" />
                     </div>
                     <div className={s.nav_mobile_bar_hamburger}>
-                        <button
-                            onClick={() => {
-                                document.body.style.position = "fixed";
-                                setOpenMenu(!openMenu);
-                            }}
-                        >
-                            <img src={`img/home/Button_Mobile Menu.png`} alt="Menu" />
-                        </button>
+                        <div className={s.nav_mobile_bar_hamburger_icon}>
+                            <button
+                                onClick={() => {
+                                    document.body.style.position = "fixed";
+                                    setOpenMenu(!openMenu);
+                                }}
+                            >
+                                <img src={`img/home/Button_Mobile Menu.png`} alt="Menu" />
+                            </button>
+                        </div>{" "}
                     </div>
                 </div>
                 {openMenu && (

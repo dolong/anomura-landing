@@ -11,8 +11,8 @@ const InitialOffset = 500,
     TwelveHundredOffSet = 175,
     OneThousandOffSet = 150,
     EightHundredOffSet = 190,
-    SixHundredOffSet = 155,
-    FourHundredOffSet = 85;
+    SixHundredOffSet = 100,
+    FourHundredOffSet = 0;
 
 export default function EnterInfinity({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-6.5);
@@ -127,20 +127,20 @@ export default function EnterInfinity({ ScrollPercent }) {
                         </div>
                         <div className={s.enterInifinity_divider_paragraph}>
                             <div className={s.enterInifinity_divider_paragraph_wrapper}>
-                                <p>
+                                {/* <p>
                                     An ever-evolving Universe outside the vacuum of space and time.
-                                </p>
+                                </p> */}
                                 <p>
                                     Play as an Anomura and journey to one of the four Realms: Ocean,
                                     Earth, Science, or Sky. Prepare to battle powerful aenemies &
                                     bosses and utilize the Infinity Circle to unlock cards, find
                                     treasure, and gain XP.
                                 </p>
-                                <p>
+                                {/* <p>
                                     Battle aenemies & bosses who threaten your Realm. Utilize the
                                     Infinity Circle by unlocking cards, gearing up, finding
                                     treasure, and gaining XP.
-                                </p>
+                                </p> */}
                                 <p>
                                     Uncover the secrets of the Universe and restore balance to the
                                     four Realms!

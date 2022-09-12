@@ -107,10 +107,10 @@ $bp-xl-4: 3840px;            // 2560  160em
                 font-size: 1.1rem;
             }
             @media (min-width: $bp-med-2) {  
-                font-size: 1.15rem;
+                font-size: 1.25rem;
             }
             @media (min-width: $bp-large) {  
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
             @media (min-width: $bp-xl) {  
                 font-size: 2rem;
@@ -189,9 +189,15 @@ $bp-xl-4: 3840px;            // 2560  160em
             }
             &_hamburger {
                 position: absolute;
-                width: 2rem;
+                @include m.flex-master(row, center, center);
+                width: 2.25rem;
                 right: 0.5rem;
-                top: 0.5rem;
+                height: 100%;
+                // top: 0.5rem;
+
+                &_icon {
+                    @include m.flex-master(row, center, center);
+                }
             }
         }
         

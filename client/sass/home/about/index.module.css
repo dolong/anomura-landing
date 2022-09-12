@@ -42,7 +42,6 @@
 @media (min-width: 800px) {
   .about_container {
     margin-top: 25%;
-    width: 50%;
   }
 }
 @media (min-width: 872px) {
@@ -115,13 +114,13 @@
 @media only screen and (min-width: 2560px) {
   .about_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3rem;
   }
 }
 @media only screen and (min-width: 3840px) {
   .about_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3.5rem;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -191,7 +190,7 @@
 @media (min-width: 2560px) {
   .about_paragraphContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -301,7 +300,7 @@
 @media (min-width: 2560px) {
   .about_banner_text_container > div {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -375,12 +374,12 @@
 }
 @media (min-width: 1980px) {
   .about_divider_item {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
   }
 }
 @media (min-width: 2560px) {
   .about_divider_item {
-    margin-bottom: 3rem;
+    margin-bottom: 4.5rem;
   }
 }
 .about_divider_item_img {
@@ -502,7 +501,7 @@
 @media (min-width: 2560px) {
   .about_divider_item_labels_description {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -531,6 +530,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 2.5rem;
+  text-align: center;
 }
 .about_divider_item:first-child > div > div:nth-child(2) > a {
   color: #A5EBE3;

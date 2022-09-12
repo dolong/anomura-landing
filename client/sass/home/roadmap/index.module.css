@@ -114,13 +114,13 @@
 @media only screen and (min-width: 2560px) {
   .roadmap_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3rem;
   }
 }
 @media only screen and (min-width: 3840px) {
   .roadmap_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3.5rem;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -190,7 +190,7 @@
 @media (min-width: 2560px) {
   .roadmap_paragraphContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -485,7 +485,7 @@
 @media (min-width: 2560px) {
   .roadmap_divider_item_labels_target {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -559,7 +559,7 @@
 @media (min-width: 2560px) {
   .roadmap_divider_item_labels_description {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {

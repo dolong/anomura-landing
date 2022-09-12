@@ -98,13 +98,13 @@
 }
 @media only screen and (max-width: 600px) {
   .App {
-    background-size: 100% 38%;
+    background-size: 100% 45%;
     padding-bottom: 25%;
   }
 }
 @media only screen and (max-width: 400px) {
   .App {
-    background-size: 100% 42%;
+    background-size: 100% 52%;
     padding-bottom: 25%;
   }
 }
@@ -397,7 +397,7 @@
 @media (min-width: 2560px) {
   .comingsoon_paragraphContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -762,13 +762,13 @@
 @media only screen and (min-width: 2560px) {
   .nft_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3rem;
   }
 }
 @media only screen and (min-width: 3840px) {
   .nft_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3.5rem;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -838,7 +838,7 @@
 @media (min-width: 2560px) {
   .nft_paragraphContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -986,13 +986,13 @@
 @media only screen and (min-width: 2560px) {
   .crab_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3rem;
   }
 }
 @media only screen and (min-width: 3840px) {
   .crab_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3.5rem;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -1071,7 +1071,7 @@
 @media (min-width: 2560px) {
   .crab_paragraphContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -1508,13 +1508,13 @@
 @media only screen and (min-width: 2560px) {
   .when_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3rem;
   }
 }
 @media only screen and (min-width: 3840px) {
   .when_heading {
     font-size: 6.67rem;
-    line-height: 31px;
+    line-height: 3.5rem;
   }
 }
 @media only screen and (max-width: 850px) {
@@ -1584,7 +1584,7 @@
 @media (min-width: 2560px) {
   .when_paragraphContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -1879,7 +1879,7 @@
 @media (min-width: 2560px) {
   .when_roadmap_item_labels_target {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -1953,7 +1953,7 @@
 @media (min-width: 2560px) {
   .when_roadmap_item_labels_description {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -2221,7 +2221,7 @@
 @media (min-width: 2560px) {
   .footer_followContainer {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -2399,7 +2399,7 @@
 @media (min-width: 2560px) {
   .footer_presented {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -2470,7 +2470,7 @@
 @media (min-width: 2560px) {
   .footer_mission {
     font-size: 2.15rem;
-    line-height: 3rem;
+    line-height: 3.25rem;
   }
 }
 @media (min-width: 3840px) {
@@ -2586,7 +2586,7 @@
 .footer_chestAndFish {
   position: relative;
   width: 100vw;
-  margin-left: -40%;
+  margin-left: -25%;
 }
 @media only screen and (min-width: 800px) {
   .footer_chestAndFish {
@@ -2687,7 +2687,7 @@
 /* ----------- General ipads ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (-webkit-min-device-pixel-ratio: 2) {
   .App {
-    background-size: 100% 33%;
+    background-size: 100% 43%;
   }
   .shop_zone {
     padding-top: 15%;
@@ -2834,7 +2834,7 @@
 }
 @media only screen and (max-width: 600px) {
   .shop_zone {
-    padding-top: 20.5%;
+    padding-top: 28.5%;
   }
   .shop_img {
     width: 100vw;

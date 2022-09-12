@@ -12,8 +12,8 @@ const InitialOffset = 2050,
     TwelveHundredOffSet = 350,
     OneThousandOffSet = 250,
     EightHundredOffSet = 300,
-    SixHundredOffSet = -50,
-    FourHundredOffSet = -70;
+    SixHundredOffSet = -80,
+    FourHundredOffSet = -220;
 
 // const InitialOffset = 1980,
 //     TwentyEightHundredOffset = -220,

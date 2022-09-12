@@ -34,7 +34,7 @@ $header-space-bottom: 60px;
 		z-index: 999;
 	}
 	&_icon {
-		width: 70%;
+		width: 33%;
 		position: relative;
 		@include m.flex-master(row, center, center);
 
@@ -57,7 +57,7 @@ $header-space-bottom: 60px;
 		}
 	}
 	&_container {
-		margin-top: 40.5%;
+		margin-top: 60px;
 		width: $mobile-text-section;
 		@media (min-width: $bp-med) {  
 			margin-top: 20%;
