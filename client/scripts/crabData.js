@@ -277,7 +277,7 @@ exports.getBackgroundRarity = (name) => {
 };
 exports.getRarity = (name) => {
 
-    if (name == null || name?.trim() == "" || name === undefined) return Nothing;
+    if (name == null || name?.trim() == "" || name === undefined || name == "None") return Nothing;
     let containLegendAttr = legendAttrs.some((el) => name.includes(el));
     if (containLegendAttr) {
         return Legendary;

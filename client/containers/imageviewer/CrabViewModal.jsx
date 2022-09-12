@@ -94,7 +94,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 break;
             case "headpieces":
                 cardRarity = getRarity(headpieces);
-                if (headpieces === " " || headpieces === null || headpieces === undefined) {
+                if (
+                    headpieces == " " ||
+                    headpieces === null ||
+                    headpieces === undefined ||
+                    headpieces == "None"
+                ) {
                     cardName = "YOU HAVE NO HEADPIECE";
                 } else {
                     cardName = headpieces;

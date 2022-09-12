@@ -134,9 +134,11 @@ export default function AnimateViewerDetails() {
         }
         //no equipment
         else {
-            console.log(headpieces)
-            if (headpieces && headpieces?.toString().trim() !== "")
+
+            if (headpieces && headpieces?.toString().trim() !== "None") {
                 isDrawHeadpieces = true;
+            }
+
             // sources.claws = sources.claws + getClaws(claws);
             // sources.legs = sources.legs + getLegs(legs);
             // sources.shell = sources.shell + getShell(shell);
