@@ -115,10 +115,10 @@ export default function Navbar({ isMobile }) {
                                         className={s.nav_mobile_content_list_button}
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            window.open(`https://anomuragame.com`, "_blank");
+                                            window.open(`https://anomuragame.com/mint`, "_blank");
                                         }}
                                         style={{ width: "55%" }}
-                                        disabled={true}
+                                        disabled={false}
                                     >
                                         <img src={`/img/home/Button_M_Pink.png`} alt="name" />
                                         <div>
@@ -209,7 +209,7 @@ export default function Navbar({ isMobile }) {
                                         e.preventDefault();
                                         window.open(`https://anomuragame.com/mint`, "_blank");
                                     }}
-                                    disabled={true}
+                                    disabled={false}
                                     className={s.nav_button_pink}
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
