@@ -207,7 +207,7 @@ exports.getBody = (src) => {
     console.error(`Body ${src} cannot be found. Or image path for src is invalid`);
 };
 exports.getHeadPieces = (src) => {
-    if (src == "" || src == null) {
+    if (src == "" || src == null || src == "None") {
         return "";
     }
     for (let i = 0; i < this.headpieces.length; i++) {

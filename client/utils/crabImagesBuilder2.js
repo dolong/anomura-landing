@@ -84,7 +84,7 @@ exports.CrabImagesBuilder = async (crab) => {
     let shadowLayer = anomuraSvg[shadowLayerIndex].svg;
 
     let headpiecesLayer = " ";
-    if (headpiecesName.trim() !== "") {
+    if (headpiecesName.trim() !== "" && headpiecesName != "None") {
         let headpiecesLayerIndex = anomuraSvg.findIndex(
             (el) => el.part === "HeadPieces" && el.attribute === headpiecesName
         );
