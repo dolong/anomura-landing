@@ -51,8 +51,6 @@ exports.CrabImagesBuilder = async (crab) => {
     // let shadowLayer = await loadImage(path.resolve(`${imageDir}/Services/shadow_1.svg`));
 
     let anomuraSvg = await prisma.anomuraPartSVG.findMany();
-
-
     let backgroundLayerIndex = anomuraSvg.findIndex(
         (el) => el.part === "Background" && el.attribute === backgroundName
     );
