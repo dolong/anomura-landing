@@ -122,7 +122,7 @@ export default function Navbar({ isMobile }) {
                                     >
                                         <img src={`/img/home/Button_M_Pink.png`} alt="name" />
                                         <div>
-                                            <span>Mint</span>
+                                            <span>THE VOID</span>
                                         </div>
                                     </button>
                                 </div>
@@ -214,7 +214,7 @@ export default function Navbar({ isMobile }) {
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
                                     <div>
-                                        <span>MINT NOW</span>
+                                        <span>THE VOID</span>
                                     </div>
                                 </button>
                             </div>

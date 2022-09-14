@@ -344,7 +344,7 @@ export default function Roadmap() {
                                     </div>
                                     <div className={s.roadmap_divider_item_labels}>
                                         <div className={s.roadmap_divider_item_labels_progress}>
-                                            IN PROGRESS
+                                            COMPLETED
                                         </div>
                                         <span
                                             className={`${s.roadmap_divider_item_labels_title} ${
@@ -357,7 +357,7 @@ export default function Roadmap() {
                                             Mystery Bowl Mint
                                         </span>
                                         <div className={s.roadmap_divider_item_labels_target}>
-                                            Live: Sept 13
+                                            Sept 13
                                         </div>
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Release of limited supply Founder’s Edition Mystery
@@ -385,7 +385,9 @@ export default function Roadmap() {
                                         >
                                             Summoning
                                         </span>
-
+                                        <div className={s.roadmap_divider_item_labels_target}>
+                                            Begins: Sept 21
+                                        </div>
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Generative Anomura will be summoned and reveal rarity
                                         </div>
