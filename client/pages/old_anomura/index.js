@@ -12,10 +12,10 @@ export default function Anomura() {
                 <meta name="keywords" content="Anomura, NFT, Game" />
                 <link rel="icon" href="/img/favicons/faviconBowl.png" />
             </Head>
-            <SkyArea />
+            {/* <SkyArea />
             <SnowArea />
             <LavaArea />
-            <PondArea />
+            <PondArea /> */}
             {/* Treasure Chest */}
 
             {/* Footer */}
