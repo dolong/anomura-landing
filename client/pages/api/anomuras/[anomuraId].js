@@ -1,4 +1,4 @@
-import { getAnomuraById, createAnomura, updateCrabById } from "repositories/crabs";
+import { getAnomuraById } from "repositories/crabs";
 
 const crabImageViewerHandler = async (req, res) => {
     const { method } = req;
@@ -6,14 +6,13 @@ const crabImageViewerHandler = async (req, res) => {
     switch (method) {
         case "GET":
             try {
-                let id = parseInt(req.query.crabId);
+                let id = parseInt(req.query.anomuraId);
                 let crab = await getAnomuraById(id);
 
                 if (crab) {
                     res.status(200).json({
                         name: crab.name,
                         description: crab.description,
-                        animation_url: `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/${crab.crabId}`,
                         image: crab.image,
                         attributes: [
                             {
@@ -45,7 +44,7 @@ const crabImageViewerHandler = async (req, res) => {
                 } else {
                     res.status(200).json({
                         name: `Crab ${id}`,
-                        description: "Unminted crab",
+                        description: "Unminted Anomura",
                     });
                 }
             } catch (err) {
