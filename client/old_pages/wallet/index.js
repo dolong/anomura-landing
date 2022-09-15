@@ -9,14 +9,14 @@ export default function Wallet() {
                 <title>Anomura Wallet</title>
                 <link rel="icon" href="/img/favicons/faviconShell.png" />
             </Head>
-            <WalletNavbar></WalletNavbar>
+            {/* <WalletNavbar></WalletNavbar> */}
             {/* Main Wrapper */}
             <div className='mt-4'>
                 <h1 className="text-2xl">Welcome to your personal NFT wallet on Anomura</h1>
                 <h1 className="text-6xl">Wallet</h1>
                 {/* Card Components */}
                 <div>
-                    <WalletCard></WalletCard>
+                    {/* <WalletCard></WalletCard> */}
                 </div>
             </div>
 
