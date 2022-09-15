@@ -28,7 +28,7 @@ import {
     servicePartsData,
     headpiecesPartsData,
     legsPartsData,
-} from "utils/";
+} from "resources/old";
 
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";

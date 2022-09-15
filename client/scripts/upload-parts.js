@@ -9,46 +9,32 @@ cloudinary.config({
     api_secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
 });
 
-
+// WATCHOUT FOR LOOP, habitat takes 24, other parts take 25//////////
 const uploadImage = async () => {
-    const dirRelativeToPublicFolder = "img/imageviewer/Claws";
+    const dirRelativeToPublicFolder = "img/imageviewer/Shell";
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
-    let partName = "Adventure Claw"
+    let partName = "Pong Shell"
     try {
-        // for (let i = 1; i <= 24; i++) {
-        //     let fileName = `${partName}`;
+        for (let i = 1; i <= 25; i++) {
+            let fileName = `${partName}`;
 
-        //     let fileToUpload
-        //     if (i === 25) {
-        //         fileName = `${fileName}_hex`
-        //     } else {
-        //         fileName = `${fileName}_${i}`
-        //     }
+            let fileToUpload
+            if (i === 25) {
+                fileName = `${fileName}_hex`
+            } else {
+                fileName = `${fileName}_${i}`
+            }
 
-        //     // fileName = `${fileName}_${i}`
+            // fileName = `${fileName}_${i}`
 
-        //     fileToUpload = path.resolve(`${imageDir}/${fileName}.png`);
+            fileToUpload = path.resolve(`${imageDir}/${fileName}.png`);
 
-        //     let res = await cloudinary.uploader.upload(fileToUpload, {
-        //         // folder: "mint-sequences/", 
-        //         public_id: fileName,
-        //         upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_PRESET
-        //     });
-        //     console.log(res.secure_url)
-        // }
-        let fileName = `${partName}`;
-
-        fileName = `${fileName}_hex`
-
-        fileToUpload = path.resolve(`${imageDir}/${fileName}.png`);
-
-        let res = await cloudinary.uploader.upload(fileToUpload, {
-            // folder: "mint-sequences/", 
-            public_id: fileName,
-            upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_PRESET
-        });
-        console.log(res.secure_url)
-
+            let res = await cloudinary.uploader.upload(fileToUpload, {
+                public_id: fileName,
+                upload_preset: process.env.NEXT_PUBLIC_CLOUDINARY_PRESET
+            });
+            console.log(res.secure_url)
+        }
     } catch (error) {
         console.log(error)
     }

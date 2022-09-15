@@ -22,7 +22,7 @@ import {
     servicePartsData,
     headpiecesPartsData,
     legsPartsData
-} from "utils/";
+} from "resources/cloudinary";
 
 /** static props and paths should not call to api link since it is not available on build time */
 // export const getStaticPaths = async () => {
@@ -77,7 +77,7 @@ export default function AnimateViewerDetails() {
         id ? `/api/crabs/getAnomuraById?id=${id}` : null,
         fetcher
     );
-    // console.log(bodyPartsData)
+
     if (router.isFallback) {
         return <div>Loading...</div>;
     } else {

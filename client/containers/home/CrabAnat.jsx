@@ -15,17 +15,6 @@ const InitialOffset = 2050,
     SixHundredOffSet = -80,
     FourHundredOffSet = -220;
 
-// const InitialOffset = 1980,
-//     TwentyEightHundredOffset = -220,
-//     TwentyFiveHundredOffset = -220,
-//     NineteenHundredOffset = -220,
-//     SixteenHundredOffset = -220,
-//     TwelveHundredOffSet = -150,
-//     OneThousandOffSet = -250,
-//     EightHundredOffSet = -250,
-//     SixHundredOffSet = -190,
-//     FourHundredOffSet = -250;
-
 const anomuras = [
     "/img/home/anatomy/01.webp",
     "/img/home/anatomy/02.webp",
