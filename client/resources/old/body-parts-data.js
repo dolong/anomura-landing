@@ -512,7 +512,7 @@ exports.bodyPartsData = {
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622239/Anomura-Body-Parts/Adventure%20Body_24.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661733355/Anomura-Body-Parts/Adventure%20Body_hex.png"
     ],
-    "Asteroid Body": [
+    "Asteroids Body": [
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622344/Anomura-Body-Parts/Asteroid%20Body_1.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622345/Anomura-Body-Parts/Asteroid%20Body_2.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661622345/Anomura-Body-Parts/Asteroid%20Body_3.png",

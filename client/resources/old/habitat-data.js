@@ -571,7 +571,7 @@ exports.habitatPartsData = {
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661621748/Anomura-Habitat-Parts/Adventure%20Space_23.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661621749/Anomura-Habitat-Parts/Adventure%20Space_24.png",
     ],
-    "Asteroid Space": [
+    "Asteroids Space": [
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661621883/Anomura-Habitat-Parts/Asteroid%20Space_1.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661621883/Anomura-Habitat-Parts/Asteroid%20Space_2.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661621884/Anomura-Habitat-Parts/Asteroid%20Space_3.png",

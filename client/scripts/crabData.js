@@ -27,7 +27,7 @@ exports.backgrounds = [
     "ZED Run",
 
     "Adventure Space",
-    "Asteroid Space",
+    "Asteroids Space",
     "Pong Space",
 ];
 // done
@@ -56,7 +56,7 @@ exports.bodies = [
     "Golden",
 
     "Adventure Body",
-    "Asteroid Body",
+    "Asteroids Body",
     "Pong Body"
 ];
 // done
@@ -78,7 +78,7 @@ exports.claws = [
     "Hammer Logs",
 
     "Adventure Claw",
-    "Asteroid Lasergun",
+    "Asteroids Lasergun",
     "Pong Claw"
 ];
 //done
@@ -100,7 +100,7 @@ exports.legs = [
     "Pintobortri Leg",
 
     "Adventure Leg",
-    "Asteroid Leg",
+    "Asteroids Leg",
     "Pong Leg",
 ];
 //done
@@ -140,7 +140,7 @@ exports.shells = [
     "Holy Temple",
 
     "Adventure Shell",
-    "Asteroid Shell",
+    "Asteroids Shell",
     "Pong Shell",
 ];
 exports.headpieces = [

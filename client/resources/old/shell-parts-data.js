@@ -782,7 +782,7 @@ exports.shellPartsData = {
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623392/Anomura-Shell-Parts/Adventure%20Shell_24.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661775344/Anomura-Shell-Parts/Adventure%20Shell_hex.png"
     ],
-    "Asteroid Shell": [
+    "Asteroids Shell": [
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623523/Anomura-Shell-Parts/Asteroid%20Shell_1.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623523/Anomura-Shell-Parts/Asteroid%20Shell_2.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623524/Anomura-Shell-Parts/Asteroid%20Shell_3.png",

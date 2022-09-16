@@ -13,9 +13,9 @@ cloudinary.config({
 const uploadImage = async () => {
     const dirRelativeToPublicFolder = "img/imageviewer/Shell";
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
-    let partName = "Pong Shell"
+    let partName = "Adventure Shell"
     try {
-        for (let i = 1; i <= 25; i++) {
+        for (let i = 1; i <= 24; i++) {
             let fileName = `${partName}`;
 
             let fileToUpload

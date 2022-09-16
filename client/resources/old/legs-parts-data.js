@@ -350,7 +350,7 @@ exports.legsPartsData = {
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623004/Anomura-Legs-Parts/Adventure%20Leg_24.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661774186/Anomura-Legs-Parts/Adventure%20Leg_hex.png"
     ],
-    "Asteroid Leg": [
+    "Asteroids Leg": [
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623123/Anomura-Legs-Parts/Asteroid%20Leg_1.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623123/Anomura-Legs-Parts/Asteroid%20Leg_2.png",
         "https://res.cloudinary.com/mrleewatch/image/upload/v1661623124/Anomura-Legs-Parts/Asteroid%20Leg_3.png",
