@@ -39,15 +39,10 @@ const name = [
     "Tuyết",
     "Hải",
     "Minh",
-
     "Châu",
-
     "Vân",
-
     "Am",
-
     "Sen",
-
     "Caihong",
     "Kun",
     "Meilin",
@@ -398,10 +393,10 @@ const place = [
 exports.getAnomuraName = (walletAddress = "") => {
 
     let rand = Math.round(Math.random());
-    let namePart = name[Math.round(Math.random() * name.length)]
-    let adjectivePart = adjective[Math.round(Math.random() * adjective.length)]
-    let nounPart = noun[Math.round(Math.random() * noun.length)]
-    let placePart = place[Math.round(Math.random() * place.length)]
+    let namePart = name[Math.floor(Math.random() * name.length)]
+    let adjectivePart = adjective[Math.floor(Math.random() * adjective.length)]
+    let nounPart = noun[Math.floor(Math.random() * noun.length)]
+    let placePart = place[Math.floor(Math.random() * place.length)]
 
     if (rand === 0) {
         return `${namePart} the ${adjectivePart} ${nounPart} of the ${placePart}`

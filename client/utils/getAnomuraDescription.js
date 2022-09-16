@@ -167,7 +167,6 @@ const noun4 = [
     "adventure",
     "battle",
     "wisdom",
-
     "grandeur",
     "praise",
     "honour",
@@ -251,22 +250,22 @@ exports.getAnomuraDescription = () => {
 
     let rand = Math.round(Math.random());
 
-    let realmPart = realm[Math.round(Math.random() * realm.length)]
-    let adjectivePart = adjective[Math.round(Math.random() * adjective.length)]
-    let assignRolesPart = assignRoles[Math.round(Math.random() * assignRoles.length)]
-    let traitsPart = traits[Math.round(Math.random() * traits.length)]
+    let realmPart = realm[Math.floor(Math.random() * realm.length)]
+    let adjectivePart = adjective[Math.floor(Math.random() * adjective.length)]
+    let assignRolesPart = assignRoles[Math.floor(Math.random() * assignRoles.length)]
+    let traitsPart = traits[Math.floor(Math.random() * traits.length)]
 
-    let elementsPart = elements[Math.round(Math.random() * elements.length)]
-    let verbPart = verb[Math.round(Math.random() * verb.length)]
-    let noun1Part = noun1[Math.round(Math.random() * noun1.length)]
-    let noun2Part = noun2[Math.round(Math.random() * noun2.length)]
-    let verb_ingPart = verb_ing[Math.round(Math.random() * verb_ing.length)]
+    let elementsPart = elements[Math.floor(Math.random() * elements.length)]
+    let verbPart = verb[Math.floor(Math.random() * verb.length)]
+    let noun1Part = noun1[Math.floor(Math.random() * noun1.length)]
+    let noun2Part = noun2[Math.floor(Math.random() * noun2.length)]
+    let verb_ingPart = verb_ing[Math.floor(Math.random() * verb_ing.length)]
 
-    let noun3Part = noun3[Math.round(Math.random() * noun3.length)]
-    let noun4Part = noun4[Math.round(Math.random() * noun4.length)]
-    let emotion1Part = emotion1[Math.round(Math.random() * emotion1.length)]
-    let emotion2Part = emotion2[Math.round(Math.random() * emotion2.length)]
-    let barkPart = bark[Math.round(Math.random() * bark.length)]
+    let noun3Part = noun3[Math.floor(Math.random() * noun3.length)]
+    let noun4Part = noun4[Math.floor(Math.random() * noun4.length)]
+    let emotion1Part = emotion1[Math.floor(Math.random() * emotion1.length)]
+    let emotion2Part = emotion2[Math.floor(Math.random() * emotion2.length)]
+    let barkPart = bark[Math.floor(Math.random() * bark.length)]
 
     if (rand === 0) {
         return `Hailing from the ${realmPart} Realm, you are a ${adjectivePart} ${assignRolesPart} that is ${traitsPart}.\n\nRuled by ${elementsPart}, you ${verbPart} your ${noun1Part} with ${noun2Part}.\n\nYou're always ${verb_ingPart} ${noun3Part} and ${noun4Part} to those that you ${emotion1Part}.\n\n${barkPart}`
