@@ -11,8 +11,8 @@ const CrabImageViewerUpdate = async (req, res) => {
             data: { background, body, legs, claws, shell, headpieces },
         } = req.body;
 
-        console.log(`Building an anomura...`);
         const crabId = parseInt(req.query.crabId);
+        console.log(`Building an anomura with id ${crabId}`);
         const existingCrab = await getAnomuraById(crabId);
 
         let crabImage = await CrabImagesBuilder({
@@ -47,7 +47,7 @@ const CrabImageViewerUpdate = async (req, res) => {
             //     res.status(200).json({ data: "Updated anomura attrs successfully" });
             //     return;
             // }
-            console.log(`No need to update anomura Image`);
+            console.log(`Found existing anomura. No need to update anomura Image`);
 
             // currently not allowed to update
             return res.status(200).json({ data: {}, message: "found existing anomura" });

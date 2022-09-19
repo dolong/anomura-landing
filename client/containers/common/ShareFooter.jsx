@@ -92,7 +92,9 @@ export default function ShareFooter({ audioControl }) {
                         </div>
                         <div
                             className={s.shareFooter_socials_wrapper_icon}
-                            onClick={() => window.open(`https://opensea.io/`, "_blank")}
+                            onClick={() =>
+                                window.open(`https://opensea.io/collection/mystery-bowl`, "_blank")
+                            }
                         >
                             <img src="/img/home/footer/Social_Opensea.png" />
                             <img src="/img/home/footer/Social_Hexagon Outline.png" />
