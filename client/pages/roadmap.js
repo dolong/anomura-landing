@@ -26,7 +26,7 @@ export default function RoadMapMain() {
 	}, [isMobile]);
 	return (
 		<div className={s.app}>
-
+			{/* <Navbar isMobile={isMobile} /> */}
 			<div className={s.parallax_group}>
 				<Navbar isMobile={isMobile} />
 				<Roadmap />
