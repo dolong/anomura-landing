@@ -1,6 +1,5 @@
-import Head from "next/head";
+
 import dynamic from "next/dynamic";
-import { ShopZone } from "/containers/home/ContainerIndex";
 import s from "/sass/home/roadmap/index.module.css";
 import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
@@ -8,7 +7,6 @@ import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
 
 const { Roadmap, ShareFooter } = {
-
 	Roadmap: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
 		{ ssr: false }
@@ -26,28 +24,13 @@ export default function RoadMapMain() {
 	}, [isMobile]);
 	return (
 		<div className={s.app}>
-			{/* <Navbar isMobile={isMobile} /> */}
 			<div className={s.parallax_group}>
 				<Navbar isMobile={isMobile} />
 				<Roadmap />
 				<ShareFooter isParalax={false} />
-
 			</div>
-			<FloatingBottom />
+			<FloatingBottom isMobile={isMobile} />
 
-			{/* Css modules cant have a none pure style in 
-      		 /  it like body so making a JSS style here 
-       		/  and applying it globally */}
-			{/* <style>{`
-        		body {
-        		  overflow-x:hidden;
-        		  font-size: clamp(18px,2vw,28px);
-        		  font-family: Atlantis;
-        		  color: #fff;
-        		  line-height: 1.5;
-        		}
-      		`}
-			</style> */}
 		</div>
 	);
 }

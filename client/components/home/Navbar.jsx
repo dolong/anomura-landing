@@ -26,7 +26,6 @@ export default function Navbar({ isMobile }) {
         }
     }, []);
 
-    console.log(mobileNavState);
     if (isMobile || showMobileNav) {
         return (
             <>

@@ -1,19 +1,12 @@
-import Head from "next/head";
+
 import dynamic from "next/dynamic";
-import { ShopZone } from "/containers/home/ContainerIndex";
-import { useScrollEvent } from "/hooks/useScrollEvent";
 import s from "/sass/home/about/index.module.css";
-import { useRecoilValue } from "recoil";
-import { ScrollValue } from "/atoms/Atoms";
 import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
-
-
 import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
 
 const { About, ShareFooter } = {
-
 	About: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.About),
 		{ ssr: false }
@@ -28,6 +21,8 @@ export default function AboutMain() {
 	useEffect(() => {
 
 	}, [isMobile]);
+
+	console.log(isMobile)
 	return (
 		<div className={s.app}>
 			<div className={s.parallax_group}>
@@ -35,7 +30,7 @@ export default function AboutMain() {
 				<About />
 				<ShareFooter isParalax={false} />
 			</div>
-			<FloatingBottom />
+			<FloatingBottom isMobile={isMobile} />
 		</div>
 	);
 }

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
+import { SiteContext } from "context/SiteContext";
 
 const InitialOffset = 6000,
     ThirtyEightHundredOffset = 2850,
@@ -12,12 +13,12 @@ const InitialOffset = 6000,
     TwelveHundredOffSet = 200,
     OneThousandOffSet = 20,
     EightHundredOffSet = -40,
-    SixHundredOffSet = 100, // 700
+    SixHundredOffSet = 100,
     FourHundredOffSet = 0;
 
-export default function Footer({ ScrollPercent, audioControl }) {
+export default function Footer({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-48);
-    const [audioState, setAudioState] = useState("unloaded");
+    const { audioControl, isAudioLoaded } = useContext(SiteContext);
     const bubbleRef = React.createRef();
     let timeout, interval;
 
@@ -56,32 +57,16 @@ export default function Footer({ ScrollPercent, audioControl }) {
         };
     }, [bubbleRef]);
 
-    useEffect(() => {
-        changeAudioVolume();
-        if (audioControl.bubble != null && bubbleRef.current && audioState == "unloaded") {
-            setAudioState("loaded");
-
-            timeout = setTimeout(() => {
-                audioControl.fishPass.playSound(0);
-                interval = setInterval(() => {
-                    audioControl.fishPass.playSound(0);
-                }, 4600);
-            }, 2000);
-        }
-    }, [audioControl]);
-
     const changeAudioVolume = () => {
-        if (bubbleRef.current && audioState == "loaded") {
+        if (bubbleRef.current && isAudioLoaded) {
             let rect = bubbleRef.current.getBoundingClientRect();
             let reference = Math.abs(rect.top);
 
             let fishVolume = 1 - reference / 800;
-            if (fishVolume < 0.1 || !audioControl.isSoundOn) {
+            if (fishVolume < 0.1 || !audioControl?.isSoundOn) {
                 audioControl.fishPass.setVolume(0);
             } else {
-                {
-                    audioControl.fishPass.setVolume(fishVolume);
-                }
+                audioControl.fishPass.setVolume(fishVolume);
             }
         }
     };

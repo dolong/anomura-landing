@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import s from "/sass/home/shareFooter/index.module.css";
 import Link from "next/link";
-
-export default function ShareFooter({ audioControl }) {
-    const [audioState, setAudioState] = useState("unloaded");
+import { SiteContext } from "context/SiteContext";
+export default function ShareFooter() {
+    const { audioControl, isAudioLoaded } = useContext(SiteContext);
     const bubbleRef = React.createRef();
     let timeout, interval;
 
@@ -21,31 +21,17 @@ export default function ShareFooter({ audioControl }) {
         };
     }, [bubbleRef]);
 
-    useEffect(() => {
-        changeAudioVolume();
-        if (audioControl?.bubble != null && bubbleRef.current && audioState == "unloaded") {
-            setAudioState("loaded");
-
-            timeout = setTimeout(() => {
-                audioControl?.fishPass.playSound(0);
-                interval = setInterval(() => {
-                    audioControl?.fishPass.playSound(0);
-                }, 4600);
-            }, 2000);
-        }
-    }, [audioControl]);
-
     const changeAudioVolume = () => {
-        if (bubbleRef.current && audioState == "loaded") {
+        if (bubbleRef.current && isAudioLoaded) {
             let rect = bubbleRef.current.getBoundingClientRect();
             let reference = Math.abs(rect.top);
 
             let fishVolume = 1 - reference / 800;
             if (fishVolume < 0.1 || !audioControl?.isSoundOn) {
-                audioControl?.fishPass.setVolume(0);
+                audioControl.fishPass.setVolume(0);
             } else {
                 {
-                    audioControl?.fishPass.setVolume(fishVolume);
+                    audioControl.fishPass.setVolume(fishVolume);
                 }
             }
         }

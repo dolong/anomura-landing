@@ -1,7 +1,7 @@
 import React from "react";
 import s from "/sass/home/home.module.css";
 
-export default function ShopZone({ audioControl, setAudioControl }) {
+export default function ShopZone() {
     const comingSoonRef = React.createRef();
     const [showBanner, setShowBanner] = React.useState(false);
     const [windowSize, setWindowSize] = React.useState({ width: undefined });
@@ -12,40 +12,8 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 width: window.innerWidth,
             });
         }
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
     }, []);
 
-    const handleScroll = () => {
-        if (showBanner) return;
-        // if (window.scrollY > 250) setShowBanner(true);
-    };
-
-    const TurnOffSound = (e) => {
-        e.preventDefault();
-
-        if (audioControl.isSoundOn) {
-            setAudioControl((prevState) => ({
-                ...prevState,
-                isSoundOn: false,
-            }));
-            audioControl.setSound(false);
-        } else {
-            setAudioControl((prevState) => ({
-                ...prevState,
-                isSoundOn: true,
-            }));
-            audioControl.setSound(true);
-        }
-    };
-
-    const ComingSoonScrollAction = () => {
-        if (comingSoonRef.current) {
-            comingSoonRef.current.scrollIntoView({ behavior: "smooth" });
-        }
-    };
     return (
         <div>
             {/******************* Site Banner *****************/}
@@ -146,7 +114,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                 </div>
             </div>
             {/******************* Sand Fixed Bottom*****************/}
-            <div className={`${s.sandBottom_zone}`}>
+            {/* <div className={`${s.sandBottom_zone}`}>
                 <div className={s.sandBottom_leftSticker}>
                     <div className={`${s.sandBottom_leftSticker_icons}`}>
                         <a
@@ -214,7 +182,7 @@ export default function ShopZone({ audioControl, setAudioControl }) {
                         <img src="/img/home/follow_us/mobile medium.png" />
                     </a>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -3,16 +3,26 @@
 /*Span bg colors */
 .bottom_zone {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: flex-end;
   position: fixed;
-  width: 100%;
+  width: 5%;
   bottom: 0px;
   z-index: 10;
   opacity: 1;
   transition: opacity 2s;
   pointer-events: none;
+  height: 100%;
 }
-.bottom_mobileIcons {
+@media (min-width: 1200px) {
+  .bottom_zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 5%;
+  }
+}
+.bottom_mobile {
   pointer-events: auto;
   align-self: flex-start;
   width: 16%;
@@ -21,124 +31,45 @@
   padding-left: 7px;
   padding-bottom: 60px;
 }
-.bottom_mobileIcons > a {
+.bottom_mobile > a {
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
 }
-@media (min-width: 872px) {
-  .bottom_mobileIcons {
-    display: none;
-  }
-}
-.bottom_icons {
-  align-self: flex-end;
-  width: auto;
-}
-.bottom_leftSticker {
-  position: relative;
-  align-self: flex-end;
-  width: 20%;
-}
-.bottom_leftSticker_icons {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  height: 200px;
-  left: 4%;
-  width: 79%;
+.bottom_desktop {
   pointer-events: auto;
-}
-.bottom_leftSticker_icons a {
-  z-index: 2;
-}
-.bottom_leftSticker_icons_twitter {
-  width: 28%;
-  margin-left: 1%;
-  margin-top: 2%;
-  background: url("/img/home/bottomSand/twitter_inactive.png") no-repeat;
-  background-size: contain;
-}
-.bottom_leftSticker_icons_twitter:hover {
-  background: url("/img/home/bottomSand/twitter.png") no-repeat;
-  background-size: contain;
-}
-.bottom_leftSticker_icons_discord {
-  width: 29%;
-  margin-top: 7%;
-  background: url("/img/home/bottomSand/discord.png") no-repeat;
-  background-size: contain;
-}
-.bottom_leftSticker_icons_discord:hover {
-  background: url("/img/home/bottomSand/discord_hover.png") no-repeat;
-  background-size: contain;
-}
-.bottom_leftSticker_icons_medium {
-  width: 29%;
-  margin-top: 9.8%;
-  background: url("/img/home/bottomSand/medium.png") no-repeat;
-  background-size: contain;
-}
-.bottom_leftSticker_icons_medium:hover {
-  background: url("/img/home/bottomSand/medium_hover.png") no-repeat;
-  background-size: contain;
-}
-.bottom_right {
-  flex: 20%;
-  position: relative;
-  margin-left: auto;
-  align-self: flex-end;
-}
-.bottom_right_container {
   display: flex;
   flex-direction: column;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  width: min(18vw, 170px);
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.bottom_desktop_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+.bottom_desktop_wrapper_icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+  position: relative;
+}
+.bottom_desktop_wrapper_icon > img:nth-child(1) {
+  margin-top: 4.5%;
+  margin-left: 4.75%;
+  width: 91%;
+}
+.bottom_desktop_wrapper_icon > img:nth-child(2) {
   position: absolute;
-  pointer-events: auto;
+  top: 0;
+  display: none;
+  z-index: 1;
+  width: 100%;
 }
-.bottom_right_container_discord {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  margin-top: 9%;
-  height: 33%;
-  font-size: 1.75rem;
-  font-family: Safety Goggles;
-  color: #F0C297 !important;
-}
-.bottom_right_container_discord:hover {
-  color: #FFCF8E !important;
-  text-decoration: none;
-}
-.bottom_right_container_soundOff {
-  height: 33%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #F0C297;
-}
-.bottom_right_container_soundOff:hover {
-  color: #FFCF8E !important;
-  text-decoration: none;
-}
-.bottom_right_container_soundOff_link {
-  width: 20%;
-  height: 40%;
-}
-.bottom_right_container_soundOff_icon {
-  height: 100%;
-  margin-right: 5px;
-}
-.bottom_right_container_soundOff_text {
-  font-size: 1.25rem;
-  font-family: Safety Goggles;
-}
-.bottom_image {
-  height: auto;
-  width: min(18vw, 170px);
-  margin-left: auto;
+.bottom_desktop_wrapper_icon:hover > img:nth-child(2) {
+  display: block;
 }/*# sourceMappingURL=index.module.css.map */
