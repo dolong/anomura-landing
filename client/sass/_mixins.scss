@@ -36,6 +36,38 @@ $bp-xl-4: 3840px;            // 2560  160em
 	align-items: $align-items;
 }
 
+@mixin nav-item() {
+    font-size: 0.75rem;
+     
+    font-family: Safety Goggles;
+    color: #085D84!important;
+    opacity: 1;
+    @media (min-width: $bp-med) {  
+        font-size: 1.1rem;
+    }
+    @media (min-width: $bp-med-2) {  
+        font-size: 1.25rem;
+    }
+    @media (min-width: $bp-large) {  
+        font-size: 1.5rem;
+    }
+    @media (min-width: $bp-xl) {  
+        font-size: 2rem;
+    }
+    @media (min-width: $bp-xl-2) {  
+        font-size: 2.25rem;
+    }
+    @media (min-width: $bp-xl-3) {  
+        font-size: 2.75rem;
+    }
+    @media (min-width: $bp-xl-4) {  
+        font-size: 3.25rem;
+    }
+    &_white {
+        color: #fff!important;
+    }
+}
+
 @mixin medium_button() {
     position:relative;
 	width: auto;
@@ -312,6 +344,11 @@ $bp-xl-4: 3840px;            // 2560  160em
         &:hover {
             color: #A2B7B6;
         }
+    }
+}
+@mixin cursor {
+    &:hover {
+        cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0, pointer;
     }
 }
 @mixin paragraphContainer(){

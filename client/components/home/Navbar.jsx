@@ -1,17 +1,33 @@
 import s from "/sass/home/nav/index.module.css";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+
+const MAIN_MOBILE_NAV = 1;
+const ABOUT_MOBILE_NAV = 2;
+const OPENSEA_MOBILE_NAV = 3;
+
 /**
  * The main navbar for the website.
  * @returns
  */
-
 export default function Navbar({ isMobile }) {
-    // export default function Navbar() {
-    const [openMenu, setOpenMenu] = useState(false);
-    let router = useRouter();
     // let isMobile = true;
-    if (isMobile) {
+    const [openMenu, setOpenMenu] = useState(false);
+    const [mobileNavState, setMobileNavState] = useState(MAIN_MOBILE_NAV);
+    const [showMobileNav, setShowMobileNav] = useState(false);
+    let router = useRouter();
+
+    React.useEffect(() => {
+        setMobileNavState(MAIN_MOBILE_NAV);
+        if (window && !isMobile) {
+            if (window.innerWidth < 1000) {
+                setShowMobileNav(true);
+            }
+        }
+    }, []);
+
+    console.log(mobileNavState);
+    if (isMobile || showMobileNav) {
         return (
             <>
                 <div className={s.nav_mobile_bar}>
@@ -42,89 +58,267 @@ export default function Navbar({ isMobile }) {
                         <div className={s.nav_mobile_container}>
                             <button
                                 onClick={() => {
-                                    // document.body.style.overflowY = "visible";
                                     document.body.style.position = "relative";
                                     setOpenMenu(false);
+                                    setMobileNavState(MAIN_MOBILE_NAV);
                                 }}
                                 className={s.nav_mobile_close}
                             >
                                 X
                             </button>
+
                             <div className={s.nav_mobile_content}>
+                                <div
+                                    className={s.nav_mobile_content_logo}
+                                    onClick={(e) => {
+                                        document.body.style.position = "relative";
+                                        setOpenMenu(false);
+
+                                        router.push("/");
+                                    }}
+                                >
+                                    <img src="/img/home/footer/logo-pink-no-padding.png" />
+                                </div>
                                 <div className={s.nav_mobile_content_list}>
-                                    <a
-                                        className={s.nav_mobile_content_list_item}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            document.body.style.position = "relative";
-                                            router.push("/");
-                                        }}
-                                    >
-                                        Home
-                                    </a>
-                                    {/* <a
-                                        className={s.nav_mobile_content_list_item}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            window.open(
-                                                `https://anomuragame.com/litepaper`,
-                                                "_blank"
-                                            );
-                                        }}
-                                    >
-                                        Litepaper
-                                    </a> */}
-                                    <a
-                                        onClick={(e) => {
-                                            e.preventDefault();
+                                    {mobileNavState === MAIN_MOBILE_NAV && (
+                                        <>
+                                            <a
+                                                className={s.nav_mobile_content_list_item}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `https://anomuragame.com/mint/the-void`,
+                                                        "_blank"
+                                                    );
+                                                }}
+                                            >
+                                                The Void
+                                            </a>
+                                            <a
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `https://anomuragame.com/challenger`,
+                                                        "_blank"
+                                                    );
+                                                }}
+                                                className={s.nav_mobile_content_list_item}
+                                            >
+                                                Challenger
+                                            </a>
+                                            <div
+                                                onClick={(e) => {
+                                                    setMobileNavState(ABOUT_MOBILE_NAV);
+                                                }}
+                                                className={s.nav_mobile_content_list_item}
+                                            >
+                                                About
+                                            </div>
 
-                                            document.body.style.position = "relative";
-                                            router.push("/roadmap");
-                                        }}
-                                        className={s.nav_mobile_content_list_item}
-                                    >
-                                        Roadmap
-                                    </a>
+                                            <a
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `https://opensea.io/collection/mystery-bowl`,
+                                                        "_blank"
+                                                    );
+                                                }}
+                                                className={s.nav_mobile_content_list_item}
+                                            >
+                                                Opensea
+                                            </a>
+                                            <a
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    window.open(
+                                                        `https://anomuragame.com/mint`,
+                                                        "_blank"
+                                                    );
+                                                }}
+                                                className={s.nav_mobile_content_list_item}
+                                            >
+                                                Inventory
+                                            </a>
+                                        </>
+                                    )}
+                                    {mobileNavState === ABOUT_MOBILE_NAV && (
+                                        <>
+                                            <a
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    document.body.style.position = "relative";
+                                                    setOpenMenu(false);
+                                                    setMobileNavState(MAIN_MOBILE_NAV);
+                                                    router.push("/roadmap");
+                                                }}
+                                                className={s.nav_mobile_content_list_item}
+                                            >
+                                                Roadmap
+                                            </a>
 
-                                    <a
-                                        onClick={(e) => {
-                                            e.preventDefault();
+                                            <a
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    document.body.style.position = "relative";
+                                                    setOpenMenu(false);
+                                                    setMobileNavState(MAIN_MOBILE_NAV);
+                                                    router.push("/about");
+                                                }}
+                                                className={s.nav_mobile_content_list_item}
+                                            >
+                                                Our Story
+                                            </a>
+                                            <div
+                                                onClick={(e) => {
+                                                    setMobileNavState(MAIN_MOBILE_NAV);
+                                                }}
+                                                className={`${s.nav_mobile_content_list_item} ${s.nav_mobile_content_list_teal}`}
+                                            >
+                                                Back
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                                <div className={s.nav_mobile_content_footer}>
+                                    {/* <div className={s.nav_mobile_content_footer_button}>
+                                        <ConnectButton.Custom>
+                                            {({
+                                                account,
+                                                chain,
+                                                openAccountModal,
+                                                openChainModal,
+                                                openConnectModal,
+                                                mounted,
+                                            }) => {
+                                                return (
+                                                    <>
+                                                        {(() => {
+                                                            if (!mounted || !account || !chain) {
+                                                                return (
+                                                                    <button
+                                                                        onClick={openConnectModal}
+                                                                        className={
+                                                                            s.nav_mobile_content_footer_button_pink
+                                                                        }
+                                                                    >
+                                                                        <img
+                                                                            src={`${Enums.BASEPATH}/img/mint/board/Button_L_Pink.png`}
+                                                                            alt="Menu"
+                                                                        />
+                                                                        <div>
+                                                                            <span>
+                                                                                CONNECT WALLET
+                                                                            </span>
+                                                                        </div>
+                                                                    </button>
+                                                                );
+                                                            }
 
-                                            document.body.style.position = "relative";
-                                            router.push("/about");
-                                        }}
-                                        className={s.nav_mobile_content_list_item}
-                                    >
-                                        About
-                                    </a>
+                                                            if (chain.unsupported) {
+                                                                return (
+                                                                    <button
+                                                                        className={
+                                                                            s.nav_button_pink
+                                                                        }
+                                                                        onClick={openChainModal}
+                                                                    >
+                                                                        <img
+                                                                            src={`${Enums.BASEPATH}/img/mint/board/Button_L_Pink.png`}
+                                                                            alt="Wrong Network"
+                                                                        />
+                                                                        <div>
+                                                                            <span>
+                                                                                Wrong network
+                                                                            </span>
+                                                                        </div>
+                                                                    </button>
+                                                                );
+                                                            }
 
-                                    <a
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            window.open(
-                                                `https://anomuragame.com/challenger`,
-                                                "_blank"
-                                            );
-                                        }}
-                                        className={s.nav_mobile_content_list_item}
-                                    >
-                                        Challenger
-                                    </a>
+                                                            return (
+                                                                <>
+                                                                    <div
+                                                                        onClick={openChainModal}
+                                                                        className={
+                                                                            s.nav_mobile_content_footer_button_balance
+                                                                        }
+                                                                    >
+                                                                        {account.displayBalance}
+                                                                    </div>
 
-                                    <button
-                                        className={s.nav_mobile_content_list_button}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            window.open(`https://anomuragame.com/mint`, "_blank");
-                                        }}
-                                        style={{ width: "55%" }}
-                                        disabled={false}
-                                    >
-                                        <img src={`/img/home/Button_M_Pink.png`} alt="name" />
-                                        <div>
-                                            <span>THE VOID</span>
+                                                                    <button
+                                                                        className={
+                                                                            s.nav_mobile_content_footer_button_pink
+                                                                        }
+                                                                        onClick={openAccountModal}
+                                                                    >
+                                                                        <img
+                                                                            src={`${Enums.BASEPATH}/img/mint/board/Button_M_Pink.png`}
+                                                                            alt="name"
+                                                                        />
+                                                                        <div>
+                                                                            <span>
+                                                                                {
+                                                                                    account.displayName
+                                                                                }
+                                                                            </span>
+                                                                        </div>
+                                                                    </button>
+                                                                </>
+                                                            );
+                                                        })()}
+                                                    </>
+                                                );
+                                            }}
+                                        </ConnectButton.Custom>
+                                    </div> */}
+                                    <div className={s.nav_mobile_content_footer_socials}>
+                                        <div
+                                            className={s.nav_mobile_content_footer_socials_icon}
+                                            onClick={() =>
+                                                window.open(
+                                                    `https://twitter.com/anomuragame`,
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
+                                            <img src={`/img/home/socials/Social_Twitter.png `} />
                                         </div>
-                                    </button>
+
+                                        <div
+                                            className={s.nav_mobile_content_footer_socials_icon}
+                                            onClick={() =>
+                                                window.open(
+                                                    `https://discord.gg/anomuragame`,
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
+                                            <img src={`/img/home/socials/Social_Discord.png `} />
+                                        </div>
+                                        <div
+                                            className={s.nav_mobile_content_footer_socials_icon}
+                                            onClick={() =>
+                                                window.open(
+                                                    `https://etherscan.io/address/0xe2ddf03ba8cdafd2bb4884e52f7fb46df4fc7dc1`,
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
+                                            <img src={`/img/home/socials/Social_Etherscan.png `} />
+                                        </div>
+                                        <div
+                                            className={s.nav_mobile_content_footer_socials_icon}
+                                            onClick={() =>
+                                                window.open(
+                                                    `https://opensea.io/collection/mystery-bowl`,
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
+                                            <img src={`/img/home/socials/Social_Opensea.png `} />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,9 +333,7 @@ export default function Navbar({ isMobile }) {
                     <div className={s.nav_list}>
                         <div className={s.nav_list_first}>
                             <a
-                                className={`${s.nav_list_item} ${
-                                    router.pathname == "/" ? s.nav_list_item_white : ""
-                                }`}
+                                className={s.nav_list_item}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     router.push("/");
@@ -149,25 +341,23 @@ export default function Navbar({ isMobile }) {
                             >
                                 Home
                             </a>
-                            {/* <a
+                            <a
+                                className={s.nav_list_item}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    window.open(`https://anomuragame.com/litepaper`, "_blank");
+                                    window.open(`https://anomuragame.com/mint/the-void`, "_blank");
                                 }}
-                                className={s.nav_list_item}
                             >
-                                Litepaper
-                            </a> */}
+                                The Void
+                            </a>
                             <a
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    router.push("/roadmap");
+                                    window.open(`https://anomuragame.com/challenger`, "_blank");
                                 }}
-                                className={`${s.nav_list_item} ${
-                                    router.pathname == "/roadmap" ? s.nav_list_item_white : ""
-                                }`}
+                                className={s.nav_list_item}
                             >
-                                Roadmap
+                                Challenger
                             </a>
                         </div>
                         <div className={s.nav_list_mid}>
@@ -182,27 +372,55 @@ export default function Navbar({ isMobile }) {
                             </div>
                         </div>
                         <div className={s.nav_list_last}>
-                            <a
-                                className={`${s.nav_list_item} ${
-                                    router.pathname == "/about" ? s.nav_list_item_white : ""
-                                }`}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    router.push("/about");
-                                }}
-                            >
-                                About
-                            </a>
-                            <a
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    window.open(`https://anomuragame.com/challenger`, "_blank");
-                                }}
-                                className={s.nav_list_item}
-                            >
-                                Challenger
-                            </a>
-
+                            <ul className={s.nav_list_menu}>
+                                <div>
+                                    About
+                                    <ul className={`${s.nav_list_menu_sub}`}>
+                                        <li
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                router.push("/roadmap");
+                                            }}
+                                        >
+                                            Roadmap
+                                        </li>
+                                        <li
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                router.push("/about");
+                                            }}
+                                        >
+                                            Our Story
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                            <ul className={s.nav_list_menu}>
+                                <div>
+                                    Opensea
+                                    <ul className={`${s.nav_list_menu_sub}`}>
+                                        <li
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.open(
+                                                    `https://opensea.io/collection/mystery-bowl`,
+                                                    "_blank"
+                                                );
+                                            }}
+                                        >
+                                            Bowl
+                                        </li>
+                                        {/* <li
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                router.push("/about");
+                                            }}
+                                        >
+                                            Our Story
+                                        </li> */}
+                                    </ul>
+                                </div>
+                            </ul>
                             <div className={s.nav_button}>
                                 <button
                                     onClick={(e) => {
@@ -214,7 +432,7 @@ export default function Navbar({ isMobile }) {
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
                                     <div>
-                                        <span>THE VOID</span>
+                                        <span>Inventory</span>
                                     </div>
                                 </button>
                             </div>
