@@ -5,17 +5,19 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
+import About from "containers/home/About";
+import ShareFooter from "containers/common/ShareFooter";
 
-const { About, ShareFooter } = {
-	About: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.About),
-		{ ssr: false }
-	),
-	ShareFooter: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
-		{ ssr: false }
-	),
-};
+// const { About, ShareFooter } = {
+// 	About: dynamic(
+// 		() => import("/containers/home/ContainerIndex").then((module) => module.About),
+// 		{ ssr: false }
+// 	),
+// 	ShareFooter: dynamic(
+// 		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
+// 		{ ssr: false }
+// 	),
+// };
 export default function AboutMain() {
 	const { isMobile } = useDeviceDetect();
 	useEffect(() => {
