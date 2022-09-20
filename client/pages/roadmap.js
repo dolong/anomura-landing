@@ -5,17 +5,18 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
+import { Roadmap, ShareFooter } from "containers/home/ContainerIndex";
 
-const { Roadmap, ShareFooter } = {
-	Roadmap: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
-		{ ssr: false }
-	),
-	ShareFooter: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
-		{ ssr: false }
-	),
-};
+// const { Roadmap, ShareFooter } = {
+// 	Roadmap: dynamic(
+// 		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
+// 		{ ssr: false }
+// 	),
+// 	ShareFooter: dynamic(
+// 		() => import("/containers/home/ContainerIndex").then((module) => module.ShareFooter),
+// 		{ ssr: false }
+// 	),
+// };
 
 export default function RoadMapMain() {
 	const { isMobile } = useDeviceDetect();
