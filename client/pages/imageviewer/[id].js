@@ -23,30 +23,31 @@ import {
     headpiecesPartsData,
     legsPartsData
 } from "resources/cloudinary";
+import { getAllCrabs, getAnomuraById, getFirst1000Anomuras } from "repositories/crabs";
 
 /** static props and paths should not call to api link since it is not available on build time */
-// export const getStaticPaths = async () => {
-//     let allCrabs = await getAllCrabs();
-//     const paths = allCrabs.map((p) => {
-//         return {
-//             params: { id: p.crabId.toString() },
-//         };
-//     });
+export const getStaticPaths = async () => {
+    let first1000Anomuras = await getFirst1000Anomuras();
+    const paths = first1000Anomuras.map((p) => {
+        return {
+            params: { id: p.crabId.toString() },
+        };
+    });
 
-//     return {
-//         paths,
-//         fallback: true,
-//     };
-// };
+    return {
+        paths,
+        fallback: "blocking", // true
+    };
+};
 
-// export const getStaticProps = async (context) => {
-//     const id = parseInt(context.params.id);
-//     const data = await getAnomuraById(id);
-//     return {
-//         props: { data: JSON.parse(JSON.stringify(data)), key: id },
-//         revalidate: 60,
-//     };
-// };
+export const getStaticProps = async (context) => {
+    const id = parseInt(context.params.id);
+    const data = await getAnomuraById(id);
+    return {
+        props: { data: JSON.parse(JSON.stringify(data)), key: id },
+        revalidate: 90,
+    };
+};
 
 const buildArrayImages = (name, source) => {
     let images = [];
@@ -60,7 +61,7 @@ const buildArrayImages = (name, source) => {
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
-export default function AnimateViewerDetails() {
+export default function AnimateViewerDetails({ data }) {
     const router = useRouter();
     let sources = {
         background: {},
@@ -72,17 +73,17 @@ export default function AnimateViewerDetails() {
         shadow: {},
     };
 
-    const { id } = router.query;
-    const { data, mutate, isValidating, error } = useSWR(
-        id ? `/api/crabs/getAnomuraById?id=${id}` : null,
-        fetcher
-    );
+    // const { id } = router.query;
+    // const { data, mutate, isValidating, error } = useSWR(
+    //     id ? `/api/crabs/getAnomuraById?id=${id}` : null,
+    //     fetcher
+    // );
 
     if (router.isFallback) {
-        return <div>Loading...</div>;
+        return <div>Loading Anomura...</div>;
     } else {
         if (!data) {
-            return <div className={s.loading}>Loading this anomura</div>;
+            return <div className={s.loading}>Loading Anomura...</div>;
         }
         const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
         let isDrawHeadpieces = false;

@@ -1,5 +1,6 @@
 import { getAnomuraById } from "repositories/crabs";
 
+/* Api to return an anomura without animation_url */
 const crabImageViewerHandler = async (req, res) => {
     const { method } = req;
 

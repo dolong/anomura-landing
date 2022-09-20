@@ -1,4 +1,4 @@
-import { getAnomuraById, createAnomura, updateCrabById } from "repositories/crabs";
+import { getAnomuraById, createAnomura, updateAnomuraImageById } from "repositories/crabs";
 import { CrabImagesBuilder } from "utils/crabImagesBuilder2";
 import authMiddleware from "middlewares/authMiddleware";
 import { getAnomuraName } from "@utils/getAnomuraName";
@@ -33,7 +33,7 @@ const CrabImageViewerUpdate = async (req, res) => {
             // console.log(`Found existing anomura ${crabId}, image: ${existingCrab.image} `);
             // if (existingCrab.image != crabImage) {
             //     let crabId = existingCrab.id;
-            //     const updatedCrab = await updateCrabById({
+            //     const updatedCrab = await updateAnomuraImageById({
             //         crabId,
             //         image: crabImage,
             //         background,

@@ -52,19 +52,6 @@ export const unEquipFromAnomura = async (equipmentId, anomuraId, blockNumber) =>
     })
 }
 
-// export const updateCrabById = async (crabData) => {
-//     const { crabId, image, body, legs, claws, shell, headpieces, background } = crabData;
-//     console.log("*****prisma update anomura image by id");
-//     return await prisma.anomuras.update({
-//         where: {
-//             id: crabId,
-//         },
-//         data: {
-//             image,
-//         },
-//     });
-// };
-
 
 export const updateAnomuraEquipmentImageById = async ({ equipmentId, image }) => {
 

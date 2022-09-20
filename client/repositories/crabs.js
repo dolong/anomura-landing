@@ -11,18 +11,22 @@ export const getAnomuraById = async (crabId) => {
     });
 };
 
-export const getAllCrabs = async (crabId) => {
+export const getAllCrabs = async () => {
     return await prisma.anomuras.findMany({
-        where: {
-            crabId,
-        },
+
         include: {
             anomuraEquipments: true
         }
     });
 };
 
-export const updateCrabById = async (crabData) => {
+export const getFirst1000Anomuras = async () => {
+    return await prisma.anomuras.findMany({
+        take: 1000
+    });
+};
+
+export const updateAnomuraImageById = async (crabData) => {
     const { crabId, image, body, legs, claws, shell, headpieces, background } = crabData;
 
     return await prisma.anomuras.update({

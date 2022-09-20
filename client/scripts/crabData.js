@@ -266,6 +266,24 @@ exports.LEGS = LEGS;
 exports.HEADPIECES = HEADPIECES;
 exports.BACKGROUND = BACKGROUND;
 
+exports.getLegendName = (originalName, type) => {
+    let legendPart = legendAttrs.filter(word => originalName.includes(word))
+    switch (type) {
+        case SHELL:
+            return `"${legendPart}" ${this.getShell(originalName)}`
+        case HEADPIECES:
+            return `"${legendPart}" ${this.getHeadPieces(originalName)}`
+        case BODY:
+            return `"${legendPart}" ${this.getBody(originalName)}`
+        case CLAWS:
+            return `"${legendPart}" ${this.getClaws(originalName)}`
+        case LEGS:
+            return `"${legendPart}" ${this.getLegs(originalName)}`
+        default:
+            return originalName
+    }
+}
+
 exports.getBackgroundRarity = (name) => {
 
     if (name.trim() == "" || name === undefined) return Nothing;
@@ -276,7 +294,6 @@ exports.getBackgroundRarity = (name) => {
     return Normal;
 };
 exports.getRarity = (name) => {
-
     if (name == null || name?.trim() == "" || name === undefined || name == "None") return Nothing;
     let containLegendAttr = legendAttrs.some((el) => name.includes(el));
     if (containLegendAttr) {

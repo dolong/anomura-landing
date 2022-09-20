@@ -1,4 +1,4 @@
-import { getAnomuraById, createAnomura, updateCrabById } from "repositories/crabs";
+import { getAnomuraById } from "repositories/crabs";
 
 const crabImageViewerHandler = async (req, res) => {
     const { method } = req;

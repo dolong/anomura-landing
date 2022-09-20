@@ -1,5 +1,5 @@
 import { createEquipment, equipEquipmentToAnomura, getAllAnomuraPartImages, getAnomuraEquipmentById, getAnomuraPartImageByName, updateAnomuraEquipmentImageById } from "repositories/anomura-equipment";
-import { getAnomuraById, createAnomura, updateCrabById } from "repositories/crabs";
+import { getAnomuraById } from "repositories/crabs";
 
 import authMiddleware from "middlewares/authMiddleware";
 

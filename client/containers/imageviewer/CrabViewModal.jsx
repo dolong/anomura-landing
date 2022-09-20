@@ -18,6 +18,7 @@ import {
     getRarity,
     getBackground,
     getBackgroundRarity,
+    getLegendName,
 } from "@scripts/crabData";
 
 import {
@@ -64,22 +65,29 @@ export default function CrabViewModal({ data, setModalOpen }) {
         }));
     }, []);
 
+    const getCardName = (rarity, originalName, type) => {
+        if (rarity === Legendary) {
+            return getLegendName(originalName, type);
+        }
+        return originalName;
+    };
+
     const ShowCard = (e) => {
         let cardRarity = null,
             cardImg = null,
             cardName = "",
             cardType,
             cardLabel;
-        // console.log(e.target.id);
+
         switch (e) {
             case "shell":
                 cardRarity = getRarity(shell);
-                cardName = shell;
+                cardName = getCardName(cardRarity, shell, SHELL);
                 cardType = SHELL;
                 break;
             case "legs":
                 cardRarity = getRarity(legs);
-                cardName = legs;
+                cardName = getCardName(cardRarity, legs, LEGS);
                 cardType = LEGS;
                 break;
             case "body":
@@ -108,11 +116,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 break;
             case "background":
                 cardRarity = getBackgroundRarity(background);
+                // background does not have legend rarity
                 cardName = background;
                 cardType = BACKGROUND;
                 break;
             default:
-                // throw new Error("not a valid part");
                 break;
         }
         cardImg = getCardImage(cardRarity);
@@ -165,20 +173,9 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return s.component_list_item_description_magic;
             case Normal:
                 return s.component_list_item_description_normal;
-            // case Normal:
-            //         return s.component_list_item_description_normal;
             default:
                 return s.component_list_item_description_normal;
         }
-    };
-    const getProperBackgroundName = (name) => {
-        let bgArray = name.split("_");
-        let first = capitalizeFirstLetter(bgArray[0]);
-        let last = capitalizeFirstLetter(bgArray[1]);
-        return first + " " + last;
-    };
-    const capitalizeFirstLetter = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1);
     };
     const getHeadPiecesIcon = (rarity) => {
         switch (rarity) {
@@ -311,28 +308,26 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 return s.component_card_label_nothing;
         }
     };
-
     const renderCard = (hoverInfo) => {
-        //imageSource = `/img/imageviewer/Shell/${shellName}_hex.png`;
         let imageStyle, imageSource;
         switch (hoverInfo.type) {
             case SHELL:
-                let shellName = getShell(hoverInfo.name);
+                let shellName = getShell(shell);
                 imageSource = shellPartsData[shellName][24];
                 imageStyle = s.component_card_hexagon_shell;
                 break;
             case BODY:
-                let bodyName = getBody(hoverInfo.name);
+                let bodyName = getBody(body);
                 imageSource = bodyPartsData[bodyName][24];
                 imageStyle = s.component_card_hexagon_body;
                 break;
             case CLAWS:
-                let clawName = getClaws(hoverInfo.name);
+                let clawName = getClaws(claws);
                 imageSource = clawsPartsData[clawName][24];
                 imageStyle = s.component_card_hexagon_claws;
                 break;
             case LEGS:
-                let legsName = getLegs(hoverInfo.name);
+                let legsName = getLegs(legs);
                 imageSource = legsPartsData[legsName][24];
                 imageStyle = s.component_card_hexagon_legs;
                 break;
@@ -340,13 +335,13 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 if (hoverInfo.name === "YOU HAVE NO HEADPIECE") {
                     imageSource = "";
                 } else {
-                    let headPiecesName = getHeadPieces(hoverInfo.name);
+                    let headPiecesName = getHeadPieces(headpieces);
                     imageSource = headpiecesPartsData[headPiecesName][24];
                 }
                 imageStyle = s.component_card_hexagon_headpieces;
                 break;
             case BACKGROUND:
-                let backgroundName = getBackground(hoverInfo.name);
+                let backgroundName = getBackground(background);
                 imageSource = habitatPartsData[backgroundName][23];
                 imageStyle = s.component_card_hexagon_background;
                 break;
@@ -361,12 +356,11 @@ export default function CrabViewModal({ data, setModalOpen }) {
                     <img src={hoverInfo.src} />
                     <div className={s.component_card_description}>
                         <div className={s.component_card_hexagon}>
-                            {/* {hoverInfo.name !== "YOU HAVE NO HEADPIECE" && ( */}
                             <img
                                 className={s.component_card_hexagon_greyLayer}
                                 src="/img/imageviewer/Others/Grey background.png"
                             />
-                            {/* )} */}
+
                             <img className={imageStyle} src={imageSource} />
                         </div>
                         <div className={s.component_card_name}>{hoverInfo.name}</div>
@@ -519,7 +513,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                     ${getRarityTextColor(rarity.backgroundR)}
                                     `}
                                 >
-                                    {/* <span className="">{getProperBackgroundName(background)}</span> */}
                                     {background}
                                 </div>
                             </div>
