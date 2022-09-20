@@ -217,7 +217,7 @@
     font-size: 1rem;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .shareFooter_policy > div {
     display: flex;
     flex-direction: row;
