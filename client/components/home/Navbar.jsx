@@ -409,14 +409,6 @@ export default function Navbar({ isMobile }) {
                                         >
                                             Mystery Bowl
                                         </li>
-                                        {/* <li
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                router.push("/about");
-                                            }}
-                                        >
-                                            Our Story
-                                        </li> */}
                                     </ul>
                                 </div>
                             </ul>
