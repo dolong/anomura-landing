@@ -3,6 +3,7 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 const fetcher = (url) => fetch(url).then((r) => r.json());
 import s from "/sass/imageviewer/gallery.module.css";
 
+/* this api is for gallery */
 const loadingItems = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 export default function GalleryViewerIndex() {
     const [pageIndex, setPageIndex] = useState(0);
