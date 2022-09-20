@@ -5,10 +5,6 @@ import { SiteContext } from "context/SiteContext";
 export default function FloatingBottom({ isMobile }) {
     const { audioControl, isAudioLoaded, turnSound } = useContext(SiteContext);
 
-    // useEffect(() => {
-    //     console.log(isAudioLoaded);
-    // }, [isAudioLoaded]);
-
     const TurnOffSound = () => {
         if (audioControl.isSoundOn) {
             turnSound(false);
@@ -76,6 +72,7 @@ export default function FloatingBottom({ isMobile }) {
                                         : "/img/home/socials/Sound_Off.png"
                                 }`}
                             />
+                            <img src={`/img/home/socials/Social_Hexagon Outline.png`} />
                         </div>
                     </div>
                 </div>

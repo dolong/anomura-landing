@@ -189,6 +189,7 @@ $bp-xl-4: 3840px;            // 2560  160em
 
         &_pink { // 526 x 129
             @include m.large_button();
+            @include m.cursor();
             width: min(50%, 120px);
 
             @media (min-width: $bp-med) {  
@@ -306,6 +307,7 @@ $bp-xl-4: 3840px;            // 2560  160em
 
                 &_button {
                     @include m.medium_button();
+                    @include m.cursor();
                     &:hover {
                         color: #CE3C85;
                     }

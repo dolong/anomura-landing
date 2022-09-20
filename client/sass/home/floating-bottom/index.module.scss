@@ -67,6 +67,7 @@ $header-space-bottom: 60px;
       
             &_icon {
                 @include m.flex-master(row, null, center);
+				@include m.cursor();
                 width: 70%; //63px 22%
                 position: relative;
     

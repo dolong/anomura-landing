@@ -121,6 +121,7 @@ $header-space-bottom: 60px;
             }
             &_buttons {
                 @include m.flex-master(row, center, null);
+
                 width: 100%;
 				flex: 1;
                 margin-top: 1rem;
@@ -143,6 +144,7 @@ $header-space-bottom: 60px;
 						@include m.flex-master(row, center, null);
 
 						> img {
+							@include m.cursor();
 							width: 20%;
 							@media (min-width: $bp-large-2) { 
 								width: 40%;
@@ -161,6 +163,7 @@ $header-space-bottom: 60px;
 						@include m.flex-master(row, center, null);
 
 						> img {
+							@include m.cursor();
 							width: 20%;
 							@media (min-width: $bp-large-2) { 
 								width: 40%;
