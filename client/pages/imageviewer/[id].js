@@ -29,13 +29,11 @@ import { PrismaClient } from '@prisma/client'
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
-    // let first1000Anomuras = await getFirst1000Anomuras();
-
     const prisma = new PrismaClient()
     let data = await prisma.anomuras.findMany({
-        take: 10
+        take: 30
     });
-    await prisma.$disconnect;
+    await prisma.$disconnect();
 
     const paths = data.map((p) => {
         return {
@@ -58,7 +56,7 @@ export const getStaticProps = async (context) => {
             crabId: parseInt(crabId),
         }
     })
-    await prisma.$disconnect;
+    await prisma.$disconnect();
     return {
         props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
         revalidate: 86400,
@@ -274,7 +272,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             shadow: [],
         };
         var postaction = function () { };
-        console.log(isDrawHeadpieces)
+
         // 24 frames per part, we have 7 parts ~ 24 * 7 = 168
         function onFinished() {
             if (imageLoaded == 144 && isDrawHeadpieces == false) {

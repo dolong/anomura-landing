@@ -268,6 +268,7 @@ exports.BACKGROUND = BACKGROUND;
 
 exports.getLegendName = (originalName, type) => {
     let legendPart = legendAttrs.filter(word => originalName.includes(word))
+
     switch (type) {
         case SHELL:
             return `"${legendPart}" ${this.getShell(originalName)}`

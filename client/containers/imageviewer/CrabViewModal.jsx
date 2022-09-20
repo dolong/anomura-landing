@@ -92,12 +92,12 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 break;
             case "body":
                 cardRarity = getRarity(body);
-                cardName = body;
+                cardName = getCardName(cardRarity, body, BODY);
                 cardType = BODY;
                 break;
             case "claws":
                 cardRarity = getRarity(claws);
-                cardName = claws;
+                cardName = getCardName(cardRarity, claws, CLAWS);
                 cardType = CLAWS;
                 break;
             case "headpieces":
@@ -110,13 +110,13 @@ export default function CrabViewModal({ data, setModalOpen }) {
                 ) {
                     cardName = "YOU HAVE NO HEADPIECE";
                 } else {
-                    cardName = headpieces;
+                    cardName = getCardName(cardRarity, headpieces, HEADPIECES);
                 }
                 cardType = HEADPIECES;
                 break;
+            // background does not have legend rarity
             case "background":
                 cardRarity = getBackgroundRarity(background);
-                // background does not have legend rarity
                 cardName = background;
                 cardType = BACKGROUND;
                 break;
@@ -399,15 +399,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.headpiecesR)} `}
                                 >
-                                    {rarity.headpiecesR !== Normal &&
-                                        rarity.headpiecesR !== Nothing && (
-                                            <span>{rarity.headpiecesR?.description} </span>
-                                        )}
-                                    <span>
-                                        {rarity.headpiecesR === Nothing
-                                            ? "No Headpiece"
-                                            : headpieces}
-                                    </span>
+                                    {rarity.headpiecesR === Nothing ? "No Headpiece" : headpieces}
                                 </div>
                             </div>
                             {/* Body Icon */}
@@ -425,10 +417,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.bodyR)}`}
                                 >
-                                    {/* {rarity.bodyR !== Normal && (
-                                        <span>{rarity.bodyR?.description} </span>
-                                    )}
-                                    <span>Body</span> */}
                                     {body}
                                 </div>
                             </div>
@@ -447,10 +435,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.clawsR)}`}
                                 >
-                                    {/* {rarity.clawsR !== Normal && (
-                                        <span>{rarity.clawsR?.description} </span>
-                                    )} */}
-                                    {/* <span></span> */}
                                     {claws}
                                 </div>
                             </div>
@@ -469,10 +453,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.shellR)}`}
                                 >
-                                    {/* {rarity.shellR !== "Normal" && (
-                                        <span>{rarity.shellR?.description} </span>
-                                    )}
-                                    <span>Shell</span> */}
                                     {shell}
                                 </div>
                             </div>
@@ -491,10 +471,6 @@ export default function CrabViewModal({ data, setModalOpen }) {
                                         s.component_list_item_description
                                     } ${getRarityTextColor(rarity.legsR)}`}
                                 >
-                                    {/* {rarity.legsR !== Normal && (
-                                        <span>{rarity.legsR?.description} </span>
-                                    )}
-                                    <span>Legs</span> */}
                                     {legs}
                                 </div>
                             </div>
