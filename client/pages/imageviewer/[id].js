@@ -92,8 +92,8 @@ export default function AnimateViewerDetails({ data }) {
     //     id ? `/api/crabs/getAnomuraById?id=${id}` : null,
     //     fetcher
     // );
-
-    if (router.isFallback) {
+    console.log(router.isFallback)
+    if (router.isFallback || !data) {
         return <div>Loading Anomura...</div>;
     } else {
         try {
