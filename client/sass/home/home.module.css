@@ -200,12 +200,12 @@
 }
 @media (min-width: 2560px) {
   .shop_img {
-    width: min(60vw, 950px);
+    width: min(60vw, 1200px);
   }
 }
 @media (min-width: 3840px) {
   .shop_img {
-    width: min(60vw, 1050px);
+    width: min(70vw, 1300px);
   }
 }
 
@@ -1433,7 +1433,7 @@
 }
 @media (min-width: 800px) {
   .footer_policy {
-    margin-top: min(20vh, 250px);
+    margin-top: min(10vh, 175px);
   }
 }
 .footer_policy_line {
@@ -1445,7 +1445,7 @@
 .footer_policy > div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-top: 2rem;
   font-size: 0.875rem;
@@ -1453,11 +1453,26 @@
 }
 @media (min-width: 800px) {
   .footer_policy > div {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 1200px) {
+  .footer_policy > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+  }
+}
+@media (min-width: 1980px) {
+  .footer_policy > div {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 2560px) {
+  .footer_policy > div {
+    font-size: 1.5rem;
   }
 }
 .footer_policy > div > a {
@@ -1476,9 +1491,7 @@
 }
 @media (min-width: 800px) {
   .footer_chestImage {
-    width: min(600px, 33%);
     display: block;
-    left: 0%;
   }
 }
 .footer_chestImage_wrapper {
@@ -1516,9 +1529,9 @@
 }
 .footer_fish {
   position: absolute;
-  right: 0;
+  right: 0%;
   bottom: 0;
-  width: 30%;
+  width: 35%;
 }
 @media only screen and (max-width: 800px) {
   .footer_fish {
@@ -1528,12 +1541,14 @@
 .footer_fish_wrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 .footer_fish_fishImage {
   position: absolute;
-  bottom: 20%;
+  bottom: 22%;
   z-index: 2;
+  width: 60%;
+  right: 8%;
 }
 .footer_chestAndFish {
   position: relative;
