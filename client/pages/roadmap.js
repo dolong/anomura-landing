@@ -7,6 +7,7 @@ import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
 import { Roadmap, ShareFooter } from "containers/home/ContainerIndex";
 
+// should not dynamic here to prevent layout shift bug
 // const { Roadmap, ShareFooter } = {
 // 	Roadmap: dynamic(
 // 		() => import("/containers/home/ContainerIndex").then((module) => module.Roadmap),
