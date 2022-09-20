@@ -407,7 +407,7 @@ export default function Navbar({ isMobile }) {
                                                 );
                                             }}
                                         >
-                                            Bowl
+                                            Mystery Bowl
                                         </li>
                                         {/* <li
                                             onClick={(e) => {

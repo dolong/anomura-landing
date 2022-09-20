@@ -22,7 +22,6 @@ export default function AboutMain() {
 
 	}, [isMobile]);
 
-	console.log(isMobile)
 	return (
 		<div className={s.app}>
 			<div className={s.parallax_group}>

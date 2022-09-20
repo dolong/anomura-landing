@@ -38,10 +38,8 @@ $bp-xl-4: 3840px;            // 2560  160em
 
 @mixin nav-item() {
     font-size: 0.75rem;
-     
     font-family: Safety Goggles;
     color: #085D84!important;
-    opacity: 1;
     @media (min-width: $bp-med) {  
         font-size: 1rem;
     }
@@ -55,13 +53,13 @@ $bp-xl-4: 3840px;            // 2560  160em
         font-size: 2rem;
     }
     @media (min-width: $bp-xl-2) {  
-        font-size: 2.25rem;
+        font-size: 2.15rem;
     }
     @media (min-width: $bp-xl-3) {  
-        font-size: 2.75rem;
+        font-size: 2.45rem;
     }
     @media (min-width: $bp-xl-4) {  
-        font-size: 3.25rem;
+        font-size: 3rem;
     }
     &_white {
         color: #fff!important;
