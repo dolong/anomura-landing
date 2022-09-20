@@ -26,7 +26,7 @@ export default function Navbar({ isMobile }) {
         }
     }, []);
 
-    if (isMobile || showMobileNav) {
+    if (isMobile) {
         return (
             <>
                 <div className={s.nav_mobile_bar}>

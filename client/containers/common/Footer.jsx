@@ -7,14 +7,14 @@ import { SiteContext } from "context/SiteContext";
 const InitialOffset = 6000,
     ThirtyEightHundredOffset = 2850,
     TwentyEightHundredOffset = 1700,
-    TwentyFiveHundredOffset = 1450,
-    NineteenHundredOffset = -150,
+    TwentyFiveHundredOffset = 1650,
+    NineteenHundredOffset = -250,
     SixteenHundredOffset = -350,
     TwelveHundredOffSet = 200,
-    OneThousandOffSet = 20,
+    OneThousandOffSet = 920,
     EightHundredOffSet = -40,
-    SixHundredOffSet = 100,
-    FourHundredOffSet = 0;
+    SixHundredOffSet = 230,
+    FourHundredOffSet = -100;
 
 export default function Footer({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-48);
@@ -41,8 +41,8 @@ export default function Footer({ ScrollPercent }) {
     React.useLayoutEffect(() => {
         if (window.innerWidth <= 1750 && window.innerWidth >= 1600) setScrollSpeed(-55);
         if (window.innerWidth <= 1200) setScrollSpeed(-27);
-        if (window.innerWidth <= 600) setScrollSpeed(-12);
-        if (window.innerWidth <= 375) setScrollSpeed(-12);
+        if (window.innerWidth <= 600) setScrollSpeed(-14);
+        if (window.innerWidth <= 375) setScrollSpeed(-14);
 
         return () => {
             clearTimeout(timeout);

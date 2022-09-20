@@ -14,6 +14,14 @@
   pointer-events: none;
   height: 100%;
 }
+@media (min-width: 800px) {
+  .bottom_zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 8%;
+  }
+}
 @media (min-width: 1200px) {
   .bottom_zone {
     display: flex;
@@ -32,9 +40,15 @@
   padding-bottom: 60px;
 }
 .bottom_mobile > a {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   margin-bottom: 10px;
+}
+@media (min-width: 384px) {
+  .bottom_mobile > a {
+    width: 40px;
+    height: 40px;
+  }
 }
 .bottom_desktop {
   pointer-events: auto;

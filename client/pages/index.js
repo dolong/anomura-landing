@@ -10,14 +10,14 @@ import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
 
-const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut, NFT } = {
+const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut } = {
 	EnterInfinity: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.EnterInfinity), {
 		ssr: false,
 	}),
-	NFT: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.NFT),
-		{ ssr: false }
-	),
+	// NFT: dynamic(
+	// 	() => import("/containers/home/ContainerIndex").then((module) => module.NFT),
+	// 	{ ssr: false }
+	// ),
 	WhenIsItOut: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.WhenIsItOut),
 		{ ssr: false }

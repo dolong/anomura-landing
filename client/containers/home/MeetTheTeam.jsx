@@ -12,7 +12,7 @@ const InitialOffset = 3700,
     OneThousandOffSet = 700,
     EightHundredOffSet = 650,
     SixHundredOffSet = -60,
-    FourHundredOffSet = -150;
+    FourHundredOffSet = -285;
 
 export default function MeetTheTeam({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-55);
@@ -34,8 +34,8 @@ export default function MeetTheTeam({ ScrollPercent }) {
 
     React.useEffect(() => {
         if (window?.innerWidth <= 1200) setScrollSpeed(-28);
-        if (window?.innerWidth <= 600) setScrollSpeed(-12);
-        if (window?.innerWidth <= 375) setScrollSpeed(-12);
+        if (window?.innerWidth <= 600) setScrollSpeed(-13);
+        if (window?.innerWidth <= 375) setScrollSpeed(-13);
     }, []);
 
     return (

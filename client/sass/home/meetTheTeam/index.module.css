@@ -225,18 +225,43 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 2.75rem;
+}
+@media (min-width: 1440px) {
+  .meetTheTeam_members_wrapper {
+    gap: 3.25rem;
+  }
 }
 @media (min-width: 1980px) {
   .meetTheTeam_members_wrapper {
-    gap: 3rem;
+    gap: 3.25rem;
+  }
+}
+@media (min-width: 2560px) {
+  .meetTheTeam_members_wrapper {
+    gap: 3.75em;
+  }
+}
+@media (min-width: 3840px) {
+  .meetTheTeam_members_wrapper {
+    gap: 4rem;
   }
 }
 .meetTheTeam_members_card {
-  width: 185px;
+  width: 165px;
   min-width: 20%;
   margin-top: 2rem;
   position: relative;
+}
+@media (min-width: 384px) {
+  .meetTheTeam_members_card {
+    width: 185px;
+  }
+}
+@media (min-width: 748px) {
+  .meetTheTeam_members_card {
+    width: 200px;
+  }
 }
 @media (min-width: 1200px) {
   .meetTheTeam_members_card {
@@ -262,6 +287,7 @@
   top: 0;
   height: 100%;
   width: 100%;
+  gap: 0.35rem;
 }
 .meetTheTeam_members_card_top {
   height: 50%;

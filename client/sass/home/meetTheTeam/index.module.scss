@@ -85,18 +85,33 @@ $header-space-bottom: 60px;
 		&_wrapper {
 			@include m.flex-master(row, center, center);
 			flex-wrap: wrap;
-			gap: 3rem;
+			gap: 2.75rem;
 
+			@media (min-width: $bp-xl) {  
+				gap: 3.25rem;
+			}
 			@media (min-width: $bp-xl-2) {  
-				gap: 3rem;
+				gap: 3.25rem;
+			}
+			@media (min-width: $bp-xl-3) {  
+				gap: 3.75em;
+			}
+			@media (min-width: $bp-xl-4) {  
+				gap: 4rem;
 			}
 		}
 		&_card {
-			width: 185px;
+			width: 165px;
 			min-width: 20%;
 			margin-top: 2rem;
 			position: relative;
-			
+
+			@media (min-width: $bp-small) {  
+				width: 185px;
+			}
+			@media (min-width: $bp-med) {  
+				width: 200px;
+			}
 			@media (min-width: $bp-large-2) {  
 				font-size: 0.7rem;
 			}
@@ -118,9 +133,9 @@ $header-space-bottom: 60px;
 				top: 0;
 				height: 100%;
 				width: 100%;
+				gap: 0.35rem;
 			}
 			&_top {
-				// flex: 1;
 				height: 50%;
 				position: relative;
 				@include m.flex-master(column, center, center);
@@ -160,7 +175,7 @@ $header-space-bottom: 60px;
 				padding-left: 1rem;
 				padding-right: 1rem;
 				font-family: PFRondaSeven;
-				gap:0.5rem;
+				gap: 0.5rem;
 				
 				@media (min-width: $bp-small) {  
 					gap: 0.55rem;
