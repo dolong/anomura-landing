@@ -1,13 +1,14 @@
 import { prisma } from "./PrismaContext";
 
+
 export const getAnomuraById = async (crabId) => {
     return await prisma.anomuras.findUnique({
         where: {
             crabId: parseInt(crabId),
         },
-        include: {
-            anomuraEquipments: true
-        }
+        // include: {
+        //     anomuraEquipments: true
+        // }
     });
 };
 
@@ -20,6 +21,7 @@ export const getAllCrabs = async () => {
     });
 };
 
+/* WARNING to be used only on getStaticPaths and getStaticProps */
 export const getFirst1000Anomuras = async () => {
     return await prisma.anomuras.findMany({
         take: 1000

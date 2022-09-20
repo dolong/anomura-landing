@@ -23,12 +23,21 @@ import {
     headpiecesPartsData,
     legsPartsData
 } from "resources/cloudinary";
-import { getAllCrabs, getAnomuraById, getFirst1000Anomuras } from "repositories/crabs";
+// import { getAllCrabs, getAnomuraById, getFirst1000Anomuras } from "repositories/crabs";
+
+import { PrismaClient } from '@prisma/client'
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
-    let first1000Anomuras = await getFirst1000Anomuras();
-    const paths = first1000Anomuras.map((p) => {
+    // let first1000Anomuras = await getFirst1000Anomuras();
+
+    const prisma = new PrismaClient()
+    let data = await prisma.anomuras.findMany({
+        take: 10
+    });
+    await prisma.$disconnect;
+
+    const paths = data.map((p) => {
         return {
             params: { id: p.crabId.toString() },
         };
@@ -41,11 +50,18 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-    const id = parseInt(context.params.id);
-    const data = await getAnomuraById(id);
+    const crabId = parseInt(context.params.id);
+
+    const prisma = new PrismaClient()
+    const data = await prisma.anomuras.findUnique({
+        where: {
+            crabId: parseInt(crabId),
+        }
+    })
+    await prisma.$disconnect;
     return {
-        props: { data: JSON.parse(JSON.stringify(data)), key: id },
-        revalidate: 90,
+        props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
+        revalidate: 86400,
     };
 };
 
@@ -88,8 +104,8 @@ export default function AnimateViewerDetails({ data }) {
             }
             const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
             let isDrawHeadpieces = false;
-
-            if (anomuraEquipments.length > 0) {
+            let shouldHaveEquipment = false;
+            if (anomuraEquipments?.length > 0 && shouldHaveEquipment) {
                 // check if we should render the claws equipped instead of of anomura original claw
                 let clawsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.CLAWS);
                 if (clawsEquipmentIndex != -1) {
