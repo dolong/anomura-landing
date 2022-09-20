@@ -31,7 +31,7 @@ import { PrismaClient } from '@prisma/client'
 export const getStaticPaths = async () => {
     const prisma = new PrismaClient()
     let data = await prisma.anomuras.findMany({
-        take: 30
+        take: 500
     });
     await prisma.$disconnect();
 
@@ -92,7 +92,7 @@ export default function AnimateViewerDetails({ data }) {
     //     id ? `/api/crabs/getAnomuraById?id=${id}` : null,
     //     fetcher
     // );
-    console.log(router.isFallback)
+
     if (router.isFallback || !data) {
         return <div>Loading Anomura...</div>;
     } else {
@@ -315,18 +315,10 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
                 <div className={s.toggleModal_container}>
                     <img src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png" />
-                    <img src={"/img/imageviewer/Others/Inventory Button Outline.png"} />
+                    <img src="/img/imageviewer/Others/Inventory Button Outline.png" />
                 </div>
             </div>
             {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
-            <style>
-                {`
-                        body {
-                            font-family: Atlantis;
-                            font-size:36px;
-                            color:white;
-                    }`}
-            </style>
         </div>
     );
 };
