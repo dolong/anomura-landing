@@ -1,7 +1,8 @@
 // done
 exports.backgrounds = [
-    "Crystal Cave",
     "Crystal Cave Rainbow",
+    "Crystal Cave",
+
     "Emerald Forest",
     "Garden of Eden",
     "Golden Glade",

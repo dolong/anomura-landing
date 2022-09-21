@@ -30,23 +30,23 @@ const CrabImageViewerUpdate = async (req, res) => {
         let anomuraName = getAnomuraName();
         let anomuraDescription = getAnomuraDescription();
         if (existingCrab) {
-            // console.log(`Found existing anomura ${crabId}, image: ${existingCrab.image} `);
-            // if (existingCrab.image != crabImage) {
-            //     let crabId = existingCrab.id;
-            //     const updatedCrab = await updateAnomuraImageById({
-            //         crabId,
-            //         image: crabImage,
-            //         background,
-            //         body,
-            //         legs,
-            //         claws,
-            //         shell,
-            //         headpieces,
-            //     });
-            //     console.log(`Updated anomura attrs successfully`);
-            //     res.status(200).json({ data: "Updated anomura attrs successfully" });
-            //     return;
-            // }
+            console.log(`Found existing anomura ${crabId}, image: ${existingCrab.image} `);
+            if (existingCrab.image != crabImage) {
+                let crabId = existingCrab.id;
+                const updatedCrab = await updateAnomuraImageById({
+                    crabId,
+                    image: crabImage,
+                    background,
+                    body,
+                    legs,
+                    claws,
+                    shell,
+                    headpieces,
+                });
+                console.log(`Updated anomura attrs successfully`);
+                res.status(200).json({ data: "Updated anomura attrs successfully" });
+                return;
+            }
             console.log(`Found existing anomura. No need to update anomura Image`);
 
             // currently not allowed to update
