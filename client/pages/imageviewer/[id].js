@@ -31,7 +31,7 @@ import { PrismaClient } from '@prisma/client'
 export const getStaticPaths = async () => {
     const prisma = new PrismaClient()
     let data = await prisma.anomuras.findMany({
-        take: 500
+        take: 100
     });
     await prisma.$disconnect();
 
@@ -59,7 +59,7 @@ export const getStaticProps = async (context) => {
     await prisma.$disconnect();
     return {
         props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
-        revalidate: 900,
+        revalidate: 600,
     };
 };
 
