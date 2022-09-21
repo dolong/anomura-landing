@@ -308,14 +308,15 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  font-family: PFRondaSeven;
   top: 0;
   height: 100%;
   width: 100%;
-  font-size: 1.75rem;
+  font-size: 1rem;
 }
 @media (min-width: 31.25em) {
   .component_card_label_text {
-    font-size: 2rem;
+    font-size: 1.15rem;
   }
 }
 .component_card_label_legend {

@@ -321,13 +321,14 @@ $bp-xl-4: 230em;            // 3840
             &_text {
                 @include m.flex-master(row, center, center);
                 position: absolute;
+                font-family: PFRondaSeven;
                 top:0;
                 height:100%;
                 width: 100%;
-                font-size: 1.75rem;
+                font-size: 1rem;
 
                 @media (min-width: $bp-small-2) {  
-                    font-size: 2rem;
+                    font-size: 1.15rem;
                 }
             }
             &_legend {
