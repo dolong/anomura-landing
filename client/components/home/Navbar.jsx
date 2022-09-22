@@ -409,6 +409,17 @@ export default function Navbar({ isMobile }) {
                                         >
                                             Mystery Bowl
                                         </li>
+                                        <li
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.open(
+                                                    `https://opensea.io/collection/anomura`,
+                                                    "_blank"
+                                                );
+                                            }}
+                                        >
+                                            Anomura
+                                        </li>
                                     </ul>
                                 </div>
                             </ul>
@@ -423,7 +434,7 @@ export default function Navbar({ isMobile }) {
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
                                     <div>
-                                        <span>Inventory</span>
+                                        <span>Summon</span>
                                     </div>
                                 </button>
                             </div>

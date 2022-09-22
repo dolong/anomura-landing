@@ -375,6 +375,9 @@ export default function Roadmap() {
                                         />
                                     </div>
                                     <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
+                                            IN PROGRESS
+                                        </div>
                                         <span
                                             className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.anomuraHatching
@@ -386,7 +389,7 @@ export default function Roadmap() {
                                             Summoning
                                         </span>
                                         <div className={s.roadmap_divider_item_labels_target}>
-                                            Begins: Sept 21
+                                            Sept 21
                                         </div>
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Generative Anomura will be summoned and reveal rarity
