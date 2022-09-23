@@ -28,6 +28,24 @@ module.exports = {
                     }
                 ]
             },
+            { // prevent click jacking
+                source: '/roadmap',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN',
+                    }
+                ]
+            },
+            { // prevent click jacking
+                source: '/about',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN',
+                    }
+                ]
+            },
             {
                 // matching all API routes
                 source: "/api/:path*",
