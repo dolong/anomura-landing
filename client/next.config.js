@@ -9,6 +9,15 @@ module.exports = {
 
     async headers() {
         return [
+            { // prevent click jacking
+                source: '/((?!embed).*)',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN',
+                    }
+                ]
+            },
             {
                 // matching all API routes
                 source: "/api/:path*",
