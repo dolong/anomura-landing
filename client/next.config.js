@@ -10,7 +10,17 @@ module.exports = {
     async headers() {
         return [
             { // prevent click jacking
-                source: '/((?!embed).*)',
+                // source: '/((?!embed).*)',
+                source: '/',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN',
+                    }
+                ]
+            },
+            { // prevent click jacking
+                source: '/mint',
                 headers: [
                     {
                         key: 'X-Frame-Options',
