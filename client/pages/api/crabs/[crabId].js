@@ -10,7 +10,7 @@ const crabImageViewerHandler = async (req, res) => {
                 let crab = await getAnomuraById(id);
 
                 if (crab) {
-                    res.setHeader('Cache-Control', 'max-age=0, s-maxage=300, stale-while-revalidate');
+                    res.setHeader('Cache-Control', 'max-age=0, s-maxage=43200, stale-while-revalidate');
                     res.status(200).json({
                         name: crab.name,
                         description: crab.description,
