@@ -29,7 +29,7 @@ import {
     servicePartsData,
     headpiecesPartsData,
     legsPartsData,
-} from "resources/old";
+} from "resources/cloudinary";
 
 import React, { useEffect } from "react";
 import s from "/sass/imageviewer/imageviewer.module.css";
