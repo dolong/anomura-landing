@@ -5,7 +5,9 @@ const Enums = {
     SHELL: "SHELL",
     HEADPIECES: "HEADPIECES",
     BACKGROUND: "BACKGROUND",
-
+    BASEPATH: "",
+    METAMASK: "METAMASK",
+    WALLETCONNECT: "WALLETCONNET",
 };
 
 module.exports = Enums;

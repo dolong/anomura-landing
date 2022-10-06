@@ -30,6 +30,7 @@ export default function useSound() {
 
     useEffect(() => {
         if (!isAudioLoaded) {
+            console.log("Loading audio...")
             LoadAudios();
         }
     }, [isAudioLoaded]);

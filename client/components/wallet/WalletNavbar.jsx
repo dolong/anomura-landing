@@ -1,9 +1,8 @@
 import "/sass/wallet/wallet.module.css";
-import { SiteContext } from "../../context/SiteContext";
+
 import { useEffect, useContext } from "react";
 
 export default function WalletNavbar() {
-    const { ConnectWallet } = useContext(SiteContext);
     let ethereum;
 
     useEffect(() => {
@@ -29,7 +28,7 @@ export default function WalletNavbar() {
                     <h2 className="text-3xl text-[#202060]">Solana</h2>
                 </button>
                 <button
-                    onClick={() => ConnectWallet(ethereum, "")}
+                    // onClick={() => ConnectWallet(ethereum, "")}
                     className=" w-[30%] border-[#4949ce] border-2 rounded-md"
                 >
                     <h2 className="text-3xl text-[#202060]">Wallet</h2>

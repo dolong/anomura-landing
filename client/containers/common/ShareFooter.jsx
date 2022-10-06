@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import s from "/sass/home/shareFooter/index.module.css";
 import Link from "next/link";
-import { SiteContext } from "context/SiteContext";
+import { AudioContext } from "context/AudioContext";
 export default function ShareFooter() {
-    const { audioControl, isAudioLoaded } = useContext(SiteContext);
+    const { audioControl, isAudioLoaded } = useContext(AudioContext);
     const bubbleRef = React.createRef();
     let timeout, interval;
 

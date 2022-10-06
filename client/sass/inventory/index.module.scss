@@ -1,69 +1,45 @@
 @use "../mixins" as m;
+@use "../variables" as v;
+// $bp-small: 24em;            // 384
+// $bp-small-2: 31.25em;       // 500
+// $bp-small-3: 39.8em;        // 636
+// $bp-med: 46.8em;            // 748
+// $bp-med-2: 50em;            // 800
+// $bp-large: 54.5em;          // 872
+// $bp-large-2: 75em;          // 1200
+// $bp-xl: 90em;               // 1440
+// $bp-xl-2: 123.75em;         // 1980
+// $bp-xl-3: 160em;            // 2560
+// $bp-xl-4: 230em;            // 3840
 
-$bp-small: 24em;            // 384
-$bp-small-2: 31.25em;       // 500
-$bp-small-3: 39.8em;        // 636
-$bp-med: 46.8em;            // 748
-$bp-med-2: 50em;            // 800
-$bp-large: 54.5em;          // 872
-$bp-large-2: 75em;          // 1200
-$bp-xl: 90em;               // 1440
-$bp-xl-2: 123.75em;         // 1980
-$bp-xl-3: 160em;            // 2560
-$bp-xl-4: 230em;            // 3840
-// .container{
-//     width:508px;
-//     height: 500px;
-//     position: relative;
-//     display:flex;
-//     flex-direction: column;
-// }
-
-.container {
-    display:flex;
-    flex-direction: column;
-    position: relative;
+.wrapper {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
 }
-.wrapper{
-    display: flex;
-    align-items: flex-end;
+.container{
+    height: 100%;
+    width: 100%;
+
     max-width:100%;
     max-height:100%;
     position: relative;
+    background-color: #075D84;
 }
 
-.toggleModal {
-    &_wrapper {
-        position: absolute;
-        top: 3%;
-        left: 3%;
-        width: 12%;
-        height: auto;
-    }
-    &_container {
-        width: 63px;
-        @include m.flex-master(row, null, center);
-        position: relative;
+// &_wrapper {
+//     position: absolute;
+//     top: 0;
+//     height: 100%;
+//     width: 100%;
+// }
+// &_container {
+//     position: relative;
+//     height: 100%;
+//     width: 100%;
+// }
 
-        > img:nth-child(1){
-            margin-top: 3px;
-            margin-left: 3px;
-            width: 57px;
-        }
-        > img:nth-child(2) {
-            position: absolute;
-            top:0;
-            display:none;
-            z-index: 1;
-            width: 63px;
-        }
-        &:hover {
-            > img:nth-child(2) {
-                display: block;
-            }
-        }
-    }
-}
 
 .modal{
     &_container{
@@ -96,7 +72,6 @@ $bp-xl-4: 230em;            // 3840
     @include m.flex-master(column, center, center);
     font-family: PFRondaSeven;
 }
-
 .component {
 	&_zone {
         pointer-events: auto;
@@ -122,10 +97,10 @@ $bp-xl-4: 230em;            // 3840
                 @include m.flex-master(row, null, center);
                 position: relative;
 
-                @media (min-width: $bp-small) {  
+                @media (min-width: v.$bp-small) {  
                     width: 42px;
                 }
-                @media (min-width: $bp-small-2) {  
+                @media (min-width: v.$bp-small-2) {  
                     width: 54px;
                 }
 
@@ -133,12 +108,12 @@ $bp-xl-4: 230em;            // 3840
                     margin-top: 2px;
                     margin-left: 2px;
                     width: 36px;
-                    @media (min-width: $bp-small) {  
+                    @media (min-width: v.$bp-small) {  
                         margin-top: 2px;
                         margin-left: 2px;
                         width: 39px;
                     }
-                    @media (min-width: $bp-small-2) {  
+                    @media (min-width: v.$bp-small-2) {  
                         margin-top: 3px;
                         margin-left: 3px;
                         width: 48px;
@@ -150,10 +125,10 @@ $bp-xl-4: 230em;            // 3840
                     display:none;
                     z-index: 1;
                     width: 39px;
-                    @media (min-width: $bp-small) {  
+                    @media (min-width: v.$bp-small) {  
                         width: 42px;
                     }
-                    @media (min-width: $bp-small-2) {  
+                    @media (min-width: v.$bp-small-2) {  
                         width: 54px;
                     }
                 }
@@ -177,7 +152,7 @@ $bp-xl-4: 230em;            // 3840
                 display: inline-block;
                 overflow: hidden !important;
 
-                @media (min-width: $bp-small-2) {  
+                @media (min-width: v.$bp-small-2) {  
                     font-size: 1.15rem;
                 }
 
@@ -206,10 +181,10 @@ $bp-xl-4: 230em;            // 3840
         z-index: 2; // to have this layer cover the card text behind
         padding-bottom: 3px;
 
-        @media (min-width: $bp-small) {  
+        @media (min-width: v.$bp-small) {  
             left:20%;
         }
-        @media (min-width: $bp-small-2) {  
+        @media (min-width: v.$bp-small-2) {  
             left:20%;
         }
         &_wrapper {
@@ -304,10 +279,11 @@ $bp-xl-4: 230em;            // 3840
             flex: 1;
             @include m.flex-master(row, center, center);
 
-            @media (min-width: $bp-small-2) {  
+            @media (min-width: v.$bp-small-2) {  
                 font-size: 1rem;
             }
         }
+
 
         &_label {
             width: 75%;
@@ -323,7 +299,7 @@ $bp-xl-4: 230em;            // 3840
                 width: 100%;
                 font-size: 1rem;
 
-                @media (min-width: $bp-small-2) {  
+                @media (min-width: v.$bp-small-2) {  
                     font-size: 1.15rem;
                 }
             }

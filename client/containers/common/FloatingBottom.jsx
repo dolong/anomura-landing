@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import s from "/sass/home/floating-bottom/index.module.css";
-import { SiteContext } from "context/SiteContext";
+import { AudioContext } from "context/AudioContext";
 
 export default function FloatingBottom({ isMobile }) {
-    const { audioControl, isAudioLoaded, turnSound } = useContext(SiteContext);
+    const { audioControl, isAudioLoaded, turnSound } = useContext(AudioContext);
 
     const TurnOffSound = () => {
         if (audioControl.isSoundOn) {

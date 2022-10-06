@@ -75,7 +75,7 @@ const buildArrayImages = (name, source) => {
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
-export default function AnimateViewerDetails({ data }) {
+function AnimateViewerDetails({ data }) {
     const router = useRouter();
     let sources = {
         background: {},
@@ -178,6 +178,8 @@ export default function AnimateViewerDetails({ data }) {
 
     }
 }
+
+export default AnimateViewerDetails;
 
 const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     const [imagesSrc, setImageSrc] = React.useState({});

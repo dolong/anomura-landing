@@ -10,18 +10,10 @@ import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
 
-const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut } = {
+const { EnterInfinity, CrabAnat, MeetTheTeam, Footer } = {
 	EnterInfinity: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.EnterInfinity), {
 		ssr: false,
 	}),
-	// NFT: dynamic(
-	// 	() => import("/containers/home/ContainerIndex").then((module) => module.NFT),
-	// 	{ ssr: false }
-	// ),
-	WhenIsItOut: dynamic(
-		() => import("/containers/home/ContainerIndex").then((module) => module.WhenIsItOut),
-		{ ssr: false }
-	),
 	CrabAnat: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.CrabAnat),
 		{ ssr: false }
@@ -36,7 +28,7 @@ const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, WhenIsItOut } = {
 	),
 };
 
-export default function Home() {
+function HomePage() {
 	const setOffsetY = useScrollEvent();
 	const { isMobile } = useDeviceDetect();
 	const scrollPercent = useRecoilValue(ScrollValue);
@@ -78,14 +70,7 @@ export default function Home() {
 				<Navbar isMobile={isMobile} />
 				<ShopZone />
 				<EnterInfinity ScrollPercent={scrollPercent} ></EnterInfinity>
-				{/* <NFT ScrollPercent={scrollPercent} audioControl={audioControl} /> */}
 				<CrabAnat ScrollPercent={scrollPercent} />
-
-				{/* <WhenIsItOut
-					ScrollPercent={scrollPercent}
-					audioControl={audioControl}
-
-				/> */}
 				<MeetTheTeam ScrollPercent={scrollPercent} />
 				<Footer ScrollPercent={scrollPercent} />
 			</div>
@@ -95,3 +80,5 @@ export default function Home() {
 		</div>
 	);
 }
+HomePage.isHomePage = true;
+export default HomePage;

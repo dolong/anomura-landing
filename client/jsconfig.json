@@ -12,7 +12,8 @@
             "@repository/*": ["repository/*"],
             "@prisma/*": ["prisma/*"],
             "@middlewares/*": ["middlewares/*"],
-            "@scripts/*": ["scripts/*"]
+            "@scripts/*": ["scripts/*"],
+            "@context/*": ["context/*"]
           }
     },
      "include": [

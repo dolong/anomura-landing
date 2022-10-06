@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useScrollValue } from "/lib/useScrollValue";
 import s from "/sass/home/home.module.css";
 import Link from "next/link";
-import { SiteContext } from "context/SiteContext";
+import { AudioContext } from "context/AudioContext";
 
 const InitialOffset = 6000,
     ThirtyEightHundredOffset = 2850,
@@ -18,7 +18,7 @@ const InitialOffset = 6000,
 
 export default function Footer({ ScrollPercent }) {
     const [scrollSpeed, setScrollSpeed] = React.useState(-48);
-    const { audioControl, isAudioLoaded } = useContext(SiteContext);
+    const { audioControl, isAudioLoaded } = useContext(AudioContext);
     const bubbleRef = React.createRef();
     let timeout, interval;
 
