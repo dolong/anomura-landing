@@ -396,7 +396,7 @@ export default function Navbar({ isMobile }) {
                             </ul>
                             <ul className={s.nav_list_menu}>
                                 <div>
-                                    Opensea
+                                    OpenSea
                                     <ul className={`${s.nav_list_menu_sub}`}>
                                         <li
                                             onClick={(e) => {
