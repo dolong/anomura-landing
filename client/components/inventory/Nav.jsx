@@ -16,7 +16,7 @@ export default function Nav() {
     // const { active, account, activate, deactivate, chainId, connector, library } = useWeb3React();
     // const context = useWeb3React();
 
-    const { web3modal, connect, disconnect, address } = useContext(Web3Context);
+    const { web3modal, connect, disconnect, address, user, isConnected } = useContext(Web3Context);
 
     const { data } = useSession();
     let isMobile = false;
@@ -26,7 +26,8 @@ export default function Nav() {
     const handleLogout = () => {
         try {
             // console.log("trying to logout");
-            signOut();
+            disconnect();
+            // signOut();
             // deactivate();
         } catch (error) {
             console.error(error);
@@ -63,7 +64,7 @@ export default function Nav() {
             <div className={s.nav_button}>
                 <>
                     {(() => {
-                        if (!data) {
+                        if (!isConnected || !address) {
                             return (
                                 <button
                                     className={s.nav_button_pink}
@@ -91,7 +92,8 @@ export default function Nav() {
                                         alt="account"
                                     />
                                     <div>
-                                        <span>{shortenAddress(data.user.address)}</span>
+                                        {/* <span>{shortenAddress(data.user.address)}</span> */}
+                                        {address && <span>{user || shortenAddress(address)}</span>}
                                     </div>
                                 </button>
                             );

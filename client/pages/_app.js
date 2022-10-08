@@ -9,7 +9,6 @@ import { Web3ContextProvider } from "@context/Web3Context";
 import Script from "next/script";
 import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
-
 // import { useWeb3React, Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
 
 import { SessionProvider } from "next-auth/react"
@@ -42,11 +41,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         } else if (Component.needWeb3Provider == true) {
             return (
                 // <Web3ReactProvider getLibrary={getLibrary}>
+
                 <Web3ContextProvider>
                     <SessionProvider session={session}>
                         <Component {...pageProps} />
                     </SessionProvider>
                 </Web3ContextProvider>
+
                 // </Web3ReactProvider>
             )
         } else {

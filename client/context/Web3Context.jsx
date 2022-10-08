@@ -9,7 +9,8 @@ import Web3 from "web3";
 export const uauthOptions = {
     clientID: process.env.NEXT_PUBLIC_UNSTOPPABLE_CLIENT_ID,
     redirectUri: process.env.NEXT_PUBLIC_UNSTOPPABLE_REDIRECT_URI,
-
+    // https://anomura-staging.vercel.app/inventory
+    // redirectUri: "https://anomura-staging.vercel.app/inventory",
     // Must include both the openid and wallet scopes.
     scope: "openid wallet",
 };
@@ -86,13 +87,6 @@ export function Web3ContextProvider({ children }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
     const [user, setUser] = useState();
-
-    // const web3modal = useCallback(() => {
-    //     console.log("New Web3Modal instance!");
-    //     const w3m = new Web3Modal(providerOptions);
-    //     UAuthWeb3Modal.registerWeb3Modal(w3m);
-    //     return w3m;
-    // }, []);
 
     let web3modal;
 
