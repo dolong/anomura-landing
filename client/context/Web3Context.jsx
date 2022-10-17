@@ -207,7 +207,7 @@ export function Web3ContextProvider({ children }) {
         setChainId(undefined);
         setNetworkId(undefined);
         removeLocalStorageMetamask();
-        removeLocalStorageWalletConnect;
+        removeLocalStorageWalletConnect();
         await signOut();
 
         console.log("Disconnected!");
