@@ -147,8 +147,8 @@ export function Web3ContextProvider({ children }) {
 
             let uathUser = undefined;
             if (web3modal.cachedProvider === "custom-uauth") {
-                uathUser = await uauth.user();
-                setUser(uathUser);
+                let uathuserName = await uauth.user().then((r) => r.sub);
+                setUser(uathuserName);
             }
 
             setProvider(provider);
@@ -179,7 +179,7 @@ export function Web3ContextProvider({ children }) {
                             // redirect: false,
                             message,
                             signature,
-                            uathUser,
+                            uathUser: uathuserName,
                         });
                     }
                 } catch (error) {
