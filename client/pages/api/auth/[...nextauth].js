@@ -40,7 +40,8 @@ export const authOptions = {
                     if (!address || !profileId) {
                         throw new Error("Signature cannot be verified.");
                     }
-                    console.log("uathUser", uathUser)
+                    console.log(message)
+                    console.log(uathUser)
                     if (uathUser) {
                         //we cache this uath into whiteListUser table
                         // const userDb = await prisma.whiteList.findFirst({
