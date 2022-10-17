@@ -20,7 +20,7 @@ export const uauthOptions = {
 const providerOptions = {
     network: "1",
     cacheProvider: true,
-    disableInjectedProvider: false,
+    // disableInjectedProvider: false,
 
     "custom-uauth": {
         // The UI Assets
@@ -202,7 +202,6 @@ export function Web3ContextProvider({ children }) {
         setChainId(undefined);
         setNetworkId(undefined);
         removeLocalStorageMetamask();
-
         signOut();
 
         console.log("Disconnected!");
