@@ -190,7 +190,7 @@ export default function Nav({ user, isMobile }) {
                                                             />
                                                             <div>
                                                                 <span>
-                                                                    {user && (
+                                                                    {/* {user && (
                                                                         <span>
                                                                             {user?.uathUser !==
                                                                             "undefined"
@@ -199,7 +199,8 @@ export default function Nav({ user, isMobile }) {
                                                                                       user?.address
                                                                                   )}
                                                                         </span>
-                                                                    )}
+                                                                    )} */}
+                                                                    dfgfg
                                                                 </span>
                                                             </div>
                                                         </button>
