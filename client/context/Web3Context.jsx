@@ -208,6 +208,7 @@ export function Web3ContextProvider({ children }) {
         setNetworkId(undefined);
         removeLocalStorageMetamask();
         removeLocalStorageWalletConnect();
+        removeLocalStorageUath();
         await signOut();
 
         console.log("Disconnected!");
@@ -439,5 +440,20 @@ const removeLocalStorageWalletConnect = () => {
     const walletMobileCache = localStorage.getItem("WALLETCONNECT_DEEPLINK_CHOICE");
     if (walletMobileCache) {
         localStorage.removeItem("WALLETCONNECT_DEEPLINK_CHOICE");
+    }
+};
+
+const removeLocalStorageUath = () => {
+    const openidCache = localStorage.getItem("openidConfiguration:");
+    if (openidCache) {
+        localStorage.removeItem("openidConfiguration:");
+    }
+    const uathRequestCache = localStorage.getItem("request");
+    if (uathRequestCache) {
+        localStorage.removeItem("request");
+    }
+    const uathUserCache = localStorage.getItem("username");
+    if (uathUserCache) {
+        localStorage.removeItem("username");
     }
 };
