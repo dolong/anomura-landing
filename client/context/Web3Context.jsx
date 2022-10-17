@@ -20,7 +20,7 @@ export const uauthOptions = {
 const providerOptions = {
     network: "1",
     cacheProvider: true,
-    // disableInjectedProvider: false,
+    disableInjectedProvider: false,
 
     "custom-uauth": {
         // The UI Assets
