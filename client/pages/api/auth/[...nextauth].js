@@ -4,7 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from "@repositories/PrismaContext";
 
 const {
-    NEXT_PUBLIC_NEXTAUTH_SECRET,
+    NEXTAUTH_SECRET,
     // NEXT_PUBLIC_DISCORD_CLIENT_ID,
     // DISCORD_CLIENT_SECRET,
     // NEXT_PUBLIC_TWITTER_CLIENT_ID,
@@ -90,7 +90,7 @@ export const authOptions = {
             return session;
         },
     },
-    secret: NEXT_PUBLIC_NEXTAUTH_SECRET,
+    secret: NEXTAUTH_SECRET,
     session: {
         jwt: true,
         maxAge: 60, //  30 * 24 * 60 * 60  // 60 * 60 * 24 * 30

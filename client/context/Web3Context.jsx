@@ -18,9 +18,9 @@ export const uauthOptions = {
 };
 
 const providerOptions = {
-    network: "5",
+    network: "1",
     cacheProvider: true,
-    // disableInjectedProvider: false,
+    disableInjectedProvider: false,
 
     "custom-uauth": {
         // The UI Assets
@@ -40,7 +40,7 @@ const providerOptions = {
     walletconnect: {
         package: WalletConnectProvider,
         options: {
-            infuraId: process.env.NEXT_PUBLIC_INFURA_URL,
+            infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
         },
     },
 
@@ -133,7 +133,7 @@ export function Web3ContextProvider({ children }) {
                 });
                 UAuthWeb3Modal.registerWeb3Modal(web3modal);
             }
-            const provider = id ? await web3modal.connectTo(id) : await web3modal.connect();
+            const provider = id ? await web3modal.connectTo() : await web3modal.connect();
 
             let uathUser = undefined;
             if (web3modal.cachedProvider === "custom-uauth") {
@@ -254,8 +254,7 @@ export function Web3ContextProvider({ children }) {
     };
 
     const subscribeToProvider = (provider) => {
-        console.log("Attaching event listeners to provider...");
-        console.log("provider", provider);
+        // console.log("Attaching event listeners to provider...");
         if (provider == null || typeof provider.on !== "function") {
             return;
         }
@@ -265,11 +264,11 @@ export function Web3ContextProvider({ children }) {
         provider.on("chainChanged", onChainChanged);
         provider.on("networkChanged", onNetworkChanged);
 
-        console.log("Attached event listeners to provider!");
+        // console.log("Attached event listeners to provider!");
     };
 
     const unsubscribeFromProvider = (provider) => {
-        console.log("Removing event listeners to provider...");
+        // console.log("Removing event listeners to provider...");
 
         if (provider == null || typeof provider.removeListener !== "function") {
             return;
@@ -280,7 +279,7 @@ export function Web3ContextProvider({ children }) {
         provider.removeListener("chainChanged", onChainChanged);
         provider.removeListener("networkChanged", onNetworkChanged);
 
-        console.log("Removed event listeners to provider!");
+        // console.log("Removed event listeners to provider!");
     };
 
     useEffect(() => {

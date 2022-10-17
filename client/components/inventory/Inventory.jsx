@@ -124,7 +124,7 @@ export default function Inventory({ nfts, isMobile }) {
                         attributes = metaDataQuery?.attributes;
                     }
                 }
-                console.log(attributes);
+
                 anomura.attributes = await attributes.reduce((obj, item) => {
                     if (item.trait_type == "Background") {
                         obj["background"] = item.value;
@@ -149,7 +149,6 @@ export default function Inventory({ nfts, isMobile }) {
                 return anomura;
             });
             await Promise.all(task);
-            console.log(nfts.anomuras);
             setIsLoaded(true);
         }
     }, [nfts]);
@@ -275,29 +274,31 @@ const Frame = ({ items, type, isMobile }) => {
                 </div>
             </div>
             <div className={s.inventory_frame_arrows}>
-                <div className={s.inventory_frame_arrows_wrapper}>
-                    <img
-                        className={s.inventory_frame_arrows_img}
-                        src={`${
-                            page === 1
-                                ? "/img/inventory/Arrow Left_Gray.png"
-                                : "/img/inventory/Arrow Left_Blue.png"
-                        }`}
-                        onClick={() => previousPage()}
-                    />
-                    <div className={s.inventory_frame_arrows_page}>
-                        {page}/{range.length}
+                {slice.length > 0 && (
+                    <div className={s.inventory_frame_arrows_wrapper}>
+                        <img
+                            className={s.inventory_frame_arrows_img}
+                            src={`${
+                                page === 1
+                                    ? "/img/inventory/Arrow Left_Gray.png"
+                                    : "/img/inventory/Arrow Left_Blue.png"
+                            }`}
+                            onClick={() => previousPage()}
+                        />
+                        <div className={s.inventory_frame_arrows_page}>
+                            {page}/{range.length}
+                        </div>
+                        <img
+                            className={s.inventory_frame_arrows_img}
+                            src={`${
+                                page === range.length
+                                    ? "/img/inventory/Arrow Right_Gray.png"
+                                    : "/img/inventory/Arrow Right_Blue.png"
+                            }`}
+                            onClick={() => nextPage()}
+                        />
                     </div>
-                    <img
-                        className={s.inventory_frame_arrows_img}
-                        src={`${
-                            page === range.length
-                                ? "/img/inventory/Arrow Right_Gray.png"
-                                : "/img/inventory/Arrow Right_Blue.png"
-                        }`}
-                        onClick={() => nextPage()}
-                    />
-                </div>
+                )}
             </div>
         </div>
     );
