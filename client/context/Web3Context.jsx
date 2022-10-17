@@ -111,6 +111,7 @@ export function Web3ContextProvider({ children }) {
             }
             if (localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER") && !session) {
                 removeLocalStorageMetamask();
+                removeLocalStorageWalletConnect;
             }
         }
         document.addEventListener("visibilitychange", function () {
@@ -206,6 +207,7 @@ export function Web3ContextProvider({ children }) {
         setChainId(undefined);
         setNetworkId(undefined);
         removeLocalStorageMetamask();
+        removeLocalStorageWalletConnect;
         await signOut();
 
         console.log("Disconnected!");
