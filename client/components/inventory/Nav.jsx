@@ -29,7 +29,7 @@ export default function Nav({ user, isMobile }) {
     const handleLogin = async () => {
         await connect();
     };
-
+    console.log(user?.uathUser);
     if (isMobile) {
         return (
             <>
