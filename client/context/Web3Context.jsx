@@ -109,6 +109,11 @@ export function Web3ContextProvider({ children }) {
                 removeLocalStorageMetamask();
             }
         }
+        document.addEventListener("visibilitychange", function () {
+            // if (window.visibilityState === "hidden") {
+            localStorage.removeItem("WALLETCONNECT_DEEPLINK_CHOICE");
+            //  }
+        });
     }, []);
 
     const web3 = useMemo(() => {
