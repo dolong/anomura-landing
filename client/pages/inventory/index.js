@@ -2,10 +2,10 @@ import InventoryContainer from "@components/inventory/InventoryContainer";
 import Head from "next/head";
 import React from "react";
 import Moralis from "moralis";
-// import { unstable_getServerSession } from "next-auth/next"
+import { unstable_getServerSession } from "next-auth/next"
 
-// import { authOptions } from 'pages/api/auth/[...nextauth]'
-import { getSession } from 'next-auth/react';
+import { authOptions } from 'pages/api/auth/[...nextauth]'
+// import { getSession } from 'next-auth/react';
 function InventoryPage(props) {
     // console.log(props)
     React.useEffect(() => {
