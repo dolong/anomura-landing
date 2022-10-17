@@ -131,6 +131,8 @@ export function Web3ContextProvider({ children }) {
         return UAuthWeb3Modal.getUAuth(uauthPackage, uauthOptions);
     }, []);
 
+    console.log(user);
+
     const connect = async (id = "") => {
         // const session = await getSession();
         setLoading(true);
@@ -176,7 +178,7 @@ export function Web3ContextProvider({ children }) {
                             params: [message, address],
                         });
                         let res = await signIn("credentials", {
-                            // redirect: false,
+                            redirect: false,
                             message,
                             signature,
                             uathUser,
