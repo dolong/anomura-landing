@@ -7,7 +7,7 @@ import Moralis from "moralis";
 // import { authOptions } from 'pages/api/auth/[...nextauth]'
 import { getSession } from 'next-auth/react';
 function InventoryPage(props) {
-    console.log(props)
+    // console.log(props)
     React.useEffect(() => {
 
     }, [props])
@@ -50,15 +50,14 @@ InventoryPage.needWeb3Provider = true;
 export default InventoryPage;
 
 export const getServerSideProps = async (context) => {
-    const session = await getSession(context);
-    let res = context.res;
-    // const session = await unstable_getServerSession(
-    //     context.req,
-    //     context.res,
-    //     authOptions
-    // ); // server side 
 
+    const session = await unstable_getServerSession(
+        context.req,
+        context.res,
+        authOptions
+    ); // server side 
 
+    // const session = await getSession(context);
     await Moralis.start({ apiKey: process.env.MORALIS_API_KEY });
 
     if (!session?.user.address) {
@@ -89,10 +88,10 @@ export const getServerSideProps = async (context) => {
     result.anomuras = onlyAnomuras
     result.bowls = onlyBowls
 
-    res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=10, stale-while-revalidate=59'
-    )
+    // res.setHeader(
+    //     'Cache-Control',
+    //     'public, s-maxage=10, stale-while-revalidate=59'
+    // )
 
     return {
         props: {
