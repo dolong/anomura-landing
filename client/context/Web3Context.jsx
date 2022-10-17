@@ -42,6 +42,10 @@ const providerOptions = {
         options: {
             infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
         },
+        qrcodeModalOptions: {
+            mobileLinks: ["trust", "metamask", "coinbase"],
+            desktopLinks: ["encrypted ink"],
+        },
     },
 
     // Include any other web3modal providers here
