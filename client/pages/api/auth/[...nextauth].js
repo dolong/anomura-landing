@@ -40,28 +40,28 @@ export const authOptions = {
                     if (!address || !profileId) {
                         throw new Error("Signature cannot be verified.");
                     }
-                    console.log(message)
-                    console.log(uathUser)
-                    if (uathUser) {
-                        //we cache this uath into whiteListUser table
-                        // const userDb = await prisma.whiteList.findFirst({
-                        //     where: {
-                        //         wallet: { equals: address, mode: "insensitive" },
-                        //     },
-                        // });
 
-                        // await prisma.whiteList.upsert({
-                        //     where: {
-                        //         wallet: { equals: address, mode: "insensitive" },
-                        //     },
-                        //     create: {
-                        //         wallet: address,
-                        //         uathUser: uathUser
-                        //     },
-                        //     update: {
-                        //         uathUser: uathUser
-                        //     }
-                        // })
+                    const userDb = await prisma.whiteList.findFirst({
+                        where: {
+                            wallet: { equals: address, mode: "insensitive" },
+                        },
+                    });
+
+                    if (uathUser && !userDb.uathUser) {
+                        //we cache this uath into whiteListUser table
+
+                        await prisma.whiteList.upsert({
+                            where: {
+                                wallet: { equals: address, mode: "insensitive" },
+                            },
+                            create: {
+                                wallet: address,
+                                uathUser: uathUser
+                            },
+                            update: {
+                                uathUser: uathUser
+                            }
+                        })
                     }
 
 
