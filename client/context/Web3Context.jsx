@@ -177,8 +177,8 @@ export function Web3ContextProvider({ children }) {
                             method: "personal_sign",
                             params: [message, address],
                         });
-                        let res = await signIn("credentials", {
-                            redirect: false,
+                        await signIn("credentials", {
+                            // redirect: false,
                             message,
                             signature,
                             uathUser,
