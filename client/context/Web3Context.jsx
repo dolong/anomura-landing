@@ -6,7 +6,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal, { CLOSE_EVENT, CONNECT_EVENT, ERROR_EVENT, ICoreOptions } from "web3modal";
 import Web3 from "web3";
 import axios from "axios";
-import { signIn, getSession, signOut } from "next-auth/react";
+import { signIn, useSession, signOut } from "next-auth/react";
 
 export const uauthOptions = {
     clientID: process.env.NEXT_PUBLIC_UNSTOPPABLE_CLIENT_ID,
@@ -202,7 +202,7 @@ export function Web3ContextProvider({ children }) {
         setChainId(undefined);
         setNetworkId(undefined);
         removeLocalStorageMetamask();
-        signOut();
+        await signOut();
 
         console.log("Disconnected!");
     };
