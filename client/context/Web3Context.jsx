@@ -138,7 +138,7 @@ export function Web3ContextProvider({ children }) {
                 });
                 UAuthWeb3Modal.registerWeb3Modal(web3modal);
             }
-            const provider = id ? await web3modal.connectTo() : await web3modal.connect();
+            const provider = id ? await web3modal.connectTo(id) : await web3modal.connect();
 
             let uathUser = undefined;
             if (web3modal.cachedProvider === "custom-uauth") {
