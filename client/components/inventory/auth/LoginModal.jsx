@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 // import { useWeb3React } from "@web3-react/core";
 // import { Web3Context } from "@context/Web3Context";
-import { signIn, useSession } from "next-auth/react";
+
 import s from "/sass/inventory/modal/index.module.css";
 import Enums from "enums";
 import axios from "axios";
@@ -10,7 +10,6 @@ const LoginModal = ({ isMobile, closeModal }) => {
     // const { TryConnectAsAdmin, web3Error, SignOut } = useContext(Web3Context);
     // const { connectors, login, logout } = useContext(Web3Context);
     // const { active, account, activate, deactivate, chainId, connector, library } = useWeb3React();
-    // const { data } = useSession();
 
     // useEffect(async () => {
     //     if (account && !data) {

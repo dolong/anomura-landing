@@ -41,13 +41,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         } else if (Component.needWeb3Provider == true) {
             return (
                 // <Web3ReactProvider getLibrary={getLibrary}>
+                <SessionProvider session={session}>
+                    <Web3ContextProvider>
 
-                <Web3ContextProvider>
-                    <SessionProvider session={session}>
                         <Component {...pageProps} />
-                    </SessionProvider>
-                </Web3ContextProvider>
 
+                    </Web3ContextProvider>
+                </SessionProvider>
                 // </Web3ReactProvider>
             )
         } else {

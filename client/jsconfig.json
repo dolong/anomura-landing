@@ -9,11 +9,12 @@
             "@components/*": ["components/*"],
             "@styles/*": ["styles/*"],
             "@utils/*": ["utils/*"],
-            "@repository/*": ["repository/*"],
+            "@repositories/*": ["repositories/*"],
             "@prisma/*": ["prisma/*"],
             "@middlewares/*": ["middlewares/*"],
             "@scripts/*": ["scripts/*"],
-            "@context/*": ["context/*"]
+            "@context/*": ["context/*"],
+            "@hooks/*": ["hooks/*"]
           }
     },
      "include": [

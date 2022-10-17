@@ -5,6 +5,8 @@ import UAuthSPA from "@uauth/js";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal, { CLOSE_EVENT, CONNECT_EVENT, ERROR_EVENT, ICoreOptions } from "web3modal";
 import Web3 from "web3";
+import axios from "axios";
+import { signIn, getSession, signOut } from "next-auth/react";
 
 export const uauthOptions = {
     clientID: process.env.NEXT_PUBLIC_UNSTOPPABLE_CLIENT_ID,
@@ -18,7 +20,7 @@ export const uauthOptions = {
 const providerOptions = {
     network: "5",
     cacheProvider: true,
-    disableInjectedProvider: false,
+    // disableInjectedProvider: false,
 
     "custom-uauth": {
         // The UI Assets
@@ -78,8 +80,6 @@ const connectors = {};
 export const Web3Context = React.createContext();
 
 export function Web3ContextProvider({ children }) {
-    // const [injectedProvider, setInjectedProvider] = useState();
-
     const [networkId, setNetworkId] = useState();
     const [chainId, setChainId] = useState();
     const [provider, setProvider] = useState();
@@ -90,22 +90,28 @@ export function Web3ContextProvider({ children }) {
 
     let web3modal;
 
-    useEffect(() => {
+    useEffect(async () => {
         if (window) {
-            console.log(123);
+            const session = await getSession();
             web3modal = new Web3Modal({
                 cacheProvider: true, // optional,
                 providerOptions,
             });
             UAuthWeb3Modal.registerWeb3Modal(web3modal);
-            if (web3modal.cachedProvider) {
+            if (
+                web3modal.cachedProvider &&
+                localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER") &&
+                session
+            ) {
                 connect();
+            }
+            if (localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER") && !session) {
+                removeLocalStorageMetamask();
             }
         }
     }, []);
 
     const web3 = useMemo(() => {
-        console.log("New Web3 instance!");
         return provider ? new Web3(provider) : undefined;
     }, [provider]);
 
@@ -116,7 +122,7 @@ export function Web3ContextProvider({ children }) {
     }, []);
 
     const connect = async (id = "") => {
-        console.log("Connecting...");
+        const session = await getSession();
         setLoading(true);
         setError(undefined);
         try {
@@ -129,8 +135,10 @@ export function Web3ContextProvider({ children }) {
             }
             const provider = id ? await web3modal.connectTo(id) : await web3modal.connect();
 
+            let uathUser = undefined;
             if (web3modal.cachedProvider === "custom-uauth") {
-                setUser(await uauth.user());
+                uathUser = await uauth.user();
+                setUser(uathUser);
             }
 
             setProvider(provider);
@@ -140,13 +148,34 @@ export function Web3ContextProvider({ children }) {
             const [address] = await tempWeb3.eth.getAccounts();
             setAddress(address);
 
-            setChainId(await tempWeb3.eth.getChainId());
+            let chainId = await tempWeb3.eth.getChainId();
+            setChainId(chainId);
             setNetworkId(await tempWeb3.eth.net.getId());
 
             setError(undefined);
             setLoading(false);
 
-            console.log("Connected!");
+            if (!session) {
+                try {
+                    const userData = { address, chain: chainId, network: "evm" };
+                    const requestMessage = await axios.post(`/api/auth/requestMessage`, userData);
+                    if (requestMessage?.data?.message) {
+                        const { message } = requestMessage.data;
+                        const signature = await provider.request({
+                            method: "personal_sign",
+                            params: [message, address],
+                        });
+                        let res = await signIn("credentials", {
+                            // redirect: false,
+                            message,
+                            signature,
+                            uathUser,
+                        });
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
         } catch (e) {
             setError(e);
             setLoading(false);
@@ -156,20 +185,20 @@ export function Web3ContextProvider({ children }) {
     };
 
     const disconnect = async () => {
-        console.log("Disconnecting...");
-
-        if (web3modal.cachedProvider === "custom-uauth") {
-            web3modal.clearCachedProvider();
+        if (web3modal?.cachedProvider === "custom-uauth") {
             await uauth.logout();
         }
 
-        web3modal.clearCachedProvider();
+        await web3modal?.clearCachedProvider();
         unsubscribeFromProvider(provider);
         setProvider(undefined);
         setAddress(undefined);
         setLoading(false);
         setChainId(undefined);
         setNetworkId(undefined);
+        removeLocalStorageMetamask();
+
+        signOut();
 
         console.log("Disconnected!");
     };
@@ -206,24 +235,27 @@ export function Web3ContextProvider({ children }) {
 
     const onAccountsChanged = async ([address]) => {
         console.log("provider.accountsChanged", [address]);
-        setAddress(address);
+        // setAddress(address);
+        disconnect();
     };
 
     const onChainChanged = async (chainId) => {
         console.log("provider.chainChanged", chainId);
-        setChainId(chainId);
-        setNetworkId(await web3.eth.net.getId());
+        // setChainId(chainId);
+        // setNetworkId(await web3.eth.net.getId());
+        disconnect();
     };
 
     const onNetworkChanged = async (networkId) => {
         console.log("provider.networkChanged", networkId);
-        setNetworkId(networkId);
-        setChainId(await web3.eth.getChainId());
+        // setNetworkId(networkId);
+        // setChainId(await web3.eth.getChainId());
+        disconnect();
     };
 
     const subscribeToProvider = (provider) => {
         console.log("Attaching event listeners to provider...");
-
+        console.log("provider", provider);
         if (provider == null || typeof provider.on !== "function") {
             return;
         }
@@ -383,7 +415,14 @@ export function Web3ContextProvider({ children }) {
     return <Web3Context.Provider value={value}>{children}</Web3Context.Provider>;
 }
 
-const RemoveLocalStorageWalletConnect = () => {
+const removeLocalStorageMetamask = () => {
+    const injectedCache = localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER");
+    if (injectedCache) {
+        localStorage.removeItem("WEB3_CONNECT_CACHED_PROVIDER");
+    }
+};
+
+const removeLocalStorageWalletConnect = () => {
     const walletConnectCache = localStorage.getItem("walletconnect");
     if (walletConnectCache) {
         localStorage.removeItem("walletconnect");

@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import Moralis from 'moralis';
 import CredentialsProvider from 'next-auth/providers/credentials';
-
+import { prisma } from "@repositories/PrismaContext";
 
 const {
     NEXT_PUBLIC_NEXTAUTH_SECRET,
@@ -11,7 +11,7 @@ const {
     // TWITTER_CLIENT_SECRET,
 } = process.env;
 
-export default NextAuth({
+export const authOptions = {
     providers: [
         CredentialsProvider({
             name: 'MoralisAuth',
@@ -29,11 +29,7 @@ export default NextAuth({
             },
             async authorize(credentials) {
                 try {
-                    const { message, signature } = credentials;
-
-                    console.log("message", message)
-                    console.log("signature", signature)
-
+                    const { message, signature, uathUser } = credentials;
 
                     await Moralis.start({ apiKey: process.env.MORALIS_API_KEY });
 
@@ -44,8 +40,31 @@ export default NextAuth({
                     if (!address || !profileId) {
                         throw new Error("Signature cannot be verified.");
                     }
+                    console.log("uathUser", uathUser)
+                    if (uathUser) {
+                        //we cache this uath into whiteListUser table
+                        // const userDb = await prisma.whiteList.findFirst({
+                        //     where: {
+                        //         wallet: { equals: address, mode: "insensitive" },
+                        //     },
+                        // });
 
-                    const user = { address, profileId, expirationTime, signature };
+                        // await prisma.whiteList.upsert({
+                        //     where: {
+                        //         wallet: { equals: address, mode: "insensitive" },
+                        //     },
+                        //     create: {
+                        //         wallet: address,
+                        //         uathUser: uathUser
+                        //     },
+                        //     update: {
+                        //         uathUser: uathUser
+                        //     }
+                        // })
+                    }
+
+
+                    const user = { address, profileId, expirationTime, signature, uathUser };
 
                     return user;
                 } catch (e) {
@@ -66,10 +85,23 @@ export default NextAuth({
             return token;
         },
         async session({ session, token }) {
-            session.expires = token.user.expirationTime;
-            session.user = token.user;
+            // session.expires = token.user.expirationTime;  use nextauth expiretime, moralis expire time is null
+            session.user = token?.user;
             return session;
         },
     },
     secret: NEXT_PUBLIC_NEXTAUTH_SECRET,
-});
+    session: {
+        jwt: true,
+        maxAge: 60, //  30 * 24 * 60 * 60  // 60 * 60 * 24 * 30
+    },
+}
+
+export default (req, res) => {
+    if (process.env.VERCEL) {
+        // prefer NEXTAUTH_URL, fallback to x-forwarded-host
+        req.headers["x-forwarded-host"] =
+            process.env.NEXTAUTH_URL || req.headers["x-forwarded-host"];
+    }
+    return NextAuth(req, res, authOptions);
+};

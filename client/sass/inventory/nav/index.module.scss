@@ -160,7 +160,7 @@
     &_mobile {
         background: #4383AE;
         height: 100%; // 100vh
-        width: 100vw;   //width: 100vw;
+        width: 100vw; // 100vw;
         position: absolute;
         top: 0;
         left: 0;
@@ -168,7 +168,6 @@
         z-index: 10;
 
         &_wrapper {
-            // @include m.flex-master(column, center, center);
             height: 100%;
         }
         &_close {
@@ -192,7 +191,7 @@
                 width: 100%;
         
                 &_item {
-                    font-size: 3rem;
+                    font-size: 2rem;
                     margin-bottom: 1%;
                     font-family: Safety Goggles;
                     opacity: 0.75;

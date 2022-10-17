@@ -23,6 +23,7 @@ model WhiteList {
   userQuest                     UserQuest[]
   nonce                         String?
   whiteListUserData             WhiteListUserData?
+  uathUser                      String?         @default("")
 }
 
 model WhiteListUserData {
