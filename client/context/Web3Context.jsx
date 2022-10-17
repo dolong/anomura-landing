@@ -87,12 +87,12 @@ export function Web3ContextProvider({ children }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
     const [user, setUser] = useState();
-
+    const { data: session, status } = useSession({ required: false });
     let web3modal;
 
     useEffect(async () => {
         if (window) {
-            const session = await getSession();
+            // const session = await getSession();
             web3modal = new Web3Modal({
                 cacheProvider: true, // optional,
                 providerOptions,
@@ -127,7 +127,7 @@ export function Web3ContextProvider({ children }) {
     }, []);
 
     const connect = async (id = "") => {
-        const session = await getSession();
+        // const session = await getSession();
         setLoading(true);
         setError(undefined);
         try {
