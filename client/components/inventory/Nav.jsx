@@ -50,7 +50,14 @@ export default function Nav({ user, isMobile }) {
                             >
                                 <img src={`/img/inventory/Button_M_Pink.png`} alt="Menu" />
                                 <div>
-                                    <span>MENU</span>
+                                    {!user && <span>MENU</span>}
+                                    {user && (
+                                        <span>
+                                            {user?.uathUser !== "undefined"
+                                                ? user?.uathUser
+                                                : shortenAddress(user?.address)}
+                                        </span>
+                                    )}
                                 </div>
                             </button>
                         </div>
@@ -182,7 +189,7 @@ export default function Nav({ user, isMobile }) {
                                                             className={
                                                                 s.nav_mobile_content_footer_button_pink
                                                             }
-                                                            onClick={openAccountModal}
+                                                            onClick={() => handleLogout()}
                                                         >
                                                             <img
                                                                 src={`/img/inventory/Button_M_Pink.png`}
@@ -200,7 +207,7 @@ export default function Nav({ user, isMobile }) {
                                                                                   )}
                                                                         </span>
                                                                     )} */}
-                                                                    dfgfg
+                                                                    Log Out
                                                                 </span>
                                                             </div>
                                                         </button>
