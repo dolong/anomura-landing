@@ -192,12 +192,11 @@ export default function Nav({ user, isMobile }) {
                                                                 <span>
                                                                     {user && (
                                                                         <span>
-                                                                            {user.uathUser !==
-                                                                                "undefined" &&
-                                                                            user.uathUser !== "null"
-                                                                                ? user.uathUser
+                                                                            {user?.uathUser !==
+                                                                            "undefined"
+                                                                                ? user?.uathUser
                                                                                 : shortenAddress(
-                                                                                      user.address
+                                                                                      user?.address
                                                                                   )}
                                                                         </span>
                                                                     )}
