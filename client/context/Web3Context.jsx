@@ -109,9 +109,10 @@ export function Web3ContextProvider({ children }) {
             ) {
                 connect();
             }
-            if (localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER") && !session) {
+            if (!session) {
                 removeLocalStorageMetamask();
                 removeLocalStorageWalletConnect();
+                removeLocalStorageUath();
             }
         }
         document.addEventListener("visibilitychange", function () {
