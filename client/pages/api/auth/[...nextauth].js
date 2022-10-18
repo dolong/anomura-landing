@@ -57,11 +57,11 @@ export const authOptions = {
                                 wallet,
                             },
                             create: {
-                                wallet: address,
-                                uathUser: uathUser
+                                wallet,
+                                uathUser
                             },
                             update: {
-                                uathUser: uathUser
+                                uathUser
                             }
                         })
                     }
