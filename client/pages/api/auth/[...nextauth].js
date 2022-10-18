@@ -52,18 +52,18 @@ export const authOptions = {
                         //we cache this uath into whiteListUser table
 
                         const wallet = utils.getAddress(address)
-                        // await prisma.whiteList.upsert({
-                        //     where: {
-                        //         wallet,
-                        //     },
-                        //     create: {
-                        //         wallet,
-                        //         uathUser
-                        //     },
-                        //     update: {
-                        //         uathUser
-                        //     }
-                        // })
+                        await prisma.whiteList.upsert({
+                            where: {
+                                wallet,
+                            },
+                            create: {
+                                wallet,
+                                uathUser
+                            },
+                            update: {
+                                uathUser
+                            }
+                        })
                     }
 
                     const user = { address, profileId, expirationTime, signature, uathUser };
