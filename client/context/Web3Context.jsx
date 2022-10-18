@@ -177,12 +177,21 @@ export function Web3ContextProvider({ children }) {
                             method: "personal_sign",
                             params: [message, address],
                         });
-                        await signIn("credentials", {
-                            // redirect: false,
-                            message,
-                            signature,
-                            uathUser,
-                        });
+
+                        if (uathUser) {
+                            await signIn("credentials", {
+                                // redirect: false,
+                                message,
+                                signature,
+                                uathUser,
+                            });
+                        } else {
+                            await signIn("credentials", {
+                                // redirect: false,
+                                message,
+                                signature,
+                            });
+                        }
                     }
                 } catch (error) {
                     console.log(error);

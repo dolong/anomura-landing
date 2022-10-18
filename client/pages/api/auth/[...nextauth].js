@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Moralis from 'moralis';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from "@repositories/PrismaContext";
+import { utils } from "ethers";
 
 const {
     NEXTAUTH_SECRET,
@@ -46,13 +47,14 @@ export const authOptions = {
                             wallet: { equals: address, mode: "insensitive" },
                         },
                     });
-
-                    if (uathUser && !userDb.uathUser) {
+                    console.log(uathUser)
+                    if (uathUser !== undefined && !userDb.uathUser) {
                         //we cache this uath into whiteListUser table
 
+                        const wallet = utils.getAddress(address)
                         await prisma.whiteList.upsert({
                             where: {
-                                wallet: { equals: address, mode: "insensitive" },
+                                wallet,
                             },
                             create: {
                                 wallet: address,
@@ -64,13 +66,12 @@ export const authOptions = {
                         })
                     }
 
-
                     const user = { address, profileId, expirationTime, signature, uathUser };
 
                     return user;
                 } catch (e) {
                     // eslint-disable-next-line no-console
-                    console.error(e);
+                    console.log(e);
                     return null;
                 }
             },
