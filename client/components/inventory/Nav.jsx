@@ -12,9 +12,7 @@ import { shortenAddress } from "@utils/shortenAddress";
 export default function Nav({ user, isMobile }) {
     const [openMenu, setOpenMenu] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
-
-    // const { active, account, activate, deactivate, chainId, connector, library } = useWeb3React();
-    // const context = useWeb3React();
+    const [error, setError] = useState(null);
 
     const { connect, disconnect } = useContext(Web3Context);
 
@@ -27,9 +25,16 @@ export default function Nav({ user, isMobile }) {
     };
 
     const handleLogin = async () => {
-        await connect();
+        try {
+            await connect();
+        } catch (error) {
+            alert(error);
+            setError(error);
+        }
+
+        //
     };
-    console.log(user);
+
     if (isMobile) {
         return (
             <>
@@ -82,6 +87,7 @@ export default function Nav({ user, isMobile }) {
                                         }}
                                     />
                                 </div>
+                                <div>{error?.message}</div>
 
                                 <div className={s.nav_mobile_content_list}>
                                     <a

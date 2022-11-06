@@ -2,22 +2,12 @@ import React, { StrictMode } from "react";
 import { RecoilRoot } from "recoil";
 import "/node_modules/nes.css/css/nes.css";
 import "../styles/globals.css";
-
 import { AudioProvider } from "@context/AudioContext";
 import { Web3ContextProvider } from "@context/Web3Context";
-// import { Web3Provider } from "@ethersproject/providers";
 import Script from "next/script";
 import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
-// import { useWeb3React, Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
-
 import { SessionProvider } from "next-auth/react"
-
-function getLibrary(provider) {
-    // const library = new Web3Provider(provider);
-    // library.pollingInterval = 12000
-    // return library;
-}
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
@@ -40,7 +30,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             )
         } else if (Component.needWeb3Provider == true) {
             return (
-                // <Web3ReactProvider getLibrary={getLibrary}>
+
                 <SessionProvider session={session}>
                     <Web3ContextProvider>
 
@@ -48,7 +38,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
                     </Web3ContextProvider>
                 </SessionProvider>
-                // </Web3ReactProvider>
+
             )
         } else {
             return <Component {...pageProps} />;

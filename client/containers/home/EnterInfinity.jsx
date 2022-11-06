@@ -33,7 +33,8 @@ export default function EnterInfinity({ ScrollPercent }) {
         FourHundredOffSet
     );
     const [carouselItems, setCarouselItems] = useState([
-        "/img/home/infinityCircle/Loop.gif",
+        // "/img/home/infinityCircle/Loop.gif",
+        "https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471426/Anomura-Web-Assets/Loop_llqg3q.gif",
         "/img/home/infinityCircle/battles_01.png",
         "/img/home/infinityCircle/Carousel_1.png",
         "/img/home/infinityCircle/battles_02.png",

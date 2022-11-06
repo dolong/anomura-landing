@@ -58,7 +58,7 @@ export const getServerSideProps = async (context) => {
     ); // server side 
 
     // const session = await getSession(context);
-    await Moralis.start({ apiKey: process.env.MORALIS_API_KEY });
+
 
     if (!session?.user.address) {
         return {
@@ -69,7 +69,7 @@ export const getServerSideProps = async (context) => {
             }
         };
     }
-
+    await Moralis.start({ apiKey: process.env.MORALIS_API_KEY });
     const query = await Moralis.EvmApi.nft.getWalletNFTs({
         address: session?.user.address,
         chain: process.env.APP_CHAIN_ID,
@@ -87,11 +87,6 @@ export const getServerSideProps = async (context) => {
 
     result.anomuras = onlyAnomuras
     result.bowls = onlyBowls
-
-    // res.setHeader(
-    //     'Cache-Control',
-    //     'public, s-maxage=10, stale-while-revalidate=59'
-    // )
 
     return {
         props: {

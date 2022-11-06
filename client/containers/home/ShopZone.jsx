@@ -56,8 +56,15 @@ export default function ShopZone() {
                         media="(min-width: 1200px)"
                         type="image/webp"
                     />
-                    <source srcSet="/img/home/shop new sign.gif" media="(min-width: 800px)" />
-                    <img className={s.shop_img} src="/img/home/shop new sign.gif" alt="" />
+
+                    {/* <source srcSet="/img/home/shop new sign.gif" media="(min-width: 800px)" /> */}
+                    {/*        <source srcSet="/img/home/shop new sign.gif" media="(min-width: 800px)" /> */}
+                    {/* <img className={s.shop_img} src="/img/home/shop new sign.gif" alt="" /> */}
+                    <img
+                        className={s.shop_img}
+                        src="https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666470309/Anomura-Web-Assets/shop_mycfky.gif"
+                        alt=""
+                    />
                 </picture>
 
                 <div className={s.shop_fish2}>

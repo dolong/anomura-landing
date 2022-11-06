@@ -6,6 +6,9 @@ module.exports = {
         return config;
     },
     swcMinify: true,
+    images: {
+        domains: ['res.cloudinary.com'],
+    },
 
     async headers() {
         return [

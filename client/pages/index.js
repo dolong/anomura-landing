@@ -1,6 +1,5 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { ShopZone } from "/containers/home/ContainerIndex";
 import { useScrollEvent } from "/hooks/useScrollEvent";
 import s from "/sass/home/home.module.css";
 import { useRecoilValue } from "recoil";
@@ -10,7 +9,11 @@ import { Navbar } from "@components/home/ComponentIndex";
 import useDeviceDetect from "lib/useDeviceDetect";
 import FloatingBottom from "containers/common/FloatingBottom";
 
-const { EnterInfinity, CrabAnat, MeetTheTeam, Footer } = {
+
+const { EnterInfinity, CrabAnat, MeetTheTeam, Footer, ShopZone } = {
+	ShopZone: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.ShopZone), {
+		ssr: true,
+	}),
 	EnterInfinity: dynamic(() => import("/containers/home/ContainerIndex").then((module) => module.EnterInfinity), {
 		ssr: false,
 	}),
@@ -24,7 +27,7 @@ const { EnterInfinity, CrabAnat, MeetTheTeam, Footer } = {
 	),
 	Footer: dynamic(
 		() => import("/containers/home/ContainerIndex").then((module) => module.Footer),
-		{ ssr: false }
+		{ ssr: false, }
 	),
 };
 
@@ -64,7 +67,6 @@ function HomePage() {
 			</Head>
 
 			<img className={s.sunlight} src="/img/home/sunlight.png" alt="" />
-
 
 			<div className={s.parallax_group}>
 				<Navbar isMobile={isMobile} />

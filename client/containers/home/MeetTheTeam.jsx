@@ -175,7 +175,7 @@ export default function MeetTheTeam({ ScrollPercent }) {
                                         ISAAC
                                     </div>
                                     <div className={s.meetTheTeam_members_card_bottom_position}>
-                                        Security
+                                        Project Manager
                                     </div>
                                 </div>
                             </div>

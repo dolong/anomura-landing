@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import s from "/sass/home/shareFooter/index.module.css";
 import Link from "next/link";
 import { AudioContext } from "context/AudioContext";
+import Image from "next/image";
 export default function ShareFooter() {
     const { audioControl, isAudioLoaded } = useContext(AudioContext);
     const bubbleRef = React.createRef();
@@ -121,11 +122,18 @@ const Chest = () => {
     };
     const renderChest = () => {
         return (
-            <img
+            <div
                 className={`${s.shareFooter_chestImage_chest}`}
-                src="/img/home/footer/chest_only.gif"
-                alt=""
-            />
+                style={{ width: "100%", height: "100%", position: "relative" }}
+            >
+                <Image
+                    alt="Chest Under Footer"
+                    src={
+                        "https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471400/Anomura-Web-Assets/chest_only_ntfhsd.gif"
+                    }
+                    layout={"fill"}
+                />
+            </div>
         );
     };
     const renderChestFloor = () => {
@@ -159,11 +167,16 @@ const Chest = () => {
 const Fish = () => {
     const renderFish = () => {
         return (
-            <img
+            <div
                 className={`${s.shareFooter_fish_fishImage}`}
-                src="/img/home/footer/fish_only.gif"
-                alt=""
-            />
+                style={{ width: "100%", height: "100%", position: "relative" }}
+            >
+                <Image
+                    src="https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471414/Anomura-Web-Assets/fish_only_uuqqcn.gif"
+                    alt="Fish Under Footer"
+                    layout={"fill"}
+                />
+            </div>
         );
     };
 
@@ -174,8 +187,17 @@ const ChestAndFish = () => {
     return (
         <>
             <div className={s.shareFooter_chestAndFish_wrapper}>
-                <div className={`${s.shareFooter_chestAndFish_chest}`}>
-                    <img src="/img/home/footer/chest_only.gif" alt="" />
+                <div
+                    className={`${s.shareFooter_chestAndFish_chest}`}
+                    style={{ width: "100%", height: "100%", position: "relative" }}
+                >
+                    <Image
+                        alt="Chest Under Footer"
+                        src={
+                            "https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471400/Anomura-Web-Assets/chest_only_ntfhsd.gif"
+                        }
+                        layout={"fill"}
+                    />
                     <img
                         className={`${s.shareFooter_chestImage_floor}`}
                         src="/img/home/chests/chestfloor_modified.webp"
@@ -188,8 +210,15 @@ const ChestAndFish = () => {
                     />
                 </div>
 
-                <div className={`${s.shareFooter_chestAndFish_fishImage}`}>
-                    <img src="/img/home/footer/fish_only.gif" alt="" />
+                <div
+                    className={`${s.shareFooter_chestAndFish_fishImage}`}
+                    style={{ width: "100%", height: "100%", position: "relative" }}
+                >
+                    <Image
+                        src="https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471414/Anomura-Web-Assets/fish_only_uuqqcn.gif"
+                        alt="Fish Under Footer"
+                        layout={"fill"}
+                    />
                 </div>
             </div>
         </>

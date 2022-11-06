@@ -14,7 +14,8 @@
             "@middlewares/*": ["middlewares/*"],
             "@scripts/*": ["scripts/*"],
             "@context/*": ["context/*"],
-            "@hooks/*": ["hooks/*"]
+            "@hooks/*": ["hooks/*"],
+            "@resources/*": ["resources/*"]
           }
     },
      "include": [

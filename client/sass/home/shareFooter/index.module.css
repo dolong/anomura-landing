@@ -256,11 +256,15 @@
   width: clamp(8vw, 25%, 225px);
 }
 .shareFooter_chestImage_chest {
+  width: "100%";
+  height: "100%";
   position: absolute;
   bottom: 0;
   z-index: 2;
 }
 .shareFooter_chestImage_floor {
+  width: 100%;
+  height: 100%;
   position: absolute;
   bottom: 0;
   -webkit-animation: interference 1.5s infinite ease-out;
@@ -269,6 +273,8 @@
   opacity: 0.7;
 }
 .shareFooter_chestImage_light {
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   position: absolute;
   bottom: 0.5rem;
