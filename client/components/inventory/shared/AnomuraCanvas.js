@@ -104,7 +104,7 @@ export default function AnomuraCanvas({ anomuraData }) {
 
     }, [canvasContext, imagesSrc])
 
-    React.useEffect(() => {
+    useEffect(() => {
         // const currentCanvas = canvasRef.current;
         // currentCanvas.addEventListener("resize", handleResize);
         // return () => currentCanvas.removeEventListener("resize", handleResize);

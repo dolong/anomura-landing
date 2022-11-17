@@ -376,7 +376,7 @@ export default function Roadmap() {
                                     </div>
                                     <div className={s.roadmap_divider_item_labels}>
                                         <div className={s.roadmap_divider_item_labels_progress}>
-                                            IN PROGRESS
+                                            COMPLETED
                                         </div>
                                         <span
                                             className={`${s.roadmap_divider_item_labels_title} ${
@@ -461,6 +461,9 @@ export default function Roadmap() {
                                         />
                                     </div>
                                     <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
+                                            IN PROGRESS
+                                        </div>
                                         <span
                                             className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.equipmentNFT
@@ -487,6 +490,9 @@ export default function Roadmap() {
                                         />
                                     </div>
                                     <div className={s.roadmap_divider_item_labels}>
+                                        <div className={s.roadmap_divider_item_labels_progress}>
+                                            IN PROGRESS
+                                        </div>
                                         <span
                                             className={`${s.roadmap_divider_item_labels_title} ${
                                                 isInView.inventory

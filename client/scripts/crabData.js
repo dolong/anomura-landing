@@ -143,6 +143,10 @@ exports.shells = [
     "Adventure Shell",
     "Asteroids Shell",
     "Pong Shell",
+
+    "Gates of Hell",
+    "ZED Skull"
+
 ];
 exports.headpieces = [
     "Sapphire",
@@ -166,6 +170,17 @@ exports.headpieces = [
     "Royal Starfish",
 
     "Adventure Key",
+
+    "Charon",
+    "Deimos",
+    "Ganymede",
+    "Sol",
+    "Sirius",
+    "Vega",
+    "Aconite Skull",
+    "Titan Arum Skull",
+    "Nerium Oleander Skull"
+
 ];
 exports.getBackground = (backgroundSrc) => {
     for (let i = 0; i < this.backgrounds.length; i++) {

@@ -39,7 +39,8 @@ function InventoryPage(props) {
             </Head>
             {process.env.NEXT_PUBLIC_IS_INVENTORY_ENABLED == "true" ?
                 (
-                    <InventoryContainer {...props} />
+                    // <InventoryContainer {...props} />
+                    <div>Nothing here</div>
                 ) : <div>Nothing here</div>
             }
 
