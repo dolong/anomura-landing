@@ -59,7 +59,7 @@ export const getStaticProps = async (context) => {
     await prisma.$disconnect();
     return {
         props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
-        revalidate: 86400,
+        revalidate: 86400 * 7,
     };
 };
 
