@@ -132,6 +132,8 @@ const Chest = () => {
                         "https://res.cloudinary.com/deepsea/image/upload/f_auto/v1666471400/Anomura-Web-Assets/chest_only_ntfhsd.gif"
                     }
                     layout={"fill"}
+                    width="100%"
+                    height="100%"
                 />
             </div>
         );

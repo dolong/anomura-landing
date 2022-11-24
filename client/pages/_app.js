@@ -7,7 +7,8 @@ import { Web3ContextProvider } from "@context/Web3Context";
 import Script from "next/script";
 import * as gtag from "../lib/gtag";
 import { useRouter } from "next/router";
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
@@ -26,30 +27,30 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             return (
                 <AudioProvider>
                     <Component {...pageProps} />
+                    <Analytics />
                 </AudioProvider>
-            )
+            );
         } else if (Component.needWeb3Provider == true) {
             return (
-
                 <SessionProvider session={session}>
                     <Web3ContextProvider>
-
                         <Component {...pageProps} />
-
                     </Web3ContextProvider>
                 </SessionProvider>
-
-            )
+            );
         } else {
-            return <Component {...pageProps} />;
+            return (
+                <>
+                    <Component {...pageProps} />
+                    <Analytics />
+                </>
+            );
         }
     };
 
     return (
         <StrictMode>
-
             <RecoilRoot>
-
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
                 <>
                     <Script
@@ -69,9 +70,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                 </>
 
                 {handleRouteComponent(Component)}
-
             </RecoilRoot>
-
         </StrictMode>
     );
 }
