@@ -23,10 +23,10 @@ const { promisify } = require('util')
 
 // WATCHOUT FOR LOOP, habitat takes 24, other parts take 25//////////
 const gifEncoder = async () => {
-    // const dirRelativeToPublicFolder = "img/imageviewer/HeadPieces";
-    // const imageDir = path.join("./public", dirRelativeToPublicFolder);
+    const dirRelativeToPublicFolder = "img/imageviewer/HeadPieces";
+    const imageDir = path.join("./public", dirRelativeToPublicFolder);
     const readdirAsync = promisify(readdir)
-    const imagesFolder = path.join(__dirname, 'input')
+    // const imagesFolder = path.join(__dirname, 'input')
     let partName = "African Savannah"
 
     let fileArray = []
@@ -49,13 +49,14 @@ const gifEncoder = async () => {
         // }
 
         const files = await readdirAsync(imagesFolder)
-        console.log(files)
+        console.log(path.join(imagesFolder, files[0]))
 
-        const [width, height] = await new Promise(resolve2 => {
-            const image = new Image()
-            image.onload = () => resolve2([image.width, image.height])
-            image.src = path.join(imagesFolder, files[0])
-        })
+        // const [width, height] = await new Promise(resolve2 => {
+        //     const image = new Image()
+        //     image.onload = () => resolve2([image.width, image.height])
+        //     image.src = path.join(imagesFolder, files[0])
+        // })
+        console.log(width)
 
         // base GIF filepath on which algorithm is being used
         const dstPath = path.join(__dirname, 'output', `${partName}.gif`)
@@ -66,27 +67,27 @@ const gifEncoder = async () => {
             resolve1()
         })
 
-        const encoder = new GIFEncoder(width, height, 'neuquant')
+        const encoder = new GIFEncoder(384, 384, 'neuquant')
         // pipe encoder's read stream to our write stream
         encoder.createReadStream().pipe(writeStream)
         encoder.start()
-        encoder.setDelay(200)
+        encoder.setDelay(150)
 
         const canvas = createCanvas(width, height)
         const ctx = canvas.getContext('2d')
 
-        // draw an image for each file and add frame to encoder
-        for (const file of files) {
-            await new Promise(resolve3 => {
-                const image = new Image()
-                image.onload = () => {
-                    ctx.drawImage(image, 0, 0)
-                    encoder.addFrame(ctx)
-                    resolve3()
-                }
-                image.src = path.join(imagesFolder, file)
-            })
-        }
+        // // draw an image for each file and add frame to encoder
+        // for (const file of files) {
+        //     await new Promise(resolve3 => {
+        //         const image = new Image()
+        //         image.onload = () => {
+        //             ctx.drawImage(image, 0, 0)
+        //             encoder.addFrame(ctx)
+        //             resolve3()
+        //         }
+        //         image.src = path.join(imagesFolder, file)
+        //     })
+        // }
 
         // let res = await cloudinary.uploader.upload(fileToUpload, {
         //     public_id: fileName,
