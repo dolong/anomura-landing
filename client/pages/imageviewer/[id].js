@@ -323,7 +323,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             margin: "0"
         }}>
             <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: canvasSize.width, height: canvasSize.height }}>
+                <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
                     <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
                     <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
                         <div className={s.toggleModal_container}>
