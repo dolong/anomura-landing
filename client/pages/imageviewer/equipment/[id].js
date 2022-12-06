@@ -11,7 +11,7 @@ import {
 } from "scripts/crabData";
 
 import Enums from "enums";
-
+import Image from "next/image";
 import {
     bodyPartsData,
     habitatPartsData,
@@ -23,8 +23,8 @@ import {
 } from "resources/cloudinary";
 // import { getAllCrabs, getAnomuraById, getFirst1000Anomuras } from "repositories/crabs";
 
-import { PrismaClient } from '@prisma/client'
-const collectionAddress = "0x4A36714417741b3d8b6E57767C6F5cBc237c2637";
+import { PrismaClient, EquipmentRarity, EquipmentType } from '@prisma/client'
+const collectionAddress = "0xc6Af0Fb8D274117A2FE8805e2ccD1EAC1395d4a3";
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
     const prisma = new PrismaClient()
@@ -59,7 +59,7 @@ export const getStaticProps = async (context) => {
     })
     await prisma.$disconnect();
     return {
-        props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
+        props: { equipment: JSON.parse(JSON.stringify(data)), key: equipmentId },
         revalidate: 86400 * 7,
     };
 };
@@ -76,121 +76,16 @@ const buildArrayImages = (name, source) => {
 
 
 /* order of layers to work: background, shadow, shells, headpieces, legs, body, claws */
-function AnimateViewerDetails({ data }) {
+function EquipmentViewerDetails({ equipment }) {
     const router = useRouter();
-    let sources = {
-        background: {},
-        shell: {},
-        legs: {},
-        body: {},
-        claws: {},
-        headpieces: {},
-        shadow: {},
-    };
-
-    // const { id } = router.query;
-    // const { data, mutate, isValidating, error } = useSWR(
-    //     id ? `/api/crabs/getAnomuraById?id=${id}` : null,
-    //     fetcher
-    // );
-
-    if (router.isFallback || !data) {
-        return <div>Loading Anomura...</div>;
-    } else {
-        try {
-            if (!data) {
-                return <div className={s.loading}>Loading Anomura...</div>;
-            }
-            const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
-            let isDrawHeadpieces = false;
-            let shouldHaveEquipment = false;
-            if (anomuraEquipments?.length > 0 && shouldHaveEquipment) {
-                // check if we should render the claws equipped instead of of anomura original claw
-                let clawsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.CLAWS);
-                if (clawsEquipmentIndex != -1) {
-                    sources.claws =
-                        sources.claws + getClaws(anomuraEquipments[clawsEquipmentIndex].name);
-                } else {
-                    sources.claws = sources.claws + getClaws(claws);
-                }
-                // check if we should render the legs equipped instead of of anomura original legs
-                let legsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.LEGS);
-                if (legsEquipmentIndex != -1) {
-                    sources.legs = sources.legs + getLegs(anomuraEquipments[legsEquipmentIndex].name);
-                } else {
-                    sources.legs = sources.legs + getLegs(legs);
-                }
-                // check if we should render the shell equipped instead of of anomura original shell
-                let shellEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.SHELL);
-                if (shellEquipmentIndex != -1) {
-                    sources.shell =
-                        sources.claws + getShell(anomuraEquipments[shellEquipmentIndex].name);
-                } else {
-                    sources.shell = sources.shell + getShell(shell);
-                }
-                // check if we should render the body equipped instead of of anomura original body
-                let bodyEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.BODY);
-                if (bodyEquipmentIndex != -1) {
-                    sources.body = sources.body + getBody(anomuraEquipments[bodyEquipmentIndex].name);
-                } else {
-                    sources.body = sources.body + getBody(body);
-                }
-                // check if we should render the body equipped instead of of anomura original body
-                let headpiecesEquipmentIndex = anomuraEquipments.findIndex(
-                    (eq) => eq.type === Enums.HEADPIECES
-                );
-                if (headpiecesEquipmentIndex != -1) {
-                    sources.headpieces =
-                        sources.headpieces +
-                        getHeadPieces(anomuraEquipments[headpiecesEquipmentIndex].name);
-                    isDrawHeadpieces = true;
-                } else {
-                    sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
-                    isDrawHeadpieces = headpieces.toString().trim() !== "";
-                }
-            }
-            //no equipment
-            else {
-
-                if (headpieces && headpieces?.toString().trim() !== "None") {
-                    isDrawHeadpieces = true;
-                }
-
-                // sources.claws = sources.claws + getClaws(claws);
-                // sources.legs = sources.legs + getLegs(legs);
-                // sources.shell = sources.shell + getShell(shell);
-                // sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
-                if (isDrawHeadpieces) {
-                    sources.headpieces = buildArrayImages(getHeadPieces(headpieces), headpiecesPartsData);
-                }
-                sources.claws = buildArrayImages(getClaws(claws), clawsPartsData);
-                sources.body = buildArrayImages(getBody(body), bodyPartsData);
-                sources.shell = buildArrayImages(getShell(shell), shellPartsData);
-                sources.legs = buildArrayImages(getLegs(legs), legsPartsData);
-                sources.shadow = buildArrayImages("shadow", servicePartsData);
-            }
-            // sources.background = sources.background + getBackground(background);
-            sources.background = buildArrayImages(getBackground(background), habitatPartsData);
-
-            return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
-}
-
-export default AnimateViewerDetails;
-
-const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     const [imagesSrc, setImageSrc] = React.useState({});
     const [isLoaded, setIsLoaded] = React.useState(false);
-    const [modalOpen, setModalOpen] = React.useState(false);
-    const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0, clientHeight: 0 });
 
-    const canvasRef = React.createRef(null);
-    let canvas = null;
-    let context = null;
+    const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0, clientHeight: 0 });
+    let sources = {
+        equipment: [],
+        equipmentBackground: [],
+    };
 
     useEffect(() => {
         try {
@@ -223,118 +118,277 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
         }
     }, []);
 
-    useEffect(() => {
-        if (canvasRef && isLoaded == false) {
-            LoadImages(sources).done((images) => {
-
-                setImageSrc(images);
-                setIsLoaded(true);
-            });
-        }
-
-        if (isLoaded == true) {
-            canvas = canvasRef?.current;
-            context = canvas?.getContext("2d");
-            DrawImagesOnCanvas(imagesSrc);
-        }
-    }, [imagesSrc]);
-
-    const DrawImagesOnCanvas = (images) => {
-        canvas = canvasRef?.current;
-        context = canvas?.getContext("2d");
-        let width = canvasSize.width; // 508
-        let height = canvasSize.height; // 508
-        let counter = 0;
-
-        setInterval(() => {
-            if (counter == 24) counter = 0;
-            context.drawImage(images.background[counter], 0, 0, width, height);
-            context.drawImage(images.shadow[counter], 0, 0, width, height);
-            context.drawImage(images.shell[counter], 0, 0, width, height);
-            isDrawHeadpieces && context.drawImage(images.headpieces[counter], 0, 0, width, height);
-            context.drawImage(images.legs[counter], 0, 0, width, height);
-            context.drawImage(images.body[counter], 0, 0, width, height);
-            context.drawImage(images.claws[counter], 0, 0, width, height);
-
-            counter++;
-        }, 150);
-    };
-
-    const LoadImages = (sources, onFinished) => {
-        let imageLoaded = 0,
-            i = 0,
-            numImages = 0;
-
-        const images = {
-            background: [],
-            shell: [],
-            legs: [],
-            body: [],
-            claws: [],
-            headpieces: [],
-            shadow: [],
-        };
-        var postaction = function () { };
-
-        // 24 frames per part, we have 7 parts ~ 24 * 7 = 168
-        function onFinished() {
-            if (imageLoaded == 144 && isDrawHeadpieces == false) {
-                postaction(images);
-            }
-            if (imageLoaded == 168) {
-                postaction(images);
-            }
-        }
-        for (var src in sources) {
-            numImages++;
-        }
-        for (var src in sources) {
-            if (src == "headpieces" && isDrawHeadpieces === false) {
-                continue;
+    if (router.isFallback || !equipment) {
+        return <div>Loading Anomura...</div>;
+    } else {
+        try {
+            if (!equipment) {
+                return <div className={s.loading}>Loading Equipment...</div>;
             }
 
-            for (let index = 0; index <= 23; index++) {
-                images[src][index] = new Image();
-                images[src][index].onload = function () {
-                    if (++imageLoaded >= numImages) {
-                        onFinished(images);
-                    }
-                };
+            console.log("equipment", equipment)
+            const { equipmentName, equipmentType, equipmentRarity, isReveal } = equipment;
 
-                images[src][index].src = sources[src][index];
-            }
-        }
 
-        return {
-            done: function (f) {
-                postaction = f || postaction;
-            },
-        };
-    };
-
-    return (
-        <div style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: "-1",
-            width: "100vw",
-            height: "100vh",
-            padding: "0",
-            margin: "0"
-        }}>
-            <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
-                    <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
-                    <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
-                        <div className={s.toggleModal_container}>
-                            <img src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png" />
-                            <img src="/img/imageviewer/Others/Inventory Button Outline.png" />
+            if (!isReveal) {
+                console.log(1)
+                return (
+                    <div style={{
+                        position: "fixed",
+                        top: "0",
+                        left: "0",
+                        zIndex: "-1",
+                        width: "100vw",
+                        height: "100vh",
+                        padding: "0",
+                        margin: "0"
+                    }}>
+                        <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
+                                <ImageFallback
+                                    src="https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif"
+                                    layout={"fill"}
+                                    alt="Bowl Item"
+                                    fallbackSrc={`/img/book/Rune-Stone.gif`}
+                                    priority={"true"}
+                                />
+                            </div>
                         </div>
                     </div>
-                    {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
-                </div>
-            </div>
+                );
+            }
+            else {
+                console.log(2)
+                sources.equipmentBackground = buildArrayImages(
+                    getSourceOnEquipmentRarity(equipmentRarity),
+                    equipmentBackgroundData
+                );
+
+                switch (equipmentType) {
+                    case EquipmentType.BODY:
+                        sources.equipment = buildArrayImages(getBody(equipmentName), bodyPartsData);
+                        break;
+
+                    case EquipmentType.CLAWS:
+                        sources.equipment = buildArrayImages(
+                            getClaws(equipmentName),
+                            clawsPartsData
+                        );
+                        break;
+
+                    case EquipmentType.LEGS:
+                        sources.equipment = buildArrayImages(getLegs(equipmentName), legsPartsData);
+                        break;
+
+                    case EquipmentType.SHELL:
+                        sources.equipment = buildArrayImages(
+                            getShell(equipmentName),
+                            shellPartsData
+                        );
+                        break;
+
+                    case EquipmentType.HEADPIECES:
+                        sources.equipment = buildArrayImages(
+                            getHeadPieces(equipmentName),
+                            headpiecesPartsData
+                        );
+                        break;
+
+                    case EquipmentType.HABITAT:
+                        sources.equipment = buildArrayImages(
+                            getBackground(equipmentName),
+                            habitatPartsData
+                        );
+                        break;
+                    default:
+                        throw new Error(`Invalid equipment type`);
+                }
+
+                // loadEquipmentCanvasImages(sources).done((images) => {
+                //     setIsLoading(false);
+                //     setIsLoaded(true);
+                //     setImageSrc(images);
+                // });
+                // return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
+                return (
+                    <div style={{
+                        position: "fixed",
+                        top: "0",
+                        left: "0",
+                        zIndex: "-1",
+                        width: "100vw",
+                        height: "100vh",
+                        padding: "0",
+                        margin: "0"
+                    }}>
+                        <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
+                                <ImageFallback
+                                    src="https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif"
+                                    layout={"fill"}
+                                    alt="Bowl Item"
+                                    fallbackSrc={`/img/book/Rune-Stone.gif`}
+                                    priority={"true"}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+}
+
+export default EquipmentViewerDetails;
+
+// const EquipmentCanvas = ({ sources }) => {
+
+
+//     const canvasRef = React.createRef(null);
+//     let canvas = null;
+//     let context = null;
+
+
+
+//     useEffect(() => {
+//         if (canvasRef && isLoaded == false) {
+//             LoadImages(sources).done((images) => {
+
+//                 setImageSrc(images);
+//                 setIsLoaded(true);
+//             });
+//         }
+
+//         if (isLoaded == true) {
+//             canvas = canvasRef?.current;
+//             context = canvas?.getContext("2d");
+//             DrawImagesOnCanvas(imagesSrc);
+//         }
+//     }, [imagesSrc]);
+
+
+
+//     const DrawImagesOnCanvas = (images) => {
+//         canvas = canvasRef?.current;
+//         context = canvas?.getContext("2d");
+//         let width = canvasSize.width; // 508
+//         let height = canvasSize.height; // 508
+//         let counter = 0;
+
+//         setInterval(() => {
+//             if (counter == 24) counter = 0;
+//             context.drawImage(images.background[counter], 0, 0, width, height);
+//             context.drawImage(images.shadow[counter], 0, 0, width, height);
+//             context.drawImage(images.shell[counter], 0, 0, width, height);
+//             isDrawHeadpieces && context.drawImage(images.headpieces[counter], 0, 0, width, height);
+//             context.drawImage(images.legs[counter], 0, 0, width, height);
+//             context.drawImage(images.body[counter], 0, 0, width, height);
+//             context.drawImage(images.claws[counter], 0, 0, width, height);
+
+//             counter++;
+//         }, 150);
+//     };
+
+//     const LoadImages = (sources, onFinished) => {
+//         let imageLoaded = 0,
+//             i = 0,
+//             numImages = 0;
+
+//         const images = {
+//             background: [],
+//             shell: [],
+//             legs: [],
+//             body: [],
+//             claws: [],
+//             headpieces: [],
+//             shadow: [],
+//         };
+//         var postaction = function () { };
+
+//         // 24 frames per part, we have 7 parts ~ 24 * 7 = 168
+//         function onFinished() {
+//             if (imageLoaded == 144 && isDrawHeadpieces == false) {
+//                 postaction(images);
+//             }
+//             if (imageLoaded == 168) {
+//                 postaction(images);
+//             }
+//         }
+//         for (var src in sources) {
+//             numImages++;
+//         }
+//         for (var src in sources) {
+//             if (src == "headpieces" && isDrawHeadpieces === false) {
+//                 continue;
+//             }
+
+//             for (let index = 0; index <= 23; index++) {
+//                 images[src][index] = new Image();
+//                 images[src][index].onload = function () {
+//                     if (++imageLoaded >= numImages) {
+//                         onFinished(images);
+//                     }
+//                 };
+
+//                 images[src][index].src = sources[src][index];
+//             }
+//         }
+
+//         return {
+//             done: function (f) {
+//                 postaction = f || postaction;
+//             },
+//         };
+//     };
+
+//     return (
+//         <div style={{
+//             position: "fixed",
+//             top: "0",
+//             left: "0",
+//             zIndex: "-1",
+//             width: "100vw",
+//             height: "100vh",
+//             padding: "0",
+//             margin: "0"
+//         }}>
+//             <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+//                 <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
+//                     <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+function ImageFallback({ src, fallbackSrc, ...rest }) {
+    const [imgSrc, setImageSrc] = useState(src);
+
+    useEffect(() => {
+        setImageSrc(src);
+    }, [src]);
+
+    return (
+        <div style={{ width: "100%", height: "100%", position: "relative" }}>
+            <Image
+                {...rest}
+                src={imgSrc}
+                onLoadingComplete={(result) => {
+                    if (result.naturalWidth === 0) {
+                        // Broken image
+                        setImageSrc(fallbackSrc);
+                    }
+                }}
+                onError={() => {
+                    setImageSrc(fallbackSrc);
+                }}
+            />
         </div>
     );
-};
+}
