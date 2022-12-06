@@ -324,9 +324,9 @@ export default function Roadmap() {
                                         >
                                             $SHELL Redemption
                                         </span>
-                                        <div className={s.roadmap_divider_item_labels_target}>
+                                        {/* <div className={s.roadmap_divider_item_labels_target}>
                                             Aug 29-30
-                                        </div>
+                                        </div> */}
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Spend your hard-earned $SHELL on different types of
                                             rewards
@@ -356,9 +356,9 @@ export default function Roadmap() {
                                         >
                                             Mystery Bowl Mint
                                         </span>
-                                        <div className={s.roadmap_divider_item_labels_target}>
+                                        {/* <div className={s.roadmap_divider_item_labels_target}>
                                             Sept 13
-                                        </div>
+                                        </div> */}
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Release of limited supply Founder’s Edition Mystery
                                             Bowls
@@ -388,9 +388,9 @@ export default function Roadmap() {
                                         >
                                             Summoning
                                         </span>
-                                        <div className={s.roadmap_divider_item_labels_target}>
+                                        {/* <div className={s.roadmap_divider_item_labels_target}>
                                             Sept 21
-                                        </div>
+                                        </div> */}
                                         <div className={s.roadmap_divider_item_labels_description}>
                                             Generative Anomura will be summoned and reveal rarity
                                         </div>

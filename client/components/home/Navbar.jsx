@@ -434,7 +434,7 @@ export default function Navbar({ isMobile }) {
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
                                     <div>
-                                        <span>DApp</span>
+                                        <span>MuraDex</span>
                                     </div>
                                 </button>
                             </div>
