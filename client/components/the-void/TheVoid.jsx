@@ -392,8 +392,8 @@ const SequenceCanvas = () => {
             <figure className={s.sequence_wrapper}>
                 <canvas
                     ref={canvasRef}
-                    // width={canvasSize.width || 0}
-                    width={"1830px"}
+                    width={canvasSize.width || 0}
+                    // width={"1830px"}
                     height={canvasSize.height || 0}
                     style={{ marginLeft: -mobileMargin, minHeight: "100%" }}
                 />

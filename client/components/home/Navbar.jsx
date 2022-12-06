@@ -344,7 +344,7 @@ export default function Navbar({ isMobile }) {
                                 className={s.nav_list_item}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    window.open(`https://anomuragame.com/mint/the-void`, "_blank");
+                                    window.open(`https://anomuragame.com/the-void`, "_blank");
                                 }}
                             >
                                 The Void
@@ -427,14 +427,14 @@ export default function Navbar({ isMobile }) {
                                 <button
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        window.open(`https://anomuragame.com/mint`, "_blank");
+                                        window.open(`https://app.anomuragame.com`, "_blank");
                                     }}
                                     disabled={false}
                                     className={s.nav_button_pink}
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
                                     <div>
-                                        <span>Summon</span>
+                                        <span>DApp</span>
                                     </div>
                                 </button>
                             </div>

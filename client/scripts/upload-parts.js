@@ -11,11 +11,11 @@ cloudinary.config({
 
 // WATCHOUT FOR LOOP, habitat takes 24, other parts take 25//////////
 const uploadImage = async () => {
-    const dirRelativeToPublicFolder = "img/imageviewer/HeadPieces";
+    const dirRelativeToPublicFolder = "img/imageviewer/EquipmentBackground";
     const imageDir = path.resolve("./public", dirRelativeToPublicFolder);
-    let partName = "Aconite Skull"
+    let partName = "Equipment Background_03_rare"
     try {
-        for (let i = 1; i <= 25; i++) {
+        for (let i = 1; i <= 24; i++) {
             let fileName = `${partName}`;
 
             let fileToUpload
