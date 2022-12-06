@@ -443,9 +443,9 @@ export default function WhenIsItOut({ ScrollPercent, audioControl }) {
                                         >
                                             Launch F2P Game Concept Demo
                                         </span>
-                                        <div className={s.when_roadmap_item_labels_target}>
+                                        {/* <div className={s.when_roadmap_item_labels_target}>
                                             Target date: Q4 2022
-                                        </div>
+                                        </div> */}
                                         <div className={s.when_roadmap_item_labels_description}>
                                             Discover the world of Anomura -- without a wallet!
                                         </div>
