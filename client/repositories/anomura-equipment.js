@@ -1,4 +1,4 @@
-import { prisma, equipmentType as EquipmentType } from "./PrismaContext";
+import { prisma } from "./PrismaContext";
 
 export const getAnomuraEquipmentById = async (equipmentId) => {
     return await prisma.anomuraEquipment.findUnique({
@@ -66,35 +66,3 @@ export const updateAnomuraEquipmentImageById = async ({ equipmentId, image }) =>
         });
 };
 
-export const createEquipment = async ({ equipmentId, name, equipmentType, image, blockNumber }) => {
-
-    let type;
-    switch (equipmentType) {
-        case 0:
-            type = EquipmentType.CLAWS;
-            break;
-        case 1:
-            type = EquipmentType.LEGS;
-            break;
-        case 2:
-            type = EquipmentType.BODY;
-            break;
-        case 3:
-            type = EquipmentType.SHELL;
-            break;
-        case 4:
-            type = EquipmentType.HEADPIECES;
-            break;
-        default:
-            throw new Error("Incorrect equipment type passed in")
-    }
-    return await prisma.anomuraEquipment.create({
-        data: {
-            equipmentId,
-            name,
-            type,
-            image,
-            lastUpdatedAtBlock: blockNumber
-        },
-    });
-};

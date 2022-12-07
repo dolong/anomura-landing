@@ -95,28 +95,35 @@ function EquipmentViewerDetails({ equipment }) {
             const { equipmentName, equipmentType, equipmentRarity, isReveal } = equipment;
             if (!isReveal) {
                 return (
-                    <div style={{
-                        position: "fixed",
-                        top: "0",
-                        left: "0",
-                        zIndex: "-1",
-                        width: "100vw",
-                        height: "100vh",
-                        padding: "0",
-                        margin: "0"
-                    }}>
-                        <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                            <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
-                                <img
-                                    src="https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif"
-                                    // layout={"fill"}
-                                    alt="Equipment Unreveal"
-                                // fallbackSrc={`/img/book/Rune-Stone.gif`}
-                                // priority={"true"}
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    // <div style={{
+                    //     position: "fixed",
+                    //     top: "0",
+                    //     left: "0",
+                    //     zIndex: "-1",
+                    //     width: "100vw",
+                    //     height: "100vh",
+                    //     padding: "0",
+                    //     margin: "0"
+                    // }}>
+                    //     <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    //         <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
+                    //             <img
+                    //                 src="https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif"
+                    //                 // layout={"fill"}
+                    //                 alt="Equipment Unreveal"
+                    //             // fallbackSrc={`/img/book/Rune-Stone.gif`}
+                    //             // priority={"true"}
+                    //             />
+                    //         </div>
+                    //     </div>
+                    // </div>
+                    <img
+                        src="https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif"
+                        // layout={"fill"}
+                        alt="Equipment Unreveal"
+                    // fallbackSrc={`/img/book/Rune-Stone.gif`}
+                    // priority={"true"}
+                    />
                 );
             }
             else {
@@ -179,7 +186,6 @@ export default EquipmentViewerDetails;
 const EquipmentCanvas = ({ sources, equipment }) => {
     const [imagesSrc, setImageSrc] = React.useState({});
     const [isLoaded, setIsLoaded] = React.useState(false);
-
     const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0, clientHeight: 0 });
 
     const canvasRef = React.createRef(null);
