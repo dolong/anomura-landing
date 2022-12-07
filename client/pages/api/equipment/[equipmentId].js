@@ -19,46 +19,29 @@ const equipmentQueryHandler = async (req, res) => {
               name: equipment.equipmentName,
               description: "Equipment Description TBD",
               animation_url: `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/equipment/${equipmentId}`,
-              image: "https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif",
+              image: equipment.image,
               attributes: [
                 {
-                  trait_type: "Background",
-                  value: crab.background,
+                  trait_type: "Equipment Type",
+                  value: equipment.equipmentType,
                 },
                 {
-                  trait_type: "Body",
-                  value: crab.body,
-                },
-                {
-                  trait_type: "Claws",
-                  value: crab.claws,
-                },
-                {
-                  trait_type: "Legs",
-                  value: crab.legs,
-                },
-                {
-                  trait_type: "Shell",
-                  value: crab.shell,
-                },
-                {
-                  trait_type: "HeadPieces",
-                  value: crab.headpieces,
+                  trait_type: "Equipment Rarity",
+                  value: equipment.equipmentRarity,
                 },
               ],
             });
           } else {
             res.status(200).json({
               name: "A Mystery Rune of DeepSea",
-              // animation_url: `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/equipment/${crab.crabId}`,
               image: "https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif",
               attributes: [
                 {
-                  trait_type: "Type",
+                  trait_type: "Equipment Type",
                   value: "Undeterminable",
                 },
                 {
-                  trait_type: "Rarity",
+                  trait_type: "Equipment Rarity",
                   value: "Undeterminable",
                 },
               ],
