@@ -115,14 +115,10 @@ exports.equipmentImageBuilder = async (equipment) => {
     } catch (error) {
         await prisma.$disconnect();
         console.log(`Catch error adding image for equipment: ${equipmentId}, equipmentName: ${equipmentName}, equipmentType: ${equipmentType}`);
-        console.log(error);
+        throw error;
     }
 
 };
-
-
-const fileExists = async (path) => !!(await fs.promises.stat(path).catch((e) => false));
-
 const getSourceOnEquipmentRarity = (rarity) => {
     switch (rarity) {
         case EquipmentRarity.NORMAL:

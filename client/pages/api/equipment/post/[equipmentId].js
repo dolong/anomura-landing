@@ -43,7 +43,7 @@ const EquipmentUpdateHandler = async (req, res) => {
     }
     catch (err) {
         console.log(err)
-        res.status(200).json({ message: err.message });
+        res.status(200).json({ message: err.message, isError: true });
     }
 }
 
