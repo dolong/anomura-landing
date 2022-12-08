@@ -5,7 +5,10 @@ import { prisma } from "@repositories/PrismaContext";
 import { EquipmentType, EquipmentRarity } from '@prisma/client'
 
 const EquipmentUpdateHandler = async (req, res) => {
-
+    if (req.method !== "POST") {
+        res.status(400).json({ isError: true, });
+        return;
+    }
     try {
         const {
             collectionAddress, equipmentName, equipmentType, equipmentRarity,

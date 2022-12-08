@@ -12,7 +12,7 @@ import {
 
 import { CrabViewModal } from "/containers/imageviewer/ContainerIndex";
 import Enums from "enums";
-import useSWR from "swr";
+import { EquipmentType } from "@prisma/client";
 
 import {
     bodyPartsData,
@@ -54,12 +54,13 @@ export const getStaticProps = async (context) => {
     const data = await prisma.anomuras.findUnique({
         where: {
             crabId: parseInt(crabId),
-        }
+        },
+        include: { equipments: true }
     })
     await prisma.$disconnect();
     return {
         props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
-        revalidate: 86400 * 7,
+        // revalidate: 86400 * 7,
     };
 };
 
@@ -94,78 +95,67 @@ function AnimateViewerDetails({ data }) {
             if (!data) {
                 return <div className={s.loading}>Loading Anomura...</div>;
             }
-            const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
+            console.log(data)
+            let { background, body, claws, legs, shell, headpieces, equipments } = data;
+
+            let backgroundToDraw = background;
+            let bodyToDraw = body;
+            let clawsToDraw = claws;
+            let legsToDraw = legs;
+            let shellToDraw = shell;
+            let headpiecesToDraw = headpieces;
             let isDrawHeadpieces = false;
-            let shouldHaveEquipment = false;
-            if (anomuraEquipments?.length > 0 && shouldHaveEquipment) {
-                // check if we should render the claws equipped instead of of anomura original claw
-                let clawsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.CLAWS);
-                if (clawsEquipmentIndex != -1) {
-                    sources.claws =
-                        sources.claws + getClaws(anomuraEquipments[clawsEquipmentIndex].name);
-                } else {
-                    sources.claws = sources.claws + getClaws(claws);
-                }
-                // check if we should render the legs equipped instead of of anomura original legs
-                let legsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.LEGS);
-                if (legsEquipmentIndex != -1) {
-                    sources.legs = sources.legs + getLegs(anomuraEquipments[legsEquipmentIndex].name);
-                } else {
-                    sources.legs = sources.legs + getLegs(legs);
-                }
-                // check if we should render the shell equipped instead of of anomura original shell
-                let shellEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.SHELL);
-                if (shellEquipmentIndex != -1) {
-                    sources.shell =
-                        sources.claws + getShell(anomuraEquipments[shellEquipmentIndex].name);
-                } else {
-                    sources.shell = sources.shell + getShell(shell);
-                }
-                // check if we should render the body equipped instead of of anomura original body
-                let bodyEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.BODY);
-                if (bodyEquipmentIndex != -1) {
-                    sources.body = sources.body + getBody(anomuraEquipments[bodyEquipmentIndex].name);
-                } else {
-                    sources.body = sources.body + getBody(body);
-                }
-                // check if we should render the body equipped instead of of anomura original body
-                let headpiecesEquipmentIndex = anomuraEquipments.findIndex(
-                    (eq) => eq.type === Enums.HEADPIECES
-                );
-                if (headpiecesEquipmentIndex != -1) {
-                    sources.headpieces =
-                        sources.headpieces +
-                        getHeadPieces(anomuraEquipments[headpiecesEquipmentIndex].name);
-                    isDrawHeadpieces = true;
-                } else {
-                    sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
-                    isDrawHeadpieces = headpieces.toString().trim() !== "";
+            if (equipments?.length > 0) {
+                for (let equipment of equipments) {
+                    if (equipment.isEquipped) {
+                        switch (equipment.equipmentType) {
+                            case EquipmentType.BODY:
+                                bodyToDraw = equipment.equipmentName;
+                                break;
+                            case EquipmentType.CLAWS:
+                                clawsToDraw = equipment.equipmentName;
+                                break;
+                            case EquipmentType.LEGS:
+                                legsToDraw = equipment.equipmentName;
+                                break;
+                            case EquipmentType.SHELL:
+                                shellToDraw = equipment.equipmentName;
+                                break;
+                            case EquipmentType.HEADPIECES:
+                                headpiecesToDraw = equipment.equipmentName;
+                                break;
+                            case EquipmentType.HABITAT:
+                                backgroundToDraw = equipment.equipmentName;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }
             }
-            //no equipment
-            else {
 
-                if (headpieces && headpieces?.toString().trim() !== "None") {
-                    isDrawHeadpieces = true;
-                }
-
-                // sources.claws = sources.claws + getClaws(claws);
-                // sources.legs = sources.legs + getLegs(legs);
-                // sources.shell = sources.shell + getShell(shell);
-                // sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
-                if (isDrawHeadpieces) {
-                    sources.headpieces = buildArrayImages(getHeadPieces(headpieces), headpiecesPartsData);
-                }
-                sources.claws = buildArrayImages(getClaws(claws), clawsPartsData);
-                sources.body = buildArrayImages(getBody(body), bodyPartsData);
-                sources.shell = buildArrayImages(getShell(shell), shellPartsData);
-                sources.legs = buildArrayImages(getLegs(legs), legsPartsData);
-                sources.shadow = buildArrayImages("shadow", servicePartsData);
+            if (headpiecesToDraw?.toString().trim() !== "None") {
+                isDrawHeadpieces = true;
             }
-            // sources.background = sources.background + getBackground(background);
-            sources.background = buildArrayImages(getBackground(background), habitatPartsData);
+            if (isDrawHeadpieces) {
+                sources.headpieces = buildArrayImages(getHeadPieces(headpiecesToDraw), headpiecesPartsData);
+            }
 
-            return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
+            sources.claws = buildArrayImages(getClaws(clawsToDraw), clawsPartsData);
+            sources.body = buildArrayImages(getBody(bodyToDraw), bodyPartsData);
+            sources.shell = buildArrayImages(getShell(shellToDraw), shellPartsData);
+            sources.legs = buildArrayImages(getLegs(legsToDraw), legsPartsData);
+            sources.shadow = buildArrayImages("shadow", servicePartsData);
+            sources.background = buildArrayImages(getBackground(backgroundToDraw), habitatPartsData);
+
+            return <CrabCanvas sources={sources} data={{
+                body: bodyToDraw,
+                background: backgroundToDraw,
+                headpieces: headpiecesToDraw,
+                legs: legsToDraw,
+                claws: clawsToDraw,
+                shell: shellToDraw
+            }} isDrawHeadpieces={isDrawHeadpieces} />;
         } catch (error) {
             console.log(error)
         }
