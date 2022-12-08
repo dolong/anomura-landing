@@ -2,7 +2,7 @@ import { getEquipment } from "@repositories/equipment";
 import { getAnomuraById } from "repositories/crabs";
 import { ethers } from "ethers"
 
-const collectionAddress = ethers.utils.getAddress(NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+const collectionAddress = ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
 const equipmentQueryHandler = async (req, res) => {
   const { method } = req;
 

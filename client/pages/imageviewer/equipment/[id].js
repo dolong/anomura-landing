@@ -25,7 +25,7 @@ import {
 
 
 import { PrismaClient, EquipmentRarity, EquipmentType } from '@prisma/client'
-const collectionAddress = ethers.utils.getAddress(NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+const collectionAddress = ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
