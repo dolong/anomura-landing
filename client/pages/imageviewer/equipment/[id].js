@@ -11,7 +11,7 @@ import {
 } from "scripts/crabData";
 
 import Enums from "enums";
-
+import { ethers } from "ethers"
 import {
     bodyPartsData,
     habitatPartsData,
@@ -22,10 +22,11 @@ import {
     legsPartsData,
     equipmentBackgroundData
 } from "resources/cloudinary";
-// import { getAllCrabs, getAnomuraById, getFirst1000Anomuras } from "repositories/crabs";
+
 
 import { PrismaClient, EquipmentRarity, EquipmentType } from '@prisma/client'
-const collectionAddress = "0xc6Af0Fb8D274117A2FE8805e2ccD1EAC1395d4a3";
+const collectionAddress = ethers.utils.getAddress(NEXT_PUBLIC_EQUIPMENT_ADDRESS)
+
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
     const prisma = new PrismaClient()

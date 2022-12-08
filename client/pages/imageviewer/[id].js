@@ -87,12 +87,6 @@ function AnimateViewerDetails({ data }) {
         shadow: {},
     };
 
-    // const { id } = router.query;
-    // const { data, mutate, isValidating, error } = useSWR(
-    //     id ? `/api/crabs/getAnomuraById?id=${id}` : null,
-    //     fetcher
-    // );
-
     if (router.isFallback || !data) {
         return <div>Loading Anomura...</div>;
     } else {
