@@ -50,8 +50,8 @@ const equipmentQueryHandler = async (req, res) => {
 
         } else {
           res.status(200).json({
-            name: `Crab ${id}`,
-            description: "Unminted crab",
+            name: `Equipment ${equipemntId}`,
+            description: "Equipment Not Existed",
           });
         }
       } catch (err) {
