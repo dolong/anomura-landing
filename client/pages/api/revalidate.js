@@ -9,9 +9,9 @@ export default async function handler(req, res) {
     path, secret,
   } = req.body;
   // Check for secret to confirm this is a valid request
-  // if (secret !== process.env.REVALIDATE_TOKEN) {
-  //   return res.status(401).json({ message: 'Invalid token' })
-  // }
+  if (secret !== process.env.REVALIDATE_TOKEN) {
+    return res.status(401).json({ message: 'Invalid token' })
+  }
 
   try {
     // this should be the actual path not a rewritten path

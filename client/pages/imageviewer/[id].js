@@ -95,7 +95,7 @@ function AnimateViewerDetails({ data }) {
             if (!data) {
                 return <div className={s.loading}>Loading Anomura...</div>;
             }
-            console.log(data)
+
             let { background, body, claws, legs, shell, headpieces, equipments } = data;
 
             let backgroundToDraw = background;

@@ -1,5 +1,4 @@
 import { getEquipment } from "@repositories/equipment";
-import { getAnomuraById } from "repositories/crabs";
 import { ethers } from "ethers"
 
 const collectionAddress = ethers.utils.getAddress(process.env.NEXT_PUBLIC_EQUIPMENT_ADDRESS)
@@ -14,7 +13,7 @@ const equipmentQueryHandler = async (req, res) => {
 
         if (equipment) {
           if (equipment.isReveal) {
-            res.setHeader('Cache-Control', 'max-age=0, s-maxage=172800, stale-while-revalidate');
+            res.setHeader('Cache-Control', 'max-age=0, s-maxage=300, stale-while-revalidate');
             res.status(200).json({
               name: equipment.equipmentName,
               description: "Equipment Description TBD",
