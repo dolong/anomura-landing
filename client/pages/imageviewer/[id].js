@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import s from "/sass/imageviewer/imageviewer.module.css";
 import { useRouter } from "next/router";
 import {
@@ -296,28 +297,55 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     };
 
     return (
-        <div style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: "-1",
-            width: "100vw",
-            height: "100vh",
-            padding: "0",
-            margin: "0"
-        }}>
-            <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
-                    <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
-                    <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
-                        <div className={s.toggleModal_container}>
-                            <img src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png" />
-                            <img src="/img/imageviewer/Others/Inventory Button Outline.png" />
+        <>
+            <Head>
+                <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; frame-src 'self' https://anomura-staging.vercel.app/imageviewer/7;" />
+                {/* <title>Anomura: Image Viewer</title> */}
+                {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <meta property="og:title" content="Anomura: The Cove Awaits You" />
+                <meta
+                    property="og:description"
+                    content="Become a guardian of the Universe to restore
+					balance, harmony and reap rewards!"
+                />
+                <meta
+                    property="og:image"
+                    content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
+                />
+                <meta property="og:site_name" content="Anomura: The Cove Awaits You"></meta>
+                <meta property="keywords" content="Anomura, NFT, Game" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    property="twitter:image"
+                    content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
+                />
+                <link rel="icon" href="/img/favicons/faviconShell.png" /> */}
+            </Head>
+
+            <div style={{
+                position: "fixed",
+                top: "0",
+                left: "0",
+                zIndex: "-1",
+                width: "100vw",
+                height: "100vh",
+                padding: "0",
+                margin: "0"
+            }}>
+                <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
+                        <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
+                        <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
+                            <div className={s.toggleModal_container}>
+                                <img src="/img/imageviewer/Others/OpenSea Invetory_icons_05.png" />
+                                <img src="/img/imageviewer/Others/Inventory Button Outline.png" />
+                            </div>
                         </div>
+                        {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
                     </div>
-                    {modalOpen && <CrabViewModal data={data} setModalOpen={setModalOpen} />}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
