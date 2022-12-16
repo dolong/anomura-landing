@@ -93,7 +93,7 @@ function AnimateViewerDetails({ data }) {
         return (
             <>
                 <Head>
-                    <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app/imageviewer/7;" />
+                    <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
 
                 </Head><div>Loading Anomura...</div>
             </>
@@ -106,7 +106,7 @@ function AnimateViewerDetails({ data }) {
                 return (
                     <>
                         <Head>
-                            <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app/imageviewer/7;" />
+                            <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
 
                         </Head><div>Loading Anomura...</div>
                     </>
@@ -315,7 +315,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     return (
         <>
             <Head>
-                <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app/imageviewer/7;" />
+                <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
 
             </Head>
 

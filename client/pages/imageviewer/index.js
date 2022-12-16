@@ -9,8 +9,7 @@ export default function GalleryViewerIndex() {
     const [pageIndex, setPageIndex] = useState(0);
     const { data, error } = useSWR(`/api/crabs?page=${pageIndex}`, fetcher);
 
-    useEffect(() => { });
-    ;
+
     if (error) console.log(error);
     return (
         <div className={s.container}>
