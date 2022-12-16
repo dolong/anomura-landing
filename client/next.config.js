@@ -1,12 +1,7 @@
 const { DEEPSEACHALLENGER_HOST, MINT_BOWL_HOST } = process.env;
 
 const securityHeaders = []
-const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self';
-  child-src 'self';
-  style-src 'self' ;
-  font-src 'self';  
+const ContentSecurityPolicy = ` 
   frame-src 'https://anomura-staging.vercel.app'; 
 `
 module.exports = {
@@ -26,13 +21,14 @@ module.exports = {
                 //     // source: '/((?!embed).*)',
                 source: '/',
                 headers: [
-                    // {
-                    //     key: 'X-Frame-Options',
-                    //     value: 'SAMEORIGIN',
-                    // },
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN',
+                    },
                     {
                         key: 'Content-Security-Policy',
-                        value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+                        // value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+                        value: ` frame-src 'self' 'https://anomura-staging.vercel.app/' 'self' 'https://anomura-staging.vercel.app/imageviewer' 'https://anomuragame.com/'; `
                     }
                 ]
             },
