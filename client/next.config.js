@@ -7,7 +7,7 @@ const ContentSecurityPolicy = `
   child-src 'self';
   style-src 'self' ;
   font-src 'self';  
-  frame-src 'self'; 
+  frame-src 'https://anomura-staging.vercel.app'; 
 `
 module.exports = {
     webpack: (config) => {
