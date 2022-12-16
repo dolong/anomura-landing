@@ -25,11 +25,11 @@ module.exports = {
                         key: 'X-Frame-Options',
                         value: 'SAMEORIGIN',
                     },
-                    {
-                        key: 'Content-Security-Policy',
-                        // value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
-                        value: ` frame-src https://* https://anomura-staging.vercel.app https://anomuragame.com/; prefetch-src https://anomura-staging.vercel.app;`
-                    }
+                    // {
+                    //     key: 'Content-Security-Policy',
+                    //     // value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+                    //     value: ` frame-src https://* https://anomura-staging.vercel.app https://anomuragame.com/; prefetch-src https://anomura-staging.vercel.app;`
+                    // }
                 ]
             },
             { // prevent click jacking

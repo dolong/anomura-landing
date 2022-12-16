@@ -64,8 +64,6 @@ function HomePage() {
 					content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
 				/>
 				<link rel="icon" href="/img/favicons/faviconShell.png" />
-				<meta http-equiv="Content-Security-Policy"
-					content="default-src 'self'; img-src https://*; child-src 'none'; frame-src https://anomura-staging.vercel.app anomura-staging.vercel.app youtube.com https://www.youtube.com;"></meta>
 			</Head>
 
 			<img className={s.sunlight} src="/img/home/sunlight.png" alt="" />

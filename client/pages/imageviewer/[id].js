@@ -93,7 +93,7 @@ function AnimateViewerDetails({ data }) {
         return (
             <>
                 <Head>
-                    <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
+                    <meta httpEquiv='Content-Security-Policy' content="frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
                 </Head><div>Loading Anomura...</div>
             </>
         )
@@ -105,7 +105,7 @@ function AnimateViewerDetails({ data }) {
                 return (
                     <>
                         <Head>
-                            <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
+                            <meta httpEquiv='Content-Security-Policy' content="frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
                         </Head><div>Loading Anomura...</div>
                     </>
                 )
@@ -163,17 +163,15 @@ function AnimateViewerDetails({ data }) {
             sources.shadow = buildArrayImages("shadow", servicePartsData);
             sources.background = buildArrayImages(getBackground(backgroundToDraw), habitatPartsData);
 
-            // return <CrabCanvas sources={sources} data={{
-            //     body: bodyToDraw,
-            //     background: backgroundToDraw,
-            //     headpieces: headpiecesToDraw,
-            //     legs: legsToDraw,
-            //     claws: clawsToDraw,
-            //     shell: shellToDraw
-            // }} isDrawHeadpieces={isDrawHeadpieces} />
-            return (
-                <div>dhkjkkjfkdjfkdjfkdjfkdjfkdjfkdjkfdkjf</div>
-            )
+            return <CrabCanvas sources={sources} data={{
+                body: bodyToDraw,
+                background: backgroundToDraw,
+                headpieces: headpiecesToDraw,
+                legs: legsToDraw,
+                claws: clawsToDraw,
+                shell: shellToDraw
+            }} isDrawHeadpieces={isDrawHeadpieces} />
+
         } catch (error) {
             console.log(error)
         }
@@ -312,11 +310,13 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
             },
         };
     };
+    {/* <meta http-equiv="Content-Security-Policy"
+					content="default-src 'self'; img-src https://*; child-src 'none'; frame-src https://anomura-staging.vercel.app anomura-staging.vercel.app youtube.com https://www.youtube.com;"></meta> */}
 
     return (
         <>
             <Head>
-                <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
+                <meta httpEquiv='Content-Security-Policy' content="frame-src https://anomura-staging.vercel.app https://anomura-staging.vercel.app/imageviewer" />
 
             </Head>
 
