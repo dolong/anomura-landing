@@ -26,22 +26,13 @@ module.exports = {
                 //     // source: '/((?!embed).*)',
                 source: '/',
                 headers: [
-                    {
-                        key: 'X-Frame-Options',
-                        value: 'SAMEORIGIN',
-                    },
+                    // {
+                    //     key: 'X-Frame-Options',
+                    //     value: 'SAMEORIGIN',
+                    // },
                     {
                         key: 'Content-Security-Policy',
                         value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
-                    }
-                ]
-            },
-            { // prevent click jacking
-                source: '/mint',
-                headers: [
-                    {
-                        key: 'X-Frame-Options',
-                        value: 'SAMEORIGIN',
                     }
                 ]
             },
