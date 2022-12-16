@@ -28,7 +28,7 @@ module.exports = {
                     {
                         key: 'Content-Security-Policy',
                         // value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
-                        value: ` frame-src 'self' 'https://anomura-staging.vercel.app/' 'https://anomura-staging.vercel.app/imageviewer' 'https://anomuragame.com/'; prefetch-src 'https://anomura-staging.vercel.app/imageviewer'`
+                        value: ` frame-src 'self' https://anomura-staging.vercel.app/ https://anomura-staging.vercel.app/imageviewer https://anomuragame.com/; prefetch-src https://anomura-staging.vercel.app/imageviewer;`
                     }
                 ]
             },
