@@ -28,7 +28,7 @@ module.exports = {
                     {
                         key: 'Content-Security-Policy',
                         // value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
-                        value: `default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'`
+                        value: `default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self' https://anomura-staging.vercel.app; frame-src 'self' https://anomura-staging.vercel.app;`
                         // value: ` frame-src https://* https://anomura-staging.vercel.app https://anomuragame.com/; prefetch-src https://anomura-staging.vercel.app;`
                     }
                 ]
