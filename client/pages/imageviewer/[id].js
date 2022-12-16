@@ -32,7 +32,7 @@ import { PrismaClient } from '@prisma/client'
 export const getStaticPaths = async () => {
     const prisma = new PrismaClient()
     let data = await prisma.anomuras.findMany({
-        take: 50
+        take: 5
     });
     await prisma.$disconnect();
 
@@ -90,11 +90,27 @@ function AnimateViewerDetails({ data }) {
     };
 
     if (router.isFallback || !data) {
-        return <div>Loading Anomura...</div>;
+        return (
+            <>
+                <Head>
+                    <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app/imageviewer/7;" />
+
+                </Head><div>Loading Anomura...</div>
+            </>
+        )
+
+
     } else {
         try {
             if (!data) {
-                return <div className={s.loading}>Loading Anomura...</div>;
+                return (
+                    <>
+                        <Head>
+                            <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app/imageviewer/7;" />
+
+                        </Head><div>Loading Anomura...</div>
+                    </>
+                )
             }
 
             let { background, body, claws, legs, shell, headpieces, equipments } = data;
@@ -299,28 +315,8 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     return (
         <>
             <Head>
-                <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; frame-src 'self' https://anomura-staging.vercel.app/imageviewer/7;" />
-                {/* <title>Anomura: Image Viewer</title> */}
-                {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta property="og:title" content="Anomura: The Cove Awaits You" />
-                <meta
-                    property="og:description"
-                    content="Become a guardian of the Universe to restore
-					balance, harmony and reap rewards!"
-                />
-                <meta
-                    property="og:image"
-                    content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
-                />
-                <meta property="og:site_name" content="Anomura: The Cove Awaits You"></meta>
-                <meta property="keywords" content="Anomura, NFT, Game" />
+                <meta httpEquiv='Content-Security-Policy' content="default-src 'none'; script-src-elem 'self'; script-src 'unsafe-eval'; frame-src https://anomura-staging.vercel.app/imageviewer/7;" />
 
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta
-                    property="twitter:image"
-                    content="https://www.anomuragame.com/Main Website Preview Shell Logo.png"
-                />
-                <link rel="icon" href="/img/favicons/faviconShell.png" /> */}
             </Head>
 
             <div style={{

@@ -34,7 +34,7 @@ export const getStaticPaths = async () => {
         where: {
             collectionAddress
         },
-        take: 500
+        take: 5
     });
     await prisma.$disconnect();
 
