@@ -1,4 +1,13 @@
 const { DEEPSEACHALLENGER_HOST, MINT_BOWL_HOST } = process.env;
+
+const securityHeaders = []
+const ContentSecurityPolicy = `
+  default-src 'self';
+  script-src 'self';
+  child-src example.com;
+  style-src 'self' example.com;
+  font-src 'self';  
+`
 module.exports = {
     webpack: (config) => {
         config.experiments = config.experiments || {};
@@ -13,12 +22,16 @@ module.exports = {
     async headers() {
         return [
             { // prevent click jacking
-                // source: '/((?!embed).*)',
+                //     // source: '/((?!embed).*)',
                 source: '/',
                 headers: [
                     {
                         key: 'X-Frame-Options',
                         value: 'SAMEORIGIN',
+                    },
+                    {
+                        key: 'Content-Security-Policy',
+                        value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
                     }
                 ]
             },
