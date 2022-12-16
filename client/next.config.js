@@ -4,9 +4,10 @@ const securityHeaders = []
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self';
-  child-src example.com;
-  style-src 'self' example.com;
+  child-src 'self';
+  style-src 'self' ;
   font-src 'self';  
+  frame-src 'self'; 
 `
 module.exports = {
     webpack: (config) => {
