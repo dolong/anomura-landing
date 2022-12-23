@@ -21,17 +21,17 @@ import {
     shellPartsData,
     servicePartsData,
     headpiecesPartsData,
-    legsPartsData
+    legsPartsData,
 } from "resources/cloudinary";
 // import { getAllCrabs, getAnomuraById, getFirst1000Anomuras } from "repositories/crabs";
 
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
 /** static props and paths should not call to api link since it is not available on build time */
 export const getStaticPaths = async () => {
-    const prisma = new PrismaClient()
+    const prisma = new PrismaClient();
     let data = await prisma.anomuras.findMany({
-        take: 500
+        take: 500,
     });
     await prisma.$disconnect();
 
@@ -50,15 +50,15 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
     const crabId = parseInt(context.params.id);
 
-    const prisma = new PrismaClient()
+    const prisma = new PrismaClient();
     const data = await prisma.anomuras.findUnique({
         where: {
             crabId: parseInt(crabId),
-        }
-        , include: {
-            anomuraEquipments: true
-        }
-    })
+        },
+        include: {
+            equipments: true,
+        },
+    });
     await prisma.$disconnect();
     return {
         props: { data: JSON.parse(JSON.stringify(data)), key: crabId },
@@ -98,13 +98,15 @@ function AnimateViewerDetails({ data }) {
                 return <div className={s.loading}>Loading Anomura...</div>;
             }
 
-            console.log("Anomura Data", data)
+            console.log("Anomura Data", data);
             const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
             let isDrawHeadpieces = false;
             let shouldHaveEquipment = false;
             if (anomuraEquipments?.length > 0 && shouldHaveEquipment) {
                 // check if we should render the claws equipped instead of of anomura original claw
-                let clawsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.CLAWS);
+                let clawsEquipmentIndex = anomuraEquipments.findIndex(
+                    (eq) => eq.type === Enums.CLAWS
+                );
                 if (clawsEquipmentIndex != -1) {
                     sources.claws =
                         sources.claws + getClaws(anomuraEquipments[clawsEquipmentIndex].name);
@@ -112,14 +114,19 @@ function AnimateViewerDetails({ data }) {
                     sources.claws = sources.claws + getClaws(claws);
                 }
                 // check if we should render the legs equipped instead of of anomura original legs
-                let legsEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.LEGS);
+                let legsEquipmentIndex = anomuraEquipments.findIndex(
+                    (eq) => eq.type === Enums.LEGS
+                );
                 if (legsEquipmentIndex != -1) {
-                    sources.legs = sources.legs + getLegs(anomuraEquipments[legsEquipmentIndex].name);
+                    sources.legs =
+                        sources.legs + getLegs(anomuraEquipments[legsEquipmentIndex].name);
                 } else {
                     sources.legs = sources.legs + getLegs(legs);
                 }
                 // check if we should render the shell equipped instead of of anomura original shell
-                let shellEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.SHELL);
+                let shellEquipmentIndex = anomuraEquipments.findIndex(
+                    (eq) => eq.type === Enums.SHELL
+                );
                 if (shellEquipmentIndex != -1) {
                     sources.shell =
                         sources.claws + getShell(anomuraEquipments[shellEquipmentIndex].name);
@@ -127,9 +134,12 @@ function AnimateViewerDetails({ data }) {
                     sources.shell = sources.shell + getShell(shell);
                 }
                 // check if we should render the body equipped instead of of anomura original body
-                let bodyEquipmentIndex = anomuraEquipments.findIndex((eq) => eq.type === Enums.BODY);
+                let bodyEquipmentIndex = anomuraEquipments.findIndex(
+                    (eq) => eq.type === Enums.BODY
+                );
                 if (bodyEquipmentIndex != -1) {
-                    sources.body = sources.body + getBody(anomuraEquipments[bodyEquipmentIndex].name);
+                    sources.body =
+                        sources.body + getBody(anomuraEquipments[bodyEquipmentIndex].name);
                 } else {
                     sources.body = sources.body + getBody(body);
                 }
@@ -149,7 +159,6 @@ function AnimateViewerDetails({ data }) {
             }
             //no equipment
             else {
-
                 if (headpieces && headpieces?.toString().trim() !== "None") {
                     isDrawHeadpieces = true;
                 }
@@ -159,7 +168,10 @@ function AnimateViewerDetails({ data }) {
                 // sources.shell = sources.shell + getShell(shell);
                 // sources.headpieces = sources.headpieces + getHeadPieces(headpieces);
                 if (isDrawHeadpieces) {
-                    sources.headpieces = buildArrayImages(getHeadPieces(headpieces), headpiecesPartsData);
+                    sources.headpieces = buildArrayImages(
+                        getHeadPieces(headpieces),
+                        headpiecesPartsData
+                    );
                 }
                 sources.claws = buildArrayImages(getClaws(claws), clawsPartsData);
                 sources.body = buildArrayImages(getBody(body), bodyPartsData);
@@ -172,9 +184,8 @@ function AnimateViewerDetails({ data }) {
 
             return <CrabCanvas sources={sources} data={data} isDrawHeadpieces={isDrawHeadpieces} />;
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-
     }
 }
 
@@ -224,7 +235,6 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     useEffect(() => {
         if (canvasRef && isLoaded == false) {
             LoadImages(sources).done((images) => {
-
                 setImageSrc(images);
                 setIsLoaded(true);
             });
@@ -311,18 +321,29 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     };
 
     return (
-        <div style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            zIndex: "-1",
-            width: "100vw",
-            height: "100vh",
-            padding: "0",
-            margin: "0"
-        }}>
-            <div className={s.container} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: canvasSize.width, height: canvasSize.height, position: "relative" }}>
+        <div
+            style={{
+                position: "fixed",
+                top: "0",
+                left: "0",
+                zIndex: "-1",
+                width: "100vw",
+                height: "100vh",
+                padding: "0",
+                margin: "0",
+            }}
+        >
+            <div
+                className={s.container}
+                style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+                <div
+                    style={{
+                        width: canvasSize.width,
+                        height: canvasSize.height,
+                        position: "relative",
+                    }}
+                >
                     <canvas ref={canvasRef} width={canvasSize.width} height={canvasSize.height} />
                     <div className={s.toggleModal_wrapper} onClick={() => setModalOpen(!modalOpen)}>
                         <div className={s.toggleModal_container}>
