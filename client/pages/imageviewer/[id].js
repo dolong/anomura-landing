@@ -94,6 +94,8 @@ function AnimateViewerDetails({ data }) {
             if (!data) {
                 return <div className={s.loading}>Loading Anomura...</div>;
             }
+
+            console.log("Anomura Data", data)
             const { background, body, claws, legs, shell, headpieces, anomuraEquipments } = data;
             let isDrawHeadpieces = false;
             let shouldHaveEquipment = false;
