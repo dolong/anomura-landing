@@ -97,7 +97,7 @@ function AnimateViewerDetails({ data }) {
             }
 
             let { background, body, claws, legs, shell, headpieces, equipments } = data;
-            console.log(data)
+
             let backgroundToDraw = background;
             let bodyToDraw = body;
             let clawsToDraw = claws;
@@ -159,7 +159,6 @@ function AnimateViewerDetails({ data }) {
         } catch (error) {
             console.log(error)
         }
-
     }
 }
 
@@ -174,7 +173,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     const canvasRef = React.createRef(null);
     let canvas = null;
     let context = null;
-
+    console.log(data)
     useEffect(() => {
         try {
             if (typeof window !== "undefined") {

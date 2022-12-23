@@ -45,6 +45,7 @@ export default function CrabViewModal({ data, setModalOpen }) {
         headpiecesR: null,
         backgroundR: null,
     });
+    console.log("rarity", rarity);
 
     React.useLayoutEffect(() => {
         let bodyR = getRarity(body);

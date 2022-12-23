@@ -176,7 +176,7 @@ exports.headpieces = [
     "Ganymede",
     "Sol",
     "Sirius",
-    "Vega",
+    "Lyra",
     "Aconite Skull",
     "Titan Arum Skull",
     "Nerium Oleander Skull"
@@ -311,9 +311,11 @@ exports.getBackgroundRarity = (name) => {
     return Normal;
 };
 exports.getRarity = (name) => {
+    console.log("Name ", name)
     if (name == null || name?.trim() == "" || name === undefined || name == "None") return Nothing;
     let containLegendAttr = legendAttrs.some((el) => name.includes(el));
     if (containLegendAttr) {
+        console.log("contain legend")
         return Legendary;
     }
 
