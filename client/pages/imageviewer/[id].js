@@ -54,9 +54,9 @@ export const getStaticProps = async (context) => {
     const data = await prisma.anomuras.findUnique({
         where: {
             crabId: parseInt(crabId),
-            include: {
-                anomuraEquipments: true
-            }
+        }
+        , include: {
+            anomuraEquipments: true
         }
     })
     await prisma.$disconnect();
