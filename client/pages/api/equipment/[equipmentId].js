@@ -16,7 +16,7 @@ const equipmentQueryHandler = async (req, res) => {
             res.setHeader('Cache-Control', 'max-age=0, s-maxage=300, stale-while-revalidate');
             res.status(200).json({
               name: equipment.equipmentName,
-              description: "Equipment Description TBD",
+              description: "Bindable Equipment From The DeepSea",
               animation_url: `${process.env.NEXT_PUBLIC_WEBSITE_HOST}/imageviewer/equipment/${equipmentId}`,
               image: equipment.image,
               attributes: [
@@ -32,16 +32,16 @@ const equipmentQueryHandler = async (req, res) => {
             });
           } else {
             res.status(200).json({
-              name: "A Mystery Rune of DeepSea",
+              name: "Mystery Rune of The DeepSea",
               image: "https://res.cloudinary.com/deepsea/image/upload/v1670088118/Anomura-Web-Assets/Rune-Stone_cfnm3u.gif",
               attributes: [
                 {
                   trait_type: "Equipment Type",
-                  value: "Undeterminable",
+                  value: "Unknown",
                 },
                 {
                   trait_type: "Equipment Rarity",
-                  value: "Undeterminable",
+                  value: "Unknown",
                 },
               ],
             });
