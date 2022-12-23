@@ -34,7 +34,7 @@ export const getStaticPaths = async () => {
         where: {
             collectionAddress
         },
-        take: 5
+        take: 1
     });
     await prisma.$disconnect();
 
@@ -47,6 +47,7 @@ export const getStaticPaths = async () => {
     return {
         paths,
         fallback: "blocking", // true
+
     };
 };
 
@@ -62,7 +63,7 @@ export const getStaticProps = async (context) => {
     await prisma.$disconnect();
     return {
         props: { equipment: JSON.parse(JSON.stringify(data)), key: equipmentId },
-        revalidate: 86400 * 7,
+        revalidate: 60,
     };
 };
 
