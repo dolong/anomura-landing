@@ -84,15 +84,11 @@ export default function AnomuraCanvas({ anomuraData }) {
 
         if (isLoaded) {
 
-
-            console.log(111)
             console.log(imagesSrc)
         }
         // DrawImagesOnCanvas(imagesSrc, 1.5);
 
         let a = calculateCanvasWidth()
-        // console.log(a)
-        // }
     }
 
     useEffect(() => {
