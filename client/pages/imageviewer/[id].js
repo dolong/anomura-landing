@@ -97,7 +97,7 @@ function AnimateViewerDetails({ data }) {
             }
 
             let { background, body, claws, legs, shell, headpieces, equipments } = data;
-
+            console.log(data)
             let backgroundToDraw = background;
             let bodyToDraw = body;
             let clawsToDraw = claws;
