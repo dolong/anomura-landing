@@ -148,7 +148,6 @@ const SequenceCanvas = () => {
                 }
             }
         } catch (error) {
-            console.log(1);
             console.log(error);
         }
     }, [isMobile]);
@@ -209,7 +208,6 @@ const SequenceCanvas = () => {
                 setShowSocial(true);
             }
         } catch (error) {
-            console.log(2);
             console.log(error);
         }
     }, [currentState]);

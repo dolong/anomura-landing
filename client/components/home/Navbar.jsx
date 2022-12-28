@@ -427,14 +427,14 @@ export default function Navbar({ isMobile }) {
                                 <button
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        window.open(`https://app.anomuragame.com`, "_blank");
+                                        window.open(`https://app.anomuragame.com/claim`, "_blank");
                                     }}
                                     disabled={false}
                                     className={s.nav_button_pink}
                                 >
                                     <img src={`/img/home/Button_L_Pink.png`} alt="Menu" />
                                     <div>
-                                        <span>MuraDex</span>
+                                        <span>Claim</span>
                                     </div>
                                 </button>
                             </div>
