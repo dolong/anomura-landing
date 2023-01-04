@@ -6,9 +6,9 @@ export const getAnomuraById = async (crabId) => {
         where: {
             crabId: parseInt(crabId),
         },
-        // include: {
-        //     anomuraEquipments: true
-        // }
+        include: {
+            equipments: true
+        }
     });
 };
 
@@ -16,7 +16,7 @@ export const getAllCrabs = async () => {
     return await prisma.anomuras.findMany({
 
         include: {
-            anomuraEquipments: true
+            equipments: true
         }
     });
 };
