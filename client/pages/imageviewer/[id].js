@@ -173,7 +173,7 @@ const CrabCanvas = ({ sources, data, isDrawHeadpieces }) => {
     const canvasRef = React.createRef(null);
     let canvas = null;
     let context = null;
-    console.log(data)
+
     useEffect(() => {
         try {
             if (typeof window !== "undefined") {
