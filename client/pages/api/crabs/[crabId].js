@@ -25,6 +25,8 @@ const crabImageViewerHandler = async (req, res) => {
 
                     let crabImage = await getCorrectAnomuraImage(crab);
 
+                    let hasEquipment = await hasEquipments(crab);
+
                     res.setHeader('Cache-Control', 'max-age=0, s-maxage=300, stale-while-revalidate');
                     res.status(200).json({
                         name: crab.name,
@@ -56,6 +58,10 @@ const crabImageViewerHandler = async (req, res) => {
                                 trait_type: "HeadPieces",
                                 value: crab.headpieces,
                             },
+                            {
+                                trait_type: "Has Equipments",
+                                value: hasEquipment,
+                            },
                         ],
                     });
                 } else {
@@ -77,6 +83,21 @@ const crabImageViewerHandler = async (req, res) => {
 }
 export default crabImageViewerHandler
 
+
+const hasEquipments = async (crab) => {
+    let { equipments } = crab;
+
+    let hasAnyEquipment = false;
+    if (equipments?.length > 0) {
+
+        for (let equipment of equipments) {
+            if (equipment.isEquipped) {
+                hasAnyEquipment = true;
+            }
+        }
+    }
+    return hasAnyEquipment;
+}
 
 const getCorrectAnomuraImage = async (crab) => {
     const SVG_PREFIXTAG = `<?xml version="1.0" encoding="UTF-8" ?>
