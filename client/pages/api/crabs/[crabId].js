@@ -60,7 +60,7 @@ const crabImageViewerHandler = async (req, res) => {
                             },
                             {
                                 trait_type: "Has Equipments",
-                                value: hasEquipment,
+                                value: hasEquipment.toString(),
                             },
                         ],
                     });
