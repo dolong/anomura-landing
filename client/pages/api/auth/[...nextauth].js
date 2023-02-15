@@ -13,8 +13,8 @@ const {
     // TWITTER_CLIENT_SECRET,
 } = process.env;
 
-const useSecureCookies = !!process.env.VERCEL_URL
-// const useSecureCookies = true
+// const useSecureCookies = !!process.env.VERCEL_URL
+const useSecureCookies = true
 export const authOptions = {
     providers: [
         CredentialsProvider({
