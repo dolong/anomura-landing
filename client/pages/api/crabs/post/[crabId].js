@@ -25,7 +25,7 @@ const CrabImageViewerUpdate = async (req, res) => {
             headpieces,
         })
 
-        //let crabImage = "https://res.cloudinary.com/mrleewatch/image/upload/v1662142333/Anomura-Staging/Anomura_17.png"
+
 
         let anomuraName = getAnomuraName();
         let anomuraDescription = getAnomuraDescription();
