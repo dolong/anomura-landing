@@ -3,18 +3,12 @@ import Moralis from 'moralis';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from "@repositories/PrismaContext";
 import { utils } from "ethers";
-import GitHubProvider from 'next-auth/providers/github'
 
 const {
     NEXTAUTH_SECRET,
-    // NEXT_PUBLIC_DISCORD_CLIENT_ID,
-    // DISCORD_CLIENT_SECRET,
-    // NEXT_PUBLIC_TWITTER_CLIENT_ID,
-    // TWITTER_CLIENT_SECRET,
 } = process.env;
 
-// const useSecureCookies = !!process.env.VERCEL_URL
-const useSecureCookies = true
+
 export const authOptions = {
     providers: [
         CredentialsProvider({
@@ -79,14 +73,11 @@ export const authOptions = {
                 }
             },
         }),
-        GitHubProvider({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
-        }),
+
     ],
-    // jwt: {
-    //     signingKey: NEXT_PUBLIC_NEXTAUTH_SECRET,
-    // },
+    jwt: {
+        signingKey: NEXT_PUBLIC_NEXTAUTH_SECRET,
+    },
     callbacks: {
         async jwt({ token, user }) {
             // eslint-disable-next-line no-unused-expressions
@@ -103,18 +94,6 @@ export const authOptions = {
     session: {
         jwt: true,
         maxAge: 60, //  30 * 24 * 60 * 60  // 60 * 60 * 24 * 30
-    },
-    cookies: {
-        sessionToken: {
-            name: `${useSecureCookies ? '__Secure-' : ''}next-auth.session-token`,
-            options: {
-                httpOnly: true,
-                sameSite: 'lax',
-                path: '/',
-                domain: '.anomuragame.com',
-                secure: useSecureCookies,
-            },
-        },
     },
 }
 
