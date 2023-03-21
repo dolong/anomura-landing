@@ -14,7 +14,7 @@ import { AudioProvider } from "@context/AudioContext";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const router = useRouter();
     React.useEffect(() => {
-        window.localStorage.setItem('domain test', "AnomuraGame")
+
         const handleRouteChange = (url) => {
             gtag.pageview(url);
         };

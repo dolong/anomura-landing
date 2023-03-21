@@ -51,35 +51,6 @@ const providerOptions = {
     // Include any other web3modal providers here
 };
 
-//////////////////////////////////////////////
-// import { UAuthConnector } from "@uauth/web3-react";
-// import { InjectedConnector } from "@web3-react/injected-connector";
-// import { WalletConnectConnector } from "@web3-react/walletconnect-connector";;
-
-// // Instanciate your other connectors.
-// export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
-
-// export const walletconnect = new WalletConnectConnector({
-//     infuraId: process.env.NEXT_PUBLIC_INFURA_URL,
-//     qrcode: true,
-// });
-
-// export const uauth = new UAuthConnector({
-//     clientID: process.env.NEXT_PUBLIC_UNSTOPPABLE_CLIENT_ID,
-//     redirectUri: process.env.NEXT_PUBLIC_UNSTOPPABLE_REDIRECT_URI,
-//     //   postLogoutRedirectUri: process.env.REACT_APP_POST_LOGOUT_REDIRECT_URI!,
-//     // Scope must include openid and wallet
-//     scope: "openid wallet",
-
-//     // Injected and walletconnect connectors are required.
-//     connectors: { injected, walletconnect },
-// });
-
-// const connectors = {
-//     injected,
-//     walletconnect,
-//     uauth,
-// };
 const connectors = {};
 export const Web3Context = React.createContext();
 
@@ -93,34 +64,6 @@ export function Web3ContextProvider({ children }) {
     const [user, setUser] = useState();
     const { data: session, status } = useSession({ required: false });
     let web3modal;
-
-    useEffect(async () => {
-        if (window) {
-            // const session = await getSession();
-            web3modal = new Web3Modal({
-                cacheProvider: true, // optional,
-                providerOptions,
-            });
-            UAuthWeb3Modal.registerWeb3Modal(web3modal);
-            if (
-                web3modal.cachedProvider &&
-                localStorage.getItem("WEB3_CONNECT_CACHED_PROVIDER") &&
-                session
-            ) {
-                connect();
-            }
-            if (!session) {
-                removeLocalStorageMetamask();
-                removeLocalStorageWalletConnect();
-                removeLocalStorageUath();
-            }
-        }
-        document.addEventListener("visibilitychange", function () {
-            // if (window.visibilityState === "hidden") {
-            localStorage.removeItem("WALLETCONNECT_DEEPLINK_CHOICE");
-            //  }
-        });
-    }, []);
 
     const web3 = useMemo(() => {
         return provider ? new Web3(provider) : undefined;
@@ -225,29 +168,6 @@ export function Web3ContextProvider({ children }) {
 
         console.log("Disconnected!");
     };
-
-    useEffect(() => {
-        // const onErrorEvent = (error) => {
-        //     console.error("web3modal.ERROR_EVENT", error);
-        //     setError(error);
-        // };
-        // const onCloseEvent = () => {
-        //     console.log("web3modal.CLOSE_EVENT");
-        // };
-        // const onConnectEvent = async (provider) => {
-        //     console.log("web3modal.CONNECT_EVENT", provider);
-        // };
-        // console.log("Attaching event listeners to web3modal!");
-        // web3modal.on(ERROR_EVENT, onErrorEvent);
-        // web3modal.on(CLOSE_EVENT, onCloseEvent);
-        // web3modal.on(CONNECT_EVENT, onConnectEvent);
-        // return () => {
-        //     console.log("Removing event listeners to web3modal!");
-        //     web3modal.off(ERROR_EVENT, onErrorEvent);
-        //     web3modal.off(CLOSE_EVENT, onCloseEvent);
-        //     web3modal.off(CONNECT_EVENT, onConnectEvent);
-        // };
-    }, [web3modal]);
 
     const onClose = () => {
         console.log("provider.close");
@@ -421,18 +341,6 @@ export function Web3ContextProvider({ children }) {
         // console.log(instance.accounts);
         // console.log(provider.accounts);
     };
-
-    const logout = async () => {
-        // if (web3modal?.cachedProvider === "custom-uauth") {
-        //     await uauth.logout();
-        // }
-        // web3modal?.clearCachedProvider();
-    };
-
-    // const SignOut = async () => {
-    //     RemoveLocalStorageWalletConnect();
-    //     signOut();
-    // };
 
     return <Web3Context.Provider value={value}>{children}</Web3Context.Provider>;
 }
