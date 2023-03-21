@@ -76,7 +76,7 @@ export const authOptions = {
 
     ],
     jwt: {
-        signingKey: NEXT_PUBLIC_NEXTAUTH_SECRET,
+        signingKey: NEXTAUTH_SECRET,
     },
     callbacks: {
         async jwt({ token, user }) {
